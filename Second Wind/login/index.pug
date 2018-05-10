@@ -1,0 +1,22 @@
+html
+    head
+        title Second Wind - Login
+        link(rel="stylesheet" href="../css/login-signup.css")
+        link(rel="stylesheet" href="../css/style.css")
+    body
+        .loginParent
+            section#loginContent.loginChild.menuSolid.loginContentParent.textWhite
+                cardhead
+                    h3 Login
+                error#error.loginContent <?=$error?>
+                user1.loginContent Username:
+                user2.loginContent
+                    input#username.loginInput.textWhite(type='text')
+                pass1.loginContent Password:
+                pass2.loginContent
+                    input#password.loginInput.textWhite(type='password')
+                signup.loginContent
+                    a(href="../signup")
+                        button.loginButton.textWhite Signup
+                login.loginContent
+                    button#login.loginButton.textWhite(onclick='login()') Login

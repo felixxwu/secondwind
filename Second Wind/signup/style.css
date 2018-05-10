@@ -1,0 +1,24 @@
+/*define the layout od the signup contents*/
+.signupContentParent {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto auto auto auto;
+	grid-template-areas: 	"cardhead cardhead"
+							"error error"
+							"user1 user2"
+							"email1 email2"
+							"pass1 pass2"
+							"login signup";
+}
+
+/*create custom html tags for the signup content*/
+#signupContent > cardhead { grid-area: cardhead; }
+#signupContent > error { grid-area: error; }
+#signupContent > user1 { grid-area: user1; }
+#signupContent > user2 { grid-area: user2; }
+#signupContent > email1 { grid-area: email1; }
+#signupContent > email2 { grid-area: email2; }
+#signupContent > pass1 { grid-area: pass1; }
+#signupContent > pass2 { grid-area: pass2; }
+#signupContent > signup { grid-area: signup; }
+#signupContent > login { grid-area: login; }

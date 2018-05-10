@@ -1,0 +1,58 @@
+.loginParent {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto auto auto;
+
+	height: 100%;
+}
+
+.loginChild {
+	/*middle of screen*/
+	grid-area: 2 / 2 / 2 / 2;
+
+	text-align: center;
+	margin: auto;
+	padding: 20px;
+}
+
+/*define the layout of the login contents*/
+.loginContentParent {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto auto auto auto;
+	grid-template-areas: 	"cardhead cardhead"
+							"error error"
+							"user1 user2"
+							"pass1 pass2"
+							"signup login";
+}
+
+/*create custom html tags for the login content*/
+#loginContent > cardhead { grid-area: cardhead; }
+#loginContent > error { grid-area: error; }
+#loginContent > user1 { grid-area: user1; }
+#loginContent > user2 { grid-area: user2; }
+#loginContent > pass1 { grid-area: pass1; }
+#loginContent > pass2 { grid-area: pass2; }
+#loginContent > signup { grid-area: signup; }
+#loginContent > login { grid-area: login; }
+
+.loginContent { padding: 10px; }
+
+.loginButton {
+	background-color: #ffffff00;
+	border: solid;
+	border-color: #ffffff;
+	border-width: 1;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.loginInput {
+	background-color: #ffffff00;
+	border: none;
+	border-bottom: solid;
+	border-bottom-color: grey;
+	border-bottom-width: 1;
+	outline: none;
+}

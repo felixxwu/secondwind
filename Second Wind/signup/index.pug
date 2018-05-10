@@ -1,0 +1,33 @@
+//- include functions.php
+html
+    head
+        title Second Wind - Sign Up
+        link(rel="stylesheet" href="../css/login-signup.css")
+        link(rel="stylesheet" href="style.css")
+        link(rel="stylesheet" href="../css/style.css")
+    body
+        .loginParent
+            #signupContent.loginChild.menuSolid.textWhite.signupContentParent
+                cardhead
+                    h3 Sign Up
+                error#error.loginContent
+                    em <?=$error?>
+                user1.loginContent
+                    | Username:
+                user2.loginContent
+                    input#username.loginInput.textWhite(type='text', oninput="loadP('error','checkUserExists',element('username').value)")
+                email1.loginContent
+                    | Email:
+                email2.loginContent
+                    input#email.loginInput.textWhite(type='email')
+                pass1.loginContent
+                    | Password:
+                pass2.loginContent
+                    input#password.loginInput.textWhite(type='password')
+                login.loginContent
+                    a(href="../login")
+                        button.loginButton.textWhite back to login
+                signup.loginContent
+                    button#signup.loginButton.textWhite(onclick='signup()') Signup
+        #ghost
+

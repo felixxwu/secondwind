@@ -1,0 +1,41 @@
+
+include php_functions/energy.php
+script(src='/js_functions/energy.js')
+script(src='/js_functions/items.js')
+html
+
+  head
+  body
+    .grid-container
+      .item1
+      .userLevel
+      .item2
+        div  notifications 
+        .notification_box
+      .item3
+        table
+          #energies
+          tr
+            td
+              input#human(oninput='doneAllocation()', type='number', value='<?e($humanAlloc)?>')
+            td
+              input#attack(oninput='doneAllocation()', type='number', value='<?e($attackAlloc)?>')
+            td
+              input#power(oninput='doneAllocation()', type='number', value='<?e($powerAlloc)?>')
+            td
+              input#intel(oninput='doneAllocation()', type='number', value='<?e($intelAlloc)?>')
+            td
+              input#build(oninput='doneAllocation()', type='number', value='<?e($buildAlloc)?>')
+        button#submit(onclick='submitAllocation()', style='display: none;') DONE
+        #confirmMessage
+        #itemList
+        items#items
+        #testItems
+        button#combine(onclick='combineItems()') Combine items
+        #errorItems
+      .item4
+        div analytics
+        .notification_box
+      .item5
+        a(onclick='logout()') logout
+        #ghost

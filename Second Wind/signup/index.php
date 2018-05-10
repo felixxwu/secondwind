@@ -3,7 +3,7 @@
   <head>
     <title>Second Wind - Sign Up</title>
     <link rel="stylesheet" href="../css/login-signup.css"/>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="../css/signupGrids.css"/>
     <link rel="stylesheet" href="../css/style.css"/>
   </head>
   <body>

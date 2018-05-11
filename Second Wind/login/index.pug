@@ -3,20 +3,30 @@ html
         title Second Wind - Login
         link(rel="stylesheet" href="../css/login-signup.css")
         link(rel="stylesheet" href="../css/style.css")
+        script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        script(src="../libraries/utility/functions.js")
+        script(src="../libraries/account/functions.js")
+        script(src="functions.js")
     body
         .loginParent
             section#loginContent.loginChild.menuSolid.loginContentParent.textWhite
                 cardhead
                     h3 Login
-                error#error.loginContent <?=$error?>
+                error#message.loginContent
+
                 user1.loginContent Username:
                 user2.loginContent
                     input#username.loginInput.textWhite(type='text')
+
                 pass1.loginContent Password:
                 pass2.loginContent
                     input#password.loginInput.textWhite(type='password')
+
                 signup.loginContent
                     a(href="../signup")
                         button.loginButton.textWhite Signup
                 login.loginContent
-                    button#login.loginButton.textWhite(onclick='login()') Login
+                    a(onclick='login()')
+                        button#login.loginButton.textWhite Login
+
+        #ghost                    

@@ -5,18 +5,19 @@
 // script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
 
 // Initialise a new AjaxHelper 
-// var ajax = new AjaxHelper();
+// var ajax = new AjaxHelper("path");
+// "path" is the relative filepath to this file 
 
 // USAGE ###############################################################
 
 // To load a php page into a div (getting an output from the server)
-// ajax.load("id","page.php", {"arg1": "hi","arg2": 69}, function(){
-//     console.log("done");
+// ajax.load("id","page.php", {"arg1": "value","arg2": 100}, function(){
+//     console.log("load done");
 // });
 
 // To call a php function (execute php without output)
 // ajax.call("functionName", {"arg1": "value", "arg2": 200}, function(){
-//     console.log("done");
+//     console.log("call done");
 // });
 
 // To load variables from the server (and also execute function using those immediately)
@@ -39,13 +40,15 @@
 // Use undefined if you don't need arguments (does not apply to loadVariables)
 
 class AjaxHelper {
-    constructor() {
+    constructor(path) {
+
+        this.path = path;
 
         this.load = function (id, page, args, callback) {
             console.log("loading " + page + " into #" + id + " with args: ", args);
 
             if (this.countID(id) != 1) {
-                console.error("there are " + this.countID(id) + " number of elements with ID: " + id);
+                console.warn("there are " + this.countID(id) + " number of elements with ID: " + id);
             }
 
             if (typeof callback == "undefined") {
@@ -60,11 +63,11 @@ class AjaxHelper {
         this.call = function (func, args, callback) {
             var newArgs = Object.assign({"func": func}, args);  // add func as an arg in args
             // call has a list of functions that will be called according to func
-            this.load("ghost", "libraries/ajax/call.php", newArgs, callback); // load call to ghost
+            this.load("ghost", this.path + "/call.php", newArgs, callback); // load call to ghost
         }
 
         this.loadVariables = function (id, variables, callback) {
-            this.load(id, "libraries/ajax/variables.php", variables, callback); // load call to ghost
+            this.load(id, this.path + "/variables.php", variables, callback); // load call to ghost
         }
 
         this.countID = function(id) {

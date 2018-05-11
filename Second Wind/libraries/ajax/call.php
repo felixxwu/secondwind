@@ -23,7 +23,7 @@ function example() {
     echo "this is a test";
 }
 
-function argsExamples($arg1, $arg2) {
+function argsExample($arg1, $arg2) {
     echo $arg1 . " " . $arg2;
 }
 

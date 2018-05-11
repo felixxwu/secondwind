@@ -11,14 +11,14 @@
     <div id="ghost"></div>
     <script>
       function getFive() {
-          var ajax = new AjaxHelper;
+          var ajax = new AjaxHelper("libraries/ajax");
           ajax.loadVariables("output", {"variableExample": null, "variableWithArgExample": "heyo", "variableMultipleArgsExample": ["foo", "bar"]}, function() {
               console.log(variableExample);
               console.log(variableWithArgExample);
               console.log(variableMultipleArgsExample);
           })
       
-          ajax.call("args",{0: "hey", 1: "there"}, function() {
+          ajax.call("argsExample",{0: "hey", 1: "there"}, function() {
               console.log("call done");
           });
       }

@@ -32,7 +32,7 @@ function variableExample() {
 }
 
 function arrayExample() {
-    return array(1, 2, 3, 4, array("hello", "shitboy"));
+    return array(1, 2, 3, 4, array("hello", "world"));
 }
 
 function variableWithArgExample($arg) {

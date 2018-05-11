@@ -11,8 +11,7 @@ script(src="main/js_functions/items.js")
         div  notifications 
         .notification_box
     .item3
-       
-        |  <?php getEnergyAllocation() ?>
+        div#energytest
         table
             #energies
             tr
@@ -38,5 +37,5 @@ script(src="main/js_functions/items.js")
         .notification_box
     .item5
         a(onclick='logout()') logout
-        #ghost
-           
+        #ghost 
+            |<?php getEnergyAllocation() ?>

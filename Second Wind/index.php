@@ -1,3 +1,91 @@
+<?
+
+function databaseConnect() {
+	$servername = "localhost";
+	$username = "noxiveco_swind";
+	$password = "dQ/X92x^F4H;Si<@";
+	$dbname = "noxiveco_second_wind";
+
+	// Create connection
+	global $conn;
+	$conn = new mysqli($servername, $username, $password, $dbname);
+
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+}
+
+function sqlSelect($table,$cols,$criteria,$orderby) {
+	databaseConnect();
+	global $conn;
+	$sql = "SELECT $cols FROM $table WHERE $criteria ORDER BY $orderby";
+	$result = $conn->query($sql);
+	$rows = array();
+	while ($row = $result->fetch_assoc()) {
+			 $rows[] = $row;
+	 }
+
+	if (!$result) { // if result failed
+		die("SQL SELECT Error: " . $sql . "<br>" . $conn->connect_error);
+	}
+	return $rows;
+}
+
+function sqlSelectSingle($table, $criteria, $col) {
+	return sqlSelect($table, $col, $criteria, $col)[0][$col];
+}
+
+function sqlInsert() {
+	$args = func_get_args();
+	$table = $args[0];
+	$query = "INSERT INTO `" . $table . "` VALUES (";
+	$i = 0;
+	// from args 1 to the end of array
+	while (++$i < count($args)) {
+		// if NULL, simply add NULL without quotes
+		if ($args[$i] == "NULL") {
+			$query = $query . "NULL";
+		// if not NULL, add the arg with quotes
+		} else {
+			$query = $query . "'" . $args[$i] . "'";
+		}
+		// if a next arg exists, then add a comma
+		if ($i < count($args) - 1) {
+			$query = $query . ", ";
+		}
+	}
+	// after all args, close the bracket
+	$query = $query . ")";
+
+	global $conn;
+	// if the insert fails, show error message
+	if (!($conn->query($query))) {
+		die("SQL INSERT Error: " . $query . "<br>" . $conn->error);
+	}
+}
+
+function sqlDelete($table, $criteria) {
+	$query = "DELETE FROM `" . $table . "` WHERE " . $criteria;
+
+	global $conn;
+	// if the delete fails, show error message
+	if (!($conn->query($query))) {
+		die("SQL DELETE Error: " . $query . "<br>" . $conn->error);
+	}
+}
+
+function sqlUpdate($table, $criteria, $column, $value) {
+	$query = "UPDATE `" . $table . "` SET `" . $column . "` = '" . $value . "' WHERE " . $criteria;
+
+	global $conn;
+	// if the update fails, show error message
+	if (!($conn->query($query))) {
+		die("SQL UPDATE Error: " . $query . "<br>" . $conn->error);
+	}
+}
+
+?>
 
 <html>
   <head>
@@ -7,7 +95,7 @@
     <script src="libraries/ajax/AjaxHelper.js"></script>
   </head>
   <body>hello<br/><a onclick="getFive()">click me</a><br/><?
-function getEnergy(){
+function getEnergyAllocation(){
 	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
 	if (!$resourceAlloc) {
 		$humanAlloc = "0";
@@ -22,7 +110,7 @@ function getEnergy(){
 		$intelAlloc = $resourceAlloc["intelligence"];
 		$buildAlloc = $resourceAlloc["building"];
 	}
-	echo($resourceAlloc);
+	var_dump($resourceAlloc);
 }
 ?>
     <link rel="stylesheet" href="main/mainStyle.css"/>
@@ -35,25 +123,25 @@ function getEnergy(){
         <div> notifications </div>
         <div class="notification_box"></div>
       </div>
-      <div class="item3"> <?php getEnergy() ?>
+      <div class="item3">
         <hey></hey>
         <table>
           <div id="energies"></div>
           <tr></tr>
           <td>
-            <input id="human" oninput="doneAllocation()" type="number" value="&lt;?e($humanAlloc)?&gt;"/>
+            <input id="human" oninput="doneAllocation()" type="number" value="0"/>
           </td>
           <td>
-            <input id="attack" oninput="doneAllocation()" type="number" value="&lt;?e($attackAlloc)?&gt;"/>
+            <input id="attack" oninput="doneAllocation()" type="number" value="0"/>
           </td>
           <td>
-            <input id="power" oninput="doneAllocation()" type="number" value="&lt;?e($powerAlloc)?&gt;"/>
+            <input id="power" oninput="doneAllocation()" type="number" value="0"/>
           </td>
           <td>
-            <input id="intel" oninput="doneAllocation()" type="number" value="&lt;?e($intelAlloc)?&gt;"/>
+            <input id="intel" oninput="doneAllocation()" type="number" value="0"/>
           </td>
           <td>
-            <input id="build" oninput="doneAllocation()" type="number" value="&lt;?e($buildAlloc)?&gt;"/>
+            <input id="build" oninput="doneAllocation()" type="number" value="0"/>
           </td>
         </table>
         <button id="submit" onclick="submitAllocation()" style="display: none;">DONE</button>
@@ -69,7 +157,7 @@ function getEnergy(){
         <div class="notification_box"></div>
       </div>
       <div class="item5"><a onclick="logout()">logout</a>
-        <div id="ghost"></div>
+        <div id="ghost"> <?php getEnergyAllocation() ?></div>
       </div>
     </div>
     <script>

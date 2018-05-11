@@ -11,21 +11,21 @@ script(src="js_functions/items.js")
         div  notifications 
         .notification_box
     .item3
-        |  <?php getEnergy() ?>
+       
         hey
         table
             #energies
             tr
             td
-                input#human(oninput='doneAllocation()', type='number', value='<?e($humanAlloc)?>')
+                input#human(oninput='doneAllocation()', type='number' value='0')
             td
-                input#attack(oninput='doneAllocation()', type='number', value='<?e($attackAlloc)?>')
+                input#attack(oninput='doneAllocation()', type='number', value='0')
             td
-                input#power(oninput='doneAllocation()', type='number', value='<?e($powerAlloc)?>')
+                input#power(oninput='doneAllocation()', type='number', value='0')
             td
-                input#intel(oninput='doneAllocation()', type='number', value='<?e($intelAlloc)?>')
+                input#intel(oninput='doneAllocation()', type='number', value='0')
             td
-                input#build(oninput='doneAllocation()', type='number', value='<?e($buildAlloc)?>')
+                input#build(oninput='doneAllocation()', type='number', value='0')
         button#submit(onclick='submitAllocation()', style='display: none;') DONE
         #confirmMessage
         #itemList
@@ -39,3 +39,4 @@ script(src="js_functions/items.js")
     .item5
         a(onclick='logout()') logout
         #ghost
+            |  <?php getEnergyAllocation() ?>

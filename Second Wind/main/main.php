@@ -1,5 +1,5 @@
 <?
-function getEnergy(){
+function getEnergyAllocation(){
 	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
 	if (!$resourceAlloc) {
 		$humanAlloc = "0";
@@ -14,7 +14,7 @@ function getEnergy(){
 		$intelAlloc = $resourceAlloc["intelligence"];
 		$buildAlloc = $resourceAlloc["building"];
 	}
-	echo($resourceAlloc);
+	var_dump($resourceAlloc);
 }
 ?>
 <link rel="stylesheet" href="main/mainStyle.css"/>
@@ -27,25 +27,25 @@ function getEnergy(){
     <div> notifications </div>
     <div class="notification_box"></div>
   </div>
-  <div class="item3"> <?php getEnergy() ?>
+  <div class="item3">
     <hey></hey>
     <table>
       <div id="energies"></div>
       <tr></tr>
       <td>
-        <input id="human" oninput="doneAllocation()" type="number" value="&lt;?e($humanAlloc)?&gt;"/>
+        <input id="human" oninput="doneAllocation()" type="number" value="0"/>
       </td>
       <td>
-        <input id="attack" oninput="doneAllocation()" type="number" value="&lt;?e($attackAlloc)?&gt;"/>
+        <input id="attack" oninput="doneAllocation()" type="number" value="0"/>
       </td>
       <td>
-        <input id="power" oninput="doneAllocation()" type="number" value="&lt;?e($powerAlloc)?&gt;"/>
+        <input id="power" oninput="doneAllocation()" type="number" value="0"/>
       </td>
       <td>
-        <input id="intel" oninput="doneAllocation()" type="number" value="&lt;?e($intelAlloc)?&gt;"/>
+        <input id="intel" oninput="doneAllocation()" type="number" value="0"/>
       </td>
       <td>
-        <input id="build" oninput="doneAllocation()" type="number" value="&lt;?e($buildAlloc)?&gt;"/>
+        <input id="build" oninput="doneAllocation()" type="number" value="0"/>
       </td>
     </table>
     <button id="submit" onclick="submitAllocation()" style="display: none;">DONE</button>
@@ -61,6 +61,6 @@ function getEnergy(){
     <div class="notification_box"></div>
   </div>
   <div class="item5"><a onclick="logout()">logout</a>
-    <div id="ghost"></div>
+    <div id="ghost"> <?php getEnergyAllocation() ?></div>
   </div>
 </div>

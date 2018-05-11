@@ -17,6 +17,7 @@ function databaseConnect() {
 }
 
 function sqlSelect($table,$cols,$criteria,$orderby) {
+	databaseConnect();
 	global $conn;
 	$sql = "SELECT $cols FROM $table WHERE $criteria ORDER BY $orderby";
 	$result = $conn->query($sql);

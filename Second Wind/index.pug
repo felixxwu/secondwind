@@ -1,5 +1,20 @@
 html
     head
         title Second Wind
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        script(src="libraries/ajax/AjaxHelper.js")
     body
         | hello
+        br
+        a(onclick="getFive()") click me
+        br
+        #output
+
+        script.
+            function getFive() {
+                var ajax = new AjaxHelper;
+                ajax.loadVariables("output", {"variableExample": null}, function() {
+                    alert(variableExample);
+                })
+            }

@@ -5,7 +5,7 @@ if (isset($_POST["func"])) {
     if (function_exists($func)) {
         $func();
     } else {
-        echo "<script>console.log('function " . $func . "() does not exist');</script>";
+        echo "<script>console.error('call function " . $func . "() does not exist in call.php');</script>";
     }
 }
 

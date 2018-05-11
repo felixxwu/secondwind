@@ -1,21 +1,15 @@
 
-
 include php_functions/energy.php
-
-
-html
-    head
-        script(src='/js_functions/energy.js')
-        script(src='/js_functions/items.js')
-        link(rel="stylesheet" href="../css/mainStyle.css")
-    body
-    .grid-container
-        .item1
-        .userLevel
-        .item2
+link(rel="stylesheet" href="main/mainStyle.css")
+script(src="js_functions/energy.js")
+script(src="js_functions/items.js")
+.grid-container
+    .item1
+    .userLevel
+    .item2
         div  notifications 
         .notification_box
-        .item3
+    .item3
         table
             #energies
             tr
@@ -36,9 +30,9 @@ html
         #testItems
         button#combine(onclick='combineItems()') Combine items
         #errorItems
-        .item4
+    .item4
         div analytics
         .notification_box
-        .item5
+    .item5
         a(onclick='logout()') logout
         #ghost

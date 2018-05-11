@@ -4,14 +4,14 @@
     grid-template-columns: 200px 1fr 100px 1fr 200px;
     height:100%;
     width: 100%;
-    background-image: url(modules/images/mountain_dark.svg);
+    background-image: url(../images/mountain_dark.svg);
     background-repeat: no-repeat;
     background-size: 200% 300%;
     background-position: calc(50% + 50px) 44%;
     grid-template-rows: 100px  1fr  50px;
 }
 body{
-    color: white;
+    color: rgb(92, 92, 92);
     margin:0;
 }
 .grid-container > div {

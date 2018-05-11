@@ -14,5 +14,6 @@ function getEnergy(){
 		$intelAlloc = $resourceAlloc["intelligence"];
 		$buildAlloc = $resourceAlloc["building"];
 	}
+	echo($resourceAlloc);
 }
 ?>

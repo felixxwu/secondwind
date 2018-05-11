@@ -14,22 +14,20 @@ function getEnergy(){
 		$intelAlloc = $resourceAlloc["intelligence"];
 		$buildAlloc = $resourceAlloc["building"];
 	}
+	echo($resourceAlloc);
 }
 ?>
-<html>
-  <head>
-    <script src="/js_functions/energy.js"></script>
-    <script src="/js_functions/items.js"></script>
-    <link rel="stylesheet" href="../css/mainStyle.css"/>
-  </head>
-  <body></body>
-  <div class="grid-container">
-    <div class="item1"></div>
-    <div class="userLevel"></div>
-    <div class="item2"></div>
+<link rel="stylesheet" href="main/mainStyle.css"/>
+<script src="js_functions/energy.js"></script>
+<script src="js_functions/items.js"></script>
+<div class="grid-container">
+  <div class="item1"></div>
+  <div class="userLevel"></div>
+  <div class="item2">
     <div> notifications </div>
     <div class="notification_box"></div>
-    <div class="item3"></div>
+  </div>
+  <div class="item3">
     <table>
       <div id="energies"></div>
       <tr></tr>
@@ -56,10 +54,12 @@ function getEnergy(){
     <div id="testItems"></div>
     <button id="combine" onclick="combineItems()">Combine items</button>
     <div id="errorItems"></div>
-    <div class="item4"></div>
+  </div>
+  <div class="item4">
     <div>analytics</div>
     <div class="notification_box"></div>
-    <div class="item5"></div><a onclick="logout()">logout</a>
+  </div>
+  <div class="item5"><a onclick="logout()">logout</a>
     <div id="ghost"></div>
   </div>
-</html>
+</div>

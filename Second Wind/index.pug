@@ -4,12 +4,15 @@ html
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
         script(src="https://code.jquery.com/jquery-3.2.1.min.js")
         script(src="libraries/ajax/AjaxHelper.js")
+        script(src="libraries/account/functions.js")
+        script(src="libraries/account/secureLoad.js")
+        script(src="libraries/utility/functions.js")
     body
-        | hello
-        br
-        a(onclick="getFive()") click me
-        br
-        include main/main.pug
+
+        #main
+
+        script secureLoad("main","main/main.php");
+    
         //- #output
         //- #ghost
 

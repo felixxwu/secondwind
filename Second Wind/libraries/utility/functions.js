@@ -20,9 +20,9 @@ function classes(id) {
 }
 
 function getUsername() {
-    return localStorage.getItem("enershitUsername");
+    return localStorage.getItem(usernameLabel);
 }
 
 function getPassword() {
-    return localStorage.getItem("enershitPassword");
+    return localStorage.getItem(passwordlabel);
 }

@@ -1,3 +1,5 @@
+// requires libraries/account/functions.js
+
 window.onload = function() {
     element("username").focus();
     
@@ -9,9 +11,6 @@ window.onload = function() {
         $("#login").click();
     });
 }
-
-var usernameLabel = "secondwind-username";
-var passwordlabel = "secondwind-password";
 
 function login() {
     $username = element("username").value;

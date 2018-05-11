@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="../css/login-signup.css"/>
     <link rel="stylesheet" href="../css/style.css"/>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../libraries/utility/functions.js"></script>
     <script src="../libraries/account/functions.js"></script>
+    <script src="../libraries/utility/functions.js"></script>
     <script src="functions.js"></script>
   </head>
   <body>

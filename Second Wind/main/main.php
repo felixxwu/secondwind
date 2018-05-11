@@ -24,8 +24,8 @@ function getEnergyAllocation(){
 }
 ?>
 <link rel="stylesheet" href="main/mainStyle.css"/>
-<script src="js_functions/energy.js"></script>
-<script src="js_functions/items.js"></script>
+<script src="main/js_functions/energy.js"></script>
+<script src="main/js_functions/items.js"></script>
 <div class="grid-container">
   <div class="item1"></div>
   <div class="userLevel"></div>

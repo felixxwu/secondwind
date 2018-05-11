@@ -110,6 +110,12 @@ function getEnergyAllocation(){
 		$intelAlloc = $resourceAlloc["intelligence"];
 		$buildAlloc = $resourceAlloc["building"];
 	}
+	echo("
+		<script> var energyAllocations = ".json_encode($resourceAlloc, JSON_PRETTY_PRINT).";
+		//creates a button for each item so when they are clicked the item is added to the combining queue
+		//document.getElementById('human').innerHTML = energyAllocations.human;
+		log(energyAllocations);
+		</script>");
 	var_dump($resourceAlloc);
 }
 ?>
@@ -123,8 +129,7 @@ function getEnergyAllocation(){
         <div> notifications </div>
         <div class="notification_box"></div>
       </div>
-      <div class="item3">
-        <hey></hey>
+      <div class="item3"> <?php getEnergyAllocation() ?>
         <table>
           <div id="energies"></div>
           <tr></tr>
@@ -157,7 +162,7 @@ function getEnergyAllocation(){
         <div class="notification_box"></div>
       </div>
       <div class="item5"><a onclick="logout()">logout</a>
-        <div id="ghost"> <?php getEnergyAllocation() ?></div>
+        <div id="ghost"></div>
       </div>
     </div>
     <script>

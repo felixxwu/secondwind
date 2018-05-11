@@ -1,9 +1,13 @@
 <?php
 
 if (isset($_POST["func"])) {
+
+    // get the function name to be called
     $func = $_POST["func"];
+
+    // show error if the function does not exist
     if (function_exists($func)) {
-        $func();
+        $func();    // call the function
     } else {
         echo "<script>console.error('call function " . $func . "() does not exist in call.php');</script>";
     }

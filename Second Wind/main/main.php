@@ -27,7 +27,8 @@ function getEnergy(){
     <div> notifications </div>
     <div class="notification_box"></div>
   </div>
-  <div class="item3">
+  <div class="item3"> <?php getEnergy() ?>
+    <hey></hey>
     <table>
       <div id="energies"></div>
       <tr></tr>

@@ -13,11 +13,15 @@ window.onload = function() {
 }
 
 function login() {
-    $username = element("username").value;
-    $password = element("password").value;
-    saveUsername($username);
-    savePassword($password);
-    window.location.href = "../";
+    var username = element("username").value;
+    var password = element("password").value;
+    if (!username || !password) {
+        element("message").innerHTML = "some login details are empty";
+    } else {
+        saveUsername(username);
+        savePassword(password);
+        window.location.href = "../";
+    }
 }
 
 function saveUsername(username) {

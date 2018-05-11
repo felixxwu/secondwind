@@ -12,7 +12,8 @@ unset($_POST["page"]);
 if (verifyLogin($username, $password)) {
     include "../../" . $page;
 } else {
-    echo "<meta http-equiv='refresh' content='0; url=login' />";
+    $message = urlencode("wrong login details");
+    echo "<meta http-equiv='refresh' content='0; url=login?message=$message' />";
 
 }
 

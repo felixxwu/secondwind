@@ -15,7 +15,7 @@
         <cardhead>
           <h3>Login</h3>
         </cardhead>
-        <error class="loginContent" id="message"></error>
+        <error class="loginContent" id="message"><em><?=$_GET["message"]?></em></error>
         <user1 class="loginContent">Username:</user1>
         <user2 class="loginContent">
           <input class="loginInput textWhite" id="username" type="text"/>

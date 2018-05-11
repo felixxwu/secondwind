@@ -23,6 +23,12 @@ class AjaxHelper {
             this.load("ghost", "ajax/call.php", newArgs, callback); // load call to ghost
         }
 
+        this.loadVariables = function (id, variables, callback) {
+            
+        }
+        
+        // this.execute = function ()
+
         this.countID = function(id) {
             return $("[id=" + id + "]").length;
         }

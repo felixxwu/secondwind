@@ -12,8 +12,8 @@ unset($_POST["page"]);
 if (verifyLogin($username, $password)) {
     include "../../" . $page;
 } else {
-    
-    die("login not verified");
+    echo "<meta http-equiv='refresh' content='0; url=login' />";
+
 }
 
 function verifyLogin($username, $password) {

@@ -96,6 +96,8 @@ function sqlUpdate($table, $criteria, $column, $value) {
     <script src="libraries/account/functions.js"></script>
     <script src="libraries/account/secureLoad.js"></script>
     <script src="libraries/utility/functions.js"></script>
+    <script src="main/js_functions/energy.js"></script>
+    <script src="main/js_functions/items.js"></script>
   </head>
   <body>
     <div id="main"></div>

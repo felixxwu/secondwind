@@ -27,6 +27,13 @@ echo "</script>";
 
 // add variables here...
 
+function energies(){
+    databaseConnect();
+    $rows = 'human, attack, power, intelligence, building';
+    $query = sqlSelect('energy',$rows,"username='test'","`username`")[0];
+    return $query;
+
+}
 function variableExample() {
     return 5;
 }

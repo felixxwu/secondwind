@@ -1,4 +1,5 @@
 <?
+//retrieves energy allocation values from database
 function getEnergyAllocation(){
 	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
 	if (!$resourceAlloc) {
@@ -14,12 +15,15 @@ function getEnergyAllocation(){
 		$intelAlloc = $resourceAlloc["intelligence"];
 		$buildAlloc = $resourceAlloc["building"];
 	}
+
+//initializes the energy allocation values in the input boxes
 	echo("
 		<script> var energyAllocations = ".json_encode($resourceAlloc, JSON_PRETTY_PRINT).";
-		//creates a button for each item so when they are clicked the item is added to the combining queue
-		//document.getElementById('human').innerHTML = energyAllocations.human;
-		log(energyAllocations);
+		document.getElementById('human').value = energyAllocations.human;
+		document.getElementById('power').value = energyAllocations.power;
+		document.getElementById('attack').value = energyAllocations.attack;
+		document.getElementById('intelligence').value = energyAllocations.intelligence;
+		document.getElementById('building').value = energyAllocations.building;
 		</script>");
-	var_dump($resourceAlloc);
 }
 ?>

@@ -9,8 +9,7 @@ link(rel="stylesheet" href="main/mainStyle.css")
         div  notifications 
         .notification_box
     .item3
-       
-        |  <?php getEnergyAllocation() ?>
+        div#energytest
         table
             #energies
             tr
@@ -36,5 +35,5 @@ link(rel="stylesheet" href="main/mainStyle.css")
         .notification_box
     .item5
         a(onclick='logout()') logout
-        #ghost
-           
+        #ghost 
+            |<?php getEnergyAllocation() ?>

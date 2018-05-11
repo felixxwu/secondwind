@@ -1,10 +1,19 @@
 
 window.onload=function(){
+	log("ajax");
+	var ajax = new AjaxHelper("libraries/ajax");
 	//updates energy every second
 	var t=setInterval(updateEnergy,1000);
 	function updateEnergy(){
-		loadP("energies","energy");
+		
+		ajax.loadVariables("test", {"energies": null}, function() {
+			console.log(energies);
+			
+			// })
 	}
+		)
+	//
+}
 }
 
 //updates the display of submit allocation button
@@ -30,4 +39,5 @@ function submitEnergyAllocation() {
         
         //ajax calling php to submit energy allocation to database
 		// loadP("ghost","submitAllocation", human, attack, power, intel, build);
-    }
+}
+

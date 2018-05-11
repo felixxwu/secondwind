@@ -1,5 +1,5 @@
 <?
-function getEnergy(){
+function getEnergyAllocation(){
 	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
 	if (!$resourceAlloc) {
 		$humanAlloc = "0";
@@ -14,6 +14,6 @@ function getEnergy(){
 		$intelAlloc = $resourceAlloc["intelligence"];
 		$buildAlloc = $resourceAlloc["building"];
 	}
-	echo($resourceAlloc);
+	var_dump($resourceAlloc);
 }
 ?>

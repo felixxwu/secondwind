@@ -1,9 +1,10 @@
 
-
-//updates energy every second
-var t=setInterval(updateEnergy,1000);
-function updateEnergy(){
-    loadP("energies","energy");
+window.onload=function(){
+	//updates energy every second
+	var t=setInterval(updateEnergy,1000);
+	function updateEnergy(){
+		loadP("energies","energy");
+	}
 }
 
 //updates the display of submit allocation button

@@ -1,5 +1,7 @@
 <?php
 
+include "../database/databaseFunctions.php";
+
 $username = $_POST["username"];
 $password = $_POST["password"];
 $page = $_POST["page"];
@@ -8,8 +10,9 @@ unset($_POST["password"]);
 unset($_POST["page"]);
 
 if (verifyLogin($username, $password)) {
-    include $page;
+    include "../../" . $page;
 } else {
+    
     die("login not verified");
 }
 

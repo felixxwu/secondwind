@@ -1,6 +1,6 @@
 <?php
 
-echo "<script>";
+echo "<script>\n";
 foreach ($_POST as $var => $args) {
     if (function_exists($var)) {
         echo "var " . $var . " = ";
@@ -9,7 +9,7 @@ foreach ($_POST as $var => $args) {
         } else {
             echo json_encode(call_user_func($var, $args));
         }
-        echo ";";
+        echo ";\n";
     } else {
         echo "<script>console.error('variable function " . $var . "() does not exist in variables.php');</script>";
     }

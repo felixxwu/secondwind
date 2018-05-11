@@ -14,7 +14,9 @@ html
         script.
             function getFive() {
                 var ajax = new AjaxHelper;
-                ajax.loadVariables("output", {"variableExample": null}, function() {
-                    alert(variableExample);
+                ajax.loadVariables("output", {"variableExample": null, "variableWithArgExample": "heyo", "variableMultipleArgsExample": ["foo", "bar"]}, function() {
+                    console.log(variableExample);
+                    console.log(variableWithArgExample);
+                    console.log(variableMultipleArgsExample);
                 })
             }

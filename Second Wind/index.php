@@ -8,6 +8,7 @@
   </head>
   <body>hello<br/><a onclick="getFive()">click me</a><br/>
     <div id="output"></div>
+    <div id="ghost"></div>
     <script>
       function getFive() {
           var ajax = new AjaxHelper;
@@ -16,6 +17,10 @@
               console.log(variableWithArgExample);
               console.log(variableMultipleArgsExample);
           })
+      
+          ajax.call("args",{0: "hey", 1: "there"}, function() {
+              console.log("call done");
+          });
       }
     </script>
   </body>

@@ -10,6 +10,7 @@ html
         a(onclick="getFive()") click me
         br
         #output
+        #ghost
 
         script.
             function getFive() {
@@ -19,4 +20,8 @@ html
                     console.log(variableWithArgExample);
                     console.log(variableMultipleArgsExample);
                 })
+
+                ajax.call("args",{0: "hey", 1: "there"}, function() {
+                    console.log("call done");
+                });
             }

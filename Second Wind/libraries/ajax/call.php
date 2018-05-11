@@ -5,9 +5,13 @@ if (isset($_POST["func"])) {
     // get the function name to be called
     $func = $_POST["func"];
 
+    // remove "func", leaving only arguments
+    unset($_POST["func"]);
+
     // show error if the function does not exist
     if (function_exists($func)) {
-        $func();    // call the function
+        $args = $_POST; // these are the rest of POST
+        call_user_func_array($func, $args); // call the function using these arguments
     } else {
         echo "<script>console.error('call function " . $func . "() does not exist in call.php');</script>";
     }
@@ -15,15 +19,12 @@ if (isset($_POST["func"])) {
 
 // functions go here...
 
-function test() {
+function example() {
     echo "this is a test";
 }
 
-function testArgs() {
-    echo "post var: " . $_POST["test"];
-    echo $_POST["arg1"];
-    echo "<br>";
-    echo $_POST["arg2"];
+function argsExamples($arg1, $arg2) {
+    echo $arg1 . " " . $arg2;
 }
 
 ?>

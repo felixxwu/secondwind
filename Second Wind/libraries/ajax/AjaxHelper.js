@@ -15,7 +15,7 @@
 // });
 
 // To call a php function (execute php without output)
-// ajax.call("functionName", {"arg1": "hello tere", "arg2": 200}, function(){
+// ajax.call("functionName", {"arg1": "value", "arg2": 200}, function(){
 //     console.log("done");
 // });
 

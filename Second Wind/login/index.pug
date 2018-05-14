@@ -1,18 +1,18 @@
+//- main login page, will be directed to this if login fails at main
+//- the purpose of this is simply to set the user credentials into the local storage, and redirect to the root page
+
 html
     head
         title Second Wind - Login
         link(rel="stylesheet" href="../css/login-signup.css")
         link(rel="stylesheet" href="../css/style.css")
-        script(src="https://code.jquery.com/jquery-3.2.1.min.js")
-        script(src="../libraries/account/functions.js")
-        script(src="../libraries/utility/functions.js")
-        script(src="functions.js")
     body
         .loginParent
             section#loginContent.loginChild.menuSolid.loginContentParent.textWhite
                 cardhead
                     h3 Login
                 error#message.loginContent
+                    em <?=$_GET["message"]?>
 
                 user1.loginContent Username:
                 user2.loginContent
@@ -30,3 +30,8 @@ html
                         button#login.loginButton.textWhite Login
 
         #ghost                    
+
+        script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        script(src="../libraries/account/functions.js")
+        script(src="../libraries/utility/general.js")
+        script(src="functions.js")

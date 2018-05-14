@@ -1,3 +1,5 @@
+// general untility functions for js
+
 function log(log) {
     console.log(log);
 }
@@ -24,5 +26,5 @@ function getUsername() {
 }
 
 function getPassword() {
-    return localStorage.getItem(passwordlabel);
+    return localStorage.getItem(passwordLabel);
 }

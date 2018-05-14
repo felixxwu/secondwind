@@ -1,3 +1,5 @@
+// the functions accompanying the login page
+
 // requires libraries/account/functions.js
 
 window.onload = function() {
@@ -10,14 +12,21 @@ window.onload = function() {
     link("password", 13, function() {
         $("#login").click();
     });
+
+    element("username").value = localStorage.getItem(usernameLabel);
+    element("password").value = localStorage.getItem(passwordLabel);
 }
 
 function login() {
-    $username = element("username").value;
-    $password = element("password").value;
-    saveUsername($username);
-    savePassword($password);
-    window.location.href = "../";
+    var username = element("username").value;
+    var password = element("password").value;
+    if (!username || !password) {
+        element("message").innerHTML = "some login details are empty";
+    } else {
+        saveUsername(username);
+        savePassword(password);
+        window.location.href = "../";
+    }
 }
 
 function saveUsername(username) {
@@ -25,5 +34,5 @@ function saveUsername(username) {
 }
 
 function savePassword(password) {
-    localStorage.setItem(passwordlabel, password);
+    localStorage.setItem(passwordLabel, password);
 }

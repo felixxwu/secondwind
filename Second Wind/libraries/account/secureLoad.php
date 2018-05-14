@@ -1,5 +1,8 @@
 <?php
 
+// the php version of secure load helps the js file to check the credentials on the server
+// if they do not match, the site will not be served, and a redirect to the login page will be served instead
+
 include "../database/databaseFunctions.php";
 
 $username = $_POST["username"];
@@ -12,7 +15,8 @@ unset($_POST["page"]);
 if (verifyLogin($username, $password)) {
     include "../../" . $page;
 } else {
-    echo "<meta http-equiv='refresh' content='0; url=login' />";
+    $message = urlencode("wrong login details");
+    echo "<meta http-equiv='refresh' content='0; url=login?message=$message' />";
 
 }
 

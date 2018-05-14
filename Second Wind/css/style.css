@@ -5,3 +5,5 @@ html * { font-family: 'Quicksand', sans-serif !important; }
 .menuSolid { background-color: #222222; }
 
 .textWhite { color: #dddddd; }
+
+.hidden { display: none; }

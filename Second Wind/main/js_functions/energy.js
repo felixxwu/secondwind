@@ -10,8 +10,8 @@ window.onload=function(){
 			console.log(energies);
 			
 			// })
-	}
-		)
+		}
+	)
 	//
 }
 }

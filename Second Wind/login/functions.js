@@ -10,6 +10,9 @@ window.onload = function() {
     link("password", 13, function() {
         $("#login").click();
     });
+
+    element("username").value = localStorage.getItem(usernameLabel);
+    element("password").value = localStorage.getItem(passwordLabel);
 }
 
 function login() {
@@ -29,5 +32,5 @@ function saveUsername(username) {
 }
 
 function savePassword(password) {
-    localStorage.setItem(passwordlabel, password);
+    localStorage.setItem(passwordLabel, password);
 }

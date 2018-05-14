@@ -4,10 +4,6 @@
     <title>Second Wind - Login</title>
     <link rel="stylesheet" href="../css/login-signup.css"/>
     <link rel="stylesheet" href="../css/style.css"/>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../libraries/account/functions.js"></script>
-    <script src="../libraries/utility/functions.js"></script>
-    <script src="functions.js"></script>
   </head>
   <body>
     <div class="loginParent">
@@ -31,5 +27,9 @@
       </section>
     </div>
     <div id="ghost">                   </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../libraries/account/functions.js"></script>
+    <script src="../libraries/utility/general.js"></script>
+    <script src="functions.js"></script>
   </body>
 </html>

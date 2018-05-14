@@ -24,5 +24,5 @@ function getUsername() {
 }
 
 function getPassword() {
-    return localStorage.getItem(passwordlabel);
+    return localStorage.getItem(passwordLabel);
 }

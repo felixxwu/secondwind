@@ -90,14 +90,11 @@ function sqlUpdate($table, $criteria, $column, $value) {
 <html>
   <head>
     <title>Second Wind</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="libraries/ajax/AjaxHelper.js"></script>
-    <script src="libraries/account/functions.js"></script>
     <script src="libraries/account/secureLoad.js"></script>
-    <script src="libraries/utility/functions.js"></script>
-    <script src="main/js_functions/energy.js"></script>
-    <script src="main/js_functions/items.js"></script>
+    <script src="libraries/ajax/AjaxHelper.js"></script>
+    <script src="libraries/utility/general.js"></script>
+    <script src="libraries/account/functions.js"></script>
   </head>
   <body>
     <div id="main"></div>
@@ -117,5 +114,8 @@ function sqlUpdate($table, $criteria, $column, $value) {
           
       }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="main/js_functions/energy.js"></script>
+    <script src="main/js_functions/items.js"></script>
   </body>
 </html>

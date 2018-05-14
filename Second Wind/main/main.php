@@ -36,30 +36,40 @@ function getEnergyAllocation(){
     <div class="notification_box"></div>
   </div>
   <div class="item3">
-    <div id="energytest"></div>
+    <div id="pablotests"></div>
+    <div id="energytest">
+      <table>
+        <tr>
+          <td id="humanEnergy"></td>
+          <td id="attackEnergy"></td>
+          <td id="powerEnergy"></td>
+          <td id="intelligenceEnergy"></td>
+          <td id="buildingEnergy"></td>
+        </tr>
+      </table>
+    </div>
     <table>
-      <div id="energies"></div>
-      <tr></tr>
-      <td>
-        <input id="human" oninput="doneAllocation()" type="number" value="0"/>
-      </td>
-      <td>
-        <input id="attack" oninput="doneAllocation()" type="number" value="0"/>
-      </td>
-      <td>
-        <input id="power" oninput="doneAllocation()" type="number" value="0"/>
-      </td>
-      <td>
-        <input id="intel" oninput="doneAllocation()" type="number" value="0"/>
-      </td>
-      <td>
-        <input id="build" oninput="doneAllocation()" type="number" value="0"/>
-      </td>
+      <tr>
+        <td>
+          <input id="human" oninput="doneAllocation()" type="number" value="0"/>
+        </td>
+        <td>
+          <input id="attack" oninput="doneAllocation()" type="number" value="0"/>
+        </td>
+        <td>
+          <input id="power" oninput="doneAllocation()" type="number" value="0"/>
+        </td>
+        <td>
+          <input id="intelligence" oninput="doneAllocation()" type="number" value="0"/>
+        </td>
+        <td>
+          <input id="building" oninput="doneAllocation()" type="number" value="0"/>
+        </td>
+      </tr>
     </table>
-    <button id="submit" onclick="submitAllocation()" style="display: none;">DONE</button>
+    <button id="submit" onclick="submitEnergyAllocation()" style="display: none;">DONE</button>
     <div id="confirmMessage"></div>
-    <div id="itemList"></div>
-    <items id="items"></items>
+    <itemList></itemList>
     <div id="testItems"></div>
     <button id="combine" onclick="combineItems()">Combine items</button>
     <div id="errorItems"></div>
@@ -68,8 +78,8 @@ function getEnergyAllocation(){
     <div>analytics</div>
     <div class="notification_box"></div>
   </div>
-  <div class="item5"><a onclick="logout()">logout</a>
-    <div id="ghost">
-       <?php getEnergyAllocation() ?></div>
-  </div>
+  <div class="item5"><a onclick="logout()">logout</a></div>
+  <update><?php getEnergyAllocation() ?>
+    <script>updateItemsList();</script>
+  </update>
 </div>

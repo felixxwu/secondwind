@@ -1,5 +1,5 @@
 <?php
-
+include "../database/databaseFunctions.php";
 echo "<script>\n";
 
 // get the key (variables names) and values (arguments) from each POST element
@@ -27,10 +27,16 @@ echo "</script>";
 
 // add variables here...
 
+function itemList(){
+    $result = sqlSelect('usersItems','item,amount,Level',"username='test'",'item');
+    
+    return $result;
+}
+
 function energies(){
-    databaseConnect();
     $rows = 'human, attack, power, intelligence, building';
     $query = sqlSelect('energy',$rows,"username='test'","`username`")[0];
+ 
     return $query;
 
 }

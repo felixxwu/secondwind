@@ -1,3 +1,4 @@
+
 <?
 
 function databaseConnect() {
@@ -37,6 +38,7 @@ function sqlSelectSingle($table, $criteria, $col) {
 }
 
 function sqlInsert() {
+	databaseConnect();
 	$args = func_get_args();
 	$table = $args[0];
 	$query = "INSERT INTO `" . $table . "` VALUES (";
@@ -66,6 +68,7 @@ function sqlInsert() {
 }
 
 function sqlDelete($table, $criteria) {
+	databaseConnect();
 	$query = "DELETE FROM `" . $table . "` WHERE " . $criteria;
 
 	global $conn;
@@ -76,6 +79,7 @@ function sqlDelete($table, $criteria) {
 }
 
 function sqlUpdate($table, $criteria, $column, $value) {
+	databaseConnect();
 	$query = "UPDATE `" . $table . "` SET `" . $column . "` = '" . $value . "' WHERE " . $criteria;
 
 	global $conn;
@@ -86,7 +90,35 @@ function sqlUpdate($table, $criteria, $column, $value) {
 }
 
 ?>
+<?
+//retrieves energy allocation values from database
+function getEnergyAllocation(){
+	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
+	if (!$resourceAlloc) {
+		$humanAlloc = "0";
+		$powerAlloc = "0";
+		$attackAlloc = "0";
+		$intelAlloc = "0";
+		$buildAlloc = "0";
+	} else {
+		$humanAlloc = $resourceAlloc["human"];
+		$powerAlloc = $resourceAlloc["power"];
+		$attackAlloc = $resourceAlloc["attack"];
+		$intelAlloc = $resourceAlloc["intelligence"];
+		$buildAlloc = $resourceAlloc["building"];
+	}
 
+//initializes the energy allocation values in the input boxes
+	echo("
+		<script> var energyAllocations = ".json_encode($resourceAlloc, JSON_PRETTY_PRINT).";
+		document.getElementById('human').value = energyAllocations.human;
+		document.getElementById('power').value = energyAllocations.power;
+		document.getElementById('attack').value = energyAllocations.attack;
+		document.getElementById('intelligence').value = energyAllocations.intelligence;
+		document.getElementById('building').value = energyAllocations.building;
+		</script>");
+}
+?>
 <html>
   <head>
     <title>Second Wind</title>
@@ -96,10 +128,11 @@ function sqlUpdate($table, $criteria, $column, $value) {
     <script src="libraries/account/functions.js"></script>
     <script src="libraries/account/secureLoad.js"></script>
     <script src="libraries/utility/functions.js"></script>
-    <script src="main/js_functions/energy.js"></script>
     <script src="main/js_functions/items.js"></script>
+    <script src="main/js_functions/energy.js"></script>
   </head>
   <body>
+    <div id="ghost"> </div>
     <div id="main"></div>
     <script>secureLoad("main","main/main.php");</script>
     <script>

@@ -37,6 +37,7 @@ function sqlSelectSingle($table, $criteria, $col) {
 }
 
 function sqlInsert() {
+	databaseConnect();
 	$args = func_get_args();
 	$table = $args[0];
 	$query = "INSERT INTO `" . $table . "` VALUES (";
@@ -66,6 +67,7 @@ function sqlInsert() {
 }
 
 function sqlDelete($table, $criteria) {
+	databaseConnect();
 	$query = "DELETE FROM `" . $table . "` WHERE " . $criteria;
 
 	global $conn;
@@ -76,6 +78,7 @@ function sqlDelete($table, $criteria) {
 }
 
 function sqlUpdate($table, $criteria, $column, $value) {
+	databaseConnect();
 	$query = "UPDATE `" . $table . "` SET `" . $column . "` = '" . $value . "' WHERE " . $criteria;
 
 	global $conn;

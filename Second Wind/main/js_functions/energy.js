@@ -1,20 +1,23 @@
 
-window.onload=function(){
-	log("ajax");
+
+$( document).ready(function(){
 	var ajax = new AjaxHelper("libraries/ajax");
 	//updates energy every second
 	var t=setInterval(updateEnergy,1000);
 	function updateEnergy(){
-		
-		ajax.loadVariables("test", {"energies": null}, function() {
-			console.log(energies);
-			
-			// })
-	}
-		)
-	//
+		ajax.loadVariables("ghost", {"energies": null}, function() {
+			document.getElementById('humanEnergy').innerHTML = energies.human;
+			document.getElementById('powerEnergy').innerHTML = energies.power;
+			document.getElementById('attackEnergy').innerHTML = energies.attack;
+			document.getElementById('intelligenceEnergy').innerHTML = energies.intelligence;
+			document.getElementById('buildingEnergy').innerHTML = energies.building;
+		}
+		);
 }
-}
+});
+
+
+ 
 
 //updates the display of submit allocation button
 function doneAllocation() {
@@ -28,16 +31,20 @@ function submitEnergyAllocation() {
 		var human = document.getElementById("human").value;
 		var attack = document.getElementById("attack").value;
 		var power = document.getElementById("power").value;
-		var intel = document.getElementById("intel").value;
-		var build = document.getElementById("build").value;
-
+		var intelligence = document.getElementById("intelligence").value;
+		var building = document.getElementById("building").value;
+		log(human);
 		if (!human) {human = "0";}
 		if (!attack) {attack = "0";}
 		if (!power) {power = "0";}
-		if (!intel) {intel = "0";}
-        if (!build) {build = "0";}
-        
-        //ajax calling php to submit energy allocation to database
-		// loadP("ghost","submitAllocation", human, attack, power, intel, build);
+		if (!intelligence) {intelligence = "0";}
+        if (!building) {building = "0";}
+		
+		var ajax = new AjaxHelper("libraries/ajax");
+		ajax.call("updateEnergyAllocation", {"human":human , "attack": attack , "power": power, "intelligence":intelligence,"building":building}, function(){
+			document.getElementById("submit").innerHTML = "DONE";
+			});
+		
+   
 }
 

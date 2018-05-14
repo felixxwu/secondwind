@@ -1,5 +1,5 @@
 <?php
-
+include "../database/databaseFunctions.php";
 if (isset($_POST["func"])) {
 
     // get the function name to be called
@@ -18,6 +18,24 @@ if (isset($_POST["func"])) {
 }
 
 // functions go here...
+
+//submits the new energy allocation
+function updateEnergyAllocation($human,$attack,$power,$intelligence,$building){
+    
+    if (!sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0]) {
+        sqlInsert("resourceAllocation","test", $human, $attack, $power, $intelligence, $building);
+    } else {
+        sqlUpdate("resourceAllocation","`username` = 'test'","human",$human);
+        sqlUpdate("resourceAllocation","`username` = 'test'","power",$power);
+        sqlUpdate("resourceAllocation","`username` = 'test'","attack",$attack);
+        sqlUpdate("resourceAllocation","`username` = 'test'","intelligence",$intelligence);
+        sqlUpdate("resourceAllocation","`username` = 'test'","building",$building);
+    }
+}
+include "../../main/php_functions/combineItems.php";
+function combineItems(){
+    //USE THE FUNCTIONS FROM COMBINE ITEMS TO COMBINE THE ITEMS
+}
 
 function example() {
     echo "this is a test";

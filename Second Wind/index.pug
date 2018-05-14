@@ -1,5 +1,6 @@
 
 include libraries/database/databaseFunctions.php
+include main/php_functions/energy.php
 html
     head
         title Second Wind
@@ -9,16 +10,14 @@ html
         script(src="libraries/account/functions.js")
         script(src="libraries/account/secureLoad.js")
         script(src="libraries/utility/functions.js")
-        script(src="main/js_functions/energy.js")
         script(src="main/js_functions/items.js")
+        script(src="main/js_functions/energy.js")
     body
-
+        #ghost 
         #main
-
+        
         script secureLoad("main","main/main.php");
     
-        //- #output
-        //- #ghost
 
         script.
             function getFive() {

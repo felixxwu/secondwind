@@ -6,7 +6,7 @@
 
 // Initialise a new AjaxHelper 
 // var ajax = new AjaxHelper("path");
-// "path" is the relative filepath to this file 
+// "path" is the relative filepath to this directory 
 
 // USAGE ###############################################################
 

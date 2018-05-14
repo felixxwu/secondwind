@@ -1,3 +1,5 @@
+/* css specifically for the layout of the signup page */
+
 /*define the layout od the signup contents*/
 .signupContentParent {
 	display: grid;

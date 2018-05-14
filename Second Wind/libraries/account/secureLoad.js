@@ -1,3 +1,5 @@
+// secure load will only serve the page specified if the user credentials match an account on the server    
+
 // requires libraries/account/functions.js
 // requires libraries/utitlity/functions.js
 

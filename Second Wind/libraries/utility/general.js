@@ -1,3 +1,5 @@
+// general untility functions for js
+
 function log(log) {
     console.log(log);
 }

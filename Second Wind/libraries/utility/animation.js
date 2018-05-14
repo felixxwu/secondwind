@@ -1,3 +1,5 @@
+// has all functions related to show and hide animations
+
 var types = [
     // in types
     "fadeIn",

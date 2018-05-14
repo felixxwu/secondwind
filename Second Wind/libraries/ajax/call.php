@@ -1,5 +1,9 @@
 <?php
 
+// this file is where all the functions are stored for use in ajax.call
+// each function is essentially accessable from js, meaning that js can call php code
+// any output will be stored in ghost, which is invisible
+
 if (isset($_POST["func"])) {
 
     // get the function name to be called

@@ -1,3 +1,5 @@
+// the functions accompanying the login page
+
 // requires libraries/account/functions.js
 
 window.onload = function() {

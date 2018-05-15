@@ -33,6 +33,7 @@ function getEnergyAllocation(){
 		</script>");
 }
 ?>
+<link rel="stylesheet" href="main/island.css"/>
 <div class="grid-container">
   <div class="item1"></div>
   <div class="userLevel"></div>
@@ -41,55 +42,62 @@ function getEnergyAllocation(){
     <div class="notification_box"></div>
   </div>
   <div class="item3">
-    <div id="pablotests"></div>
-    <h3>Energy Values</h3>
-    <div id="energytest">
-      <table>
-        <tr>
-          <td id="humanEnergy"></td>
-          <td id="attackEnergy"></td>
-          <td id="powerEnergy"></td>
-          <td id="intelligenceEnergy"></td>
-          <td id="buildingEnergy"></td>
-        </tr>
-      </table>
+    <div class="container absolute">
+      <div class="hidden" id="energies">
+        <div id="pablotests"></div>
+        <h3>Energy Values</h3>
+        <div id="energytest">
+          <table>
+            <tr>
+              <td id="humanEnergy"></td>
+              <td id="attackEnergy"></td>
+              <td id="powerEnergy"></td>
+              <td id="intelligenceEnergy"></td>
+              <td id="buildingEnergy"></td>
+            </tr>
+          </table>
+        </div>
+        <h3>Energy Allocation</h3>
+        <p class="energyTitle">Human</p>
+        <div class="slidecontainer">
+          <input class="slider" id="human" type="range" min="-20" max="20" value="0"/>
+        </div>
+        <div class="demo" id="valueHuman"> </div>
+        <p></p>
+        <p class="energyTitle">Attack</p>
+        <div class="slidecontainer">
+          <input class="slider" id="attack" type="range" min="-20" max="20" value="0"/>
+        </div>
+        <div class="demo" id="valueAttack"> </div>
+        <p></p>
+        <p class="energyTitle">Power</p>
+        <div class="slidecontainer">
+          <input class="slider" id="power" type="range" min="-20" max="20" value="0"/>
+        </div>
+        <div class="demo" id="valuePower"> </div>
+        <p></p>
+        <p class="energyTitle">Intelligence </p>
+        <div class="slidecontainer">
+          <input class="slider" id="intelligence" type="range" min="-20" max="20" value="0"/>
+        </div>
+        <div class="demo" id="valueIntelligence"></div>
+        <p></p>
+        <p class="energyTitle">Building</p>
+        <div class="slidecontainer">
+          <input class="slider" id="building" type="range" min="-20" max="20" value="0"/>
+        </div>
+        <div class="demo" id="valueBuilding"></div>
+        <button id="submit" onclick="submitEnergyAllocation()" style="display: none;">DONE</button>
+        <div id="confirmMessage"></div>
+        <itemList id="itemList"></itemList>
+        <div id="testItems"></div>
+        <button id="combine" onclick="combineItems()">Combine items
+          <div id="errorItems"></div>
+        </button>
+      </div>
     </div>
-    <h3>Energy Allocation</h3>
-    <p class="energyTitle">Human</p>
-    <div class="slidecontainer">
-      <input class="slider" id="human" type="range" min="-20" max="20" value="0"/>
-    </div>
-    <div class="demo" id="valueHuman"> </div>
-    <p></p>
-    <p class="energyTitle">Attack</p>
-    <div class="slidecontainer">
-      <input class="slider" id="attack" type="range" min="-20" max="20" value="0"/>
-    </div>
-    <div class="demo" id="valueAttack"> </div>
-    <p></p>
-    <p class="energyTitle">Power</p>
-    <div class="slidecontainer">
-      <input class="slider" id="power" type="range" min="-20" max="20" value="0"/>
-    </div>
-    <div class="demo" id="valuePower"> </div>
-    <p></p>
-    <p class="energyTitle">Intelligence </p>
-    <div class="slidecontainer">
-      <input class="slider" id="intelligence" type="range" min="-20" max="20" value="0"/>
-    </div>
-    <div class="demo" id="valueIntelligence"></div>
-    <p></p>
-    <p class="energyTitle">Building</p>
-    <div class="slidecontainer">
-      <input class="slider" id="building" type="range" min="-20" max="20" value="0"/>
-    </div>
-    <div class="demo" id="valueBuilding"></div>
-    <button id="submit" onclick="submitEnergyAllocation()" style="display: none;">DONE</button>
-    <div id="confirmMessage"></div>
-    <itemList id="itemList"></itemList>
-    <div id="testItems"></div>
-    <button id="combine" onclick="combineItems()">Combine items</button>
-    <div id="errorItems"></div>
+    <div id="island"><a onclick="show('energies','fadeInUp', 1)">
+        <div class="townhall"></div></a></div>
   </div>
   <div class="item4">
     <div>analytics</div>

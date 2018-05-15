@@ -1,14 +1,18 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: 200px 1fr 100px 1fr 200px;
+    grid-template-columns: 200px auto 100px auto 200px;
+    grid-template-rows: 100px  auto  50px;
     height:100%;
     width: 100%;
     background-image: url(../images/mountain_dark.svg);
     background-repeat: no-repeat;
     background-size: 115%;
     background-position: calc(50% + 50px) 44%;
-    grid-template-rows: 100px  1fr  50px;
+
+    grid-template-areas:    "headleft headleft pic headright headright"
+                            "notifications middle middle middle analytics"
+                            "foot foot foot foot foot"
 }
 body{
     color: rgb(255, 255, 255);
@@ -125,7 +129,7 @@ body{
 
 
 /* hide side menus on phones */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
     .grid-container {
     grid-template-columns: 0px auto 0px;
     }
@@ -134,3 +138,4 @@ body{
     }
     .item4{ display: none;}
 }
+

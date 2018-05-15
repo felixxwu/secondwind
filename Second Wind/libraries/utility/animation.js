@@ -24,13 +24,13 @@ var types = [
 ];
 
 function show(id, type, duration) {
-    console.log("showing: " + id);
-
     // if the element is already showing, do nothing
-    if (element(id).style.display != "none") {
+    if (!element(id).classList.contains("hidden")) {
         return;
     }
     
+    console.log("showing: " + id);
+
     // remove all animate.css classes
     for (let i = 0; i < types.length; i++) {
         element(id).classList.remove(types[i]);
@@ -51,16 +51,17 @@ function show(id, type, duration) {
     if (duration) {
         element(id).setAttribute("style", "-webkit-animation-duration: " + duration + "s;");
     }
-    element(id).style.display = "block";
+    element(id).classList.remove("hidden");
+    // element(id).style.display = "block";
 }
 
 function hide(id, type, duration) {
-    console.log("hiding: " + id);
-
     // if the element is already hidden, do nothing    
-    if (element(id).style.display == "none") {
+    if (element(id).classList.contains("hidden")) {
         return;
     }
+    
+    console.log("hiding: " + id);
     
     // remove all animate.css classes
     for (let i = 0; i < types.length; i++) {
@@ -83,6 +84,7 @@ function hide(id, type, duration) {
         element(id).setAttribute("style", "-webkit-animation-duration: " + duration + "s;");
     }
     setTimeout(function () {
-        element(id).style.display = "none";
+        element(id).classList.add("hidden");
+        // element(id).style.display = "none";
     }, duration * 1000);
 }

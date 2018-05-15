@@ -1,0 +1,6 @@
+#mainLayout {
+    display: grid;
+    grid-template-areas: 200px auto 100px auto 200px;
+    grid-template-rows: 100px auto 50px;
+    
+}

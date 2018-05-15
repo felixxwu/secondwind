@@ -28,10 +28,47 @@ body{
     border-width: 4px;
     border-radius:10px;
     background-color: rgba(255, 255, 255, 0.6);
-    display:inline-block;
-    height:calc(82vh - 100px);
+    
+    height:calc(82vh - 100px); 
     width:80%;
+    animation: move-in-steps 3.5s infinite;
+    position: relative;
+    top: 0;
+    
 }
+  
+
+
+  .move-me {
+    display: inline-block;
+    padding: 20px;
+    color: white;
+    position: relative;
+    margin: 0 0 10px 0;
+  }
+  
+
+  
+  
+  body {
+    padding: 20px;
+  }
+  
+
+  
+  @keyframes move-in-steps {
+    from, to {
+      top: 0;
+      animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
+      background: rgb(177, 177, 177);
+    }
+    50% {
+      top: 20px;
+      background: rgb(236, 236, 236);
+      animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
+    }
+  }
+
 .userLevel{
     grid-area: 1 / 3 / 2 / 4;
     border-width: 4px;

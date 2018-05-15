@@ -6,7 +6,7 @@
 
 //updates energy values every second
 $( document).ready(function(){
-	getEnergyAllocation();
+	
 	var ajax = new AjaxHelper("libraries/ajax");
 
 	var t=setInterval(updateEnergy,1000);
@@ -25,11 +25,20 @@ $( document).ready(function(){
 function getEnergyAllocation(){
 	var ajax = new AjaxHelper("libraries/ajax");
 	ajax.loadVariables("ghost", {"energyAllocation": null}, function() {
+		//Update slides
 		document.getElementById('human').value = energyAllocation.human;
 		document.getElementById('power').value = energyAllocation.power;
 		document.getElementById('attack').value = energyAllocation.attack;
 		document.getElementById('intelligence').value = energyAllocation.intelligence;
 		document.getElementById('building').value = energyAllocation.building;
+
+		//update values
+		document.getElementById('valueHuman').innerHTML = energyAllocation.human;
+		document.getElementById('valuePower').innerHTML = energyAllocation.power;
+		document.getElementById('valueAttack').innerHTML = energyAllocation.attack;
+		document.getElementById('valueIntelligence').innerHTML = energyAllocation.intelligence;
+		document.getElementById('valueBuilding').innerHTML = energyAllocation.building;
+		
 	});
 
 }
@@ -48,7 +57,6 @@ function submitEnergyAllocation() {
 		var power = document.getElementById("power").value;
 		var intelligence = document.getElementById("intelligence").value;
 		var building = document.getElementById("building").value;
-		log(human);
 		if (!human) {human = "0";}
 		if (!attack) {attack = "0";}
 		if (!power) {power = "0";}
@@ -59,6 +67,7 @@ function submitEnergyAllocation() {
 		var ajax = new AjaxHelper("libraries/ajax");
 		ajax.call("updateEnergyAllocation", {"human":human , "attack": attack , "power": power, "intelligence":intelligence,"building":building}, function(){
 			document.getElementById("submit").innerHTML = "DONE";
+			//getEnergyAllocation();
 			});
 }
 

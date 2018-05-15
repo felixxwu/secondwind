@@ -58,6 +58,8 @@ function addToCombine(id) {
 
 //calls the relevant functions to combine two items and generate a new one
 function combineItems(){
+    document.getElementById("combine").innerHTML ='combining...';
+    document.getElementById("combine").disabled = true;
     document.getElementById("errorItems").innerHTML ='';
     var ajax = new AjaxHelper("libraries/ajax");
     ajax.call("combineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
@@ -67,6 +69,8 @@ function combineItems(){
             itemList.removeChild(itemList.firstChild);
         }
        updateItemsList();
+       document.getElementById("combine").disabled = false;
+       document.getElementById("combine").innerHTML ='Combine Items';
     })
 }
 

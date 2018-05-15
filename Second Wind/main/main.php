@@ -1,4 +1,10 @@
 <?
+
+//THIS FILE CAN BE DELETED##############
+
+
+
+
 //update energy input boxes with their respective allocations
 function getEnergyAllocation(){
 	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
@@ -36,6 +42,7 @@ function getEnergyAllocation(){
   </div>
   <div class="item3">
     <div id="pablotests"></div>
+    <h3>Energy Values</h3>
     <div id="energytest">
       <table>
         <tr>
@@ -47,25 +54,36 @@ function getEnergyAllocation(){
         </tr>
       </table>
     </div>
-    <table>
-      <tr>
-        <td>
-          <input id="human" oninput="doneAllocation()" type="number" value="0"/>
-        </td>
-        <td>
-          <input id="attack" oninput="doneAllocation()" type="number" value="0"/>
-        </td>
-        <td>
-          <input id="power" oninput="doneAllocation()" type="number" value="0"/>
-        </td>
-        <td>
-          <input id="intelligence" oninput="doneAllocation()" type="number" value="0"/>
-        </td>
-        <td>
-          <input id="building" oninput="doneAllocation()" type="number" value="0"/>
-        </td>
-      </tr>
-    </table>
+    <h3>Energy Alocation</h3>
+    <p class="energyTitle">Human</p>
+    <div class="slidecontainer">
+      <input class="slider" id="human" type="range" min="-20" max="20" value="0"/>
+    </div>
+    <div class="demo" id="valueHuman"> </div>
+    <p></p>
+    <p class="energyTitle">Attack</p>
+    <div class="slidecontainer">
+      <input class="slider" id="attack" type="range" min="-20" max="20" value="0"/>
+    </div>
+    <div class="demo" id="valueAttack"> </div>
+    <p></p>
+    <p class="energyTitle">Power</p>
+    <div class="slidecontainer">
+      <input class="slider" id="power" type="range" min="-20" max="20" value="0"/>
+    </div>
+    <div class="demo" id="valuePower"> </div>
+    <p></p>
+    <p class="energyTitle">Intelligence </p>
+    <div class="slidecontainer">
+      <input class="slider" id="intelligence" type="range" min="-20" max="20" value="0"/>
+    </div>
+    <div class="demo" id="valueIntelligence"></div>
+    <p></p>
+    <p class="energyTitle">Building</p>
+    <div class="slidecontainer">
+      <input class="slider" id="building" type="range" min="-20" max="20" value="0"/>
+    </div>
+    <div class="demo" id="valueBuilding"></div>
     <button id="submit" onclick="submitEnergyAllocation()" style="display: none;">DONE</button>
     <div id="confirmMessage"></div>
     <itemList id="itemList"></itemList>
@@ -79,6 +97,8 @@ function getEnergyAllocation(){
   </div>
   <div class="item5"><a onclick="logout()">logout</a></div>
   <update>
+    <script>getEnergyAllocation();</script>
     <script>updateItemsList();</script>
+    <script>setupSliders();</script>
   </update>
 </div>

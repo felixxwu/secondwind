@@ -2,7 +2,7 @@
 
 html * { font-family: 'Quicksand', sans-serif !important; }
 
-.menuSolid { background-color: #222222; }
+.menuSolid, .loginButton, .loginInput { background-color: #222222; }
 
 .textWhite { color: #dddddd; }
 

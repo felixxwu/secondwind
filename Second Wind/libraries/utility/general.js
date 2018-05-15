@@ -5,7 +5,7 @@ function log(log) {
 }
 
 function link(id, keycode, action) {
-    $("#" + id).keyup(function(event) {
+    $("#" + id).keyup(function (event) {
         if (event.keyCode === keycode) {
             action();
         }

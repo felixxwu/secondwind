@@ -7,6 +7,12 @@ include "../database/databaseFunctions.php";
 
 $username = $_POST["username"];
 $password = $_POST["password"];
+
+if (!$username || !$password) {
+    echo "<meta http-equiv='refresh' content='0; url=login' />";
+    return;
+}
+
 $page = $_POST["page"];
 unset($_POST["username"]);
 unset($_POST["password"]);

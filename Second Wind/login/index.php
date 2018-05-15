@@ -14,7 +14,7 @@
         <error class="loginContent" id="message"><em><?=$_GET["message"]?></em></error>
         <user1 class="loginContent">Username:</user1>
         <user2 class="loginContent">
-          <input class="loginInput textWhite" id="username" type="text"/>
+          <input class="loginInput textWhite" id="username" type="text" spellcheck="false"/>
         </user2>
         <pass1 class="loginContent">Password:</pass1>
         <pass2 class="loginContent">

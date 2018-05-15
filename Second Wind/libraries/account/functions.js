@@ -10,3 +10,11 @@ function logout() {
     clearLoginDetails();
     window.location.reload();
 }
+
+function saveUsername(username) {
+    localStorage.setItem(usernameLabel, username);
+}
+
+function savePassword(password) {
+    localStorage.setItem(passwordLabel, password);
+}

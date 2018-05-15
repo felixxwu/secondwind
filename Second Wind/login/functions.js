@@ -2,14 +2,14 @@
 
 // requires libraries/account/functions.js
 
-window.onload = function() {
+window.onload = function () {
     element("username").focus();
-    
+
     // link the enter button to these input boxes
-    link("username", 13, function() {
+    link("username", 13, function () {
         $("#login").click();
     });
-    link("password", 13, function() {
+    link("password", 13, function () {
         $("#login").click();
     });
 
@@ -27,12 +27,4 @@ function login() {
         savePassword(password);
         window.location.href = "../";
     }
-}
-
-function saveUsername(username) {
-    localStorage.setItem(usernameLabel, username);
-}
-
-function savePassword(password) {
-    localStorage.setItem(passwordLabel, password);
 }

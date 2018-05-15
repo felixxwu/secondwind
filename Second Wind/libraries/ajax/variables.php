@@ -1,4 +1,5 @@
 <?php
+
 include "../database/databaseFunctions.php";
 
 // here are all the "definitions" for the variables, which can be accessed from ajax.loadVariable
@@ -59,6 +60,21 @@ function variableWithArgExample($arg) {
 
 function variableMultipleArgsExample($arg1, $arg2) {
     return array($arg1, $arg2);
+}
+
+function message($username) {
+    if (!$username) {
+        return "";
+    }
+
+    // checks if the username already exists
+    if (sqlSelect("users","*","`username` = '" . $username . "'","`username`")) {
+        // user exists
+        return "username already taken";
+    } else {
+        // user doesnt
+        return "username is available";
+    }
 }
 
 ?>

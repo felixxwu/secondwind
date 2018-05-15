@@ -91,13 +91,14 @@ function getEnergyAllocation(){
         <div id="confirmMessage"></div>
         <itemList id="itemList"></itemList>
         <div id="testItems"></div>
-        <button id="combine" onclick="combineItems()">Combine items
-          <div id="errorItems"></div>
-        </button>
+        <button id="combine" onclick="combineItems()">Combine items</button>
+        <div id="errorItems"></div>
       </div>
     </div>
-    <div id="island"><a onclick="show('energies','fadeInUp', 1)">
-        <div class="townhall"></div></a></div>
+    <div id="island">
+      <div>hey</div><img id="islandrock" src="images/rock.svg"/>
+      <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"> </a></div>
+    </div>
   </div>
   <div class="item4">
     <div>analytics</div>

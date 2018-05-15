@@ -5,7 +5,7 @@
     grid-template-rows: 100px  auto  50px;
     height:100%;
     width: 100%;
-    background-image: url(../images/mountain_dark.svg);
+    background-image: url(../images/background.svg);
     background-repeat: no-repeat;
     background-size: 115%;
     background-position: calc(50% + 50px) 44%;
@@ -35,27 +35,19 @@ body{
     
     height:calc(82vh - 100px); 
     width:80%;
-    animation: floating 3.5s infinite;
+   
     position: relative;
     top: 0;
     
 }
 
-  /* floating animation */
-  @keyframes floating {
-    from, to {
-      top: 0;
-      animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
-      background: rgb(177, 177, 177);
-    }
-    50% {
-      top: 20px;
-      background: rgb(236, 236, 236);
-      animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
-    }
-  }
+ .absolute{
+     z-index: 3;
+     background-color: rgba(0, 0, 0, 0.281);
+ }
 
 .userLevel{
+    z-index:4;
     grid-area: 1 / 3 / 2 / 4;
     border-width: 4px;
     border-radius:100%;

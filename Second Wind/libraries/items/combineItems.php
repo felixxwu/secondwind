@@ -1,25 +1,24 @@
 <?
-global $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies,$sumEnergies,$level,$ratio,$newItem,$newItemAmount;
-
-function testItems(){
-    echo("<script>console.log('$el1');</script>");
-   // global $el1, $el2, $level1, $level2, $el1Result, $el2Result;
-  // //get amount of el1 and el2
-  // $el1Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el1."' and Level =".$level1,"amount");
-  // $el2Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el2."' and Level =".$level2,"amount");
+function getAmounts(){
+   global $el1, $el2, $level1, $level2, $el1Result, $el2Result;
+  //get amount of el1 and el2
+   $el1Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el1."' and Level =".$level1,"amount");
+   $el2Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el2."' and Level =".$level2,"amount");
+  
 }
 
 function enoughItems(){ //checks if there are enough of the items to combine them
     global $el1, $el2, $level1, $level2, $el1Result, $el2Result;
     //this accounts for the case in which you are trying to combine one item with itself but you only have 1
     if($el1==$el2&$level1==$level2&$el1Result[0]['amount']==1){
-      echo("you dont have enough items!");
+      echo("<script>notEnoughItems()</script>");
+     
       exit;
     }
   
     //this account for the case in which you don't have enough items
     if($el1Result[0]['amount']<1 or $el2Result[0]['amount']<1){
-      echo("you dont have enough items!");
+      echo("<script>notEnoughItems()</script>");
       exit;
     }
   }
@@ -39,8 +38,8 @@ function enoughItems(){ //checks if there are enough of the items to combine the
     sqlUpdate("usersItems", "username='test' and item = '".$el2."' and Level=".$level2,'amount', $el2Amount);
   
     //updates with new quantities
-    echo("<script>refreshItems();</script>");
-    echo($el2amount);
+    //echo("<script>refreshItems();</script>");
+    
   }
 
   function getEnergyValues(){ //gets the energy values corresponding to el1 and el2

@@ -1,5 +1,5 @@
 <?
-//retrieves energy allocation values from database
+//update energy input boxes with their respective allocations
 function getEnergyAllocation(){
 	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
 	if (!$resourceAlloc) {
@@ -27,7 +27,6 @@ function getEnergyAllocation(){
 		</script>");
 }
 ?>
-<link rel="stylesheet" href="main/mainStyle.css"/>
 <div class="grid-container">
   <div class="item1"></div>
   <div class="userLevel"></div>
@@ -69,7 +68,7 @@ function getEnergyAllocation(){
     </table>
     <button id="submit" onclick="submitEnergyAllocation()" style="display: none;">DONE</button>
     <div id="confirmMessage"></div>
-    <itemList></itemList>
+    <itemList id="itemList"></itemList>
     <div id="testItems"></div>
     <button id="combine" onclick="combineItems()">Combine items</button>
     <div id="errorItems"></div>

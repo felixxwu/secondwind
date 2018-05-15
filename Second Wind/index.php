@@ -1,37 +1,10 @@
-<?
-//retrieves energy allocation values from database
-function getEnergyAllocation(){
-	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
-	if (!$resourceAlloc) {
-		$humanAlloc = "0";
-		$powerAlloc = "0";
-		$attackAlloc = "0";
-		$intelAlloc = "0";
-		$buildAlloc = "0";
-	} else {
-		$humanAlloc = $resourceAlloc["human"];
-		$powerAlloc = $resourceAlloc["power"];
-		$attackAlloc = $resourceAlloc["attack"];
-		$intelAlloc = $resourceAlloc["intelligence"];
-		$buildAlloc = $resourceAlloc["building"];
-	}
 
-//initializes the energy allocation values in the input boxes
-	echo("
-		<script> var energyAllocations = ".json_encode($resourceAlloc, JSON_PRETTY_PRINT).";
-		document.getElementById('human').value = energyAllocations.human;
-		document.getElementById('power').value = energyAllocations.power;
-		document.getElementById('attack').value = energyAllocations.attack;
-		document.getElementById('intelligence').value = energyAllocations.intelligence;
-		document.getElementById('building').value = energyAllocations.building;
-		</script>");
-}
-?>
 <html>
   <head>
     <title>Second Wind</title>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/mainStyle.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="libraries/ajax/AjaxHelper.js"></script>
@@ -39,9 +12,8 @@ function getEnergyAllocation(){
     <script src="libraries/account/secureLoad.js"></script>
     <script src="libraries/utility/general.js"></script>
     <script src="libraries/utility/animation.js"></script>
-    <script src="main/js_functions/energy.js"></script>
-    <script src="main/js_functions/items.js"></script>
-    <script src="main/js_functions/energy.js"></script>
+    <script src="libraries/energy/energy.js"></script>
+    <script src="libraries/items/items.js"></script>
   </head>
   <body>
     <div id="ghost"> </div>

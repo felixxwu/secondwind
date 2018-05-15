@@ -1,6 +1,10 @@
 
-//code to load items
+//########################################################################################################
+// ##   Functions and code related to item managament. Updating item lists, combining items...  ##########
+//########################################################################################################
 
+
+//Updates the item list
 function updateItemsList(){
     var ajax = new AjaxHelper("libraries/ajax");
     ajax.loadVariables("pablotests", {"itemList": null}, function() {
@@ -12,7 +16,6 @@ function updateItemsList(){
 		    button.innerHTML = (itemList[i].item).concat('_',itemList[i].Level,' x'.concat(itemList[i].amount));
 		    // 2. Append somewhere
             var body = document.getElementsByTagName("itemList")[0];
-            log(body);
 		    body.appendChild(button);
 		    // 3. Add event handler
 		    button.addEventListener('click', function(){
@@ -23,14 +26,13 @@ function updateItemsList(){
         })
 }
 
-var items = null;
-//vars that stores the elements to combine
+//vars that store the elements to be combined
 var el1, el2 = null; //items to be combined
 var level1, level2 = null; //level of the items to be combined
 var nextEl = "el1"; //stores the last item updated
 
-//updates el1,el2 so they hold the items that need to be combined
-function addToCombine(id) { //FIFO using el1 and el2 to store combination of elemnt
+//adds the item with id to the combine queue (FIFO using el1,el2)
+function addToCombine(id) { 
     //id: name and level separated by *
     var split = id.split('*');
     var name = split[0];
@@ -54,14 +56,21 @@ function addToCombine(id) { //FIFO using el1 and el2 to store combination of ele
     document.getElementById("testItems").innerHTML = el1.concat(" will be combined with ").concat(el2);
 }
 
-
-
-//combines el1 and el2 to create a new item
+//calls the relevant functions to combine two items and generate a new one
 function combineItems(){
+    document.getElementById("errorItems").innerHTML ='';
     var ajax = new AjaxHelper("libraries/ajax");
     ajax.call("combineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
-       // updateItemsList();
+        //removes list of current items
+        var itemList = document.getElementById("itemList");
+        while (itemList.firstChild) {
+            itemList.removeChild(itemList.firstChild);
+        }
+       updateItemsList();
     })
-    
-// USE CALL TO UPDATE DATABASE ABOUT COMBINEITEMS AND THEN REFRESH ITEM LIST
+}
+
+//display error messages when a combination doesn't have enough items
+function notEnoughItems(){
+    document.getElementById("errorItems").innerHTML = "Sorry babe you don't have enough of one of the items (this message will be improved to say which item in the future";
 }

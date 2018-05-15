@@ -18,11 +18,17 @@
   </head>
   <body>
     <div id="ghost"> </div>
-    <div id="testbox">hello, I am content</div><a onclick="show('main','slideInDown',0.5)">
-      <button>show</button></a><a onclick="hide('main','fadeOutDown',0.5)">
-      <button>hide</button></a>
+    <div id="loading">
+      <text>loading...</text>
+    </div>
     <div id="main"></div>
-    <script>secureLoad("main","main/main.php");</script>
+    <script>
+      secureLoad("main", "main/main.php", undefined, function() {
+          hide("loading","fadeOut", 0.5);
+      });
+      
+      
+    </script>
     <script>
       function getFive() {
           var ajax = new AjaxHelper("libraries/ajax");

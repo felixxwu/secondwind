@@ -33,6 +33,11 @@ echo "</script>";
 
 // add variables here...
 
+
+function energyAllocation(){
+    $resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
+	return $resourceAlloc;
+}
 function itemList(){
     $result = sqlSelect('usersItems','item,amount,Level',"username='test'",'item');
     

@@ -6,6 +6,7 @@
 
 //updates energy values every second
 $( document).ready(function(){
+	getEnergyAllocation();
 	var ajax = new AjaxHelper("libraries/ajax");
 
 	var t=setInterval(updateEnergy,1000);
@@ -20,7 +21,18 @@ $( document).ready(function(){
 		);
 	}
 });
+//called at load to get the current values for allocated energy
+function getEnergyAllocation(){
+	var ajax = new AjaxHelper("libraries/ajax");
+	ajax.loadVariables("ghost", {"energyAllocation": null}, function() {
+		document.getElementById('human').value = energyAllocation.human;
+		document.getElementById('power').value = energyAllocation.power;
+		document.getElementById('attack').value = energyAllocation.attack;
+		document.getElementById('intelligence').value = energyAllocation.intelligence;
+		document.getElementById('building').value = energyAllocation.building;
+	});
 
+}
 //updates the display of submit allocation button
 function doneAllocation() {
     document.getElementById("submit").style.display = "block";
@@ -48,7 +60,5 @@ function submitEnergyAllocation() {
 		ajax.call("updateEnergyAllocation", {"human":human , "attack": attack , "power": power, "intelligence":intelligence,"building":building}, function(){
 			document.getElementById("submit").innerHTML = "DONE";
 			});
-		
-   
 }
 

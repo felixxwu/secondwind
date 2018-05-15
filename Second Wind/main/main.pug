@@ -19,7 +19,6 @@ include ../libraries/energy/energy.php
                     td#intelligenceEnergy
                     td#buildingEnergy
         table
-            
             tr
                 td
                     input#human(oninput='doneAllocation()', type='number' value='0')
@@ -43,7 +42,7 @@ include ../libraries/energy/energy.php
     .item5
         a(onclick='logout()') logout
     update
-        |<?php getEnergyAllocation() ?>
+        //- |<?php getEnergyAllocation() ?>
         script updateItemsList();
     
         

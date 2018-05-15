@@ -78,7 +78,7 @@ function getEnergyAllocation(){
     <div class="notification_box"></div>
   </div>
   <div class="item5"><a onclick="logout()">logout</a></div>
-  <update><?php getEnergyAllocation() ?>
+  <update>
     <script>updateItemsList();</script>
   </update>
 </div>

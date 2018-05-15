@@ -6,7 +6,7 @@
 
 // Initialise a new AjaxHelper 
 // var ajax = new AjaxHelper("path");
-// "path" is the relative filepath to this file 
+// "path" is the relative filepath to this directory 
 
 // USAGE ###############################################################
 
@@ -45,7 +45,7 @@ class AjaxHelper {
         this.path = path;
 
         this.load = function (id, page, args, callback) {
-            console.log("loading " + page + " into #" + id + " with args: ", args);
+            //console.log("loading " + page + " into #" + id + " with args: ", args);
 
             if (this.countID(id) != 1) {
                 console.warn("there are " + this.countID(id) + " number of elements with ID: " + id);

@@ -1,4 +1,5 @@
 <?php
+include "../database/databaseFunctions.php";
 
 // here are all the "definitions" for the variables, which can be accessed from ajax.loadVariable
 // in any of these definition functions below, simply return the value that you want to be echo'ed into javascript
@@ -31,10 +32,16 @@ echo "</script>";
 
 // add variables here...
 
+function itemList(){
+    $result = sqlSelect('usersItems','item,amount,Level',"username='test'",'item');
+    
+    return $result;
+}
+
 function energies(){
-    databaseConnect();
     $rows = 'human, attack, power, intelligence, building';
     $query = sqlSelect('energy',$rows,"username='test'","`username`")[0];
+ 
     return $query;
 
 }

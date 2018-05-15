@@ -1,5 +1,6 @@
 
 include php_functions/energy.php
+
 link(rel="stylesheet" href="main/mainStyle.css")
 .grid-container
    
@@ -9,24 +10,31 @@ link(rel="stylesheet" href="main/mainStyle.css")
         div  notifications 
         .notification_box
     .item3
+        #pablotests
         div#energytest
+            table
+                tr
+                    td#humanEnergy
+                    td#attackEnergy
+                    td#powerEnergy
+                    td#intelligenceEnergy
+                    td#buildingEnergy
         table
-            #energies
+            
             tr
-            td
-                input#human(oninput='doneAllocation()', type='number' value='0')
-            td
-                input#attack(oninput='doneAllocation()', type='number', value='0')
-            td
-                input#power(oninput='doneAllocation()', type='number', value='0')
-            td
-                input#intel(oninput='doneAllocation()', type='number', value='0')
-            td
-                input#build(oninput='doneAllocation()', type='number', value='0')
-        button#submit(onclick='submitAllocation()', style='display: none;') DONE
+                td
+                    input#human(oninput='doneAllocation()', type='number' value='0')
+                td
+                    input#attack(oninput='doneAllocation()', type='number', value='0')
+                td
+                    input#power(oninput='doneAllocation()', type='number', value='0')
+                td
+                    input#intelligence(oninput='doneAllocation()', type='number', value='0')
+                td
+                    input#building(oninput='doneAllocation()', type='number', value='0')
+        button#submit(onclick='submitEnergyAllocation()', style='display: none;') DONE
         #confirmMessage
-        #itemList
-        items#items
+        itemList
         #testItems
         button#combine(onclick='combineItems()') Combine items
         #errorItems
@@ -35,5 +43,8 @@ link(rel="stylesheet" href="main/mainStyle.css")
         .notification_box
     .item5
         a(onclick='logout()') logout
-        #ghost 
-            |<?php getEnergyAllocation() ?>
+    update
+        |<?php getEnergyAllocation() ?>
+        script updateItemsList();
+    
+        

@@ -1,13 +1,10 @@
 <?php
-<<<<<<< HEAD
 include "../database/databaseFunctions.php";
-=======
 
 // here are all the "definitions" for the variables, which can be accessed from ajax.loadVariable
 // in any of these definition functions below, simply return the value that you want to be echo'ed into javascript
 // this can then be used in the js callback function, or other places for use
 
->>>>>>> cf2b669516eda869f48eadbec2b917deac333aee
 echo "<script>\n";
 
 // get the key (variables names) and values (arguments) from each POST element

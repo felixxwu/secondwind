@@ -11,7 +11,7 @@
     grid-template-rows: 100px  1fr  50px;
 }
 body{
-    color: rgb(92, 92, 92);
+    color: rgb(255, 255, 255);
     margin:0;
 }
 .grid-container > div {

@@ -50,14 +50,18 @@ function addToCombine(id) { //FIFO using el1 and el2 to store combination of ele
     if(el2!=null){
         combine.style.display = 'block';
     }
-
-//displays the two elements that will be combined
-document.getElementById("testItems").innerHTML = el1.concat(" will be combined with ").concat(el2);
+    //displays the two elements that will be combined
+    document.getElementById("testItems").innerHTML = el1.concat(" will be combined with ").concat(el2);
 }
 
 
 
 //combines el1 and el2 to create a new item
 function combineItems(){
+    var ajax = new AjaxHelper("libraries/ajax");
+    ajax.call("combineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
+       // updateItemsList();
+    })
+    
 // USE CALL TO UPDATE DATABASE ABOUT COMBINEITEMS AND THEN REFRESH ITEM LIST
 }

@@ -1,13 +1,17 @@
 <?php
-//global $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies,$sumEnergies,$level,$ratio,$newItem,$newItemAmount;
+global $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies,$sumEnergies,$level,$ratio,$newItem,$newItemAmount;
+$params = decodeAjaxParam($a[1]);
+$el1 = $params[0]; //element1
+$level1 = $params[1]; //ratio multiplyer
+$el2 = $params[2]; //elemen2
+$level2= $params[3]; //ratio multiplyer
 
 //functions
 function getAmounts(){
-  echo("<script>console.log('items');</script>");
-  // global $el1, $el2, $level1, $level2, $el1Result, $el2Result;
-  // //get amount of el1 and el2
-  // $el1Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el1."' and Level =".$level1,"amount");
-  // $el2Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el2."' and Level =".$level2,"amount");
+  global $el1, $el2, $level1, $level2, $el1Result, $el2Result;
+  //get amount of el1 and el2
+  $el1Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el1."' and Level =".$level1,"amount");
+  $el2Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el2."' and Level =".$level2,"amount");
 
 } //get amount of el1 and el2
 function enoughItems(){ //checks if there are enough of the items to combine them
@@ -136,11 +140,20 @@ function newItem(){ //creates/updates the new/existing item's quantity with rati
     $newItemAmount = $newItemResult['amount']+1;
     sqlUpdate("usersItems", "username='test' and item = '".$newItem."' and Level = '".$level."'",'amount', $newItemAmount);
   }
+
+  //refreshes itemList once queries finished.
+  echo("<script>refreshItems();</script>");
 }
 
 //needs to implement user as a variable
 
-
+getAmounts();
+enoughItems();
+subtractQuantities();
+getEnergyValues();
+newEnergyValues();
+newRatio();
+newItem();
 
 
 ?>

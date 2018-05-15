@@ -54,7 +54,7 @@ function getEnergyAllocation(){
         </tr>
       </table>
     </div>
-    <h3>Energy Alocation</h3>
+    <h3>Energy Allocation</h3>
     <p class="energyTitle">Human</p>
     <div class="slidecontainer">
       <input class="slider" id="human" type="range" min="-20" max="20" value="0"/>

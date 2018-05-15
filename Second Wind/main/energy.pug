@@ -1,0 +1,37 @@
+h3 Energy Values
+div#energytest
+            table
+                tr
+                    td#humanEnergy
+                    td#attackEnergy
+                    td#powerEnergy
+                    td#intelligenceEnergy
+                    td#buildingEnergy
+h3 Energy Allocation
+p.energyTitle Human
+div.slidecontainer
+    input.slider#human(type="range",min="-20", max="20",value="0")
+div.demo#valueHuman  
+p
+p.energyTitle Attack
+div.slidecontainer
+    input.slider#attack(type="range",min="-20", max="20",value="0")
+div.demo#valueAttack  
+p
+p.energyTitle Power
+div.slidecontainer
+    input.slider#power(type="range",min="-20", max="20",value="0")
+div.demo#valuePower 
+p
+p.energyTitle Intelligence 
+div.slidecontainer
+    input.slider#intelligence(type="range",min="-20", max="20",value="0")
+div.demo#valueIntelligence
+p
+p.energyTitle Building
+div.slidecontainer
+    input.slider#building(type="range",min="-20", max="20",value="0")
+div.demo#valueBuilding
+
+button#submit(onclick='submitEnergyAllocation()', style='display: none;') DONE
+#confirmMessage

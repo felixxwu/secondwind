@@ -1,4 +1,5 @@
 <?php
+
 include "../database/databaseFunctions.php";
 
 // here are all the "definitions" for the variables, which can be accessed from ajax.loadVariable

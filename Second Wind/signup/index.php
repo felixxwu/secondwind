@@ -37,6 +37,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="../libraries/ajax/AjaxHelper.js"></script>
     <script src="../libraries/utility/general.js"></script>
+    <script src="../libraries/account/functions.js"></script>
     <script src="functions.js"></script>
   </body>
 </html>

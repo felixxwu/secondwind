@@ -15,11 +15,34 @@ window.onload = function () {
     });
 }
 
-function checkUserExists() {
+function signup() {
     let username = element("username").value;
+    let email = element("email").value;
+    let password = element("password").value;
+    element("message").innerHTML = "signing up...";
     let ajax = new AjaxHelper("../libraries/ajax");
-    ajax.loadVariables("ghost", { "message": username }, function () {
-        element("message").innerHTML = message;
-        console.log(message);
+    ajax.load("message", "signup.php", {
+        "username": username,
+        "email": email,
+        "password": password
     });
+}
+
+var timeout;
+
+function checkUserExists() {
+    // timeout lets you delay a function, cleartimeout cancels the previous timeouts which means you can renew the timer
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+        let username = element("username").value;
+        console.log("start " + username);
+        let ajax = new AjaxHelper("../libraries/ajax");
+        ajax.loadVariables("ghost", { "message": username }, function () {
+            element("message").innerHTML = message;
+            console.log("done  " + username);
+            if (element("username").value != username) {
+                checkUserExists();
+            }
+        });
+    }, 500);
 }

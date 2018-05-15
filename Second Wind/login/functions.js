@@ -28,11 +28,3 @@ function login() {
         window.location.href = "../";
     }
 }
-
-function saveUsername(username) {
-    localStorage.setItem(usernameLabel, username);
-}
-
-function savePassword(password) {
-    localStorage.setItem(passwordLabel, password);
-}

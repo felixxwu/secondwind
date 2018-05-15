@@ -1,5 +1,7 @@
 <?php
 
+include "../libraries/database/databaseFunctions.php";
+
 $username = $_POST["username"];
 $email = $_POST["email"];
 $password = $_POST["password"];
@@ -7,9 +9,7 @@ $password = $_POST["password"];
 // check if any users already have this username
 if (sqlSelect("users","*","`username` = '" . $username . "'", "`username`")) {
     // error
-    echo "<script>
-    element('message').innerHTML = 'this username has already been taken';
-    </script>";
+    echo "this username has already been taken";
 } else {
     $hash = password_hash($password, PASSWORD_DEFAULT);
 	sqlInsert("users", $username, $hash, $email);

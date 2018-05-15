@@ -4,6 +4,7 @@
 // if they do not match, the site will not be served, and a redirect to the login page will be served instead
 
 include "../database/databaseFunctions.php";
+include "../utility/general.php";
 
 $username = $_POST["username"];
 $password = $_POST["password"];

@@ -1,5 +1,6 @@
 var usernameLabel = "secondwind-username";
 var passwordLabel = "secondwind-password";
+var IDLabel = "secondwind-id";
 
 function clearLoginDetails() {
     localStorage.removeItem(usernameLabel);
@@ -17,4 +18,12 @@ function saveUsername(username) {
 
 function savePassword(password) {
     localStorage.setItem(passwordLabel, password);
+}
+
+function getUsername() {
+    return localStorage.getItem(usernameLabel);
+}
+
+function getPassword() {
+    return localStorage.getItem(passwordLabel);
 }

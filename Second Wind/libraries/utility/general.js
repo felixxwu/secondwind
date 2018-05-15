@@ -20,11 +20,3 @@ function element(id) {
 function classes(id) {
     return document.getElementsByClassName(id);
 }
-
-function getUsername() {
-    return localStorage.getItem(usernameLabel);
-}
-
-function getPassword() {
-    return localStorage.getItem(passwordLabel);
-}

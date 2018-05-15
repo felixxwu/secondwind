@@ -42,7 +42,6 @@
 .loginContent { padding: 10px; }
 
 .loginButton {
-	background-color: #ffffff00;
 	border: solid;
 	border-color: #ffffff;
 	border-width: 1;
@@ -51,7 +50,6 @@
 }
 
 .loginInput {
-	background-color: #ffffff00;
 	border: none;
 	border-bottom: solid;
 	border-bottom-color: grey;

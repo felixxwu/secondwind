@@ -12,10 +12,10 @@
         <cardhead>
           <h3>Sign Up</h3>
         </cardhead>
-        <error class="loginContent" id="error"><em><?=$error?></em></error>
+        <error class="loginContent" id="message"><em><?=$_GET["message"]?></em></error>
         <user1 class="loginContent">Username:</user1>
         <user2 class="loginContent">
-          <input class="loginInput textWhite" id="username" type="text" oninput="loadP('error','checkUserExists',element('username').value)"/>
+          <input class="loginInput textWhite" id="username" type="text" oninput="checkUserExists()"/>
         </user2>
         <email1 class="loginContent">Email:</email1>
         <email2 class="loginContent">
@@ -33,5 +33,10 @@
       </div>
     </div>
     <div id="ghost"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../libraries/ajax/AjaxHelper.js"></script>
+    <script src="../libraries/utility/general.js"></script>
+    <script src="functions.js"></script>
   </body>
 </html>

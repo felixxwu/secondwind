@@ -43,7 +43,7 @@ function show(id, type, duration) {
         element(id).classList.add(type);
     }
     if (duration) {
-        element(id).setAttribute("style","-webkit-animation-duration: " + duration + "s;");
+        element(id).setAttribute("style", "-webkit-animation-duration: " + duration + "s;");
     }
     element(id).style.display = "block";
 }
@@ -68,9 +68,9 @@ function hide(id, type, duration) {
         element(id).classList.add(type);
     }
     if (duration) {
-        element(id).setAttribute("style","-webkit-animation-duration: " + duration + "s;");
+        element(id).setAttribute("style", "-webkit-animation-duration: " + duration + "s;");
     }
-    setTimeout(function(){
+    setTimeout(function () {
         element(id).style.display = "none";
     }, duration * 1000);
 }

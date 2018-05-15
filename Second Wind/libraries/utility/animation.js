@@ -25,6 +25,12 @@ var types = [
 
 function show(id, type, duration) {
     console.log("showing: " + id);
+
+    // if the element is already showing, do nothing
+    if (element(id).style.display != "none") {
+        return;
+    }
+    
     // remove all animate.css classes
     for (let i = 0; i < types.length; i++) {
         element(id).classList.remove(types[i]);
@@ -50,6 +56,12 @@ function show(id, type, duration) {
 
 function hide(id, type, duration) {
     console.log("hiding: " + id);
+
+    // if the element is already hidden, do nothing    
+    if (element(id).style.display == "none") {
+        return;
+    }
+    
     // remove all animate.css classes
     for (let i = 0; i < types.length; i++) {
         element(id).classList.remove(types[i]);

@@ -1,5 +1,5 @@
 <?
-//retrieves energy allocation values from database
+//update energy input boxes with their respective allocations
 function getEnergyAllocation(){
 	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
 	if (!$resourceAlloc) {

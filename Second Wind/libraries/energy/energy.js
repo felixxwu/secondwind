@@ -1,8 +1,14 @@
 
+//########################################################################################################################
+// ##   Functions and code related to energy managament. Allocating energy values, refreshing energy values...  ##########
+//########################################################################################################################
 
+
+//updates energy values every second
 $( document).ready(function(){
+	getEnergyAllocation();
 	var ajax = new AjaxHelper("libraries/ajax");
-	//updates energy every second
+
 	var t=setInterval(updateEnergy,1000);
 	function updateEnergy(){
 		ajax.loadVariables("ghost", {"energies": null}, function() {
@@ -13,12 +19,20 @@ $( document).ready(function(){
 			document.getElementById('buildingEnergy').innerHTML = energies.building;
 		}
 		);
-}
+	}
 });
+//called at load to get the current values for allocated energy
+function getEnergyAllocation(){
+	var ajax = new AjaxHelper("libraries/ajax");
+	ajax.loadVariables("ghost", {"energyAllocation": null}, function() {
+		document.getElementById('human').value = energyAllocation.human;
+		document.getElementById('power').value = energyAllocation.power;
+		document.getElementById('attack').value = energyAllocation.attack;
+		document.getElementById('intelligence').value = energyAllocation.intelligence;
+		document.getElementById('building').value = energyAllocation.building;
+	});
 
-
- 
-
+}
 //updates the display of submit allocation button
 function doneAllocation() {
     document.getElementById("submit").style.display = "block";
@@ -28,6 +42,7 @@ function doneAllocation() {
 function submitEnergyAllocation() {
 		document.getElementById("submit").innerHTML = "submitting...";
 
+		//stores the energy values in the following variables
 		var human = document.getElementById("human").value;
 		var attack = document.getElementById("attack").value;
 		var power = document.getElementById("power").value;
@@ -40,11 +55,10 @@ function submitEnergyAllocation() {
 		if (!intelligence) {intelligence = "0";}
         if (!building) {building = "0";}
 		
+		//submit the energy allocation
 		var ajax = new AjaxHelper("libraries/ajax");
 		ajax.call("updateEnergyAllocation", {"human":human , "attack": attack , "power": power, "intelligence":intelligence,"building":building}, function(){
 			document.getElementById("submit").innerHTML = "DONE";
 			});
-		
-   
 }
 

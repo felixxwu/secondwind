@@ -1,7 +1,6 @@
 
-include php_functions/energy.php
+include ../libraries/energy/energy.php
 
-link(rel="stylesheet" href="main/mainStyle.css")
 .grid-container
    
     .item1
@@ -20,7 +19,6 @@ link(rel="stylesheet" href="main/mainStyle.css")
                     td#intelligenceEnergy
                     td#buildingEnergy
         table
-            
             tr
                 td
                     input#human(oninput='doneAllocation()', type='number' value='0')
@@ -34,7 +32,7 @@ link(rel="stylesheet" href="main/mainStyle.css")
                     input#building(oninput='doneAllocation()', type='number', value='0')
         button#submit(onclick='submitEnergyAllocation()', style='display: none;') DONE
         #confirmMessage
-        itemList
+        itemList#itemList
         #testItems
         button#combine(onclick='combineItems()') Combine items
         #errorItems
@@ -44,7 +42,7 @@ link(rel="stylesheet" href="main/mainStyle.css")
     .item5
         a(onclick='logout()') logout
     update
-        |<?php getEnergyAllocation() ?>
+        //- |<?php getEnergyAllocation() ?>
         script updateItemsList();
     
         

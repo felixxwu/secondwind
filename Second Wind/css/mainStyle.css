@@ -31,32 +31,14 @@ body{
     
     height:calc(82vh - 100px); 
     width:80%;
-    animation: move-in-steps 3.5s infinite;
+    animation: floating 3.5s infinite;
     position: relative;
     top: 0;
     
 }
-  
 
-
-  .move-me {
-    display: inline-block;
-    padding: 20px;
-    color: white;
-    position: relative;
-    margin: 0 0 10px 0;
-  }
-  
-
-  
-  
-  body {
-    padding: 20px;
-  }
-  
-
-  
-  @keyframes move-in-steps {
+  /* floating animation */
+  @keyframes floating {
     from, to {
       top: 0;
       animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);

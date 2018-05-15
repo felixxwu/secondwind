@@ -1,4 +1,10 @@
 <?
+
+//THIS FILE CAN BE DELETED##############
+
+
+
+
 //update energy input boxes with their respective allocations
 function getEnergyAllocation(){
 	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];

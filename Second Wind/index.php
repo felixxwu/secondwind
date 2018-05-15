@@ -14,6 +14,7 @@
     <script src="libraries/utility/animation.js"></script>
     <script src="libraries/energy/energy.js"></script>
     <script src="libraries/items/items.js"></script>
+    <script src="libraries/slider/sliderdemo.js"></script>
   </head>
   <body>
     <div id="ghost"> </div>

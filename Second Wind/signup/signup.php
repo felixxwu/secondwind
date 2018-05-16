@@ -15,7 +15,7 @@ if (!validUsername($username)) {
     echo "this username has already been taken";
 } else {
     $hash = password_hash($password, PASSWORD_DEFAULT);
-    sqlInsert("users", "NULL", $username, $hash, $email);
+    sqlInsert("users", $username, $hash, $email);
     $id = sqlSelectSingle("users","`username` = '$username'","id");
 	echo "<script>
 	saveUsername('" . $username . "');

@@ -1,7 +1,7 @@
 .notificationLayout {
     position: absolute;
     display: grid;
-    grid-template-columns: 250px auto;
+    grid-template-columns: 350px auto;
     grid-template-rows: 100px auto;
     grid-template-areas:    ". ."
                             "notifications .";
@@ -12,19 +12,22 @@
 }
 
 .notificationLayout .notifications {
-    grid-area: notifications;
-    /* border: solid rgb(0, 0, 0, 0.2) 1px; */
-    /* box-shadow: 0px 2px 8px 0px black; */
-    /* border-right: solid 1px white; */
-    /* background-color: rgba(0, 0, 0, 0); */
-    margin-left: 10px;
     pointer-events: all;
+    grid-area: notifications;
     text-align: center;
-    overflow-y: scroll;
-    overflow-x: auto;
+    margin-top: 50px;
+    padding-left: 10px;
+    padding-right: 100px;
+    padding-bottom: 150px;
+    overflow: scroll;
 }
 
-.notificationLayout .notifications::-webkit-scrollbar { 
+.notificationLayout .notifications > .title {
+    position: absolute;
+    transform: translate(0px, -60px);
+}
+
+.notificationLayout .notifications::-webkit-scrollbar {
     display: none; 
 }
 

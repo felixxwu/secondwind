@@ -12,6 +12,10 @@ body {
 
 .textWhite, #loading text { color: #dddddd; }
 
+.title {
+    font-weight: 100;
+}
+
 .hidden { display: none; }
 
 .absolute { position: absolute; }

@@ -101,7 +101,7 @@ function getEnergyAllocation(){
   <script>show('floatUp','fadeInUp',3);</script>
   <div class="foot textWhite">footer</div>
 </div>
-<div class="building_menus">       
+<div class="building_menus">      
   <div id="extractor" style="display:none">hey there</div>
 </div>
 <div class="notificationLayout" id="notifications">

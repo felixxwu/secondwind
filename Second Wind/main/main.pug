@@ -1,10 +1,10 @@
 include ../libraries/energy/energy.php
 include ../libraries/utility/forceLoad.pug
 
-+forceCss("main/island.css")
-+forceCss("main/mainLayout.css")
-+forceCss("main/notificationLayout.css")
-+forceCss("main/analyticsLayout.css")
++forceCss("main/island/island.css")
++forceCss("main/css/mainLayout.css")
++forceCss("main/css/notificationLayout.css")
++forceCss("main/css/analyticsLayout.css")
 
 //- link(rel="stylesheet", href="main/mainLayout.css?")
 //- link(rel="stylesheet", href="main/island.css")
@@ -25,26 +25,15 @@ include ../libraries/utility/forceLoad.pug
 
     .headright
         span.helper
+        a(onclick="")
+            img.icon(src="material-icons/map.svg")
         a(onclick="logout()")
             img.icon(src="material-icons/logout.svg")
     
     .mid
-        #energies.absolute(style="display:none")
-            #pablotests
-            //- energy values and allocation of energy
-            include energy.pug
-            itemList#itemList
-            #testItems
-            button#combine(onclick='combineItems()') Combine items
-            #errorItems
-        #island.animated.fadeInUp
-            img#islandrock(src="images/rock.svg")
-            .townhall
-               
-                img(src="images/townHall.svg")
-                a(onclick="show('energies','fadeInUp', 1)")
+        include island/island.pug
     .foot.textWhite
-        | hello there
+        | footer
         //- a(onclick='logout()') logout
 
 .notificationLayout#notifications
@@ -60,6 +49,7 @@ include ../libraries/utility/forceLoad.pug
         h1.textWhite analytics
         a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 0.5)") hide
         
+
 
         
 update

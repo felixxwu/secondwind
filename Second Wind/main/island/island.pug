@@ -1,0 +1,14 @@
+#energies.absolute(style="display:none")
+    #pablotests
+    //- energy values and allocation of energy
+    include ../energy/energy.pug
+    itemList#itemList
+    #testItems
+    button#combine(onclick='combineItems()') Combine items
+    #errorItems
+#island.animated.fadeInUp
+    img#islandrock(src="images/rock.svg")
+    .townhall
+        
+        img(src="images/townHall.svg")
+        a(onclick="show('energies','fadeInUp', 1)")

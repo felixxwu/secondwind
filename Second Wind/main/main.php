@@ -33,14 +33,14 @@ function getEnergyAllocation(){
 		</script>");
 }
 ?>
-<link rel="stylesheet" href="main/island.css?v=<?=time()?>"/>
-<link rel="stylesheet" href="main/mainLayout.css?v=<?=time()?>"/>
-<link rel="stylesheet" href="main/notificationLayout.css?v=<?=time()?>"/>
-<link rel="stylesheet" href="main/analyticsLayout.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/island/island.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/css/mainLayout.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/css/notificationLayout.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/css/analyticsLayout.css?v=<?=time()?>"/>
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
-  <div class="headright"><span class="helper"></span><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
+  <div class="headright"><span class="helper"></span><a onclick=""><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
   <div class="mid">
     <div class="absolute" id="energies" style="display:none">
       <div id="pablotests"></div>
@@ -97,7 +97,7 @@ function getEnergyAllocation(){
       <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
     </div>
   </div>
-  <div class="foot textWhite">hello there</div>
+  <div class="foot textWhite">footer</div>
 </div>
 <div class="notificationLayout" id="notifications">
   <div class="notifications"><br/>

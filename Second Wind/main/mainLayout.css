@@ -12,6 +12,8 @@
     background-repeat: no-repeat;
     background-size: 115%;
     background-position: calc(50% + 50px) 44%;
+
+    overflow: hidden;
 }
 
 .mainLayout .pic { grid-area: pic; }

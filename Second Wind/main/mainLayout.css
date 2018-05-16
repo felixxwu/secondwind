@@ -1,6 +1,36 @@
-#mainLayout {
+.mainLayout {
+    position: absolute;
     display: grid;
-    grid-template-areas: 200px auto 100px auto 200px;
+    grid-template-columns: 200px auto 100px auto 200px;
     grid-template-rows: 100px auto 50px;
-    
+    grid-template-areas:    "headleft headleft pic headright headright"
+                            ". mid mid mid ."
+                            "foot foot foot foot foot";
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../images/background.svg);
+    background-repeat: no-repeat;
+    background-size: 115%;
+    background-position: calc(50% + 50px) 44%;
+}
+
+.mainLayout .pic { grid-area: pic; }
+.mainLayout .pic img {
+    border: 4px white;
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+}
+.mainLayout .mid { grid-area: mid; }
+.mainLayout .foot {
+    grid-area: foot;
+    text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .mainLayout {
+        grid-template-areas:    "headleft headleft pic headright headright"
+                                "mid mid mid mid mid"
+                                "foot foot foot foot foot";
+    }
 }

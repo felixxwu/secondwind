@@ -1,0 +1,26 @@
+.notificationLayout {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: 100px auto;
+    grid-template-areas:    ". ."
+                            "notifications .";
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.notificationLayout .notifications {
+    grid-area: notifications;
+    background-color: red;
+    pointer-events: all;
+    height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .notificationLayout {
+        display: none;
+        grid-template-areas:    "notifications notifications"
+                                "notifications notifications";
+    }
+}

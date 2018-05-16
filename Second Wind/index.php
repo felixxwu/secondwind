@@ -21,9 +21,11 @@
     <div id="loading">
       <text>loading...</text>
     </div>
-    <div id="testbox">hello, I am content</div><a onclick="show('main','slideInDown',0.5)">
-      <button>show</button></a><a onclick="hide('main','fadeOutDown',0.5)">
-      <button>hide</button></a>
+    <div id="showhidetest">
+      <div id="testbox">hello, I am content</div><a onclick="show('main','slideInDown',0.5)">
+        <button>show</button></a><a onclick="hide('main','fadeOutDown',0.5)">
+        <button>hide</button></a>
+    </div>
     <div id="main"></div>
     <script>
       secureLoad("main", "main/main.php", undefined, function() {

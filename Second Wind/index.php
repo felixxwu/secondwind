@@ -18,6 +18,7 @@
     <script src="libraries/items/items.js?v=<?=time()?>"></script>
     <script src="libraries/slider/sliderdemo.js?v=<?=time()?>"></script>
     <script src="main/toggleMenu.js?v=<?=time()?>"></script>
+    <script src="main/notifications/notifications.js?v=<?=time()?>"></script>
   </head>
   <body>
     <div id="ghost"> </div>

@@ -42,57 +42,6 @@ function getEnergyAllocation(){
   <div class="pic"><img src="images/level.png" alt=""/></div>
   <div class="headright"><span class="helper"></span><a onclick=""><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
   <div class="mid" id="floatUp" style="display:none">
-    <div class="absolute" id="energies" style="display:none">
-      <div id="pablotests"></div>
-      <h3>Energy Values</h3>
-      <div id="energytest">
-        <table>
-          <tr>
-            <td id="humanEnergy"></td>
-            <td id="attackEnergy"></td>
-            <td id="powerEnergy"></td>
-            <td id="intelligenceEnergy"></td>
-            <td id="buildingEnergy"></td>
-          </tr>
-        </table>
-      </div>
-      <h3>Energy Allocation</h3>
-      <p class="energyTitle">Human</p>
-      <div class="slidecontainer">
-        <input class="slider" id="human" type="range" min="-20" max="20" value="0"/>
-      </div>
-      <div class="demo" id="valueHuman"> </div>
-      <p></p>
-      <p class="energyTitle">Attack</p>
-      <div class="slidecontainer">
-        <input class="slider" id="attack" type="range" min="-20" max="20" value="0"/>
-      </div>
-      <div class="demo" id="valueAttack"> </div>
-      <p></p>
-      <p class="energyTitle">Power</p>
-      <div class="slidecontainer">
-        <input class="slider" id="power" type="range" min="-20" max="20" value="0"/>
-      </div>
-      <div class="demo" id="valuePower"> </div>
-      <p></p>
-      <p class="energyTitle">Intelligence </p>
-      <div class="slidecontainer">
-        <input class="slider" id="intelligence" type="range" min="-20" max="20" value="0"/>
-      </div>
-      <div class="demo" id="valueIntelligence"></div>
-      <p></p>
-      <p class="energyTitle">Building</p>
-      <div class="slidecontainer">
-        <input class="slider" id="building" type="range" min="-20" max="20" value="0"/>
-      </div>
-      <div class="demo" id="valueBuilding"></div>
-      <button id="submit" onclick="submitEnergyAllocation()" style="display: none;">DONE</button>
-      <div id="confirmMessage"></div>
-      <itemList id="itemList"></itemList>
-      <div id="testItems"></div>
-      <button id="combine" onclick="combineItems()">Combine items</button>
-      <div id="errorItems"></div>
-    </div>
     <div id="island"><img id="islandrock" src="images/rock.svg"/>
       <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
       <div class="extractor"> <a onclick="show('extractor','fadeInUp', 1)"></a></div>
@@ -104,28 +53,81 @@ function getEnergyAllocation(){
 <div id="foreground"><img class="foreground_left" src="images/foreground_left.svg"/><img class="foreground_right" src="images/foreground_right.svg"/></div>
 <div class="building_menus">      
   <div id="extractor" style="display:none">hey there</div>
+  <div class="absolute" id="energies" style="display:none">
+    <div id="pablotests"></div>
+    <h3>Energy Values</h3>
+    <div id="energytest">
+      <table>
+        <tr>
+          <td id="humanEnergy"></td>
+          <td id="attackEnergy"></td>
+          <td id="powerEnergy"></td>
+          <td id="intelligenceEnergy"></td>
+          <td id="buildingEnergy"></td>
+        </tr>
+      </table>
+    </div>
+    <h3>Energy Allocation</h3>
+    <p class="energyTitle">Human</p>
+    <div class="slidecontainer">
+      <input class="slider" id="human" type="range" min="-20" max="20" value="0"/>
+    </div>
+    <div class="demo" id="valueHuman"> </div>
+    <p></p>
+    <p class="energyTitle">Attack</p>
+    <div class="slidecontainer">
+      <input class="slider" id="attack" type="range" min="-20" max="20" value="0"/>
+    </div>
+    <div class="demo" id="valueAttack"> </div>
+    <p></p>
+    <p class="energyTitle">Power</p>
+    <div class="slidecontainer">
+      <input class="slider" id="power" type="range" min="-20" max="20" value="0"/>
+    </div>
+    <div class="demo" id="valuePower"> </div>
+    <p></p>
+    <p class="energyTitle">Intelligence </p>
+    <div class="slidecontainer">
+      <input class="slider" id="intelligence" type="range" min="-20" max="20" value="0"/>
+    </div>
+    <div class="demo" id="valueIntelligence"></div>
+    <p></p>
+    <p class="energyTitle">Building</p>
+    <div class="slidecontainer">
+      <input class="slider" id="building" type="range" min="-20" max="20" value="0"/>
+    </div>
+    <div class="demo" id="valueBuilding"></div>
+    <button id="submit" onclick="submitEnergyAllocation()" style="display: none;">DONE</button>
+    <div id="confirmMessage"></div>
+    <itemList id="itemList"></itemList>
+    <div id="testItems"></div>
+    <button id="combine" onclick="combineItems()">Combine items</button>
+    <div id="errorItems"></div>
+  </div>
 </div>
 <div class="notificationLayout" id="notifications">
   <div class="notifications">
     <h2 class="textWhite title">NOTIFICATIONS</h2>
-    <div class="notificationCard"><br/><b>This is the title</b><br/>
-      <p>This is some text that will go into the card revealing some more information</p>
+    <div class="list">
+      <div class="notificationCard"><br/><b>This is the title</b><br/>
+        <p>This is some text that will go into the card revealing some more information</p>
+      </div>
+      <div class="notificationCard"><br/><b>Another one</b><br/>
+        <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
+      </div>
+      <div class="notificationCard"><br/><b>Another one</b><br/>
+        <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
+      </div>
+      <div class="notificationCard"><br/><b>Another one</b><br/>
+        <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
+      </div>
+      <div class="notificationCard"><br/><b>Another one</b><br/>
+        <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
+      </div>
+      <div class="notificationCard"><br/><b>Another one</b><br/>
+        <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
+      </div><a class="button mobileOnly" onclick="hide('notifications', 'slideOutLeft', 0.5)">hide</a>
     </div>
-    <div class="notificationCard"><br/><b>Another one</b><br/>
-      <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-    </div>
-    <div class="notificationCard"><br/><b>Another one</b><br/>
-      <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-    </div>
-    <div class="notificationCard"><br/><b>Another one</b><br/>
-      <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-    </div>
-    <div class="notificationCard"><br/><b>Another one</b><br/>
-      <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-    </div>
-    <div class="notificationCard"><br/><b>Another one</b><br/>
-      <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-    </div><a class="button mobileOnly" onclick="hide('notifications', 'slideOutLeft', 0.5)">hide</a>
   </div>
 </div>
 <div class="analyticsLayout" id="analytics">

@@ -95,9 +95,13 @@ function getEnergyAllocation(){
     </div>
     <div class="animated fadeInUp" id="island"><img id="islandrock" src="images/rock.svg"/>
       <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
+      <div class="extractor"> <a onclick="show('extractor','fadeInUp', 1)"></a></div>
     </div>
   </div>
   <div class="foot textWhite">footer</div>
+</div>
+<div class="building_menus">       
+  <div id="extractor" style="display:none">hey there</div>
 </div>
 <div class="notificationLayout" id="notifications">
   <div class="notifications"><br/>

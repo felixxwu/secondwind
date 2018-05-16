@@ -63,6 +63,25 @@
     left:50%;
 }
 
+.building_menus{
+    position: absolute;
+    width:100vw;
+    height:100vw;
+    display: grid;
+    grid-template-columns: 250px auto 250px;
+    grid-template-rows: 100px auto 50px;
+    grid-template-areas:    ". . ."
+                            ". extractor ."
+                            ". . ."
+
+}
+
+.building_menus >*{
+    grid-area:extractor;
+    z-index:3;
+    background-color: rgba(165, 42, 42, 0.466);
+}
+
 @media screen and (max-width: 1000px) {
     .helper {
         height: 75px;

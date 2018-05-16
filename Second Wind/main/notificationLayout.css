@@ -8,13 +8,15 @@
     width: 100vw;
     height: 100vh;
     pointer-events: none;
+    z-index: 2;
 }
 
 .notificationLayout .notifications {
     grid-area: notifications;
-    background-color: red;
+    background-color: rgba(0, 0, 0, 0.8);
     pointer-events: all;
     height: 100%;
+    text-align: center;
 }
 
 @media screen and (max-width: 1000px) {

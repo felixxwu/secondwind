@@ -28,8 +28,8 @@ function show(id, type, duration) {
     
     // if the element is already showing, do nothing
     if (element(id).style.display != "none") {
-        console.warn("already shown");
-        return;
+        // console.warn("already shown");
+        // return;
     }
     
 

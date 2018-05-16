@@ -2,10 +2,11 @@
 <html>
   <head>
     <title>Second Wind</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=<?=time()?>"/>
     <link rel="stylesheet" href="css/animate.css?v=<?=time()?>"/>
     <link rel="stylesheet" href="css/mainStyle.css?v=<?=time()?>"/>
+    <link rel="stylesheet" href="css/buttons.css?v=<?=time()?>"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js?v=<?=time()?>"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js?v=<?=time()?>"></script>
     <script src="libraries/ajax/AjaxHelper.js?v=<?=time()?>"></script>

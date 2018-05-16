@@ -16,6 +16,11 @@
     overflow: hidden;
 }
 
+.mainLayout .headleft {
+    line-height: 100px;
+    grid-area: headleft;
+}
+.mainLayout .headright { grid-area: headright; }
 .mainLayout .pic { grid-area: pic; }
 .mainLayout .pic img {
     border: 4px white;
@@ -29,9 +34,22 @@
     text-align: center;
 }
 
+.helper {
+    display: inline-block;
+    height: 100px;
+    vertical-align: middle;
+}
+
 @media screen and (max-width: 1000px) {
+    .helper {
+        height: 75px;
+    }
+    
+    .mainLayout .headleft {
+        line-height: 75px;
+    }
     .mainLayout {
-        grid-template-columns: auto auto 75px auto auto;
+        grid-template-columns: 1fr 1fr 75px 1fr 1fr;
         grid-template-rows: 75px auto 50px;
         grid-template-areas:    "headleft headleft pic headright headright"
                                 "mid mid mid mid mid"

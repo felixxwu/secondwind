@@ -12,11 +12,18 @@ include ../libraries/utility/forceLoad.pug
 //- link(rel="stylesheet", href="main/analyticsLayout.css")
 
 .mainLayout
-   
+    .headleft
+        span.helper
+        a(onclick="show('notifications','slideInLeft',0.5)")
+            img.icon(src="material-icons/notifications.svg")
+        a(onclick="show('analytics','slideInRight',0.5)")
+            img.icon(src="material-icons/chart.svg")
+            //- i.material-icons.large person
+        
     .pic
         img(src="images/level.png", alt="")
     .mid
-        #energies.hidden.absolute
+        #energies.absolute(style="display:none")
             #pablotests
             //- energy values and allocation of energy
             include energy.pug
@@ -31,21 +38,16 @@ include ../libraries/utility/forceLoad.pug
                 img(src="images/townHall.svg")
                 a(onclick="show('energies','fadeInUp', 1)")
     .foot
-        a.mobileOnly(onclick="show('notifications', 'slideInLeft', 0.5)") show notifications
         a(onclick='logout()') logout
-        a.mobileOnly(onclick="show('analytics', 'slideInRight', 0.5)") show analytics
 
 .notificationLayout#notifications
     .notifications
-        | notifications
-        br
-        a(onclick="hide('notifications', 'slideOutLeft', 0.5)") hide
+        a.button(onclick="hide('notifications', 'slideOutLeft', 0.5)") hide
+        
 
 .analyticsLayout#analytics
     .analytics
-        | analytics
-        br
-        a(onclick="hide('analytics', 'slideOutRight', 0.5)") hide
+        a.button(onclick="hide('analytics', 'slideOutRight', 0.5)") hide
         
 
         

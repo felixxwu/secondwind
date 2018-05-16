@@ -91,8 +91,7 @@ function getEnergyAllocation(){
       <button id="combine" onclick="combineItems()">Combine items</button>
       <div id="errorItems"></div>
     </div>
-    <div id="island">
-      <div>hey</div><img id="islandrock" src="images/rock.svg"/>
+    <div id="island"><img id="islandrock" src="images/rock_animated.svg"/>
       <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"> </a></div>
     </div>
   </div>

@@ -48,19 +48,26 @@
     height: 100px;
     vertical-align: middle;
 }
+
+#foreground {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
 .foreground_left{
     position: absolute;
     z-index:2;
-    height:70%;
-    top:43%;
-    left:-23%;
+    height: 450px;
+    bottom: -80px;
+    left: -170px;
 }
 .foreground_right{
     position: absolute;
     z-index:2;
     height:70%;
-    top:50%;
-    left:50%;
+    bottom: -150px;
+    right: -250px;
 }
 
 #menuicon, #closeicon {
@@ -69,6 +76,9 @@
 }
 
 @media screen and (max-width: 1000px) {
+    .foreground_left { left: calc(-650px + 20%); }
+    .foreground_right { right: calc(-650px + 20%); }
+    
     .helper {
         height: 75px;
     }

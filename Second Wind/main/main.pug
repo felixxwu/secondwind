@@ -30,18 +30,60 @@ include ../libraries/utility/forceLoad.pug
             img.icon(src="material-icons/logout.svg")
     
     .mid#floatUp(style="display:none")
-        img.foreground_left(src="images/foreground_left.svg")
-        img.foreground_right(src="images/foreground_right.svg")
         include island/island.pug
     script show('floatUp','fadeInUp',3);
     .foot.textWhite
         | footer
         //- a(onclick='logout()') logout
 
+#foreground
+    img.foreground_left(src="images/foreground_left.svg")
+    img.foreground_right(src="images/foreground_right.svg")
+    
+
 .notificationLayout#notifications
     .notifications
-        br
         h1.textWhite notifications
+        .notificationCard
+            br
+            b This is the title
+            br
+            p This is some text that will go into the card revealing some more information
+        .notificationCard
+            br
+            b Another one
+            br
+            p This is another notification
+            img.invert(src="material-icons/map.svg")
+            img.invert(src="material-icons/close.svg")
+        .notificationCard
+            br
+            b Another one
+            br
+            p This is another notification
+            img.invert(src="material-icons/map.svg")
+            img.invert(src="material-icons/close.svg")
+        .notificationCard
+            br
+            b Another one
+            br
+            p This is another notification
+            img.invert(src="material-icons/map.svg")
+            img.invert(src="material-icons/close.svg")
+        .notificationCard
+            br
+            b Another one
+            br
+            p This is another notification
+            img.invert(src="material-icons/map.svg")
+            img.invert(src="material-icons/close.svg")
+        .notificationCard
+            br
+            b Another one
+            br
+            p This is another notification
+            img.invert(src="material-icons/map.svg")
+            img.invert(src="material-icons/close.svg")
         a.button.mobileOnly(onclick="hide('notifications', 'slideOutLeft', 0.5)") hide
         
 

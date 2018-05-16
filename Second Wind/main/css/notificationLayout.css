@@ -13,10 +13,29 @@
 
 .notificationLayout .notifications {
     grid-area: notifications;
-    background-color: rgba(0, 0, 0, 0.8);
+    /* border: solid rgb(0, 0, 0, 0.2) 1px; */
+    /* box-shadow: 0px 2px 8px 0px black; */
+    /* border-right: solid 1px white; */
+    /* background-color: rgba(0, 0, 0, 0); */
+    margin-left: 10px;
     pointer-events: all;
-    height: 100%;
     text-align: center;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+
+.notificationLayout .notifications::-webkit-scrollbar { 
+    display: none; 
+}
+
+.notificationCard {
+    color: #cbcbcb;
+    margin-bottom: 10px;
+    padding: 3px;
+    width: 100%;
+    background: linear-gradient(to left top, #342e34 43%, #413942 0%);
+    border-radius: 3px;
+    box-shadow: 0px 10px 80px 0px #0000004a;
 }
 
 @media screen and (max-width: 1000px) {

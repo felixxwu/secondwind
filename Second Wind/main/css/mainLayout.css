@@ -48,6 +48,20 @@
     height: 100px;
     vertical-align: middle;
 }
+.foreground_left{
+    position: absolute;
+    z-index:2;
+    height:70%;
+    top:43%;
+    left:-23%;
+}
+.foreground_right{
+    position: absolute;
+    z-index:2;
+    height:70%;
+    top:50%;
+    left:50%;
+}
 
 @media screen and (max-width: 1000px) {
     .helper {

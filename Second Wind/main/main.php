@@ -41,7 +41,7 @@ function getEnergyAllocation(){
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
   <div class="headright"><span class="helper"></span><a onclick=""><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
-  <div class="mid">
+  <div class="mid"><img class="foreground_left" src="images/foreground_left.svg"/><img class="foreground_right" src="images/foreground_right.svg"/>
     <div class="absolute" id="energies" style="display:none">
       <div id="pablotests"></div>
       <h3>Energy Values</h3>

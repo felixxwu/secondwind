@@ -39,6 +39,24 @@
     transform: translate(-50%,-50%);
 } 
 
+.extractor{
+    z-index:2;
+    position: absolute;
+    height:100%;
+    width: 100%;
+    top:30%;
+    left:44%;
+}
+.extractor a{
+    background-color: rgba(156, 46, 46, 0.651);
+    position: absolute;
+    cursor: pointer;
+    width: 15%;
+    padding-bottom:20%;
+    transform:translate(-50%,-70%);
+
+}
+
  /* floating animation */
  @keyframes floating {
     from, to {

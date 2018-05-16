@@ -14,14 +14,20 @@ include ../libraries/utility/forceLoad.pug
 .mainLayout
     .headleft
         span.helper
-        a(onclick="show('notifications','slideInLeft',0.5)")
+        a.mobileOnly(onclick="show('notifications','slideInLeft',0.5)")
             img.icon(src="material-icons/notifications.svg")
-        a(onclick="show('analytics','slideInRight',0.5)")
+        a.mobileOnly(onclick="show('analytics','slideInRight',0.5)")
             img.icon(src="material-icons/chart.svg")
             //- i.material-icons.large person
         
     .pic
         img(src="images/level.png", alt="")
+
+    .headright
+        span.helper
+        a(onclick="logout()")
+            img.icon(src="material-icons/logout.svg")
+    
     .mid
         #energies.absolute(style="display:none")
             #pablotests
@@ -37,17 +43,22 @@ include ../libraries/utility/forceLoad.pug
                
                 img(src="images/townHall.svg")
                 a(onclick="show('energies','fadeInUp', 1)")
-    .foot
-        a(onclick='logout()') logout
+    .foot.textWhite
+        | hello there
+        //- a(onclick='logout()') logout
 
 .notificationLayout#notifications
     .notifications
-        a.button(onclick="hide('notifications', 'slideOutLeft', 0.5)") hide
+        br
+        h1.textWhite notifications
+        a.button.mobileOnly(onclick="hide('notifications', 'slideOutLeft', 0.5)") hide
         
 
 .analyticsLayout#analytics
     .analytics
-        a.button(onclick="hide('analytics', 'slideOutRight', 0.5)") hide
+        br
+        h1.textWhite analytics
+        a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 0.5)") hide
         
 
         

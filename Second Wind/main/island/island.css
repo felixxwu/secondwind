@@ -3,7 +3,7 @@
     width: 90%;
     height: 90%;
     /* overflow: hidden; */
-    max-width: 650px;
+    max-width: 600px;
     margin: auto;
     animation: floating 3.5s infinite;
     position: relative;
@@ -11,7 +11,7 @@
 #islandrock{
     z-index: 1;
     position:absolute;
-    width: 115%;
+    width: 130%;
    top:0%;
    left:-10%;
 }
@@ -21,7 +21,7 @@
     position: absolute;
     height:100%;
     width: 100%;
-    top:5%;
+    top:50%;
     left:44%;
 }
 #island .townhall a {
@@ -39,7 +39,7 @@
     transform: translate(-50%,-50%);
 } 
 
-.extractor{
+#island .extractor{
     z-index:2;
     position: absolute;
     height:100%;
@@ -47,7 +47,7 @@
     top:30%;
     left:44%;
 }
-.extractor a{
+#island .extractor a{
     background-color: rgba(156, 46, 46, 0.651);
     position: absolute;
     cursor: pointer;

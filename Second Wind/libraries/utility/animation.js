@@ -25,7 +25,7 @@ var types = [
 
 function show(id, type, duration) {
     // if the element is already showing, do nothing
-    if (!element(id).classList.contains("hidden")) {
+    if (!element(id).style.display == "none") {
         return;
     }
     
@@ -52,12 +52,13 @@ function show(id, type, duration) {
         element(id).setAttribute("style", "-webkit-animation-duration: " + duration + "s;");
     }
     element(id).classList.remove("hidden");
-    // element(id).style.display = "block";
+    element(id).style.display = "initial"; 
 }
 
 function hide(id, type, duration) {
     // if the element is already hidden, do nothing    
-    if (element(id).classList.contains("hidden")) {
+    if (element(id).classList.contains("hidden")
+        || element(id).style.display == "none") {
         return;
     }
     
@@ -84,7 +85,7 @@ function hide(id, type, duration) {
         element(id).setAttribute("style", "-webkit-animation-duration: " + duration + "s;");
     }
     setTimeout(function () {
-        element(id).classList.add("hidden");
-        // element(id).style.display = "none";
+        // element(id).classList.add("hidden");
+        element(id).style.display = "none";
     }, duration * 1000);
 }

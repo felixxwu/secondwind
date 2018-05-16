@@ -1,0 +1,26 @@
+.analyticsLayout {
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto 200px;
+    grid-template-rows: 100px auto;
+    grid-template-areas:    ". ."
+                            ". analytics";
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.analyticsLayout .analytics {
+    grid-area: analytics;
+    background-color: blue;
+    pointer-events: all;
+    height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+    .analyticsLayout {
+        display: none;
+        grid-template-areas:    "analytics analytics"
+                                "analytics analytics";
+    }
+}

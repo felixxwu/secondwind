@@ -24,12 +24,12 @@ include ../libraries/utility/forceLoad.pug
             #testItems
             button#combine(onclick='combineItems()') Combine items
             #errorItems
-        #island
+        #island.animated.fadeInUp
             img#islandrock(src="images/rock.svg")
             .townhall
                
                 img(src="images/townHall.svg")
-                a(onclick="show('energies','fadeInUp', 1)") 
+                a(onclick="show('energies','fadeInUp', 1)")
     .foot
         a.mobileOnly(onclick="show('notifications', 'slideInLeft', 0.5)") show notifications
         a(onclick='logout()') logout

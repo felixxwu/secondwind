@@ -1,7 +1,7 @@
 .notificationLayout {
     position: absolute;
     display: grid;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 250px auto;
     grid-template-rows: 100px auto;
     grid-template-areas:    ". ."
                             "notifications .";

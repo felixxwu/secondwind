@@ -3,7 +3,7 @@ include ../libraries/utility/forceLoad.pug
 
 +forceCss("main/island/island.css")
 +forceCss("main/css/mainLayout.css")
-+forceCss("main/css/notificationLayout.css")
++forceCss("main/notifications/notificationLayout.css")
 +forceCss("main/css/analyticsLayout.css")
 
 //- link(rel="stylesheet", href="main/mainLayout.css?")
@@ -45,49 +45,7 @@ include ../libraries/utility/forceLoad.pug
     include extractor.pug
     include townhall.pug
 .notificationLayout#notifications
-    .notifications
-        h1.textWhite notifications
-        .notificationCard
-            br
-            b This is the title
-            br
-            p This is some text that will go into the card revealing some more information
-        .notificationCard
-            br
-            b Another one
-            br
-            p This is another notification
-            img.invert(src="material-icons/map.svg")
-            img.invert(src="material-icons/close.svg")
-        .notificationCard
-            br
-            b Another one
-            br
-            p This is another notification
-            img.invert(src="material-icons/map.svg")
-            img.invert(src="material-icons/close.svg")
-        .notificationCard
-            br
-            b Another one
-            br
-            p This is another notification
-            img.invert(src="material-icons/map.svg")
-            img.invert(src="material-icons/close.svg")
-        .notificationCard
-            br
-            b Another one
-            br
-            p This is another notification
-            img.invert(src="material-icons/map.svg")
-            img.invert(src="material-icons/close.svg")
-        .notificationCard
-            br
-            b Another one
-            br
-            p This is another notification
-            img.invert(src="material-icons/map.svg")
-            img.invert(src="material-icons/close.svg")
-        a.button.mobileOnly(onclick="hide('notifications', 'slideOutLeft', 0.5)") hide
+    include notifications/notifications.pug
         
 
 .analyticsLayout#analytics

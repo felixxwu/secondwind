@@ -35,7 +35,7 @@ function getEnergyAllocation(){
 ?>
 <link rel="stylesheet" href="main/island/island.css?v=<?=time()?>"/>
 <link rel="stylesheet" href="main/css/mainLayout.css?v=<?=time()?>"/>
-<link rel="stylesheet" href="main/css/notificationLayout.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/notifications/notificationLayout.css?v=<?=time()?>"/>
 <link rel="stylesheet" href="main/css/analyticsLayout.css?v=<?=time()?>"/>
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
@@ -107,7 +107,7 @@ function getEnergyAllocation(){
 </div>
 <div class="notificationLayout" id="notifications">
   <div class="notifications">
-    <h1 class="textWhite">notifications</h1>
+    <h2 class="textWhite title">NOTIFICATIONS</h2>
     <div class="notificationCard"><br/><b>This is the title</b><br/>
       <p>This is some text that will go into the card revealing some more information</p>
     </div>

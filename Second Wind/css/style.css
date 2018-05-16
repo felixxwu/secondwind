@@ -2,6 +2,12 @@
 
 html * { font-family: 'Quicksand', sans-serif; }
 
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
 .menuSolid, .loginButton, .loginInput, #loading { background-color: #222222; }
 
 .textWhite, #loading text { color: #dddddd; }
@@ -27,6 +33,16 @@ html * { font-family: 'Quicksand', sans-serif; }
     top: 50%;
 }
 
-a {
-    cursor: pointer;
+a { cursor: pointer; }
+
+.mobileOnly { display: none; }
+.desktopOnly { display: initial; }
+
+@media screen and (max-width: 1000px) {
+    .mobileOnly {
+        display: initial;
+    }
+    .desktopOnly {
+        display: none;
+    }
 }

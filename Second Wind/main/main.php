@@ -38,8 +38,9 @@ function getEnergyAllocation(){
 <link rel="stylesheet" href="main/notificationLayout.css?v=<?=time()?>"/>
 <link rel="stylesheet" href="main/analyticsLayout.css?v=<?=time()?>"/>
 <div class="mainLayout">
-  <div class="headleft"><span class="helper"></span><a onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><a onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a></div>
+  <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
+  <div class="headright"><span class="helper"></span><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
   <div class="mid">
     <div class="absolute" id="energies" style="display:none">
       <div id="pablotests"></div>
@@ -96,13 +97,17 @@ function getEnergyAllocation(){
       <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
     </div>
   </div>
-  <div class="foot"><a onclick="logout()">logout</a></div>
+  <div class="foot textWhite">hello there</div>
 </div>
 <div class="notificationLayout" id="notifications">
-  <div class="notifications"><a class="button" onclick="hide('notifications', 'slideOutLeft', 0.5)">hide</a></div>
+  <div class="notifications"><br/>
+    <h1 class="textWhite">notifications</h1><a class="button mobileOnly" onclick="hide('notifications', 'slideOutLeft', 0.5)">hide</a>
+  </div>
 </div>
 <div class="analyticsLayout" id="analytics">
-  <div class="analytics"><a class="button" onclick="hide('analytics', 'slideOutRight', 0.5)">hide</a></div>
+  <div class="analytics"><br/>
+    <h1 class="textWhite">analytics</h1><a class="button mobileOnly" onclick="hide('analytics', 'slideOutRight', 0.5)">hide</a>
+  </div>
 </div>
 <update>
   <script>getEnergyAllocation();</script>

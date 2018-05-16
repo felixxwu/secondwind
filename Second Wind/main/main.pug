@@ -14,11 +14,10 @@ include ../libraries/utility/forceLoad.pug
 .mainLayout
     .headleft
         span.helper
-        a.mobileOnly(onclick="show('notifications','slideInLeft',0.5)")
-            img.icon(src="material-icons/notifications.svg")
-        a.mobileOnly(onclick="show('analytics','slideInRight',0.5)")
-            img.icon(src="material-icons/chart.svg")
-            //- i.material-icons.large person
+        a.mobileOnly(onclick="toggleMenu()")
+            img.icon.absolute#menuicon(src="material-icons/menu.svg")
+            img.icon.absolute#closeicon(src="material-icons/close.svg" style="display:none")
+
         
     .pic
         img(src="images/level.png", alt="")
@@ -30,8 +29,9 @@ include ../libraries/utility/forceLoad.pug
         a(onclick="logout()")
             img.icon(src="material-icons/logout.svg")
     
-    .mid
+    .mid#floatUp(style="display:none")
         include island/island.pug
+    script show('floatUp','fadeInUp',3);
     .foot.textWhite
         | footer
         //- a(onclick='logout()') logout
@@ -49,7 +49,7 @@ include ../libraries/utility/forceLoad.pug
         h1.textWhite analytics
         a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 0.5)") hide
         
-
+include menu/menu.pug
 
         
 update

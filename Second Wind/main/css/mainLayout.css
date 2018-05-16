@@ -49,6 +49,11 @@
     vertical-align: middle;
 }
 
+#menuicon, #closeicon {
+    left: 0;
+    margin: 15px;
+}
+
 @media screen and (max-width: 1000px) {
     .helper {
         height: 75px;

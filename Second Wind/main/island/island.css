@@ -1,9 +1,9 @@
 #island {
     top: 75px;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     /* overflow: hidden; */
-    max-width: 600px;
+    max-width: 650px;
     margin: auto;
     animation: floating 3.5s infinite;
     position: relative;

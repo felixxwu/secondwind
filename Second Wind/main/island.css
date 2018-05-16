@@ -1,16 +1,51 @@
 #island {
     width: 100%;
-    height: 500;
     background-color: rgba(0, 0, 0, 0.178);
-}
-
-#island .townhall {
-    width: 50px;
-    height: 50px;
-    background-color: black;
-}
-
-#island .townhall a {
-    width: 100%;
     height: 100%;
+    animation: floating 3.5s infinite;
+    position: relative;
 }
+#islandrock{
+    z-index: 1;
+    position:absolute;
+    width: 115%;
+   top:0%;
+   left:-10%;
+}
+
+#island .townhall{
+    z-index:2;
+    position: absolute;
+    height:100%;
+    width: 100%;
+    top:5%;
+    left:-2%;
+}
+#island .townhall a {
+    position: absolute;
+    cursor: pointer;
+   width: 15%;
+   height:15%;
+   transform:translate(-50%,-70%);
+
+}
+
+#island .townhall img {
+    position: absolute;
+    width: 65%;
+    transform: translate(-50%,-50%);
+} 
+
+ /* floating animation */
+ @keyframes floating {
+    from, to {
+      top: 0;
+      animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
+      
+    }
+    50% {
+      top: 13px;
+      
+      animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
+    }
+  }

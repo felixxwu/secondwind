@@ -33,10 +33,10 @@ function getEnergyAllocation(){
 		</script>");
 }
 ?>
-<link rel="stylesheet" href="main/island.css"/>
-<link rel="stylesheet" href="main/mainLayout.css"/>
-<link rel="stylesheet" href="main/notificationLayout.css"/>
-<link rel="stylesheet" href="main/analyticsLayout.css"/>
+<link rel="stylesheet" href="main/island.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/mainLayout.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/notificationLayout.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/analyticsLayout.css?v=<?=time()?>"/>
 <div class="mainLayout">
   <div class="pic"><img src="images/level.png" alt=""/></div>
   <div class="mid">

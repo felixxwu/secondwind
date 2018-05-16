@@ -10,8 +10,8 @@
     height: 100vh;
     background-image: url(../images/background.svg);
     background-repeat: no-repeat;
-    background-size: 115%;
-    background-position: calc(50% + 50px) 44%;
+    background-size: cover;
+    background-position: center;
 
     overflow: hidden;
 }
@@ -31,6 +31,8 @@
 
 @media screen and (max-width: 1000px) {
     .mainLayout {
+        grid-template-columns: auto auto 75px auto auto;
+        grid-template-rows: 75px auto 50px;
         grid-template-areas:    "headleft headleft pic headright headright"
                                 "mid mid mid mid mid"
                                 "foot foot foot foot foot";

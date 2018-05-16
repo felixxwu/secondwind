@@ -1,8 +1,15 @@
 include ../libraries/energy/energy.php
-link(rel="stylesheet", href="main/island.css")
-link(rel="stylesheet", href="main/mainLayout.css")
-link(rel="stylesheet", href="main/notificationLayout.css")
-link(rel="stylesheet", href="main/analyticsLayout.css")
+include ../libraries/utility/forceLoad.pug
+
++forceCss("main/island.css")
++forceCss("main/mainLayout.css")
++forceCss("main/notificationLayout.css")
++forceCss("main/analyticsLayout.css")
+
+//- link(rel="stylesheet", href="main/mainLayout.css?")
+//- link(rel="stylesheet", href="main/island.css")
+//- link(rel="stylesheet", href="main/notificationLayout.css")
+//- link(rel="stylesheet", href="main/analyticsLayout.css")
 
 .mainLayout
    

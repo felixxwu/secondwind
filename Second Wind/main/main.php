@@ -38,10 +38,10 @@ function getEnergyAllocation(){
 <link rel="stylesheet" href="main/css/notificationLayout.css?v=<?=time()?>"/>
 <link rel="stylesheet" href="main/css/analyticsLayout.css?v=<?=time()?>"/>
 <div class="mainLayout">
-  <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a></div>
+  <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
   <div class="headright"><span class="helper"></span><a onclick=""><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
-  <div class="mid"><img class="foreground_left" src="images/foreground_left.svg"/><img class="foreground_right" src="images/foreground_right.svg"/>
+  <div class="mid" id="floatUp" style="display:none"><img class="foreground_left" src="images/foreground_left.svg"/><img class="foreground_right" src="images/foreground_right.svg"/>
     <div class="absolute" id="energies" style="display:none">
       <div id="pablotests"></div>
       <h3>Energy Values</h3>
@@ -93,11 +93,12 @@ function getEnergyAllocation(){
       <button id="combine" onclick="combineItems()">Combine items</button>
       <div id="errorItems"></div>
     </div>
-    <div class="animated fadeInUp" id="island"><img id="islandrock" src="images/rock.svg"/>
+    <div id="island"><img id="islandrock" src="images/rock.svg"/>
       <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
       <div class="extractor"> <a onclick="show('extractor','fadeInUp', 1)"></a></div>
     </div>
   </div>
+  <script>show('floatUp','fadeInUp',3);</script>
   <div class="foot textWhite">footer</div>
 </div>
 <div class="building_menus">       
@@ -113,6 +114,8 @@ function getEnergyAllocation(){
     <h1 class="textWhite">analytics</h1><a class="button mobileOnly" onclick="hide('analytics', 'slideOutRight', 0.5)">hide</a>
   </div>
 </div>
+<link rel="stylesheet" href="main/menu/menu.css?v=<?=time()?>"/>
+<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
 <update>
   <script>getEnergyAllocation();</script>
   <script>updateItemsList();</script>

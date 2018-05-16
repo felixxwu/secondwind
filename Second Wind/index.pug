@@ -7,10 +7,9 @@ html
         title Second Wind
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         //- force these links to load over cache by adding ?v=<?=time()?> to the end of each
         +forceCss("css/style.css")
-        +forceCss("css/animate.css")
+        link(rel="stylesheet" href="css/animate.css")
         +forceCss("css/mainStyle.css")
         +forceCss("css/buttons.css")
         +forceJs("https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
@@ -23,6 +22,7 @@ html
         +forceJs("libraries/energy/energy.js")
         +forceJs("libraries/items/items.js")
         +forceJs("libraries/slider/sliderdemo.js")
+        +forceJs("main/toggleMenu.js")
         
         //- link(rel="stylesheet", href="css/style.css")
         //- link(rel="stylesheet", href="css/animate.css")

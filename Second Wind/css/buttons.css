@@ -2,8 +2,7 @@
     border: solid black 3px;
     border-radius: 100000px;
     padding: 7px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 5px;
     vertical-align: middle;
     filter: invert(100%);
     -webkit-filter: invert(100%);

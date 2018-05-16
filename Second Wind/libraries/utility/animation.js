@@ -91,3 +91,13 @@ function hide(id, type, duration) {
         element(id).style.display = "none";
     }, duration * 1000);
 }
+
+function toggle(id, inType, outType, duration, showCallback, hideCallback) {
+    if (element(id).style.display == "none") {
+        show(id, inType, duration);
+        showCallback();
+    } else {
+        hide(id, outType, duration);
+        hideCallback();
+    }
+}

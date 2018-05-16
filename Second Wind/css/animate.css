@@ -671,6 +671,7 @@
   from {
     opacity: 0;
     transform: translate3d(0, 100%, 0);
+    animation-timing-function: cubic-bezier(0.29, 0.89, 0.44, 1.01);
   }
 
   to {

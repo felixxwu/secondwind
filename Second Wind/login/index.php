@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Second Wind - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="../css/login-signup.css"/>
     <link rel="stylesheet" href="../css/style.css"/>
   </head>

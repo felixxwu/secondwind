@@ -24,3 +24,11 @@
 #signupContent > pass2 { grid-area: pass2; }
 #signupContent > signup { grid-area: signup; }
 #signupContent > login { grid-area: login; }
+
+green {
+	color: lightgreen;
+}
+
+red {
+	color: orangered;
+}

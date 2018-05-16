@@ -24,12 +24,14 @@ var types = [
 ];
 
 function show(id, type, duration) {
+    console.log("showing: " + id);
+    
     // if the element is already showing, do nothing
-    if (!element(id).style.display == "none") {
-        return;
+    if (element(id).style.display != "none") {
+        // console.warn("already shown");
+        // return;
     }
     
-    console.log("showing: " + id);
 
     // remove all animate.css classes
     for (let i = 0; i < types.length; i++) {
@@ -52,7 +54,7 @@ function show(id, type, duration) {
         element(id).setAttribute("style", "-webkit-animation-duration: " + duration + "s;");
     }
     element(id).classList.remove("hidden");
-    element(id).style.display = "initial"; 
+    element(id).style.display = "block"; 
 }
 
 function hide(id, type, duration) {

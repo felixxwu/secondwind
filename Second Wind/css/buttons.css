@@ -1,0 +1,16 @@
+.icon {
+    border: solid black 3px;
+    border-radius: 100000px;
+    padding: 10px;
+    margin-left: 20px;
+    vertical-align: middle;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+}
+
+.button {
+    border: solid white 3px;
+    padding: 10px;
+    line-height: 50px;
+    color: white;
+}

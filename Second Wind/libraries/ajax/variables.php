@@ -67,6 +67,7 @@ function variableMultipleArgsExample($arg1, $arg2) {
     return array($arg1, $arg2);
 }
 
+// for checking if a user exists on the signup page
 function message($username) {
     if (!$username) {
         return "";
@@ -75,10 +76,10 @@ function message($username) {
     // checks if the username already exists
     if (sqlSelect("users","*","`username` = '" . $username . "'","`username`")) {
         // user exists
-        return "username already taken";
+        return "<red>username already taken</red>";
     } else {
         // user doesnt
-        return "username is available";
+        return "<green>username is available</green>";
     }
 }
 

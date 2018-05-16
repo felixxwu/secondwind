@@ -1,0 +1,8 @@
+mixin forceCss(url)
+    - var url = url + "?v=<?=time()?>"
+    link(rel="stylesheet", href!= url)
+
+mixin forceJs(url)
+    - var url = url + "?v=<?=time()?>"
+    script(src!= url)
+    

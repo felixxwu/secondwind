@@ -1,20 +1,42 @@
+include libraries/utility/forceLoad.pug
 
 html
     head
+        
+
         title Second Wind
-        link(rel="stylesheet", href="css/style.css")
-        link(rel="stylesheet", href="css/animate.css")
-        link(rel="stylesheet" href="css/mainStyle.css")
-        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
-        script(src="https://code.jquery.com/jquery-3.2.1.min.js")
-        script(src="libraries/ajax/AjaxHelper.js")
-        script(src="libraries/account/functions.js")
-        script(src="libraries/account/secureLoad.js")
-        script(src="libraries/utility/general.js")
-        script(src="libraries/utility/animation.js")
-        script(src="libraries/energy/energy.js")
-        script(src="libraries/items/items.js")
-        script(src="libraries/slider/sliderdemo.js")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        //- force these links to load over cache by adding ?v=<?=time()?> to the end of each
+        +forceCss("css/style.css")
+        +forceCss("css/animate.css")
+        +forceCss("css/mainStyle.css")
+        +forceCss("css/buttons.css")
+        +forceJs("https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        +forceJs("https://code.jquery.com/jquery-3.2.1.min.js")
+        +forceJs("libraries/ajax/AjaxHelper.js")
+        +forceJs("libraries/account/functions.js")
+        +forceJs("libraries/account/secureLoad.js")
+        +forceJs("libraries/utility/general.js")
+        +forceJs("libraries/utility/animation.js")
+        +forceJs("libraries/energy/energy.js")
+        +forceJs("libraries/items/items.js")
+        +forceJs("libraries/slider/sliderdemo.js")
+        
+        //- link(rel="stylesheet", href="css/style.css")
+        //- link(rel="stylesheet", href="css/animate.css")
+        //- link(rel="stylesheet" href="css/mainStyle.css")
+        //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        //- script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        //- script(src="libraries/ajax/AjaxHelper.js")
+        //- script(src="libraries/account/functions.js")
+        //- script(src="libraries/account/secureLoad.js")
+        //- script(src="libraries/utility/general.js")
+        //- script(src="libraries/utility/animation.js")
+        //- script(src="libraries/energy/energy.js")
+        //- script(src="libraries/items/items.js")
+        //- script(src="libraries/slider/sliderdemo.js")
 
     body
         #ghost 
@@ -22,15 +44,18 @@ html
         #loading
             text loading...
 
-        #showhidetest
+        //- #showhidetest
 
             #testbox hello, I am content
 
-            a(onclick="show('main','slideInDown',0.5)")
+            a(onclick="show('main','fadeInDown',3)")
                 button show
 
             a(onclick="hide('main','fadeOutDown',0.5)")
                 button hide
+
+            a(onclick="hide('showhidetest','fadeOutUp',1)")
+                button hide me
 
         #main
         

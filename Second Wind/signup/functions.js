@@ -32,6 +32,7 @@ var timeout;
 
 function checkUserExists() {
     // timeout lets you delay a function, cleartimeout cancels the previous timeouts which means you can renew the timer
+    element("message").innerHTML = "...";
     clearTimeout(timeout);
     timeout = setTimeout(function () {
         let username = element("username").value;

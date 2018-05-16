@@ -2,8 +2,9 @@
 <html>
   <head>
     <title>Second Wind - Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="../css/login-signup.css"/>
-    <link rel="stylesheet" href="layout.css"/>
+    <link rel="stylesheet" href="layout.css?v=3"/>
     <link rel="stylesheet" href="../css/style.css"/>
   </head>
   <body>
@@ -38,6 +39,6 @@
     <script src="../libraries/ajax/AjaxHelper.js"></script>
     <script src="../libraries/utility/general.js"></script>
     <script src="../libraries/account/functions.js"></script>
-    <script src="functions.js"></script>
+    <script src="functions.js?v=2"></script>
   </body>
 </html>

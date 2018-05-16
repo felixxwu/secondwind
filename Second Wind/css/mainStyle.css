@@ -1,4 +1,4 @@
-
+/* 
 .grid-container {
     display: grid;
     grid-template-columns: 200px auto 100px auto 200px;
@@ -13,9 +13,8 @@
     grid-template-areas:    "headleft headleft pic headright headright"
                             "notifications middle middle middle analytics"
                             "foot foot foot foot foot"
-}
+} */
 body{
-    color: rgb(255, 255, 255);
     margin:0;
 }
 .grid-container > div {
@@ -40,11 +39,6 @@ body{
     top: 0;
     
 }
-
- .absolute{
-     z-index: 3;
-     background-color: rgba(0, 0, 0, 0.281);
- }
 
 .userLevel{
     z-index:4;
@@ -79,6 +73,11 @@ body{
 }
 #ghost{
     display:none
+}
+
+.absolute{
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.281);
 }
 
 

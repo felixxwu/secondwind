@@ -33,14 +33,15 @@ function getEnergyAllocation(){
 		</script>");
 }
 ?>
-<link rel="stylesheet" href="main/island.css"/>
-<link rel="stylesheet" href="main/mainLayout.css"/>
-<link rel="stylesheet" href="main/notificationLayout.css"/>
-<link rel="stylesheet" href="main/analyticsLayout.css"/>
+<link rel="stylesheet" href="main/island.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/mainLayout.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/notificationLayout.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/analyticsLayout.css?v=<?=time()?>"/>
 <div class="mainLayout">
+  <div class="headleft"><span class="helper"></span><a onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><a onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
   <div class="mid">
-    <div class="hidden absolute" id="energies">
+    <div class="absolute" id="energies" style="display:none">
       <div id="pablotests"></div>
       <h3>Energy Values</h3>
       <div id="energytest">
@@ -91,17 +92,22 @@ function getEnergyAllocation(){
       <button id="combine" onclick="combineItems()">Combine items</button>
       <div id="errorItems"></div>
     </div>
+<<<<<<< HEAD
     <div id="island"><img id="islandrock" src="images/rock.svg"/>
       <div class="townhall"><img src="images/townHall_animation.svg"/><a onclick="show('energies','fadeInUp', 1)"> </a></div>
+=======
+    <div class="animated fadeInUp" id="island"><img id="islandrock" src="images/rock.svg"/>
+      <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
+>>>>>>> ba318d52508ec965ea2e62949b3246ced48826e2
     </div>
   </div>
-  <div class="foot"><a class="mobileOnly" onclick="show('notifications', 'slideInLeft', 0.5)">show notifications</a><a onclick="logout()">logout</a><a class="mobileOnly" onclick="show('analytics', 'slideInRight', 0.5)">show analytics</a></div>
+  <div class="foot"><a onclick="logout()">logout</a></div>
 </div>
 <div class="notificationLayout" id="notifications">
-  <div class="notifications">notifications<br/><a onclick="hide('notifications', 'slideOutLeft', 0.5)">hide</a></div>
+  <div class="notifications"><a class="button" onclick="hide('notifications', 'slideOutLeft', 0.5)">hide</a></div>
 </div>
 <div class="analyticsLayout" id="analytics">
-  <div class="analytics">analytics<br/><a onclick="hide('analytics', 'slideOutRight', 0.5)">hide</a></div>
+  <div class="analytics"><a class="button" onclick="hide('analytics', 'slideOutRight', 0.5)">hide</a></div>
 </div>
 <update>
   <script>getEnergyAllocation();</script>

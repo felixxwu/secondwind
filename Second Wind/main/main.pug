@@ -1,52 +1,42 @@
 
 include ../libraries/energy/energy.php
 link(rel="stylesheet", href="main/island.css")
-link(rel="stylesheet", href="main/mainLayout.css")
-link(rel="stylesheet", href="main/notificationLayout.css")
-link(rel="stylesheet", href="main/analyticsLayout.css")
 
-.mainLayout
+.grid-container
    
-    .pic
-        img(src="images/level.png", alt="")
-    .mid
-        #energies.hidden.absolute
-            #pablotests
-            //- energy values and allocation of energy
-            include energy.pug
-            itemList#itemList
-            #testItems
-            button#combine(onclick='combineItems()') Combine items
-            #errorItems
+    .item1
+    .userLevel
+    .item2
+        div  notifications 
+        .notification_box
+    .item3
+        .container.absolute
+            #energies.hidden
+                #pablotests
+                //- energy values and allocation of energy
+                include energy.pug
+                itemList#itemList
+                #testItems
+                button#combine(onclick='combineItems()') Combine items
+                #errorItems
+       
         #island
-            img#islandrock(src="images/rock_animated.svg")
+            img#islandrock(src="images/rock.svg")
             .townhall
                
                 img(src="images/townHall.svg")
                 a(onclick="show('energies','fadeInUp', 1)") 
-    .foot
-        a.mobileOnly(onclick="show('notifications', 'slideInLeft', 0.5)") show notifications
+                
+                
+    .item4
+        div analytics
+        .notification_box
+    .item5
         a(onclick='logout()') logout
-        a.mobileOnly(onclick="show('analytics', 'slideInRight', 0.5)") show analytics
-
-.notificationLayout#notifications
-    .notifications
-        | notifications
-        br
-        a(onclick="hide('notifications', 'slideOutLeft', 0.5)") hide
-
-.analyticsLayout#analytics
-    .analytics
-        | analytics
-        br
-        a(onclick="hide('analytics', 'slideOutRight', 0.5)") hide
-        
-
-        
-update
-    script getEnergyAllocation();
-    script updateItemsList();
-    script setupSliders();
+    update
+        script getEnergyAllocation();
+        script updateItemsList();
+        script setupSliders();
         
     
         

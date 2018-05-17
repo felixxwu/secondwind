@@ -1,0 +1,26 @@
+#map {
+    position: absolute;
+    z-index: 11;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#map > span {
+    margin: auto;
+    display: inline-block;
+    max-width: 100vh;
+    max-height: 100vw;
+    width: 100vw;
+    height: 100vh;
+}
+
+#map > span > .padded {
+    /* width: calc(100% - 40px);
+    height: calc(100% - 40px); */
+    margin: 20px;
+    background-color: grey;
+}

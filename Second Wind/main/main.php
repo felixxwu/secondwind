@@ -135,6 +135,7 @@ function getEnergyAllocation(){
     <h1 class="textWhite">analytics</h1><a class="button mobileOnly" onclick="hide('analytics', 'slideOutRight', 0.5)">hide</a>
   </div>
 </div>
+<link rel="stylesheet" href="main/map/map.css?v=<?=time()?>"/>
 <link rel="stylesheet" href="main/menu/menu.css?v=<?=time()?>"/>
 <div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
 <update>

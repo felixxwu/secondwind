@@ -29,27 +29,27 @@ if (isset($_POST["func"])) {
 
 //submits the new energy allocation
 function updateEnergyAllocation($human,$attack,$power,$intelligence,$building){
- 
-    if (!sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0]) {
-        sqlInsert("resourceAllocation","test", $human, $attack, $power, $intelligence, $building);
+    $username=$_POST["username"];
+    if (!sqlSelect("resourceAllocation","*","`username` = '$username'","`username`")[0]) {
+        sqlInsert("resourceAllocation","$username", $human, $attack, $power, $intelligence, $building);
     } else {
-        sqlUpdate("resourceAllocation","`username` = 'test'","human",$human);
-        sqlUpdate("resourceAllocation","`username` = 'test'","power",$power);
-        sqlUpdate("resourceAllocation","`username` = 'test'","attack",$attack);
-        sqlUpdate("resourceAllocation","`username` = 'test'","intelligence",$intelligence);
-        sqlUpdate("resourceAllocation","`username` = 'test'","building",$building);
+        sqlUpdate("resourceAllocation","`username` = '$username'","human",$human);
+        sqlUpdate("resourceAllocation","`username` = '$username'","power",$power);
+        sqlUpdate("resourceAllocation","`username` = '$username'","attack",$attack);
+        sqlUpdate("resourceAllocation","`username` = '$username'","intelligence",$intelligence);
+        sqlUpdate("resourceAllocation","`username` = '$username'","building",$building);
     }
 }
 
 //combines el1IN and el2IN and update the database with the new item
 function combineItems($el1IN,$level1IN,$el2IN,$level2IN){
 
-    global $test, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies,$sumEnergies,$level,$ratio,$newItem,$newItemAmount;
+    global $username, $test, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies,$sumEnergies,$level,$ratio,$newItem,$newItemAmount;
     $el1=$el1IN;
     $el2=$el2IN;
     $level1=$level1IN;
     $level2=$level2IN;
-
+    $username=$_POST["username"];
     include "../items/combineItems.php";
   
     getAmounts();

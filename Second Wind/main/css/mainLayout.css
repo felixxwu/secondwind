@@ -89,7 +89,7 @@
     pointer-events:all;
     grid-area:menu;
     z-index:3;
-    background-color: rgba(165, 42, 42, 0.466);
+    
 }
 #menuicon, #closeicon {
     left: 0;

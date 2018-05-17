@@ -1,14 +1,14 @@
 <?
 function getAmounts(){
-   global $el1, $el2, $level1, $level2, $el1Result, $el2Result;
+   global $username, $el1, $el2, $level1, $level2, $el1Result, $el2Result;
   //get amount of el1 and el2
-   $el1Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el1."' and Level =".$level1,"amount");
-   $el2Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el2."' and Level =".$level2,"amount");
+   $el1Result = sqlSelect('usersItems','amount',"username='$username' and item = '".$el1."' and Level =".$level1,"amount");
+   $el2Result = sqlSelect('usersItems','amount',"username='$username' and item = '".$el2."' and Level =".$level2,"amount");
   
 }
 
 function enoughItems(){ //checks if there are enough of the items to combine them
-    global $el1, $el2, $level1, $level2, $el1Result, $el2Result;
+    global $username, $el1, $el2, $level1, $level2, $el1Result, $el2Result;
     //this accounts for the case in which you are trying to combine one item with itself but you only have 1
     if($el1==$el2&$level1==$level2&$el1Result[0]['amount']==1){
       echo("<script>notEnoughItems()</script>");
@@ -25,17 +25,17 @@ function enoughItems(){ //checks if there are enough of the items to combine the
 
 
   function subtractQuantities(){ //subtracts quantities from used itemList
-    global $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount;
+    global $username, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount;
     //updates element1 with -1 quantity
     $el1Amount = $el1Result[0]['amount']-1;
-    sqlUpdate("usersItems", "username='test' and item = '".$el1."' and Level=".$level1,'amount', $el1Amount);
+    sqlUpdate("usersItems", "username='$username' and item = '".$el1."' and Level=".$level1,'amount', $el1Amount);
   
     //queries the second element again in case el1=el2
-    $el2Result = sqlSelect('usersItems','amount',"username='test' and item = '".$el2."' and Level =".$level2,"amount");
+    $el2Result = sqlSelect('usersItems','amount',"username='$username' and item = '".$el2."' and Level =".$level2,"amount");
   
     //updates element2 with -1 quantity
     $el2Amount = $el2Result[0]['amount']-1;
-    sqlUpdate("usersItems", "username='test' and item = '".$el2."' and Level=".$level2,'amount', $el2Amount);
+    sqlUpdate("usersItems", "username='$username' and item = '".$el2."' and Level=".$level2,'amount', $el2Amount);
   
     //updates with new quantities
     //echo("<script>refreshItems();</script>");
@@ -43,7 +43,7 @@ function enoughItems(){ //checks if there are enough of the items to combine the
   }
 
   function getEnergyValues(){ //gets the energy values corresponding to el1 and el2
-    global $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies;
+    global $username, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies;
   
   
     //gets the ratios for both items and stores them in $el1Energies and $el2Energies
@@ -72,7 +72,7 @@ function enoughItems(){ //checks if there are enough of the items to combine the
   }
 
   function newEnergyValues(){//creates the new energy values
-    global $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies, $sumEnergies;
+    global $username, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies, $sumEnergies;
   
     $sumEnergies = array($el1Energies['human']+$el2Energies['human'],$el1Energies['attack']+$el2Energies['attack'],
                 $el1Energies['power']+$el2Energies['power'],$el1Energies['intelligence']+$el2Energies['intelligence'],
@@ -94,7 +94,7 @@ function enoughItems(){ //checks if there are enough of the items to combine the
           gcd_array($array, gcd($a, $b));
   }
   function newRatio(){ //calculates the ratio of the combination
-    global $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies, $sumEnergies,$level,$ratio;
+    global $username, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies, $sumEnergies,$level,$ratio;
   
     // removes 0s from array as if not the gcd of an item with some energy values 0 will return 0 as gcd
     $energiesWithout0s = array();
@@ -120,7 +120,7 @@ function enoughItems(){ //checks if there are enough of the items to combine the
   
   }
   function newItem(){ //creates/updates the new/existing item's quantity with ratio: newRatio
-    global $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies, $sumEnergies,$level,$ratio,$newItem,$newItemAmount;
+    global $username, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies, $sumEnergies,$level,$ratio,$newItem,$newItemAmount;
   
     $newItem=sqlSelect('items','name',"human = ".$ratio[0]." and attack = ".$ratio[1].
              " and power = ". $ratio[2]." and intelligence = ".$ratio[3].
@@ -130,13 +130,13 @@ function enoughItems(){ //checks if there are enough of the items to combine the
     if($newItem==null){ $newItem='shit@'.$ratio[0].'@'.$ratio[1].'@'.$ratio[2].'@'.$ratio[3].'@'.$ratio[4].'@';}
   
     //gets the number of $newItem the user already has
-    $newItemResult = sqlSelect('usersItems','amount',"username='test' and item = '".$newItem."' and Level = '".$level."'","amount")[0];
+    $newItemResult = sqlSelect('usersItems','amount',"username='$username' and item = '".$newItem."' and Level = '".$level."'","amount")[0];
     if($newItemResult==null){//if the user has no item of that sort
-      sqlInsert("usersItems","test",$newItem,"1",$level);
+      sqlInsert("usersItems","$username",$newItem,"1",$level);
     }
     else{ //if the user has at least 0 newItem already (no need to create entry, just +1)
       $newItemAmount = $newItemResult['amount']+1;
-      sqlUpdate("usersItems", "username='test' and item = '".$newItem."' and Level = '".$level."'",'amount', $newItemAmount);
+      sqlUpdate("usersItems", "username='$username' and item = '".$newItem."' and Level = '".$level."'",'amount', $newItemAmount);
     }
   }
 ?>

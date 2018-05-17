@@ -22,9 +22,10 @@
     overflow: scroll;
 }
 
-.notificationLayout .notifications > .title {
+.notificationLayout .notifications > .titleIcon {
     position: absolute;
     transform: translate(0px, -60px);
+    width: 250px;
 }
 
 .notificationLayout .notifications::-webkit-scrollbar {

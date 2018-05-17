@@ -40,7 +40,7 @@ function getEnergyAllocation(){
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
-  <div class="headright"><span class="helper"></span><a onclick=""><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
+  <div class="headright"><span class="helper"></span><a class="desktopOnly" onclick="show('map','fadeIn',0.5)"><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
   <div class="mid" id="floatUp" style="display:none">
     <div id="island"><img id="islandrock" src="images/rock.svg"/>
       <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
@@ -107,25 +107,27 @@ function getEnergyAllocation(){
 </div>
 <div class="notificationLayout" id="notifications">
   <div class="notifications">
-    <h2 class="textWhite title">NOTIFICATIONS</h2>
-    <div class="notificationCard"><br/><b>This is the title</b><br/>
-      <p>This is some text that will go into the card revealing some more information</p>
+    <div class="titleIcon"><img class="invert" src="material-icons/notifications.svg" width="35px"/></div>
+    <div class="list">
+      <div class="notificationCard"><br/><b>This is the title</b><br/>
+        <p>This is some text that will go into the card revealing some more information</p>
+      </div>
+      <div class="notificationCard"><br/><b>Another one</b><br/>
+        <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
+      </div>
+      <div class="notificationCard"><br/><b>Another one</b><br/>
+        <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
+      </div>
+      <div class="notificationCard"><br/><b>Another one</b><br/>
+        <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
+      </div>
+      <div class="notificationCard"><br/><b>Another one</b><br/>
+        <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
+      </div>
+      <div class="notificationCard"><br/><b>Another one</b><br/>
+        <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
+      </div><a class="button mobileOnly" onclick="hide('notifications', 'slideOutLeft', 0.5)">hide</a>
     </div>
-    <div class="notificationCard"><br/><b>Another one</b><br/>
-      <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-    </div>
-    <div class="notificationCard"><br/><b>Another one</b><br/>
-      <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-    </div>
-    <div class="notificationCard"><br/><b>Another one</b><br/>
-      <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-    </div>
-    <div class="notificationCard"><br/><b>Another one</b><br/>
-      <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-    </div>
-    <div class="notificationCard"><br/><b>Another one</b><br/>
-      <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-    </div><a class="button mobileOnly" onclick="hide('notifications', 'slideOutLeft', 0.5)">hide</a>
   </div>
 </div>
 <div class="analyticsLayout" id="analytics">
@@ -133,8 +135,13 @@ function getEnergyAllocation(){
     <h1 class="textWhite">analytics</h1><a class="button mobileOnly" onclick="hide('analytics', 'slideOutRight', 0.5)">hide</a>
   </div>
 </div>
+<link rel="stylesheet" href="main/map/map.css?v=<?=time()?>"/>
+<div id="hideMap" onclick="hide('map','fadeOut',0.5)" style="position: fixed; color: white; z-index: 15;">HIDE MAP</div>
+<div id="map" style="display:none;"><span>
+    <div class="absolute" id="markers"></div>
+    <div id="xysensitive" onclick="clickme()"></div></span></div>
 <link rel="stylesheet" href="main/menu/menu.css?v=<?=time()?>"/>
-<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
+<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="show('map','fadeIn',0.5)"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
 <update>
   <script>getEnergyAllocation();</script>
   <script>updateItemsList();</script>

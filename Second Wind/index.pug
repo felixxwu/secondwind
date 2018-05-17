@@ -23,6 +23,8 @@ html
         +forceJs("libraries/items/items.js")
         +forceJs("libraries/slider/sliderdemo.js")
         +forceJs("main/toggleMenu.js")
+        +forceJs("main/notifications/notifications.js")
+        +forceJs("main/map/map.js")
         
         //- link(rel="stylesheet", href="css/style.css")
         //- link(rel="stylesheet", href="css/animate.css")
@@ -39,43 +41,44 @@ html
         //- script(src="libraries/slider/sliderdemo.js")
 
     body
-        #ghost 
+        #noOverflow
+            #ghost 
 
-        #loading
-            text loading...
+            #loading
+                text loading...
 
-        //- #showhidetest
+            //- #showhidetest
 
-            #testbox hello, I am content
+                #testbox hello, I am content
 
-            a(onclick="show('main','fadeInDown',3)")
-                button show
+                a(onclick="show('main','fadeInDown',3)")
+                    button show
 
-            a(onclick="hide('main','fadeOutDown',0.5)")
-                button hide
+                a(onclick="hide('main','fadeOutDown',0.5)")
+                    button hide
 
-            a(onclick="hide('showhidetest','fadeOutUp',1)")
-                button hide me
+                a(onclick="hide('showhidetest','fadeOutUp',1)")
+                    button hide me
 
-        #main
-        
-        script.
-            secureLoad("main", "main/main.php", undefined, function() {
-                hide("loading","fadeOut", 0.5);
-            });
-    
-
-        script.
-            function getFive() {
-                var ajax = new AjaxHelper("libraries/ajax");
-                ajax.loadVariables("output", {"variableExample": null, "variableWithArgExample": "heyo", "variableMultipleArgsExample": ["foo", "bar"]}, function() {
-                    console.log(variableExample);
-                    console.log(variableWithArgExample);
-                    console.log(variableMultipleArgsExample);
-                })
-
-                ajax.call("argsExample",{0: "hey", 1: "there"}, function() {
-                    console.log("call done");
+            #main
+            
+            script.
+                secureLoad("main", "main/main.php", undefined, function() {
+                    hide("loading","fadeOut", 0.5);
                 });
-                
-            }
+        
+
+            script.
+                function getFive() {
+                    var ajax = new AjaxHelper("libraries/ajax");
+                    ajax.loadVariables("output", {"variableExample": null, "variableWithArgExample": "heyo", "variableMultipleArgsExample": ["foo", "bar"]}, function() {
+                        console.log(variableExample);
+                        console.log(variableWithArgExample);
+                        console.log(variableMultipleArgsExample);
+                    })
+
+                    ajax.call("argsExample",{0: "hey", 1: "there"}, function() {
+                        console.log("call done");
+                    });
+                    
+                }

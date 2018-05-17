@@ -41,7 +41,7 @@ function getEnergyAllocation(){
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
-  <div class="headright"><span class="helper"></span><a class="desktopOnly" onclick="show('map','fadeIn',0.5,'flex')"><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
+  <div class="headright"><span class="helper"></span><a class="desktopOnly" onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 0.5, undefined, undefined, 'grid')"><img class="icon" src="material-icons/notifications.svg"/></a><a class="desktopOnly" onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 0.5, undefined, undefined, 'grid')"><img class="icon" src="material-icons/chart.svg"/></a><a class="desktopOnly" onclick="show('map','fadeIn',0.5,'flex')"><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
   <div class="mid" id="floatUp" style="display:none">
     <div id="island"><img id="islandrock" src="images/rock.svg"/>
       <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
@@ -51,7 +51,9 @@ function getEnergyAllocation(){
   <script>show('floatUp','fadeInUp',3);</script>
   <div class="foot textWhite">footer</div>
 </div>
-<div id="foreground"><img class="foreground_left" src="images/foreground_left.svg"/><img class="foreground_right" src="images/foreground_right.svg"/></div>
+<div id="foreground"><img class="foreground_left" id="foreground_left" src="images/foreground_left.svg" style="display:none"/><img class="foreground_right" id="foreground_right" src="images/foreground_right.svg" style="display:none"/></div>
+<script>show("foreground_left","fadeInLeft",4);</script>
+<script>show("foreground_right","fadeInRight",4);</script>
 <div class="building_menus">      
   <div id="extractor_menu" style="display:none">
     <div id="factory_header">header</div>

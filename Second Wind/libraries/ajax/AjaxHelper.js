@@ -78,7 +78,7 @@ class AjaxHelper {
             this.load(id, page, args, callback);
         }
 
-        this.secureCall = function (fun, args, callback) {
+        this.secureCall = function (func, args, callback) {
             var newArgs = Object.assign({"func": func}, args);
 
             secureLoad("ghost", this.path + "/secureCall.php", newArgs, callback);

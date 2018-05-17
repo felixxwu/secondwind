@@ -3,7 +3,6 @@
 // the php version of secure load helps the js file to check the credentials on the server
 // if they do not match, the site will not be served, and a redirect to the login page will be served instead
 
-error_log("test");
 include "../database/databaseFunctions.php";
 include "../utility/general.php";
 

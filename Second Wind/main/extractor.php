@@ -1,2 +1,2 @@
 
-<div id="extractor" style="display:none">hey there</div>
+<div id="extractor_menu" style="display:none">hey there</div>

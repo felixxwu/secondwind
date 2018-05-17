@@ -1,0 +1,12 @@
+#extractor_menu{
+    /* position: absolute; */
+    display: grid;
+    grid-template-columns: auto 250px;
+    grid-template-rows: 100px auto 50px 250px;
+    grid-template-areas:    "factory_header factory_actions"
+                            "factory_items factory_actions"
+                            "energy_cores factory_actions"
+                            "factory_progress factory_actions";
+    width: 100%;
+    height: 100%;
+}

@@ -23,7 +23,7 @@ var types = [
     "slideOutDown"
 ];
 
-function show(id, type, duration) {
+function show(id, type, duration, displayType) {
     console.log("showing: " + id);
     
     // if the element is already showing, do nothing
@@ -54,7 +54,11 @@ function show(id, type, duration) {
         element(id).setAttribute("style", "-webkit-animation-duration: " + duration + "s;");
     }
     element(id).classList.remove("hidden");
-    element(id).style.display = "block"; 
+    if (displayType) {
+        element(id).style.display = displayType;
+    } else {
+        element(id).style.display = "block"; 
+    }
 }
 
 function hide(id, type, duration) {

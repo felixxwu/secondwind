@@ -56,6 +56,9 @@ function combineItems($el1IN,$level1IN,$el2IN,$level2IN){
     newEnergyValues();
     newRatio();
     newItem();
+    $username= $_POST["username"];
+    echo("<script>log('$username')</script>");
+    echo("<script>log('holapablito')</script>");
 }
 
 function example() {

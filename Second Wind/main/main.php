@@ -37,6 +37,7 @@ function getEnergyAllocation(){
 <link rel="stylesheet" href="main/css/mainLayout.css?v=<?=time()?>"/>
 <link rel="stylesheet" href="main/notifications/notificationLayout.css?v=<?=time()?>"/>
 <link rel="stylesheet" href="main/css/analyticsLayout.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/css/extractor.css?v=<?=time()?>"/>
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
@@ -44,7 +45,7 @@ function getEnergyAllocation(){
   <div class="mid" id="floatUp" style="display:none">
     <div id="island"><img id="islandrock" src="images/rock.svg"/>
       <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
-      <div class="extractor"> <img src="images/extractor_animation.svg"/><a onclick="show('extractor','fadeInUp', 1)"></a></div>
+      <div class="extractor"> <img src="images/extractor_2_animation.svg"/><a onclick="show('extractor_menu','fadeInUp', 1,'grid')"></a></div>
     </div>
   </div>
   <script>show('floatUp','fadeInUp',3);</script>
@@ -52,7 +53,7 @@ function getEnergyAllocation(){
 </div>
 <div id="foreground"><img class="foreground_left" src="images/foreground_left.svg"/><img class="foreground_right" src="images/foreground_right.svg"/></div>
 <div class="building_menus">      
-  <div id="extractor" style="display:none">hey there</div>
+  <div id="extractor_menu" style="display:none">hey there</div>
   <div class="absolute" id="energies" style="display:none">
     <div id="pablotests"></div>
     <h3>Energy Values</h3>

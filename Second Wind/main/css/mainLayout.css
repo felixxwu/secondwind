@@ -75,7 +75,7 @@
     pointer-events:none;
     position: absolute;
     width:100vw;
-    height:100vw;
+    height:100vh;
     display: grid;
     grid-template-columns: 250px auto 250px;
     grid-template-rows: 100px auto 50px;

@@ -19,6 +19,7 @@
     <script src="libraries/slider/sliderdemo.js?v=<?=time()?>"></script>
     <script src="main/toggleMenu.js?v=<?=time()?>"></script>
     <script src="main/notifications/notifications.js?v=<?=time()?>"></script>
+    <script src="main/map/map.js?v=<?=time()?>"></script>
   </head>
   <body>
     <div id="noOverflow">

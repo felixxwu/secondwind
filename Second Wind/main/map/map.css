@@ -18,9 +18,32 @@
     height: 100vh;
 }
 
-#map > span > .padded {
+#map > span > #xysensitive {
     /* width: calc(100% - 40px);
-    height: calc(100% - 40px); */
-    margin: 20px;
+    height: calc(100% - 40px);
+    margin: 20px; */
+    width: 100%;
+    height: 100%;
     background-color: grey;
 }
+
+#markers {
+    max-height: 100vw;
+    height: 100vh;
+    max-width: 100vh;
+    width: 100vw;
+    pointer-events: none;
+}
+
+#markers > img {
+    position: absolute;
+    margin-left: -12px;
+    margin-top: -24px;
+}
+
+/* #map > span > #markers {
+    max-width: 100vh;
+    max-height: 100vw;
+    width: 100vw;
+    height: 100vh;
+} */

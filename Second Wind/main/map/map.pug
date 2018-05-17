@@ -2,7 +2,8 @@ include ../../libraries/utility/forceLoad.pug
 
 +forceCss("main/map/map.css")
 
-//- #map
+#map
     span
-        .padded
-            | hello
+        #markers.absolute
+        #xysensitive(onclick="clickme()")
+            

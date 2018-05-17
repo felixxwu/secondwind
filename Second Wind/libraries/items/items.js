@@ -7,7 +7,7 @@
 //Updates the item list
 function updateItemsList(){
     var ajax = new AjaxHelper("libraries/ajax");
-    ajax.loadVariables("pablotests", {"itemList": null}, function() {
+    ajax.secureLoadVariables("pablotests", {"itemList": null}, function() {
             //creates a button for each item so when they are clicked the item is added to the combining queue
 		for (var i = 0; i < itemList.length; i++) {
 			if(itemList[i].amount>0){
@@ -62,7 +62,7 @@ function combineItems(){
     document.getElementById("combine").disabled = true;
     document.getElementById("errorItems").innerHTML ='';
     var ajax = new AjaxHelper("libraries/ajax");
-    ajax.call("combineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
+    ajax.secureCall("combineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
         //removes list of current items
         var itemList = document.getElementById("itemList");
         while (itemList.firstChild) {

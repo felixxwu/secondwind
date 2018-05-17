@@ -136,11 +136,12 @@ function getEnergyAllocation(){
   </div>
 </div>
 <link rel="stylesheet" href="main/map/map.css?v=<?=time()?>"/>
-<div id="map"><span>
+<div id="hideMap" onclick="hide('map','fadeOut',0.5)" style="position: fixed; color: white; z-index: 15;">HIDE MAP</div>
+<div id="map" style="display:none;"><span>
     <div class="absolute" id="markers"></div>
     <div id="xysensitive" onclick="clickme()"></div></span></div>
 <link rel="stylesheet" href="main/menu/menu.css?v=<?=time()?>"/>
-<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
+<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5)"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5)"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="show('map','fadeIn',0.5)"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
 <update>
   <script>getEnergyAllocation();</script>
   <script>updateItemsList();</script>

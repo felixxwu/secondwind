@@ -2,7 +2,8 @@ include ../../libraries/utility/forceLoad.pug
 
 +forceCss("main/map/map.css")
 
-#hideMap(onclick="hide('map','fadeOut',0.5)" style="position: fixed; color: white; z-index: 15;") HIDE MAP
+#hideMap(onclick="secureLoad('ghosty','libraries/ajax/secureVariables.php',{'variableMultipleArgsExample': ['hello','world']})" style="position: fixed; color: white; z-index: 15;") HIDE MAP
+//- #hideMap(onclick="" style="position: fixed; color: white; z-index: 15;") CLICK
 #map( style="display:none;")
     span
         #markers.absolute

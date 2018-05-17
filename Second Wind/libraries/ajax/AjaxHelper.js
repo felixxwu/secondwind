@@ -74,6 +74,20 @@ class AjaxHelper {
             return $("[id=" + id + "]").length;
         }
 
+        this.secureLoad = function (id, page, args, callback) {
+            this.load(id, page, args, callback);
+        }
+
+        this.secureCall = function (fun, args, callback) {
+            var newArgs = Object.assign({"func": func}, args);
+
+            secureLoad("ghost", this.path + "/secureCall.php", newArgs, callback);
+        }
+
+        this.secureLoadVariables = function (id, variables, callback) {
+            secureLoad(id, this.path + "/variables.php", variables, callback);
+        }
+
     }
 }
 

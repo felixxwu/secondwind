@@ -43,6 +43,7 @@ html
     body
         #noOverflow
             #ghost 
+            #ghosty
 
             #loading
                 text loading...
@@ -63,7 +64,8 @@ html
             #main
             
             script.
-                secureLoad("main", "main/main.php", undefined, function() {
+                let ajax = new AjaxHelper("libraries/ajax");
+                ajax.secureLoad("main", "main/main.php", undefined, function() {
                     hide("loading","fadeOut", 2);
                 });
 

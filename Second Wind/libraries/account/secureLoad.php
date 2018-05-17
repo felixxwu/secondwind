@@ -3,6 +3,7 @@
 // the php version of secure load helps the js file to check the credentials on the server
 // if they do not match, the site will not be served, and a redirect to the login page will be served instead
 
+error_log("test");
 include "../database/databaseFunctions.php";
 include "../utility/general.php";
 
@@ -16,7 +17,7 @@ if (!$username || !$password) {
 
 $page = $_POST["page"];
 // unset($_POST["username"]);
-// unset($_POST["password"]);
+unset($_POST["password"]);
 unset($_POST["page"]);
 
 if (verifyLogin($username, $password)) {

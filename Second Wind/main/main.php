@@ -107,7 +107,7 @@ function getEnergyAllocation(){
 </div>
 <div class="notificationLayout" id="notifications">
   <div class="notifications">
-    <h2 class="textWhite title">NOTIFICATIONS</h2>
+    <div class="titleIcon"><img class="invert" src="material-icons/notifications.svg" width="35px"/></div>
     <div class="list">
       <div class="notificationCard"><br/><b>This is the title</b><br/>
         <p>This is some text that will go into the card revealing some more information</p>

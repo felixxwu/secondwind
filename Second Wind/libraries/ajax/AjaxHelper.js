@@ -85,7 +85,7 @@ class AjaxHelper {
         }
 
         this.secureLoadVariables = function (id, variables, callback) {
-            secureLoad(id, this.path + "/variables.php", variables, callback);
+            secureLoad(id, this.path + "/secureVariables.php", variables, callback);
         }
 
     }

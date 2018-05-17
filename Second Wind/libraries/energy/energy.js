@@ -11,7 +11,7 @@ $( document).ready(function(){
 
 	var t=setInterval(updateEnergy,1000);
 	function updateEnergy(){
-		ajax.loadVariables("ghost", {"energies": null}, function() {
+		ajax.secureLoadVariables("ghost", {"energies": null}, function() {
 			document.getElementById('humanEnergy').innerHTML = energies.human;
 			document.getElementById('powerEnergy').innerHTML = energies.power;
 			document.getElementById('attackEnergy').innerHTML = energies.attack;
@@ -24,7 +24,7 @@ $( document).ready(function(){
 //called at load to get the current values for allocated energy
 function getEnergyAllocation(){
 	var ajax = new AjaxHelper("libraries/ajax");
-	ajax.loadVariables("ghost", {"energyAllocation": null}, function() {
+	ajax.secureLoadVariables("ghost", {"energyAllocation": null}, function() {
 		//Update slides
 		document.getElementById('human').value = energyAllocation.human;
 		document.getElementById('power').value = energyAllocation.power;
@@ -65,7 +65,7 @@ function submitEnergyAllocation() {
 		
 		//submit the energy allocation
 		var ajax = new AjaxHelper("libraries/ajax");
-		ajax.call("updateEnergyAllocation", {"human":human , "attack": attack , "power": power, "intelligence":intelligence,"building":building}, function(){
+		ajax.secureCall("updateEnergyAllocation", {"human":human , "attack": attack , "power": power, "intelligence":intelligence,"building":building}, function(){
 			document.getElementById("submit").innerHTML = "DONE";
 			//getEnergyAllocation();
 			});

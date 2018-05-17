@@ -7,7 +7,7 @@
 
 //update energy input boxes with their respective allocations
 function getEnergyAllocation(){
-	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
+	$resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'your_mum_is_a_cat'","`username`")[0];
 	if (!$resourceAlloc) {
 		$humanAlloc = "0";
 		$powerAlloc = "0";

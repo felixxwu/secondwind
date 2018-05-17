@@ -39,18 +39,21 @@ echo "</script>";
 
 
 function energyAllocation(){
-    $resourceAlloc = sqlSelect("resourceAllocation","*","`username` = 'test'","`username`")[0];
+    $username=$_POST["username"];
+    $resourceAlloc = sqlSelect("resourceAllocation","*","`username` = '$username'","`username`")[0];
 	return $resourceAlloc;
 }
 function itemList(){
-    $result = sqlSelect('usersItems','item,amount,Level',"username='test'",'item');
+    $username=$_POST["username"];
+    $result = sqlSelect('usersItems','item,amount,Level',"username='$username'",'item');
     
     return $result;
 }
 
 function energies(){
+    $username=$_POST["username"];
     $rows = 'human, attack, power, intelligence, building';
-    $query = sqlSelect('energy',$rows,"username='test'","`username`")[0];
+    $query = sqlSelect('energy',$rows,"username='$username'","`username`")[0];
  
     return $query;
 

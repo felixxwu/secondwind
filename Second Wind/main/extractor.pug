@@ -1,2 +1,16 @@
+//- Despite this being the extractor file, all the content corresponds to the factory item. -//
 #extractor_menu(style="display:none")
-        | hey there
+    #factory_header header
+    #factory_items 
+        |items
+        br
+        itemList#itemList
+        
+        
+       
+    #factory_actions actions
+        button#combine(onclick='combineItems()') Combine items
+        #testItems
+        #errorItems
+    #energy_cores cores
+    #factory_progress progress

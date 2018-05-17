@@ -53,7 +53,20 @@ function getEnergyAllocation(){
 </div>
 <div id="foreground"><img class="foreground_left" src="images/foreground_left.svg"/><img class="foreground_right" src="images/foreground_right.svg"/></div>
 <div class="building_menus">      
-  <div id="extractor_menu" style="display:none">hey there</div>
+  <div id="extractor_menu" style="display:none">
+    <div id="factory_header">header</div>
+    <div id="factory_items">
+       items<br/>
+      <itemList id="itemList"></itemList>
+    </div>
+    <div id="factory_actions">actions
+      <button id="combine" onclick="combineItems()">Combine items</button>
+      <div id="testItems"></div>
+      <div id="errorItems"></div>
+    </div>
+    <div id="energy_cores">cores</div>
+    <div id="factory_progress">progress</div>
+  </div>
   <div class="absolute" id="energies" style="display:none">
     <div id="pablotests"></div>
     <h3>Energy Values</h3>
@@ -100,10 +113,6 @@ function getEnergyAllocation(){
     <div class="demo" id="valueBuilding"></div>
     <button id="submit" onclick="submitEnergyAllocation()" style="display: none;">DONE</button>
     <div id="confirmMessage"></div>
-    <itemList id="itemList"></itemList>
-    <div id="testItems"></div>
-    <button id="combine" onclick="combineItems()">Combine items</button>
-    <div id="errorItems"></div>
   </div>
 </div>
 <div class="notificationLayout" id="notifications">

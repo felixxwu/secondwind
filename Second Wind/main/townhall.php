@@ -45,8 +45,4 @@
   <div class="demo" id="valueBuilding"></div>
   <button id="submit" onclick="submitEnergyAllocation()" style="display: none;">DONE</button>
   <div id="confirmMessage"></div>
-  <itemList id="itemList"></itemList>
-  <div id="testItems"></div>
-  <button id="combine" onclick="combineItems()">Combine items</button>
-  <div id="errorItems"></div>
 </div>

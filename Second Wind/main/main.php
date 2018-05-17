@@ -51,9 +51,10 @@ function getEnergyAllocation(){
   <script>show('floatUp','fadeInUp',3);</script>
   <div class="foot textWhite">footer</div>
 </div>
-<div id="foreground"><img class="foreground_left" id="foreground_left" src="images/foreground_left.svg" style="display:none"/><img class="foreground_right" id="foreground_right" src="images/foreground_right.svg" style="display:none"/></div>
-<script>show("foreground_left","fadeInLeft",4);</script>
-<script>show("foreground_right","fadeInRight",4);</script>
+<div id="foreground"><img class="foreground_left" id="foreground_left" src="images/foreground_left.svg" style="display:none"/><img class="foreground_right" id="foreground_right" src="images/foreground_right.svg" style="display:none"/>
+  <script>show("foreground_left","fadeInLeft",2);</script>
+  <script>show("foreground_right","fadeInRight",2);</script>
+</div>
 <div class="building_menus">      
   <div id="extractor_menu" style="display:none">
     <div id="factory_header">header</div>
@@ -117,7 +118,7 @@ function getEnergyAllocation(){
     <div id="confirmMessage"></div>
   </div>
 </div>
-<div class="notificationLayout" id="notifications">
+<div class="notificationLayout" id="notifications" style="display:none">
   <div class="notifications">
     <div class="titleIcon"><img class="invert" src="material-icons/notifications.svg" width="35px"/></div>
     <div class="list">
@@ -141,11 +142,13 @@ function getEnergyAllocation(){
       </div><a class="button mobileOnly" onclick="hide('notifications', 'slideOutLeft', 0.5)">hide</a>
     </div>
   </div>
+  <script>show("notifications","fadeInLeft",3,"grid");</script>
 </div>
-<div class="analyticsLayout" id="analytics">
+<div class="analyticsLayout" id="analytics" style="display:none">
   <div class="analytics"><br/>
     <h1 class="textWhite">analytics</h1><a class="button mobileOnly" onclick="hide('analytics', 'slideOutRight', 0.5)">hide</a>
   </div>
+  <script>show("analytics","fadeInRight",3,"grid");</script>
 </div>
 <link rel="stylesheet" href="main/map/map.css?v=<?=time()?>"/>
 <div id="hideMap" onclick="hide('map','fadeOut',0.5)" style="position: fixed; color: white; z-index: 15;">HIDE MAP</div>

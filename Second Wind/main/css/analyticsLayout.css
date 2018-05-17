@@ -21,7 +21,7 @@
 
 @media screen and (max-width: 1100px) {
     .analyticsLayout {
-        display: none;
+        display: none !important;
         grid-template-areas:    "analytics analytics"
                                 "analytics analytics";
     }

@@ -5,7 +5,7 @@ html * { font-family: 'Quicksand', sans-serif; }
 body {
     position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: 101vh;
     overflow: hidden;
 }
 

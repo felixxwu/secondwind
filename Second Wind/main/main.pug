@@ -44,22 +44,25 @@ include ../libraries/utility/forceLoad.pug
 #foreground
     img.foreground_left#foreground_left(src="images/foreground_left.svg" style="display:none")
     img.foreground_right#foreground_right(src="images/foreground_right.svg" style="display:none")
-script show("foreground_left","fadeInLeft",4);
-script show("foreground_right","fadeInRight",4);
+    script show("foreground_left","fadeInLeft",2);
+    script show("foreground_right","fadeInRight",2);
     
 
 .building_menus       
     include extractor.pug
     include townhall.pug
-.notificationLayout#notifications
-    include notifications/notifications.pug
         
+.notificationLayout#notifications(style="display:none")
+    include notifications/notifications.pug
+    script show("notifications","fadeInLeft",3,"grid");
 
-.analyticsLayout#analytics
+.analyticsLayout#analytics(style="display:none")
     .analytics
         br
         h1.textWhite analytics
         a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 0.5)") hide
+    script show("analytics","fadeInRight",3,"grid");
+    
 
 include map/map.pug
 include menu/menu.pug

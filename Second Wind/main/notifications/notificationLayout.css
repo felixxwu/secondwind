@@ -44,7 +44,7 @@
 
 @media screen and (max-width: 1100px) {
     .notificationLayout {
-        display: none;
+        display: none !important;
         grid-template-areas:    "notifications notifications"
                                 "notifications notifications";
     }

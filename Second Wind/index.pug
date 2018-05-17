@@ -12,8 +12,8 @@ html
         link(rel="stylesheet" href="css/animate.css")
         +forceCss("css/mainStyle.css")
         +forceCss("css/buttons.css")
-        +forceJs("https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
-        +forceJs("https://code.jquery.com/jquery-3.2.1.min.js")
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         +forceJs("libraries/ajax/AjaxHelper.js")
         +forceJs("libraries/account/functions.js")
         +forceJs("libraries/account/secureLoad.js")
@@ -64,9 +64,8 @@ html
             
             script.
                 secureLoad("main", "main/main.php", undefined, function() {
-                    hide("loading","fadeOut", 0.5);
+                    hide("loading","fadeOut", 2);
                 });
-        
 
             script.
                 function getFive() {

@@ -23,12 +23,14 @@
   <body>
     <div id="noOverflow">
       <div id="ghost"> </div>
+      <div id="ghosty"></div>
       <div id="loading">
         <text>loading...</text>
       </div>
       <div id="main"></div>
       <script>
-        secureLoad("main", "main/main.php", undefined, function() {
+        let ajax = new AjaxHelper("libraries/ajax");
+        ajax.secureLoad("main", "main/main.php", undefined, function() {
             hide("loading","fadeOut", 2);
         });
         

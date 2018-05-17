@@ -16,7 +16,7 @@ if (!$username || !$password) {
 
 $page = $_POST["page"];
 // unset($_POST["username"]);
-// unset($_POST["password"]);
+unset($_POST["password"]);
 unset($_POST["page"]);
 
 if (verifyLogin($username, $password)) {

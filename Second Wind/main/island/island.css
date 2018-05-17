@@ -69,14 +69,14 @@
  /* floating animation */
  @keyframes floating {
     from, to {
-      margin-top: 0;
-      animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
+        
+        transform: translate(0,0);
+        animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
       
     }
     50% {
-      margin-top: 13px;
-      
-      animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
+        transform: translate(0,13px);
+        animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
     }
   }
 

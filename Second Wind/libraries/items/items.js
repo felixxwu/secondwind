@@ -71,6 +71,8 @@ function combineItems(){
        updateItemsList();
        document.getElementById("combine").disabled = false;
        document.getElementById("combine").innerHTML ='Combine Items';
+       
+       
     })
 }
 

@@ -1,7 +1,11 @@
+/* 0-600px phone mode, 600-1100px tablet mode, >1100px desktop mode 
+    In tablet and desktop mode the size of the island is fixed 
+    In phone mode js the island gets smaller but javascript makes sure to place the items properly*/
+
 #island {
     top: 75px;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     /* overflow: hidden; */
     max-width: 600px;
     margin: auto;
@@ -21,8 +25,8 @@
     position: absolute;
     height:100%;
     width: 100%;
-    top:50%;
-    left:44%;
+    top:50px;
+    left:51%;
 }
 #island .townhall a {
     position: absolute;
@@ -44,18 +48,23 @@
     position: absolute;
     height:100%;
     width: 100%;
-    top:30%;
-    left:44%;
+    top:340px;
+    left:60%;
 }
+
 #island .extractor a{
-    background-color: rgba(156, 46, 46, 0.651);
     position: absolute;
     cursor: pointer;
     width: 15%;
     padding-bottom:20%;
-    transform:translate(-50%,-70%);
+    transform:translate(-40%,0);
 
 }
+#island .extractor img {
+    position: absolute;
+    width: 45%;
+    transform: translate(-50%,-50%);
+} 
 
  /* floating animation */
  @keyframes floating {
@@ -70,3 +79,12 @@
       animation-timing-function: cubic-bezier(0.41, 0.01, 0.6, 0.95);
     }
   }
+
+  @media screen and (max-width: 600px) {
+    #island .extractor{
+        margin-top: calc(-300px + 60%);
+    }
+    #island .townhall{
+        margin-top: calc(-60px + 10%);
+    }
+}

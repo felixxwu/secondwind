@@ -62,7 +62,7 @@ function combineItems(){
     document.getElementById("combine").disabled = true;
     document.getElementById("errorItems").innerHTML ='';
     var ajax = new AjaxHelper("libraries/ajax");
-    ajax.secureCall("combineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
+    ajax.call("combineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
         //removes list of current items
         var itemList = document.getElementById("itemList");
         while (itemList.firstChild) {

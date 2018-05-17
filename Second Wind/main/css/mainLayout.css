@@ -59,16 +59,16 @@
 .foreground_left{
     position: absolute;
     z-index:2;
-    height: 450px;
-    bottom: -80px;
-    left: -170px;
+    height: 500px;
+    bottom: -70px;
+    left: -210px;
 }
 .foreground_right{
     position: absolute;
     z-index:2;
-    height:70%;
-    bottom: -150px;
-    right: -250px;
+    height: 500px;
+    bottom: -130px;
+    right: -230px;
 }
 
 .building_menus{

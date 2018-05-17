@@ -25,6 +25,10 @@ include ../libraries/utility/forceLoad.pug
 
     .headright
         span.helper
+        a.desktopOnly(onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 0.5, undefined, undefined, 'grid')")
+            img.icon(src="material-icons/notifications.svg")
+        a.desktopOnly(onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 0.5, undefined, undefined, 'grid')")
+            img.icon(src="material-icons/chart.svg")
         a.desktopOnly(onclick="show('map','fadeIn',0.5,'flex')")
             img.icon(src="material-icons/map.svg")
         a(onclick="logout()")
@@ -38,8 +42,10 @@ include ../libraries/utility/forceLoad.pug
         //- a(onclick='logout()') logout
 
 #foreground
-    img.foreground_left(src="images/foreground_left.svg")
-    img.foreground_right(src="images/foreground_right.svg")
+    img.foreground_left#foreground_left(src="images/foreground_left.svg" style="display:none")
+    img.foreground_right#foreground_right(src="images/foreground_right.svg" style="display:none")
+script show("foreground_left","fadeInLeft",4);
+script show("foreground_right","fadeInRight",4);
     
 
 .building_menus       

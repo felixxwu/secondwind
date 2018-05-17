@@ -73,7 +73,7 @@ class AjaxHelper {
         this.countID = function(id) {
             return $("[id=" + id + "]").length;
         }
-
+        
         this.secureLoad = function (id, page, args, callback) {
             this.load(id, page, args, callback);
         }

@@ -96,12 +96,16 @@ function hide(id, type, duration) {
     }, duration * 1000);
 }
 
-function toggle(id, inType, outType, duration, showCallback, hideCallback) {
+function toggle(id, inType, outType, duration, showCallback, hideCallback, displayType) {
     if (element(id).style.display == "none") {
-        show(id, inType, duration);
-        showCallback();
+        show(id, inType, duration, displayType);
+        if (showCallback) {
+            showCallback();
+        }
     } else {
         hide(id, outType, duration);
-        hideCallback();
+        if (hideCallback) {
+            hideCallback();
+        }
     }
 }

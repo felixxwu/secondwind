@@ -13,6 +13,7 @@
     <script src="libraries/account/secureLoad.js?v=<?=time()?>"></script>
     <script src="libraries/utility/general.js?v=<?=time()?>"></script>
     <script src="libraries/utility/animation.js?v=<?=time()?>"></script>
+    <script src="libraries/utility/hashNavigation.js?v=<?=time()?>"></script>
     <script src="libraries/energy/energy.js?v=<?=time()?>"></script>
     <script src="libraries/items/items.js?v=<?=time()?>"></script>
     <script src="libraries/slider/sliderdemo.js?v=<?=time()?>"></script>

@@ -19,20 +19,24 @@
 }
 
 #map > span > #xysensitive {
-    /* width: calc(100% - 40px);
-    height: calc(100% - 40px);
-    margin: 20px; */
-    width: 100%;
-    height: 100%;
-    background-color: grey;
+    width: calc(100% - 30px * 2);
+    height: calc(100% - 30px * 2);
+    margin: 30px;
+    /* width: 100%;
+    height: 100%; */
     pointer-events: all;
 }
 
-#markers {
-    max-height: 100vw;
+#map > span > #markers {
+    position: relative;
+    width: calc(100% - 30px * 2);
+    height: calc(100% - 30px * 2);
+    margin: 30px;
+    background-color: grey;
+    /* max-height: 100vw;
     height: 100vh;
     max-width: 100vh;
-    width: 100vw;
+    width: 100vw; */
     pointer-events: none;
 }
 

@@ -6,6 +6,6 @@ include ../../libraries/utility/forceLoad.pug
 #hideMap(onclick="hide('map','fadeOut',0.5);forward('hidden',function(){show('map','fadeIn',0.5);})" style="position: fixed; color: white; z-index: 15;") HIDE MAP
 #map( style="display:none;")
     span
-        #markers.absolute
-        #xysensitive(onclick="clickme()")
+        #xysensitive.absolute(onclick="clickme()")
+        #markers
             

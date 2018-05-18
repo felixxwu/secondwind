@@ -16,9 +16,10 @@
     <script src="libraries/energy/energy.js?v=<?=time()?>"></script>
     <script src="libraries/items/items.js?v=<?=time()?>"></script>
     <script src="libraries/slider/sliderdemo.js?v=<?=time()?>"></script>
-    <script src="main/toggleMenu.js?v=<?=time()?>"></script>
+    <script src="main/menu/toggleMenu.js?v=<?=time()?>"></script>
     <script src="main/notifications/notifications.js?v=<?=time()?>"></script>
     <script src="main/map/map.js?v=<?=time()?>"></script>
+    <script src="main/buttonPresses.js?v=<?=time()?>"></script>
   </head>
   <body>
     <div id="noOverflow">

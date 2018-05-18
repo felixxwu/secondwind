@@ -56,7 +56,7 @@ function show(id, type, duration, displayType) {
     if (displayType) {
         element(id).style.display = displayType;
     } else {
-        element(id).style.display = "block"; 
+        element(id).style.display = ""; 
     }
 }
 

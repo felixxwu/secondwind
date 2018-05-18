@@ -54,14 +54,14 @@ include ../libraries/utility/forceLoad.pug
         
 .notificationLayout#notifications(style="display:none")
     include notifications/notifications.pug
-    script show("notifications","fadeInLeft",3,"grid");
+    script show("notifications","fadeInLeft",3);
 
 .analyticsLayout#analytics(style="display:none")
     .analytics
         br
         h1.textWhite analytics
         a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 0.5)") hide
-    script show("analytics","fadeInRight",3,"grid");
+    script show("analytics","fadeInRight",3);
     
 
 include map/map.pug

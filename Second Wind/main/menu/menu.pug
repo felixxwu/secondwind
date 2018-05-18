@@ -3,10 +3,10 @@ include ../../libraries/utility/forceLoad.pug
 +forceCss("main/menu/menu.css")
 
 #menu(style="display:none")
-    a.mobileOnly(onclick="show('notifications','slideInLeft',0.5);toggleMenu()")
+    a.mobileOnly(onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()")
         img.icon(src="material-icons/notifications.svg")
     br
-    a.mobileOnly(onclick="show('analytics','slideInRight',0.5);toggleMenu()")
+    a.mobileOnly(onclick="show('analytics','slideInRight',1,'grid');toggleMenu()")
         img.icon(src="material-icons/chart.svg")
     br
     a.mobileOnly(onclick="showMap();toggleMenu()")

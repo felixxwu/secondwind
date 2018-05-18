@@ -1,5 +1,7 @@
 // has all functions related to show and hide animations
 
+var animSpeed = 0.3;
+
 var types = [
     // in types
     "fadeIn",
@@ -50,7 +52,7 @@ function show(id, type, duration, displayType) {
         element(id).classList.add(type);
     }
     if (duration) {
-        element(id).setAttribute("style", "-webkit-animation-duration: " + duration + "s;");
+        element(id).setAttribute("style", "-webkit-animation-duration: " + animSpeed * duration + "s;");
     }
     element(id).classList.remove("hidden");
     if (displayType) {
@@ -85,7 +87,7 @@ function hide(id, type, duration) {
         element(id).classList.add(type);
     }
     if (duration) {
-        element(id).setAttribute("style", "-webkit-animation-duration: " + duration + "s;");
+        element(id).setAttribute("style", "-webkit-animation-duration: " + animSpeed * duration + "s;");
     }
     setTimeout(function () {
         // element(id).classList.add("hidden");

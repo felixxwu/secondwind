@@ -1,6 +1,6 @@
 function showMap() {
-    show('map', 'fadeIn', 0.5, 'flex');
+    show('map', 'fadeIn', 1, 'flex');
     forward("map", function () {
-        hide("map", "fadeOut", 0.5);
+        hide("map", "fadeOut", 1);
     })
 }

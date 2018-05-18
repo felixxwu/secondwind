@@ -25,9 +25,9 @@ include ../libraries/utility/forceLoad.pug
 
     .headright
         span.helper
-        a.desktopOnly(onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 0.5, undefined, undefined, 'grid')")
+        a.desktopOnly(onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 1, undefined, undefined, 'grid')")
             img.icon(src="material-icons/notifications.svg")
-        a.desktopOnly(onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 0.5, undefined, undefined, 'grid')")
+        a.desktopOnly(onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 1, undefined, undefined, 'grid')")
             img.icon(src="material-icons/chart.svg")
         a.desktopOnly(onclick="showMap()")
             img.icon(src="material-icons/map.svg")
@@ -36,7 +36,7 @@ include ../libraries/utility/forceLoad.pug
     
     .mid#floatUp(style="display:none")
         include island/island.pug
-    script show('floatUp','fadeInUp',3);
+    script show('floatUp','fadeInUp',10);
     .foot.textWhite
         | footer
         //- a(onclick='logout()') logout
@@ -44,8 +44,8 @@ include ../libraries/utility/forceLoad.pug
 #foreground
     img.foreground_left#foreground_left(src="images/foreground_left.svg" style="display:none")
     img.foreground_right#foreground_right(src="images/foreground_right.svg" style="display:none")
-    script show("foreground_left","fadeInLeft",2);
-    script show("foreground_right","fadeInRight",2);
+    script show("foreground_left","fadeInLeft",7);
+    script show("foreground_right","fadeInRight",7);
     
 
 .building_menus       
@@ -54,14 +54,14 @@ include ../libraries/utility/forceLoad.pug
         
 .notificationLayout#notifications(style="display:none")
     include notifications/notifications.pug
-    script show("notifications","fadeInLeft",3);
+    script show("notifications","fadeInLeft",10);
 
 .analyticsLayout#analytics(style="display:none")
     .analytics
         br
         h1.textWhite analytics
-        a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 0.5)") hide
-    script show("analytics","fadeInRight",3);
+        a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 1)") hide
+    script show("analytics","fadeInRight",10);
     
 
 include map/map.pug

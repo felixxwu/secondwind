@@ -152,9 +152,10 @@ function getEnergyAllocation(){
 </div>
 <link rel="stylesheet" href="main/map/map.css?v=<?=time()?>"/>
 <div id="hideMap" onclick="hide('map','fadeOut',1);forward('hidden',function(){show('map','fadeIn',1);})" style="position: fixed; color: white; z-index: 15;">HIDE MAP</div>
-<div id="map" style="display:none;"><span>
-    <div class="absolute" id="xysensitive" onclick="clickme()"></div>
-    <div id="markers"></div></span></div>
+<div id="mapGrid">
+  <div id="mapSquare"></div>
+  <div id="mapUI">hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there </div>
+</div>
 <link rel="stylesheet" href="main/menu/menu.css?v=<?=time()?>"/>
 <div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
 <update>

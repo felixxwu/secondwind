@@ -51,7 +51,7 @@
 #mapGrid {
     position: absolute;
     display: none;
-    grid-template-rows: 1fr 100px;
+    grid-template-rows: 1fr 50px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "mapSquare mapUI" ". .";
     width: 100vw;
@@ -73,11 +73,12 @@
 
 #mapUI {
     grid-area: mapUI;
+    text-align: center;
 }
 
 @media screen and (max-width: 600px) {
     #mapGrid {
-        grid-template-rows: 1fr 1fr 100px;
+        grid-template-rows: 1fr 1fr 50px;
         grid-template-columns: 1fr;
         grid-template-areas: "mapSquare" "mapUI" ".";
     }

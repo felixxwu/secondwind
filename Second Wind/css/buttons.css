@@ -9,10 +9,12 @@
 }
 
 .button {
+    display: inline;
     border: solid white 3px;
     padding: 10px;
     line-height: 50px;
     color: white;
+    cursor: pointer;
 }
 
 .invert {

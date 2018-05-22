@@ -7,3 +7,4 @@ function toggleMenu() {
         hide('closeicon', 'fadeOut', 0);
     });
 }
+

@@ -35,3 +35,15 @@ function addMarker() {
 function clickme() {
     addMarker();
 }
+
+function showMap() {
+    show('mapGrid', 'fadeIn', 1, 'grid');
+    forward("map", function () {
+        hide("mapGrid", "fadeOut", 1);
+    })
+}
+
+function hideMap() {
+    hide("mapGrid", "fadeOut", 1);
+    window.history.pushState('', '', './');
+}

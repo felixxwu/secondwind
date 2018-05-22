@@ -14,8 +14,8 @@ html
         link(rel="stylesheet" href="css/animate.css")
         +forceCss("css/mainStyle.css")
         +forceCss("css/buttons.css")
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="https://code.jquery.com/jquery-3.2.1.min.js")
 
         //- +forceJs("libraries/ajax/AjaxHelper.js")
         +forceJs("libraries/ajax/newAjaxHelper.js")
@@ -28,11 +28,12 @@ html
         +forceJs("libraries/items/items.js")
         +forceJs("libraries/slider/sliderdemo.js")
 
-        +forceJs("main/menu/toggleMenu.js")
+        +forceJs("main/menu/menu.js")
         +forceJs("main/notifications/notifications.js")
         +forceJs("main/map/map.js")
-        +forceJs("main/buttonPresses.js")
         
+        +forceJs("init.js")
+
         //- link(rel="stylesheet", href="css/style.css")
         //- link(rel="stylesheet", href="css/animate.css")
         //- link(rel="stylesheet" href="css/mainStyle.css")
@@ -70,22 +71,3 @@ html
 
             #main
             
-            script.
-                secureLoad("main", "main/main.php", undefined, function() {
-                    hide("loading","fadeOut", 2);
-                });
-
-            script.
-                function getFive() {
-                    //- var ajax = new AjaxHelper("libraries/ajax");
-                    ajaxLoadVariables("output", {"variableExample": null, "variableWithArgExample": "heyo", "variableMultipleArgsExample": ["foo", "bar"]}, function() {
-                        console.log(variableExample);
-                        console.log(variableWithArgExample);
-                        console.log(variableMultipleArgsExample);
-                    })
-
-                    ajaxCall("argsExample",{0: "hey", 1: "there"}, function() {
-                        console.log("call done");
-                    });
-                    
-                }

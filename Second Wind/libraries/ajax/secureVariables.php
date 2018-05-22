@@ -58,6 +58,23 @@ function energies(){
     return $query;
 
 }
+
+//returns the rows corresponding to finished combinations
+function ajaxGetFinishedCombinations(){
+    $username=$_POST["username"];
+    $time=time();
+    $result= sqlSelect('itemCombinations','*',"finish_time<=$time",'finish_time');
+    return $result;
+}
+
+//returns the rows corresponding to ongoing combinations
+function ajaxGetOngoingCombinations(){
+    $username=$_POST["username"];
+    $time=time();
+    $result= sqlSelect('itemCombinations','*',"finish_time>$time",'finish_time');
+    return $result;
+}
+
 function variableExample() {
     return 5;
 }

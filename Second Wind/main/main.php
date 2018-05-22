@@ -41,19 +41,20 @@ function getEnergyAllocation(){
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
-  <div class="headright"><span class="helper"></span><a class="desktopOnly" onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 0.5, undefined, undefined, 'grid')"><img class="icon" src="material-icons/notifications.svg"/></a><a class="desktopOnly" onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 0.5, undefined, undefined, 'grid')"><img class="icon" src="material-icons/chart.svg"/></a><a class="desktopOnly" onclick="show('map','fadeIn',0.5,'flex')"><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
+  <div class="headright"><span class="helper"></span><a class="desktopOnly" onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/notifications.svg"/></a><a class="desktopOnly" onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/chart.svg"/></a><a class="desktopOnly" onclick="showMap()"><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
   <div class="mid" id="floatUp" style="display:none">
     <div id="island"><img id="islandrock" src="images/rock.svg"/>
       <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
       <div class="extractor"> <img src="images/extractor_3_animation.svg"/><a onclick="show('extractor_menu','fadeInUp', 1,'grid')"></a></div>
     </div>
   </div>
-  <script>show('floatUp','fadeInUp',3);</script>
+  <script>show('floatUp','fadeInUp',10);</script>
   <div class="foot textWhite">footer</div>
 </div>
-<div id="foreground"><img class="foreground_left" id="foreground_left" src="images/foreground_left.svg" style="display:none"/><img class="foreground_right" id="foreground_right" src="images/foreground_right.svg" style="display:none"/></div>
-<script>show("foreground_left","fadeInLeft",4);</script>
-<script>show("foreground_right","fadeInRight",4);</script>
+<div id="foreground"><img class="foreground_left" id="foreground_left" src="images/foreground_left.svg" style="display:none"/><img class="foreground_right" id="foreground_right" src="images/foreground_right.svg" style="display:none"/>
+  <script>show("foreground_left","fadeInLeft",7);</script>
+  <script>show("foreground_right","fadeInRight",7);</script>
+</div>
 <div class="building_menus">      
   <div id="extractor_menu" style="display:none">
     <div id="factory_header">header</div>
@@ -117,7 +118,7 @@ function getEnergyAllocation(){
     <div id="confirmMessage"></div>
   </div>
 </div>
-<div class="notificationLayout" id="notifications">
+<div class="notificationLayout" id="notifications" style="display:none">
   <div class="notifications">
     <div class="titleIcon"><img class="invert" src="material-icons/notifications.svg" width="35px"/></div>
     <div class="list">
@@ -138,22 +139,25 @@ function getEnergyAllocation(){
       </div>
       <div class="notificationCard"><br/><b>Another one</b><br/>
         <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
-      </div><a class="button mobileOnly" onclick="hide('notifications', 'slideOutLeft', 0.5)">hide</a>
+      </div><a class="button mobileOnly" onclick="hide('notifications', 'slideOutLeft', 1)">hide</a>
     </div>
   </div>
+  <script>show("notifications","fadeInLeft",10);</script>
 </div>
-<div class="analyticsLayout" id="analytics">
+<div class="analyticsLayout" id="analytics" style="display:none">
   <div class="analytics"><br/>
-    <h1 class="textWhite">analytics</h1><a class="button mobileOnly" onclick="hide('analytics', 'slideOutRight', 0.5)">hide</a>
+    <h1 class="textWhite">analytics</h1><a class="button mobileOnly" onclick="hide('analytics', 'slideOutRight', 1)">hide</a>
   </div>
+  <script>show("analytics","fadeInRight",10);</script>
 </div>
 <link rel="stylesheet" href="main/map/map.css?v=<?=time()?>"/>
-<div id="hideMap" onclick="hide('map','fadeOut',0.5)" style="position: fixed; color: white; z-index: 15;">HIDE MAP</div>
-<div id="map" style="display:none;"><span>
-    <div class="absolute" id="markers"></div>
-    <div id="xysensitive" onclick="clickme()"></div></span></div>
+<div id="hideMap" onclick="hide('map','fadeOut',1);forward('hidden',function(){show('map','fadeIn',1);})" style="position: fixed; color: white; z-index: 15;">HIDE MAP</div>
+<div id="mapGrid">
+  <div id="mapSquare"></div>
+  <div id="mapUI">hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there </div>
+</div>
 <link rel="stylesheet" href="main/menu/menu.css?v=<?=time()?>"/>
-<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',0.5);toggleMenu()"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',0.5);toggleMenu()"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="show('map','fadeIn',0.5,'flex');toggleMenu()"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
+<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
 <update>
   <script>getEnergyAllocation();</script>
   <script>updateItemsList();</script>

@@ -51,6 +51,8 @@ class AjaxHelper {
                 console.warn("there are " + this.countID(id) + " number of elements with ID: " + id);
             }
 
+            console.log("using old ajax");
+
             if (typeof callback == "undefined") {
                 $("#" + id).load(page, args);      // load without callback if not defined
             } else {

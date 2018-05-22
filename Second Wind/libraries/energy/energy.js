@@ -8,8 +8,13 @@
 $( document).ready(function(){
 	
 	var ajax = new AjaxHelper("libraries/ajax");
+<<<<<<< HEAD
  
 	var t=setInterval(updateEnergy,1000);
+=======
+
+	// var t=setInterval(updateEnergy,1000);
+>>>>>>> 0d659f8a6963c1b42dcef16f0d88010cbc0f2715
 	function updateEnergy(){
 		ajax.secureLoadVariables("ghost", {"energies": null}, function() {
 			document.getElementById('humanEnergy').innerHTML = energies.human;

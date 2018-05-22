@@ -3,9 +3,13 @@ include ../../libraries/utility/forceLoad.pug
 +forceCss("main/map/map.css")
 
 //- #hideMap(onclick="secureLoad('ghosty','libraries/ajax/secureVariables.php',{'variableMultipleArgsExample': ['hello','world']})" style="position: fixed; color: white; z-index: 15;") HIDE MAP
-#hideMap(onclick="hide('map','fadeOut',0.5)" style="position: fixed; color: white; z-index: 15;") HIDE MAP
-#map( style="display:none;")
+#hideMap(onclick="hide('map','fadeOut',1);forward('hidden',function(){show('map','fadeIn',1);})" style="position: fixed; color: white; z-index: 15;") HIDE MAP
+//- #map( style="display:none;")
     span
-        #markers.absolute
-        #xysensitive(onclick="clickme()")
-            
+        #xysensitive.absolute(onclick="clickme()")
+        #markers
+
+#mapGrid
+    #mapSquare
+    #mapUI.
+        hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there hello there 

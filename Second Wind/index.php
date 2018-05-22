@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
   <head>
     <title>Second Wind</title>
@@ -8,17 +8,19 @@
     <link rel="stylesheet" href="css/mainStyle.css?v=<?=time()?>"/>
     <link rel="stylesheet" href="css/buttons.css?v=<?=time()?>"/><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="libraries/ajax/AjaxHelper.js?v=<?=time()?>"></script>
+    <script src="libraries/ajax/newAjaxHelper.js?v=<?=time()?>"></script>
     <script src="libraries/account/functions.js?v=<?=time()?>"></script>
     <script src="libraries/account/secureLoad.js?v=<?=time()?>"></script>
     <script src="libraries/utility/general.js?v=<?=time()?>"></script>
     <script src="libraries/utility/animation.js?v=<?=time()?>"></script>
+    <script src="libraries/utility/hashNavigation.js?v=<?=time()?>"></script>
     <script src="libraries/energy/energy.js?v=<?=time()?>"></script>
     <script src="libraries/items/items.js?v=<?=time()?>"></script>
     <script src="libraries/slider/sliderdemo.js?v=<?=time()?>"></script>
-    <script src="main/toggleMenu.js?v=<?=time()?>"></script>
+    <script src="main/menu/toggleMenu.js?v=<?=time()?>"></script>
     <script src="main/notifications/notifications.js?v=<?=time()?>"></script>
     <script src="main/map/map.js?v=<?=time()?>"></script>
+    <script src="main/buttonPresses.js?v=<?=time()?>"></script>
   </head>
   <body>
     <div id="noOverflow">
@@ -29,8 +31,7 @@
       </div>
       <div id="main"></div>
       <script>
-        let ajax = new AjaxHelper("libraries/ajax");
-        ajax.secureLoad("main", "main/main.php", undefined, function() {
+        secureLoad("main", "main/main.php", undefined, function() {
             hide("loading","fadeOut", 2);
         });
         

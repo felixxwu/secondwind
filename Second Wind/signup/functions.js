@@ -20,8 +20,8 @@ function signup() {
     let email = element("email").value;
     let password = element("password").value;
     element("message").innerHTML = "signing up...";
-    let ajax = new AjaxHelper("../libraries/ajax");
-    ajax.load("message", "signup.php", {
+    // let ajax = new AjaxHelper("../libraries/ajax");
+    ajaxLoad("message", "signup.php", {
         "username": username,
         "email": email,
         "password": password
@@ -37,8 +37,8 @@ function checkUserExists() {
     timeout = setTimeout(function () {
         let username = element("username").value;
         console.log("start " + username);
-        let ajax = new AjaxHelper("../libraries/ajax");
-        ajax.loadVariables("ghost", { "message": username }, function () {
+        // let ajax = new AjaxHelper("../libraries/ajax");
+        ajaxLoadVariables("ghost", { "message": username }, function () {
             element("message").innerHTML = message;
             console.log("done  " + username);
             if (element("username").value != username) {

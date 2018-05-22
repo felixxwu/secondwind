@@ -18,20 +18,21 @@
     height: 100vh;
 }
 
-#map > span > #xysensitive {
+#xysensitive, #markers {
     /* width: calc(100% - 30px * 2);
     height: calc(100% - 30px * 2);
     margin: 30px; */
-    width: 100%;
-    height: 100%;
+    grid-area: mapSquare;
+    width: 60vw;
+    height: 60vw;
+    max-width: 100vh;
+    max-height: 100vw;
     pointer-events: all;
 }
 
-#map > span > #markers {
+#markers {
     position: relative;
-    width: calc(100% - 50px * 2);
-    height: calc(100% - 50px * 2);
-    margin: 50px;
+    /* margin: 50px; */
     background-color: grey;
     /* max-height: 100vw;
     height: 100vh;
@@ -63,8 +64,8 @@
 
 #mapSquare {
     grid-area: mapSquare;
-    width: calc(50vw + 100 / 50%);
-    height: 50vw;
+    width: 60vw;
+    height: 60vw;
     max-width: 100vh;
     max-height: 100vw;
     background-color: grey;
@@ -81,7 +82,7 @@
         grid-template-areas: "mapSquare" "mapUI" ".";
     }
     
-    #mapSquare {
+    #mapSquare, #xysensitive, #markers {
         width: 100vw;
         height: 100vw;
     }

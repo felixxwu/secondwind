@@ -48,7 +48,7 @@ function ajaxLoad(id, page, args, callback) {
         console.warn("there are " + ajaxCountID(id) + " number of elements with ID: " + id);
     }
 
-    console.log("using new ajax");
+    // console.log("using new ajax");
 
     if (typeof callback == "undefined") {
         $("#" + id).load(page, args);      // load without callback if not defined

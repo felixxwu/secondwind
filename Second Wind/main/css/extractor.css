@@ -29,7 +29,7 @@
     height:100px;
     width:100px;
     background-color: rgb(158, 158, 167);
-    overflow:hidden;
+    overflow:scroll;
     margin:3px;
 }
 #factory_actions{

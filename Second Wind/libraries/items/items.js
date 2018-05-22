@@ -26,7 +26,25 @@ function updateItemsList(){
         })
 }
 
-function updateCombinationTimes(){
+//retrieves combination times from the server and displays them.
+//Also creates new items if combinations are completed
+function retrieveCombinationTimes(){
+
+    // var t=setInterval(updateCombiningEverySecond,1000);
+	// function updateCombiningEverySecond(){
+	// 	ajaxSecureLoadVariables("ajaxGetCombiningTimes",{"combiningTimes": null},function(){
+    //         log(combiningTimes);
+    //     })
+    // }
+    
+    ajaxSecureLoadVariables("ghost",{"ajaxGetFinishedCombinations": null},function(){
+        log(ajaxGetFinishedCombinations);
+    })
+
+    ajaxSecureLoadVariables("ghost",{"ajaxGetOngoingCombinations": null},function(){
+        log(ajaxGetOngoingCombinations);
+    })
+
     //do this every second.
         //ajax call to get combination times for all combinations
         
@@ -50,15 +68,20 @@ function addToCombine(id) {
     var split = id.split('*');
     var name = split[0];
     var level = split[1];
+    // log(name);
+    // log(level);
     if(nextEl=="el1"){
         el1=name;
         level1=level;
         nextEl="el2";
+        // log('el1 is next')
+          
     }
     else if(nextEl=="el2"){
         el2=name;
         level2=level;
         nextEl="el1";
+        // log('el2 is next')
     }
     var combine = document.getElementById('combine');
     combine.style.display = 'none';
@@ -75,6 +98,7 @@ function combineItems(){
     document.getElementById("combine").disabled = true;
     document.getElementById("errorItems").innerHTML ='';
     // var ajax = new AjaxHelper("libraries/ajax");
+    log(el1);log(level1);log(el2);log(level2);
     ajaxSecureCall("combineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
         //removes list of current items
         var itemList = document.getElementById("itemList");
@@ -87,6 +111,7 @@ function combineItems(){
        
        
     })
+    retrieveCombinationTimes();
 }
 
 //display error messages when a combination doesn't have enough items

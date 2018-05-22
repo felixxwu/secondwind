@@ -52,8 +52,9 @@ function combineItems($el1IN,$level1IN,$el2IN,$level2IN){
     $username=$_POST["username"];
     include "../items/combineItems.php";
   
-    getAmounts();
+    getAmounts(); 
     enoughItems();
+    startCombination($el1,$el2,$level1,$level2,$username);
     subtractQuantities();
     getEnergyValues();
     newEnergyValues();

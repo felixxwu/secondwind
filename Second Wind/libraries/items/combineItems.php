@@ -41,8 +41,17 @@ function enoughItems(){ //checks if there are enough of the items to combine the
     //echo("<script>refreshItems();</script>");
     
   }
+
+  function getCombinationTime($item1,$item2,$level1,$level2){
+    //default returns 1 second as a combination time
+    return 60;
+  }
   //adds itemCombinations database with a new combination
-  function startCombination(){ 
+  function startCombination($item1,$item2,$level1,$level2,$username){ 
+    $combinationTime=getCombinationTime($item1,$item2,$level1,$level2);
+    $startTime = time();
+    $finishTime = $startTime + $combinationTime;
+    sqlInsert("itemCombinations","$username","$item1","$level1","$item2","$level2","$startTime","$finishTime");
 
   }
   function getEnergyValues(){ //gets the energy values corresponding to el1 and el2

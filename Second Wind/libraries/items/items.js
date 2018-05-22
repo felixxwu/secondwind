@@ -26,6 +26,19 @@ function updateItemsList(){
         })
 }
 
+function updateCombinationTimes(){
+    //do this every second.
+        //ajax call to get combination times for all combinations
+        
+        //if any combination finish time is due when the update is called then delete the combination..
+        //entry from the database and create the new item.
+
+        //display remaining combination times.
+
+
+
+}
+
 //vars that store the elements to be combined
 var el1, el2 = null; //items to be combined
 var level1, level2 = null; //level of the items to be combined

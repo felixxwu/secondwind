@@ -41,7 +41,10 @@ function enoughItems(){ //checks if there are enough of the items to combine the
     //echo("<script>refreshItems();</script>");
     
   }
+  //adds itemCombinations database with a new combination
+  function startCombination(){ 
 
+  }
   function getEnergyValues(){ //gets the energy values corresponding to el1 and el2
     global $username, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies;
   
@@ -119,6 +122,8 @@ function enoughItems(){ //checks if there are enough of the items to combine the
     }
   
   }
+
+  
   function newItem(){ //creates/updates the new/existing item's quantity with ratio: newRatio
     global $username, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies, $sumEnergies,$level,$ratio,$newItem,$newItemAmount;
   

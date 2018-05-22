@@ -158,4 +158,5 @@ function getEnergyAllocation(){
   <script>getEnergyAllocation();</script>
   <script>updateItemsList();</script>
   <script>setupSliders();</script>
+  <script>updateCombinationTimes();</script>
 </update>

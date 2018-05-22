@@ -8,7 +8,7 @@
 $( document).ready(function(){
 	
 	var ajax = new AjaxHelper("libraries/ajax");
-
+ 
 	var t=setInterval(updateEnergy,1000);
 	function updateEnergy(){
 		ajax.secureLoadVariables("ghost", {"energies": null}, function() {

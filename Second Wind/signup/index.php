@@ -36,9 +36,9 @@
     <div id="ghost"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../libraries/ajax/AjaxHelper.js"></script>
+    <script src="../libraries/ajax/newAjaxHelper.js"></script>
     <script src="../libraries/utility/general.js"></script>
     <script src="../libraries/account/functions.js"></script>
-    <script src="functions.js?v=2"></script>
+    <script src="functions.js"></script>
   </body>
 </html>

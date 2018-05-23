@@ -21,6 +21,7 @@ function signup() {
     let password = element("password").value;
     element("message").innerHTML = "signing up...";
     // let ajax = new AjaxHelper("../libraries/ajax");
+    ajaxPath = "../libraries/ajax";
     ajaxLoad("message", "signup.php", {
         "username": username,
         "email": email,
@@ -38,6 +39,7 @@ function checkUserExists() {
         let username = element("username").value;
         console.log("start " + username);
         // let ajax = new AjaxHelper("../libraries/ajax");
+        ajaxPath = "../libraries/ajax";
         ajaxLoadVariables("ghost", { "message": username }, function () {
             element("message").innerHTML = message;
             console.log("done  " + username);

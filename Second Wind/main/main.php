@@ -35,7 +35,7 @@ function getEnergyAllocation(){
 ?>
 <link rel="stylesheet" href="main/island/island.css?v=<?=time()?>"/>
 <link rel="stylesheet" href="main/css/mainLayout.css?v=<?=time()?>"/>
-<link rel="stylesheet" href="main/notifications/notificationLayout.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/notifications/notifications.css?v=<?=time()?>"/>
 <link rel="stylesheet" href="main/css/analyticsLayout.css?v=<?=time()?>"/>
 <link rel="stylesheet" href="main/css/extractor.css?v=<?=time()?>"/>
 <div class="mainLayout">
@@ -151,12 +151,24 @@ function getEnergyAllocation(){
   <script>show("analytics","fadeInRight",10);</script>
 </div>
 <link rel="stylesheet" href="main/map/map.css?v=<?=time()?>"/>
+<div id="mapVars"><?php
+
+$islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
+echoAsVar("islands", $islands);
+echo "<script>
+mapVarInit();
+</script>";
+
+?>
+</div>
 <div id="mapGrid">
   <div id="mapSquare">
-    <div class="absolute" id="xysensitive" onclick="clickme()"></div>
+    <div id="xysensitive" onclick="addMarker()"></div>
+    <div id="myLocation"></div>
     <div id="markers"></div>
   </div>
   <div id="mapUI">
+    <select id="selectIslands"></select><br/>
     <div class="button" onclick="hideMap()">close map</div>
   </div>
 </div>

@@ -8,13 +8,21 @@
     -webkit-filter: invert(100%);
 }
 
-.button {
+.button, select {
     display: inline;
     border: solid white 3px;
     padding: 10px;
+    margin: 10px;
     line-height: 50px;
     color: white;
     cursor: pointer;
+    background-color: black;
+    font-size: medium;
+    font-weight: 700;
+}
+
+.button:hover, select:hover {
+    background-color: rgb(50, 50, 50);
 }
 
 .invert {

@@ -10,10 +10,15 @@ include ../../libraries/utility/forceLoad.pug
     span
         #xysensitive.absolute(onclick="clickme()")
         #markers
+#mapVars
+    include mapVars.php
 
 #mapGrid
     #mapSquare
-        #xysensitive.absolute(onclick="clickme()")
+        #xysensitive(onclick="addMarker()")
+        #myLocation
         #markers
     #mapUI
+        select#selectIslands
+        br
         .button(onclick="hideMap()") close map

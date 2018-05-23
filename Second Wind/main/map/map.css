@@ -18,33 +18,33 @@
     height: 100vh;
 }
 
-#xysensitive, #markers {
+#xysensitive, #markers, #myLocation {
     /* width: calc(100% - 30px * 2);
     height: calc(100% - 30px * 2);
     margin: 30px; */
+    position: absolute;
     grid-area: mapSquare;
     width: 60vw;
     height: 60vw;
     max-width: 100vh;
     max-height: 100vw;
-    pointer-events: all;
+    pointer-events: none;
 }
 
-#markers {
-    position: relative;
-    /* margin: 50px; */
-    background-color: grey;
-    /* max-height: 100vw;
-    height: 100vh;
-    max-width: 100vh;
-    width: 100vw; */
-    pointer-events: none;
+#xysensitive {
+    pointer-events: all;
 }
 
 #markers > img {
     position: absolute;
     margin-left: -12px;
     margin-top: -24px;
+}
+
+#myLocation > img {
+    position: absolute;
+    margin-left: -12px;
+    margin-top: -12px;
 }
 
 /* needs to show with diaply: grid */
@@ -83,7 +83,7 @@
         grid-template-areas: "mapSquare" "mapUI" ".";
     }
     
-    #mapSquare, #xysensitive, #markers {
+    #mapSquare, #xysensitive, #markers, #myLocation {
         width: 100vw;
         height: 100vw;
     }

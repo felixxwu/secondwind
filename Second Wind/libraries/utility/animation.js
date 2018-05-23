@@ -92,7 +92,7 @@ function hide(id, type, duration) {
     setTimeout(function () {
         // element(id).classList.add("hidden");
         element(id).style.display = "none";
-    }, duration * 1000);
+    }, animSpeed * duration * 1000);
 }
 
 function toggle(id, inType, outType, duration, showCallback, hideCallback, displayType) {

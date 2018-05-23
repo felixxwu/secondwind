@@ -27,7 +27,7 @@ function setLocation(island) {
     element("myLocation").appendChild(myLocation);
 }
 
-function getXY() {
+function getXY(event) {
     let scrolled = element("mapGrid").scrollTop;
     let x = event.clientX;
     let y = event.clientY + scrolled;
@@ -44,9 +44,9 @@ function getXY() {
     return [x, y];
 }
 
-function addMarker() {
+function addMarker(event) {
     // create a new div element 
-    var XY = getXY();
+    var XY = getXY(event);
     if (!XY) {
         return;
     }
@@ -62,13 +62,13 @@ function addMarker() {
 }
 
 function showMap() {
-    show('mapGrid', 'fadeIn', 1, 'grid');
+    show('mapGrid', 'fadeInUp', 1, 'grid');
     forward("map", function () {
-        hide("mapGrid", "fadeOut", 1);
+        hide("mapGrid", "fadeOutDown", 1);
     })
 }
 
 function hideMap() {
-    hide("mapGrid", "fadeOut", 1);
+    hide("mapGrid", "fadeOutDown", 1);
     window.history.pushState('', '', './');
 }

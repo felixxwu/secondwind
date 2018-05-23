@@ -163,9 +163,9 @@ mapVarInit();
 </div>
 <div id="mapGrid">
   <div id="mapSquare">
-    <div id="xysensitive" onclick="addMarker()"></div>
-    <div id="myLocation"></div>
-    <div id="markers"></div>
+    <div id="xysensitive" onclick="addMarker(event)"></div>
+    <div class="invert" id="myLocation"></div>
+    <div class="invert" id="markers"></div>
   </div>
   <div id="mapUI">
     <select id="selectIslands"></select><br/>

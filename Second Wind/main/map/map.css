@@ -27,7 +27,7 @@
     width: 60vw;
     height: 60vw;
     max-width: 100vh;
-    max-height: 100vw;
+    max-height: 100vh;
     pointer-events: none;
 }
 
@@ -68,7 +68,7 @@
     height: 60vw;
     max-width: 100vh;
     max-height: 100vw;
-    background-color: grey;
+    background-color: rgb(65, 65, 65);
 }
 
 #mapUI {

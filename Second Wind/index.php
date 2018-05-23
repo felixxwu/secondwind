@@ -29,7 +29,7 @@
       <div id="ghosty"></div>
       <div id="loading">
         <text>loading...</text>
-      </div>
+      </div><a class="absolute" href="login" style="z-index: -1;">if nothing happens, click here</a>
       <div id="main"></div>
     </div>
   </body>

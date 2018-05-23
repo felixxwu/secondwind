@@ -15,9 +15,9 @@ include ../../libraries/utility/forceLoad.pug
 
 #mapGrid
     #mapSquare
-        #xysensitive(onclick="addMarker()")
-        #myLocation
-        #markers
+        #xysensitive(onclick="addMarker(event)")
+        #myLocation.invert
+        #markers.invert
     #mapUI
         select#selectIslands
         br

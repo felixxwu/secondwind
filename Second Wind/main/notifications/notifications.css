@@ -21,6 +21,7 @@
     padding-bottom: 150px;
     overflow: scroll;
     -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
 }
 
 .notificationLayout .notifications > .titleIcon {

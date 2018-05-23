@@ -10,7 +10,8 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 if (!$username || !$password) {
-    echo "<meta http-equiv='refresh' content='0; url=login' />";
+    echo "<script>window.location.href = 'login';</script>";
+    // echo "<meta http-equiv='refresh' content='0; url=login' />";
     return;
 }
 

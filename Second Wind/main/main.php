@@ -150,7 +150,7 @@ function getEnergyAllocation(){
   </div>
   <script>show("analytics","fadeInRight",10);</script>
 </div>
-<link rel="stylesheet" href="main/map/map.css?h=<?= hash_file('crc32', 'main/map/map.css'); ?>"/>
+<link rel="stylesheet" href="main/map/map.css?h=<?= hash_file('crc32', 'map.css'); ?>"/>
 <div id="mapVars"><?php
 
 $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");

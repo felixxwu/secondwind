@@ -1,8 +1,8 @@
 mixin forceCss(url)
-    - var url = url + "?v=<?=time()?>"
+    - var url = url + "?h=<?= hash_file('crc32', '" + url + "'); ?>"
     link(rel="stylesheet", href!= url)
 
 mixin forceJs(url)
-    - var url = url + "?v=<?=time()?>"
+    - var url = url + "?h=<?= hash_file('crc32', '" + url + "'); ?>"
     script(src!= url)
     

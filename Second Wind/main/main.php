@@ -33,11 +33,11 @@ function getEnergyAllocation(){
 		</script>");
 }
 ?>
-<link rel="stylesheet" href="main/island/island.css?v=<?=time()?>"/>
-<link rel="stylesheet" href="main/css/mainLayout.css?v=<?=time()?>"/>
-<link rel="stylesheet" href="main/notifications/notifications.css?v=<?=time()?>"/>
-<link rel="stylesheet" href="main/css/analyticsLayout.css?v=<?=time()?>"/>
-<link rel="stylesheet" href="main/css/extractor.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/island/island.css?h=<?= hash_file('crc32', 'main/island/island.css'); ?>"/>
+<link rel="stylesheet" href="main/css/mainLayout.css?h=<?= hash_file('crc32', 'main/css/mainLayout.css'); ?>"/>
+<link rel="stylesheet" href="main/notifications/notifications.css?h=<?= hash_file('crc32', 'main/notifications/notifications.css'); ?>"/>
+<link rel="stylesheet" href="main/css/analyticsLayout.css?h=<?= hash_file('crc32', 'main/css/analyticsLayout.css'); ?>"/>
+<link rel="stylesheet" href="main/css/extractor.css?h=<?= hash_file('crc32', 'main/css/extractor.css'); ?>"/>
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
@@ -150,7 +150,7 @@ function getEnergyAllocation(){
   </div>
   <script>show("analytics","fadeInRight",10);</script>
 </div>
-<link rel="stylesheet" href="main/map/map.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/map/map.css?h=<?= hash_file('crc32', 'main/map/map.css'); ?>"/>
 <div id="mapVars"><?php
 
 $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
@@ -172,7 +172,7 @@ mapVarInit();
     <div class="button" onclick="hideMap()">close map</div>
   </div>
 </div>
-<link rel="stylesheet" href="main/menu/menu.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/menu/menu.css?h=<?= hash_file('crc32', 'main/menu/menu.css'); ?>"/>
 <div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
 <update>
   <script>getEnergyAllocation();</script>

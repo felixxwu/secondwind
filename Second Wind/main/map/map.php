@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="main/map/map.css?v=<?=time()?>"/>
+<link rel="stylesheet" href="main/map/map.css?h=<?= hash_file('crc32', 'main/map/map.css'); ?>"/>
 <div id="mapVars"><?php
 
 $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");

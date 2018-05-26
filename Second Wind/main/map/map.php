@@ -15,6 +15,7 @@ mapVarInit();
     <div id="xysensitive" onclick="addMarker(event)"></div>
     <div class="invert" id="myLocation"></div>
     <div class="invert" id="markers"></div>
+    <div id="line"></div>
   </div>
   <div id="mapUI">
     <select id="selectIslands"></select><br/>

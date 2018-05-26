@@ -18,7 +18,7 @@
     height: 100vh;
 }
 
-#xysensitive, #markers, #myLocation {
+#xysensitive, #markers, #myLocation, #svgLine {
     /* width: calc(100% - 30px * 2);
     height: calc(100% - 30px * 2);
     margin: 30px; */
@@ -83,7 +83,7 @@
         grid-template-areas: "mapSquare" "mapUI" ".";
     }
     
-    #mapSquare, #xysensitive, #markers, #myLocation {
+    #mapSquare, #xysensitive, #markers, #myLocation, #svgLine {
         width: 100vw;
         height: 100vw;
     }

@@ -33,25 +33,25 @@ function getEnergyAllocation(){
 		</script>");
 }
 ?>
-<link rel="stylesheet" href="main/island/island.css?h=<?= hash_file('crc32', 'island/island.css'); ?>"/>
-<link rel="stylesheet" href="main/css/mainLayout.css?h=<?= hash_file('crc32', 'css/mainLayout.css'); ?>"/>
-<link rel="stylesheet" href="main/notifications/notifications.css?h=<?= hash_file('crc32', 'notifications/notifications.css'); ?>"/>
-<link rel="stylesheet" href="main/css/analyticsLayout.css?h=<?= hash_file('crc32', 'css/analyticsLayout.css'); ?>"/>
-<link rel="stylesheet" href="main/css/extractor.css?h=<?= hash_file('crc32', 'css/extractor.css'); ?>"/>
+<link rel="stylesheet" href="<? hashify('main/css/mainLayout.css'); ?>"/>
+<link rel="stylesheet" href="<? hashify('main/notifications/notifications.css'); ?>"/>
+<link rel="stylesheet" href="<? hashify('main/css/analyticsLayout.css'); ?>"/>
+<link rel="stylesheet" href="<? hashify('main/css/extractor.css'); ?>"/>
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
   <div class="headright"><span class="helper"></span><a class="desktopOnly" onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/notifications.svg"/></a><a class="desktopOnly" onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/chart.svg"/></a><a class="desktopOnly" onclick="showMap()"><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
   <div class="mid" id="floatUp" style="display:none">
-    <div id="island"><img id="islandrock" src="images/rock.svg"/>
-      <div class="townhall"><img src="images/townHall.svg"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
-      <div class="extractor"> <img src="images/extractor_3_animation.svg"/><a onclick="show('extractor_menu','fadeInUp', 1,'grid')"></a></div>
+    <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
+    <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
+      <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
+      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 1,'grid')"></a></div>
     </div>
   </div>
   <script>show('floatUp','fadeInUp',10);</script>
   <div class="foot textWhite">footer</div>
 </div>
-<div id="foreground"><img class="foreground_left" id="foreground_left" src="images/foreground_left.svg" style="display:none"/><img class="foreground_right" id="foreground_right" src="images/foreground_right.svg" style="display:none"/>
+<div id="foreground"><img class="foreground_left" id="foreground_left" src="<? hashify('images/foreground_left.svg'); ?>" style="display:none"/><img class="foreground_right" id="foreground_right" src="<? hashify('images/foreground_right.svg'); ?>" style="display:none"/>
   <script>show("foreground_left","fadeInLeft",7);</script>
   <script>show("foreground_right","fadeInRight",7);</script>
 </div>
@@ -150,7 +150,7 @@ function getEnergyAllocation(){
   </div>
   <script>show("analytics","fadeInRight",10);</script>
 </div>
-<link rel="stylesheet" href="main/map/map.css?h=<?= hash_file('crc32', 'map.css'); ?>"/>
+<link rel="stylesheet" href="<? hashify('main/map/map.css'); ?>"/>
 <div id="mapVars"><?php
 
 $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
@@ -172,8 +172,8 @@ mapVarInit();
     <div class="button" onclick="hideMap()">close map</div>
   </div>
 </div>
-<link rel="stylesheet" href="main/menu/menu.css?h=<?= hash_file('crc32', 'menu.css'); ?>"/>
-<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="material-icons/notifications.svg"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="material-icons/chart.svg"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="material-icons/map.svg"/></a><br/></div>
+<link rel="stylesheet" href="<? hashify('main/menu/menu.css'); ?>"/>
+<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/notifications.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/chart.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="<? hashify('material-icons/map.svg'); ?>"/></a><br/></div>
 <update>
   <script>getEnergyAllocation();</script>
   <script>updateItemsList();</script>

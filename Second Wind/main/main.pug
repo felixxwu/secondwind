@@ -1,11 +1,12 @@
 include ../libraries/energy/energy.php
-include ../libraries/utility/forceLoad.pug
 
-+forceCss("main/island/island.css", "island/island.css")
-+forceCss("main/css/mainLayout.css", "css/mainLayout.css")
-+forceCss("main/notifications/notifications.css", "notifications/notifications.css")
-+forceCss("main/css/analyticsLayout.css", "css/analyticsLayout.css")
-+forceCss("main/css/extractor.css", "css/extractor.css")
+
+
+link(rel="stylesheet" href!="<? hashify('main/css/mainLayout.css'); ?>")
+link(rel="stylesheet" href!="<? hashify('main/notifications/notifications.css'); ?>")
+link(rel="stylesheet" href!="<? hashify('main/css/analyticsLayout.css'); ?>")
+link(rel="stylesheet" href!="<? hashify('main/css/extractor.css'); ?>")
+
 
 //- link(rel="stylesheet", href="main/mainLayout.css?")
 //- link(rel="stylesheet", href="main/island.css")
@@ -42,8 +43,8 @@ include ../libraries/utility/forceLoad.pug
         //- a(onclick='logout()') logout
 
 #foreground
-    img.foreground_left#foreground_left(src="images/foreground_left.svg" style="display:none")
-    img.foreground_right#foreground_right(src="images/foreground_right.svg" style="display:none")
+    img.foreground_left#foreground_left(src!="<? hashify('images/foreground_left.svg'); ?>" style="display:none")
+    img.foreground_right#foreground_right(src!="<? hashify('images/foreground_right.svg'); ?>" style="display:none")
     script show("foreground_left","fadeInLeft",7);
     script show("foreground_right","fadeInRight",7);
     

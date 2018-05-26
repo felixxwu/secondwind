@@ -2,9 +2,10 @@
 
 // the php version of secure load helps the js file to check the credentials on the server
 // if they do not match, the site will not be served, and a redirect to the login page will be served instead
+chdir("/home/noxiveco/public_html/secondwind/felix/");
 
-include "../database/databaseFunctions.php";
-include "../utility/general.php";
+include "libraries/database/databaseFunctions.php";
+include "libraries/utility/general.php";
 
 $username = $_POST["username"];
 $password = $_POST["password"];
@@ -21,7 +22,7 @@ unset($_POST["password"]);
 unset($_POST["page"]);
 
 if (verifyLogin($username, $password)) {
-    include "../../" . $page;
+    include $page;
 } else {
     $message = urlencode("wrong login details");
     echo "<meta http-equiv='refresh' content='0; url=login?message=$message' />";

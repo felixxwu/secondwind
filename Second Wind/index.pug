@@ -1,38 +1,36 @@
-include libraries/utility/forceLoad.pug
+include libraries/utility/general.php
 
 <!DOCTYPE html>
 
 html
     head
-        
-
         title Second Wind
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
         //- force these links to load over cache by adding ?v=<?=time()?> to the end of each
-        +forceCss("css/style.css")
         link(rel="stylesheet" href="css/animate.css")
-        +forceCss("css/mainStyle.css")
-        +forceCss("css/buttons.css")
+        link(rel="stylesheet" href!="<? hashify('css/style.css'); ?>")
+        link(rel="stylesheet" href!="<? hashify('css/mainStyle.css'); ?>")
+        link(rel="stylesheet" href!="<? hashify('css/buttons.css'); ?>")
+
+
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
         script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        script(src!="<? hashify('libraries/ajax/newAjaxHelper.js'); ?>")
+        script(src!="<? hashify('libraries/account/functions.js'); ?>")
+        script(src!="<? hashify('libraries/account/secureLoad.js'); ?>")
+        script(src!="<? hashify('libraries/utility/general.js'); ?>")
+        script(src!="<? hashify('libraries/utility/animation.js'); ?>")
+        script(src!="<? hashify('libraries/utility/hashNavigation.js'); ?>")
+        script(src!="<? hashify('libraries/energy/energy.js'); ?>")
+        script(src!="<? hashify('libraries/items/items.js'); ?>")
+        script(src!="<? hashify('libraries/slider/sliderdemo.js'); ?>") 
 
-        //- +forceJs("libraries/ajax/AjaxHelper.js")
-        +forceJs("libraries/ajax/newAjaxHelper.js")
-        +forceJs("libraries/account/functions.js")
-        +forceJs("libraries/account/secureLoad.js")
-        +forceJs("libraries/utility/general.js")
-        +forceJs("libraries/utility/animation.js")
-        +forceJs("libraries/utility/hashNavigation.js")
-        +forceJs("libraries/energy/energy.js")
-        +forceJs("libraries/items/items.js")
-        +forceJs("libraries/slider/sliderdemo.js")
-
-        +forceJs("main/menu/menu.js")
-        +forceJs("main/notifications/notifications.js")
-        +forceJs("main/map/map.js")
+        script(src!="<? hashify('main/menu/menu.js'); ?>")
+        script(src!="<? hashify('main/notifications/notifications.js'); ?>")
+        script(src!="<? hashify('main/map/map.js'); ?>")
         
-        +forceJs("init.js")
+        script(src!="<? hashify('init.js'); ?>")
 
         //- link(rel="stylesheet", href="css/style.css")
         //- link(rel="stylesheet", href="css/animate.css")

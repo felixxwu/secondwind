@@ -1,9 +1,11 @@
+link(rel="stylesheet" href!="<? hashify('main/island/island.css'); ?>")
+
 #island
     
-    img#islandrock(src="images/rock.svg")
+    img#islandrock(src!="<? hashify('images/rock.svg'); ?>")
     .townhall
-        img(src="images/townHall.svg")
+        img(src!="<? hashify('images/townHall.svg'); ?>")
         a(onclick="show('energies','fadeInUp', 1)")
     .extractor  
-        img(src="images/extractor_3_animation.svg")
+        img(src!="<? hashify('images/extractor_3_animation.svg'); ?>")
         a(onclick="show('extractor_menu','fadeInUp', 1,'grid')")

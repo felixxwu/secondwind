@@ -1,14 +1,12 @@
-include ../../libraries/utility/forceLoad.pug
-
-+forceCss("main/menu/menu.css", "menu.css")
+link(rel="stylesheet" href!="<? hashify('main/menu/menu.css'); ?>")
 
 #menu(style="display:none")
     a.mobileOnly(onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()")
-        img.icon(src="material-icons/notifications.svg")
+        img.icon(src!="<? hashify('material-icons/notifications.svg'); ?>")
     br
     a.mobileOnly(onclick="show('analytics','slideInRight',1,'grid');toggleMenu()")
-        img.icon(src="material-icons/chart.svg")
+        img.icon(src!="<? hashify('material-icons/chart.svg'); ?>")
     br
     a.mobileOnly(onclick="showMap();toggleMenu()")
-        img.icon(src="material-icons/map.svg")
+        img.icon(src!="<? hashify('material-icons/map.svg'); ?>")
     br

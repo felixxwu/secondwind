@@ -18,8 +18,8 @@ if (!validUsername($username)) {
     sqlInsert("users", $username, $hash, $email);
     $id = sqlSelectFirstRow("users","`username` = '$username'","username")["id"];
 	echo "<script>
-	saveUsername('" . $username . "');
-    savePassword('" . $password . "');
+	saveUsername('$username');
+    savePassword('$password');
     window.location.href = '../';
 	</script>";
 }

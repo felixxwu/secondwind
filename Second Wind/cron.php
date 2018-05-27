@@ -12,6 +12,8 @@ include "libraries/database/databaseFunctions.php";
 // sqlUpdate('energy',"username='test'",'human',($allocation['human']+$currentEnergy['human']));
 
 for ($i=0; $i < 59; $i++) {
+	// don't update the cron file, since it will take up to a minute to update
+	// instead update everything inside everySecond.php, which will update every second
 	include "everySecond.php";
 	sleep(1);
 }

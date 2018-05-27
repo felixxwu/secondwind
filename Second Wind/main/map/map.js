@@ -10,7 +10,7 @@ function setLocation(island) {
     element("myLocation").appendChild(myLocation);
 
     element("line").innerHTML = "";
-    selectedIsland = [island.x, island.y];
+    selectedIsland = island;
 }
 
 // returns the x and y position on the map (0-100)
@@ -53,7 +53,7 @@ function addMarker(event) {
     element('markers').innerHTML = "";
     element('markers').appendChild(marker);
 
-    addLine(selectedIsland[0], selectedIsland[1], x, y);
+    addLine(selectedIsland.x, selectedIsland.y, x, y);
 
     show("movehere","fadeIn",1);
 }
@@ -97,4 +97,9 @@ function hideMap() {
 
 function move() {
     console.log(selectedPoint);
+    ajaxSecureCall("addTarget", {"island": selectedIsland.island, "x": selectedPoint[0], "y": selectedPoint[1]}, function () {
+        console.log("done");
+    });
 }
+
+

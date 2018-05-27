@@ -11,28 +11,28 @@
 // USAGE ###############################################################
 
 // To load a php page into a div (getting an output from the server)
-// ajax.load("id","page.php", {"arg1": "value","arg2": 100}, function(){
+// ajaxSecureLoad("id","page.php", {"arg1": "value","arg2": 100}, function(){
 //     console.log("load done");
 // });
 
 // To call a php function (execute php without output)
-// ajax.call("functionName", {"arg1": "value", "arg2": 200}, function(){
+// ajaxSecureCall("functionName", {"arg1": "value", "arg2": 200}, function(){
 //     console.log("call done");
 // });
 
 // To load variables from the server (and also execute function using those immediately)
 // ... with no arguments
-// ajax.loadVariables("id", {"var1": null, "var2": null}, function() {
+// ajaxSecureLoadVariables("id", {"var1": null, "var2": null}, function() {
 //     console.log(var1);
 //     console.log(var2);
 // })
 // ... with 1 argument
-// ajax.loadVariables("id", {"var1": "arg", "var2": "arg"}, function() {
+// ajaxSecureLoadVariables("id", {"var1": "arg", "var2": "arg"}, function() {
 //      console.log(var1);
 //      console.log(var2);
 // })
 // ... with multiple arguments
-// ajax.loadVariables("id", {"var1": ["arg1","arg2","arg3"], "var2": "arg"}, function() {
+// ajaxSecureLoadVariables("id", {"var1": ["arg1","arg2","arg3"], "var2": "arg"}, function() {
 //     console.log(var1);
 //     console.log(var2);
 // })

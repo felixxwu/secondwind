@@ -28,10 +28,18 @@ if (isset($_POST["func"])) {
 ################################################################################################################################
 // functions go here...
 
+// add a target to move towards
 function addTarget($island, $x, $y) {
     $username = $_POST["username"];
-    
-    
+    $criteria = "`username` = '$username' AND `island` = '$island'";
+    $existingTarget = sqlSelectFirstRow("targetLocations",$criteria, "username");
+    if ($existingTarget) {
+        sqlUpdate("targetLocations", $criteria, "x", $x);
+        sqlUpdate("targetLocations", $criteria, "y", $y);
+    } else {
+        sqlInsert("targetLocations","NULL", $username, $island, $x, $y);
+    }
+
 }
 
 //submits the new energy allocation

@@ -170,7 +170,8 @@ mapVarInit();
     <div id="perimeter"></div>
   </div>
   <div id="mapUI">
-    <select id="selectIslands"></select><br/>
+    <select id="selectIslands"></select>
+    <div class="button" id="movehere" onclick="move()" style="display:none;">move here</div><br/>
     <div class="button" onclick="hideMap()">close map</div>
   </div>
 </div>

@@ -25,7 +25,14 @@ if (isset($_POST["func"])) {
     }
 }
 
+################################################################################################################################
 // functions go here...
+
+function addTarget($island, $x, $y) {
+    $username = $_POST["username"];
+    
+    
+}
 
 //submits the new energy allocation
 function updateEnergyAllocation($human,$attack,$power,$intelligence,$building){

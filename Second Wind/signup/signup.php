@@ -16,7 +16,7 @@ if (!validUsername($username)) {
 } else {
     $hash = password_hash($password, PASSWORD_DEFAULT);
     sqlInsert("users", $username, $hash, $email);
-    $id = sqlSelectSingle("users","`username` = '$username'","id");
+    $id = sqlSelectFirstRow("users","`username` = '$username'","username")["id"];
 	echo "<script>
 	saveUsername('" . $username . "');
     savePassword('" . $password . "');

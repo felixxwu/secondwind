@@ -1,5 +1,6 @@
 <?
 
+databaseConnect();
 function databaseConnect() {
 	$servername = "localhost";
 	$username = "noxiveco_swind";
@@ -17,7 +18,6 @@ function databaseConnect() {
 }
 
 function sqlSelect($table,$cols,$criteria,$orderby) {
-	databaseConnect();
 	global $conn;
 	$sql = "SELECT $cols FROM $table WHERE $criteria ORDER BY $orderby";
 	$result = $conn->query($sql);
@@ -32,12 +32,18 @@ function sqlSelect($table,$cols,$criteria,$orderby) {
 	return $rows;
 }
 
-function sqlSelectSingle($table, $criteria, $col) {
-	return sqlSelect($table, $col, $criteria, $col)[0][$col];
+// returns the first row of an sql query, also gives an error if the query is empty
+function sqlSelectFirstRow($table, $criteria, $sortby) {
+	$result = sqlSelect($table, "*", $criteria, $sortby);
+	if ($result) {
+		return $result[0];
+	} else {
+		error_log("SQL SELECT error: nothing matched the query. Table: $table, Criteria: $criteria");
+	}
 }
 
+// (table, arg1, arg2...)
 function sqlInsert() {
-	databaseConnect();
 	$args = func_get_args();
 	$table = $args[0];
 	$query = "INSERT INTO `" . $table . "` VALUES (";
@@ -67,7 +73,6 @@ function sqlInsert() {
 }
 
 function sqlDelete($table, $criteria) {
-	databaseConnect();
 	$query = "DELETE FROM `" . $table . "` WHERE " . $criteria;
 
 	global $conn;
@@ -78,7 +83,6 @@ function sqlDelete($table, $criteria) {
 }
 
 function sqlUpdate($table, $criteria, $column, $value) {
-	databaseConnect();
 	$query = "UPDATE `" . $table . "` SET `" . $column . "` = '" . $value . "' WHERE " . $criteria;
 
 	global $conn;

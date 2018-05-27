@@ -47,6 +47,8 @@ function hashify($file) {
     <script src="<? hashify('main/menu/menu.js'); ?>"></script>
     <script src="<? hashify('main/notifications/notifications.js'); ?>"></script>
     <script src="<? hashify('main/map/map.js'); ?>"></script>
+    <script src="<? hashify('main/map/init.js'); ?>"></script>
+    <script src="<? hashify('main/map/perimeter.js'); ?>"></script>
     <script src="<? hashify('init.js'); ?>"></script>
   </head>
   <body>

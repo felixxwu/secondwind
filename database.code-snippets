@@ -1,0 +1,26 @@
+{
+	"SQL Select": {
+		"prefix": "sqlSelect",
+		"body": "sqlSelect(\"${1:table}\", \"${2:columns}\", \"${3:criteria}\", \"${4:sortby}\");"
+	},
+	
+	"SQL Select First Row": {
+		"prefix": "sqlSelectFirstRow",
+		"body": "sqlSelectFirstRow(\"${1:table}\", \"${2:criteria}\", \"${3:sortby}\");"
+	},
+	
+	"SQL Insert": {
+		"prefix": "sqlInsert",
+		"body": "sqlInsert(\"${1:table}\", \"${2:NULL}\", \"${3:arg2...}\");"
+	},
+	
+	"SQL Delete": {
+		"prefix": "sqlDelete",
+		"body": "sqlDelete(\"${1:table}\", \"${2:criteria}\");"
+	},
+	
+	"SQL Update": {
+		"prefix": "sqlUpdate",
+		"body": "sqlUpdate(\"${1:table}\", \"${2:criteria}\", \"${3:column}\", \"${4:value}\");"
+	}
+}

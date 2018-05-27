@@ -1,0 +1,29 @@
+{
+	"Ajax Secure Load": {
+		"scope": "javascript,typescript",
+		"prefix": "load",
+		"body": [
+			"secureLoad(\"${1:element id}\", \"${2:page.php}\"${3:, {\"${4:arg1 name}\": \"${5:arg1 value}\"\\}}${6:, function () {",
+			"    ${7:console.log(\"done\");}",
+			"\\}});"
+		]
+	},
+	"Ajax Secure Call": {
+		"scope": "javascript,typescript",
+		"prefix": "call",
+		"body": [
+			"ajaxSecureCall(\"${1:function name}\"${2:, {\"${3:arg1 name}\": \"${4:arg1 value}\"\\}}${5:, function () {",
+			"    ${6:console.log(\"done\");}",
+			"\\}});"
+		]
+	},
+	"Ajax Secure LoadVariables": {
+		"scope": "javascript,typescript",
+		"prefix": "loadVariables",
+		"body": [
+			"ajaxSecureLoadVariables(\"${1:element id}\"${2:, {\"${3:var1 function name}\": [\"${4:arg1}\"${5:, \"arg2\"}]\\}}${6:, function () {",
+			"    ${7:console.log(\"done\");}",
+			"\\}});"
+		]
+	}
+}

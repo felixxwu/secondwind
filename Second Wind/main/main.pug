@@ -1,7 +1,6 @@
 include ../libraries/energy/energy.php
 
 
-
 link(rel="stylesheet" href!="<? hashify('main/css/mainLayout.css'); ?>")
 link(rel="stylesheet" href!="<? hashify('main/notifications/notifications.css'); ?>")
 link(rel="stylesheet" href!="<? hashify('main/css/analyticsLayout.css'); ?>")
@@ -64,10 +63,13 @@ link(rel="stylesheet" href!="<? hashify('main/css/extractor.css'); ?>")
         a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 1)") hide
     script show("analytics","fadeInRight",10);
     
+#ajaxLoop
+    include map/mapVars.php
 
 include map/map.pug
 include menu/menu.pug
 
+script ajaxLoop();
         
 update
     script getEnergyAllocation();

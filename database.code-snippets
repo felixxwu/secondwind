@@ -1,25 +1,30 @@
 {
 	"SQL Select": {
+		"scope": "php",
 		"prefix": "sqlSelect",
 		"body": "sqlSelect(\"${1:table}\", \"${2:columns}\", \"${3:criteria}\", \"${4:sortby}\");"
 	},
 	
 	"SQL Select First Row": {
+		"scope": "php",
 		"prefix": "sqlSelectFirstRow",
 		"body": "sqlSelectFirstRow(\"${1:table}\", \"${2:criteria}\", \"${3:sortby}\");"
 	},
 	
 	"SQL Insert": {
+		"scope": "php",
 		"prefix": "sqlInsert",
 		"body": "sqlInsert(\"${1:table}\", \"${2:NULL}\", \"${3:arg2...}\");"
 	},
 	
 	"SQL Delete": {
+		"scope": "php",
 		"prefix": "sqlDelete",
 		"body": "sqlDelete(\"${1:table}\", \"${2:criteria}\");"
 	},
 	
 	"SQL Update": {
+		"scope": "php",
 		"prefix": "sqlUpdate",
 		"body": "sqlUpdate(\"${1:table}\", \"${2:criteria}\", \"${3:column}\", \"${4:value}\");"
 	}

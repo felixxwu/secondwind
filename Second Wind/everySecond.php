@@ -10,4 +10,6 @@ sqlUpdate('energy', "`username`='test'", 'power', ($allocation['power'] + $curre
 sqlUpdate('energy', "`username`='test'", 'intelligence', ($allocation['intelligence'] + $currentEnergy['intelligence']));
 sqlUpdate('energy', "`username`='test'", 'building', ($allocation['building'] + $currentEnergy['building']));
 
+include "main/map/move.php";
+
 ?>

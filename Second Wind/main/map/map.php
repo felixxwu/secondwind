@@ -1,15 +1,5 @@
 
 <link rel="stylesheet" href="<? hashify('main/map/map.css'); ?>"/>
-<div id="mapVars"><?php
-
-$islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
-echoAsVar("islands", $islands);
-echo "<script>
-mapVarInit();
-</script>";
-
-?>
-</div>
 <div id="mapGrid">
   <div id="mapSquare">
     <div class="mapSquare" id="xysensitive" onclick="addMarker(event)"></div>

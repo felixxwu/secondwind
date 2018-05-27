@@ -32,6 +32,8 @@ html
         script(src!="<? hashify('main/map/init.js'); ?>")
         script(src!="<? hashify('main/map/perimeter.js'); ?>")
         
+        script(src!="<? hashify('main/ajaxLoop.js'); ?>")
+        
         script(src!="<? hashify('init.js'); ?>")
 
         //- link(rel="stylesheet", href="css/style.css")
@@ -52,6 +54,7 @@ html
         #noOverflow
             #ghost 
             #ghosty
+                
 
             #loading
                 text loading...
@@ -71,4 +74,5 @@ html
             a.absolute(href="login" style="z-index: -1;") if nothing happens, click here
 
             #main
+            
             

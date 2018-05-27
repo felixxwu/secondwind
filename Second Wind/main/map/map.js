@@ -11,6 +11,9 @@ function setLocation(island) {
 
     element("line").innerHTML = "";
     selectedIsland = island;
+    if (selectedPoint) {
+        addLine(island.x, island.y, selectedPoint[0], selectedPoint[1]);
+    }
 }
 
 // returns the x and y position on the map (0-100)
@@ -87,7 +90,7 @@ function showMap() {
     show('mapGrid', 'fadeInUp', 1, 'grid');
     forward("map", function () {
         hide("mapGrid", "fadeOutDown", 1);
-    })
+    });
 }
 
 function hideMap() {

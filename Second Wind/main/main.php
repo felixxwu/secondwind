@@ -150,8 +150,7 @@ function getEnergyAllocation(){
   </div>
   <script>show("analytics","fadeInRight",10);</script>
 </div>
-<link rel="stylesheet" href="<? hashify('main/map/map.css'); ?>"/>
-<div id="mapVars"><?php
+<div id="ajaxLoop"><?php
 
 $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
 echoAsVar("islands", $islands);
@@ -161,6 +160,7 @@ mapVarInit();
 
 ?>
 </div>
+<link rel="stylesheet" href="<? hashify('main/map/map.css'); ?>"/>
 <div id="mapGrid">
   <div id="mapSquare">
     <div class="mapSquare" id="xysensitive" onclick="addMarker(event)"></div>
@@ -177,6 +177,7 @@ mapVarInit();
 </div>
 <link rel="stylesheet" href="<? hashify('main/menu/menu.css'); ?>"/>
 <div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/notifications.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/chart.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="<? hashify('material-icons/map.svg'); ?>"/></a><br/></div>
+<script>ajaxLoop();</script>
 <update>
   <script>getEnergyAllocation();</script>
   <script>updateItemsList();</script>

@@ -2,7 +2,7 @@
 
 // the php version of secure load helps the js file to check the credentials on the server
 // if they do not match, the site will not be served, and a redirect to the login page will be served instead
-chdir("/home/noxiveco/public_html/secondwind/felix/");
+chdir("../../");
 
 include "libraries/database/databaseFunctions.php";
 include "libraries/utility/general.php";

@@ -38,7 +38,7 @@ function sqlSelectFirstRow($table, $criteria, $sortby) {
 	if ($result) {
 		return $result[0];
 	} else {
-		error_log("SQL SELECT error: nothing matched the query. Table: $table, Criteria: $criteria");
+		// error_log("SQL SELECT error: nothing matched the query. Table: $table, Criteria: $criteria");
 	}
 }
 

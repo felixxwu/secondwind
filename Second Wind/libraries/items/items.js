@@ -38,12 +38,35 @@ function retrieveCombinationTimes(){
     // }
     
     ajaxSecureLoadVariables("ghost",{"ajaxGetFinishedCombinations": null},function(){
+
+        //creates new items if the combinations are finished 
         log(ajaxGetFinishedCombinations);
     })
 
     ajaxSecureLoadVariables("ghost",{"ajaxGetOngoingCombinations": null},function(){
-        log(ajaxGetOngoingCombinations);
+
+        //deletes any previous display of combination progress
+        var combinationsToBeRemoved = document.getElementById("combinations_progress");
+        while (combinationsToBeRemoved.firstChild) {
+            combinationsToBeRemoved.removeChild(combinationsToBeRemoved.firstChild);
+        }
+        
+        //loops throgh the list of ongoing combinations
+        for (var i = 0; i < ajaxGetOngoingCombinations.length; i++) {
+            
+            //creates an ongoing combination element
+            var individualCombination = document.createTextNode(ajaxGetOngoingCombinations[i].item1 + ' is being combined with '+ ajaxGetOngoingCombinations[i].item2 + '\n');   
+            
+            //inserts line break
+            linebreak = document.createElement("br");
+            document.getElementById("combinations_progress").appendChild(linebreak);
+
+            //appends ongoing combination progress bar
+            document.getElementById("combinations_progress").appendChild(individualCombination);
+            
+        }
     })
+
 
     //do this every second.
         //ajax call to get combination times for all combinations
@@ -57,7 +80,7 @@ function retrieveCombinationTimes(){
 
 }
 
-//vars that store the elements to be combined
+//vars that cache the elements to be combined
 var el1, el2 = null; //items to be combined
 var level1, level2 = null; //level of the items to be combined
 var nextEl = "el1"; //stores the last item updated
@@ -99,7 +122,7 @@ function combineItems(){
     document.getElementById("errorItems").innerHTML ='';
     // var ajax = new AjaxHelper("libraries/ajax");
     log(el1);log(level1);log(el2);log(level2);
-    ajaxSecureCall("combineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
+    ajaxSecureCall("ajaxCombineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
         //removes list of current items
         var itemList = document.getElementById("itemList");
         while (itemList.firstChild) {

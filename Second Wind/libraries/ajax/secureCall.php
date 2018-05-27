@@ -57,7 +57,7 @@ function updateEnergyAllocation($human,$attack,$power,$intelligence,$building){
 }
 
 //combines el1IN and el2IN and update the database with the new item
-function combineItems($el1IN,$level1IN,$el2IN,$level2IN){
+function ajaxCombineItems($el1IN,$level1IN,$el2IN,$level2IN){
 
     global $username, $test, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies,$sumEnergies,$level,$ratio,$newItem,$newItemAmount;
     $el1=$el1IN;
@@ -65,7 +65,7 @@ function combineItems($el1IN,$level1IN,$el2IN,$level2IN){
     $level1=$level1IN;
     $level2=$level2IN;
     $username=$_POST["username"];
-    include "../items/combineItems.php";
+    include "libraries/items/combineItems.php";
   
     getAmounts(); 
     enoughItems();
@@ -75,6 +75,11 @@ function combineItems($el1IN,$level1IN,$el2IN,$level2IN){
     newEnergyValues();
     newRatio();
     newItem();
+}
+
+//creates a new item when a combination is finished
+function ajaxFinishCombiningProcess(){
+
 }
 
 function example() {

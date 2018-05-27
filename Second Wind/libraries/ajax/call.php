@@ -41,24 +41,24 @@ function updateEnergyAllocation($human,$attack,$power,$intelligence,$building){
 //combines el1IN and el2IN and update the database with the new item
 function combineItems($el1IN,$level1IN,$el2IN,$level2IN){
 
-    global $test, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies,$sumEnergies,$level,$ratio,$newItem,$newItemAmount;
-    $el1=$el1IN;
-    $el2=$el2IN;
-    $level1=$level1IN;
-    $level2=$level2IN;
+    // global $test, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies,$sumEnergies,$level,$ratio,$newItem,$newItemAmount;
+    // $el1=$el1IN;
+    // $el2=$el2IN;
+    // $level1=$level1IN;
+    // $level2=$level2IN;
 
-    include "../items/combineItems.php";
+    // include "../items/combineItems.php";
   
-    getAmounts();
-    enoughItems();
-    subtractQuantities();
-    getEnergyValues();
-    newEnergyValues();
-    newRatio();
-    newItem();
-    $username= $_POST["username"];
-    echo("<script>log('$username')</script>");
-    echo("<script>log('holapablito')</script>");
+    // getAmounts();
+    // enoughItems();
+    // subtractQuantities();
+    // getEnergyValues();
+    // newEnergyValues();
+    // newRatio();
+    // newItem();
+    // $username= $_POST["username"];
+    // echo("<script>log('$username')</script>");
+    // echo("<script>log('holapablito')</script>");
 }
 
 function example() {

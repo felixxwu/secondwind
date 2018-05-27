@@ -68,7 +68,10 @@ function getEnergyAllocation(){
       <div id="errorItems"></div>
     </div>
     <div id="energy_cores">cores</div>
-    <div id="factory_progress">progress</div>
+    <div id="factory_progress"> 
+      <button id="updateCombinations" onclick="retrieveCombinationTimes()">update Combinations</button>
+      <div id="combinations_progress">nothing</div>
+    </div>
   </div>
   <div class="absolute" id="energies" style="display:none">
     <div id="pablotests"></div>

@@ -44,14 +44,14 @@ function enoughItems(){ //checks if there are enough of the items to combine the
 
   function getCombinationTime($item1,$item2,$level1,$level2){
     //default returns 1 second as a combination time
-    return 60;
+    return 10;
   }
   //adds itemCombinations database with a new combination
-  function startCombination($item1,$item2,$level1,$level2,$username){ 
+  function startCombination($id,$item1,$item2,$level1,$level2,$username){ 
     $combinationTime=getCombinationTime($item1,$item2,$level1,$level2);
     $startTime = time();
     $finishTime = $startTime + $combinationTime;
-    sqlInsert("itemCombinations","$username","$item1","$level1","$item2","$level2","$startTime","$finishTime");
+    sqlInsert("itemCombinations","$id","$username","$item1","$level1","$item2","$level2","$startTime","$finishTime");
 
   }
   function getEnergyValues(){ //gets the energy values corresponding to el1 and el2
@@ -142,7 +142,6 @@ function enoughItems(){ //checks if there are enough of the items to combine the
   
     //if the ratio doesnt match an existing item a shit is created
     if($newItem==null){ $newItem='shit@'.$ratio[0].'@'.$ratio[1].'@'.$ratio[2].'@'.$ratio[3].'@'.$ratio[4].'@';}
-  
     //gets the number of $newItem the user already has
     $newItemResult = sqlSelect('usersItems','amount',"username='$username' and item = '".$newItem."' and Level = '".$level."'","amount")[0];
     if($newItemResult==null){//if the user has no item of that sort

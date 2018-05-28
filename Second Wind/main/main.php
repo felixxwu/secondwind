@@ -66,11 +66,12 @@ function getEnergyAllocation(){
       <button id="combine" onclick="combineItems()">Combine items</button>
       <div id="testItems"></div>
       <div id="errorItems"></div>
+      <button id="hideMenu" onclick="hide('extractor_menu','fadeOutDown', 1)">Close Menu</button>
     </div>
     <div id="energy_cores">cores</div>
     <div id="factory_progress"> 
       <button id="updateCombinations" onclick="retrieveCombinationTimes()">update Combinations</button>
-      <div id="combinations_progress">nothing</div>
+      <div id="progress_bars"></div>
     </div>
   </div>
   <div class="absolute" id="energies" style="display:none">

@@ -62,11 +62,34 @@ function energies(){
 
 }
 
-//returns the rows corresponding to finished combinations
+//returns the rows corresponding to finished combinations and creates the corresponding items
 function ajaxGetFinishedCombinations(){
     $username=$_POST["username"];
     $time=time();
     $result= sqlSelect('itemCombinations','*',"finish_time<=$time",'finish_time');
+
+    //delete entries from database that correspond to finished combinations and creates the resulting items
+    foreach ($result as $finished) {
+
+        //delete entries
+        $id = $finished['id'];
+        $criteria = "`user` = '$username' AND `id` = '$id'";
+        sqlDelete("itemCombinations", $criteria);
+
+        //create new items and update item database
+        global $username, $test, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies,$sumEnergies,$level,$ratio,$newItem,$newItemAmount;
+        $el1=$finished['item1'];
+        $el2=$finished['item2'];
+        $level1=$finished['level_item1'];
+        $level2=$finished['level_item2'];
+        $username=$_POST["username"];
+        include "libraries/items/combineItems.php";
+        getEnergyValues();
+        newEnergyValues();
+        newRatio();
+        newItem();
+        
+    }
     return $result;
 }
 

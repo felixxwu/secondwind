@@ -4,10 +4,8 @@
 //########################################################################################################################
 
 
-//updates energy values every second
+// updates energy values every second
 // $( document).ready(function(){
-	
-// 	// var ajax = new AjaxHelper("libraries/ajax");
  
 // 	var t=setInterval(updateEnergy,1000);
 // 	function updateEnergy(){

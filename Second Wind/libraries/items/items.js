@@ -6,6 +6,12 @@
 
 //Updates the item list
 function updateItemsList(){
+    //deletes any previous display of items
+    // var itemList = document.getElementById("itemList");
+    // while (itemList.firstChild) {
+    //     itemList.removeChild(itemList.firstChild);
+    // }
+    document.getElementById("itemList").innerHTML="";
     // var ajax = new AjaxHelper("libraries/ajax");
     ajaxSecureLoadVariables("pablotests", {"itemList": null}, function() {
             //creates a button for each item so when they are clicked the item is added to the combining queue
@@ -30,23 +36,23 @@ function updateItemsList(){
 //Also creates new items if combinations are completed
 function retrieveCombinationTimes(){
 
-    // var t=setInterval(updateCombiningEverySecond,1000);
-	// function updateCombiningEverySecond(){
-	// 	ajaxSecureLoadVariables("ajaxGetCombiningTimes",{"combiningTimes": null},function(){
-    //         log(combiningTimes);
-    //     })
-    // }
+    //disables button
+    document.getElementById("updateCombinations").innerHTML="updating...";
+    document.getElementById("updateCombinations").disabled = true;
+
     
+    //creates new items if the combinations are finished 
     ajaxSecureLoadVariables("ghost",{"ajaxGetFinishedCombinations": null},function(){
 
-        //creates new items if the combinations are finished 
-        log(ajaxGetFinishedCombinations);
+        updateItemsList();
+        // log(ajaxGetFinishedCombinations);
     })
 
+    //updates the display of ongoing combinations
     ajaxSecureLoadVariables("ghost",{"ajaxGetOngoingCombinations": null},function(){
 
         //deletes any previous display of combination progress
-        var combinationsToBeRemoved = document.getElementById("combinations_progress");
+        var combinationsToBeRemoved = document.getElementById("progress_bars");
         while (combinationsToBeRemoved.firstChild) {
             combinationsToBeRemoved.removeChild(combinationsToBeRemoved.firstChild);
         }
@@ -54,27 +60,27 @@ function retrieveCombinationTimes(){
         //loops throgh the list of ongoing combinations
         for (var i = 0; i < ajaxGetOngoingCombinations.length; i++) {
             
-            //creates an ongoing combination element
-            var individualCombination = document.createTextNode(ajaxGetOngoingCombinations[i].item1 + ' is being combined with '+ ajaxGetOngoingCombinations[i].item2 + '\n');   
+            //creates ongoing combination elements
+            var combinationText = document.createTextNode(ajaxGetOngoingCombinations[i].item1 + ' is being combined with '+ ajaxGetOngoingCombinations[i].item2 + '\n');   
+            var combinationBar = document.createElement('progress_bar');
+            combinationId = ajaxGetOngoingCombinations[i].id;
+            combinationBar.id=combinationId; 
+            combinationBar.className="progress_bar";
             
-            //inserts line break
-            linebreak = document.createElement("br");
-            document.getElementById("combinations_progress").appendChild(linebreak);
-
-            //appends ongoing combination progress bar
-            document.getElementById("combinations_progress").appendChild(individualCombination);
-            
+            // Appends progress text and progress bar to document
+            document.getElementById("progress_bars").appendChild(combinationText);
+            document.getElementById("progress_bars").appendChild(combinationBar);
         }
+        //updates the starting percentage and speed of all combiningbars
+        updateCombiningBars();
+
+        //sets combine items button back to normal
+        document.getElementById("updateCombinations").disabled = false;
+        document.getElementById("updateCombinations").innerHTML="Update Combinations";
+    
     })
 
-
-    //do this every second.
-        //ajax call to get combination times for all combinations
-        
-        //if any combination finish time is due when the update is called then delete the combination..
-        //entry from the database and create the new item.
-
-        //display remaining combination times.
+    
 
 
 
@@ -121,23 +127,52 @@ function combineItems(){
     document.getElementById("combine").disabled = true;
     document.getElementById("errorItems").innerHTML ='';
     // var ajax = new AjaxHelper("libraries/ajax");
-    log(el1);log(level1);log(el2);log(level2);
-    ajaxSecureCall("ajaxCombineItems", {"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
-        //removes list of current items
-        var itemList = document.getElementById("itemList");
-        while (itemList.firstChild) {
-            itemList.removeChild(itemList.firstChild);
-        }
-       updateItemsList();
+    //generates unique id for combination
+    var uniqueId = 'id-' + Math.random().toString(36).substr(2, 16);
+ 
+    ajaxSecureCall("ajaxCombineItems", {"id":uniqueId,"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
        document.getElementById("combine").disabled = false;
        document.getElementById("combine").innerHTML ='Combine Items';
        
        
-    })
+    });
     retrieveCombinationTimes();
 }
 
 //display error messages when a combination doesn't have enough items
 function notEnoughItems(){
     document.getElementById("errorItems").innerHTML = "Sorry babe you don't have enough of one of the items (this message will be improved to say which item in the future";
+}
+
+
+//calls moveTestBar for all bars in document
+function updateCombiningBars(){
+    var progressBars = document.getElementsByClassName("progress_bar");
+    for (i = 0; i < progressBars.length; i++) {
+        moveTestBar(progressBars[i].id);
+    }
+}
+
+function moveTestBar(id){
+    var elem = document.getElementById(id);   
+    var width = elem.style.width;
+
+    //querry server using id to get starting percentage and remaining combination time
+
+    // var width = start;
+    // var remainingWidth = 100-width;
+    // var remainingTime = duration/100*remainingWidth; //remaining time in seconds
+    // var stepLength= remainingTime/remainingWidth*1000; //time between steps
+    var id = setInterval(frame, 100);
+    function frame() {
+        if (width >= 100) {
+        clearInterval(id);
+        //updates items and combination display
+        updateCombiningBars();
+        } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        }
+    }
+      
 }

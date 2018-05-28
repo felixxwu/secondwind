@@ -2,7 +2,7 @@
     /* position: absolute; */
     display: grid;
     grid-template-columns: auto 250px;
-    grid-template-rows: 100px auto 50px 250px;
+    grid-template-rows: 100px 30% 50px auto;
     grid-template-areas:    "factory_header factory_actions"
                             "factory_items factory_actions"
                             "energy_cores factory_actions"
@@ -23,6 +23,7 @@
     padding:2%;
     grid-area: factory_items;
     background-color: white;
+    overflow:scroll;
 
 }
 #factory_items button{
@@ -41,5 +42,18 @@
 
 }
 #factory_progress{
+    overflow:scroll;
     grid-area: factory_progress;
+}
+
+#progress_bars {
+    width: 100%;
+    background-color: #ddd;
+  }
+  
+progress_bar {
+display:block;
+width: 1%;
+height: 30px;
+background-color: rgb(69, 70, 75);
 }

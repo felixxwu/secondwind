@@ -2,7 +2,7 @@
     /* position: absolute; */
     display: grid;
     grid-template-columns: auto 250px;
-    grid-template-rows: 100px 30% 50px auto;
+    grid-template-rows: 100px 45% 50px auto;
     grid-template-areas:    "factory_header factory_actions"
                             "factory_items factory_actions"
                             "energy_cores factory_actions"
@@ -35,6 +35,7 @@
 }
 #factory_actions{
     grid-area: factory_actions;
+    position: relative;
 
 }
 #energy_cores{
@@ -56,4 +57,10 @@ display:block;
 width: 1%;
 height: 30px;
 background-color: rgb(69, 70, 75);
+}
+
+#hideMenu{
+position: absolute;
+bottom:5px;
+right:5px;
 }

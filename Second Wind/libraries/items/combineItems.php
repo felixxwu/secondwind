@@ -44,7 +44,7 @@ function enoughItems(){ //checks if there are enough of the items to combine the
 
   function getCombinationTime($item1,$item2,$level1,$level2){
     //default returns 1 second as a combination time
-    return 10;
+    return 30;
   }
   //adds itemCombinations database with a new combination
   function startCombination($id,$item1,$item2,$level1,$level2,$username){ 

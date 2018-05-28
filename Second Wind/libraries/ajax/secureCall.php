@@ -1,6 +1,7 @@
 <?php
 // include "../database/databaseFunctions.php";
 
+include "libraries/items/combineItems.php";
 // this file is where all the functions are stored for use in ajax.call
 // each function is essentially accessable from js, meaning that js can call php code
 // any output will be stored in ghost, which is invisible
@@ -65,7 +66,6 @@ function ajaxCombineItems($id,$el1IN,$level1IN,$el2IN,$level2IN){
     $level1=$level1IN;
     $level2=$level2IN;
     $username=$_POST["username"];
-    include "libraries/items/combineItems.php";
   
     getAmounts(); 
     enoughItems();

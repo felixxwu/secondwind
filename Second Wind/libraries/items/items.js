@@ -11,9 +11,10 @@ function updateItemsList(){
     // while (itemList.firstChild) {
     //     itemList.removeChild(itemList.firstChild);
     // }
-    document.getElementById("itemList").innerHTML="";
+    
     // var ajax = new AjaxHelper("libraries/ajax");
     ajaxSecureLoadVariables("pablotests", {"itemList": null}, function() {
+        document.getElementById("itemList").innerHTML="";
             //creates a button for each item so when they are clicked the item is added to the combining queue
 		for (var i = 0; i < itemList.length; i++) {
 			if(itemList[i].amount>0){
@@ -133,10 +134,10 @@ function combineItems(){
     ajaxSecureCall("ajaxCombineItems", {"id":uniqueId,"el1": el1,"level1": level1,"el2": el2, "level2": level2}, function() {
        document.getElementById("combine").disabled = false;
        document.getElementById("combine").innerHTML ='Combine Items';
-       
-       
+
+       //updates combination bars
+       retrieveCombinationTimes();
     });
-    retrieveCombinationTimes();
 }
 
 //display error messages when a combination doesn't have enough items
@@ -155,24 +156,35 @@ function updateCombiningBars(){
 
 function moveTestBar(id){
     var elem = document.getElementById(id);   
-    var width = elem.style.width;
 
     //querry server using id to get starting percentage and remaining combination time
+    ajaxSecureLoadVariables("ghost",{"ajaxGetCombiningTimes": id},function(){
+        var start = ajaxGetCombiningTimes[0].start_time; //starting time of combination
+        var finish=ajaxGetCombiningTimes[0].finish_time; //finishing time of combination
 
-    // var width = start;
-    // var remainingWidth = 100-width;
-    // var remainingTime = duration/100*remainingWidth; //remaining time in seconds
-    // var stepLength= remainingTime/remainingWidth*1000; //time between steps
-    var id = setInterval(frame, 100);
-    function frame() {
-        if (width >= 100) {
-        clearInterval(id);
-        //updates items and combination display
-        updateCombiningBars();
-        } else {
-        width++; 
-        elem.style.width = width + '%'; 
-        }
+        //get current timestamp
+        var d = new Date();
+        var currentTime= Math.round(d.getTime()/1000);
+
+        //calculate values to update and create updatebar animation
+        var width = (currentTime-start)/(finish-start)*100; //starting % width (percentage of time to finish the combination)
+        var remainingWidth = 100-width; //remaining % width of combination
+        var remainingTime = (finish-start)/100*remainingWidth; //remaining time in seconds
+        var stepLength= remainingTime/remainingWidth*1000; //time between steps
+        var id = setInterval(frame, stepLength);
+        function frame() {
+            if (width >= 100) {
+            //updates items and combination display
+            retrieveCombinationTimes();
+            clearInterval(id);
+            } else {
+            width++; 
+            elem.style.width = width + '%'; 
+            }
     }
+
+    })
+
+    
       
 }

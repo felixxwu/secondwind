@@ -2,6 +2,7 @@
 
 // include "../database/databaseFunctions.php";
 
+include "libraries/items/combineItems.php";
 // here are all the "definitions" for the variables, which can be accessed from ajax.loadVariable
 // in any of these definition functions below, simply return the value that you want to be echo'ed into javascript
 // this can then be used in the js callback function, or other places for use
@@ -83,7 +84,6 @@ function ajaxGetFinishedCombinations(){
         $level1=$finished['level_item1'];
         $level2=$finished['level_item2'];
         $username=$_POST["username"];
-        include "libraries/items/combineItems.php";
         getEnergyValues();
         newEnergyValues();
         newRatio();
@@ -101,6 +101,11 @@ function ajaxGetOngoingCombinations(){
     return $result;
 }
 
+function ajaxGetCombiningTimes($id){
+    $username=$_POST["username"];
+    $times = sqlSelect("itemCombinations", "`start_time`,`finish_time`", "`id` = '$id'",'id');
+    return $times; //returns json consisting of starting time and finishing time of a given combination
+}
 function variableExample() {
     return 5;
 }

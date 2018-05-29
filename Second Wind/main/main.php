@@ -45,7 +45,7 @@ function getEnergyAllocation(){
     <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
     <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
       <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
-      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 1)"></a></div>
+      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 1);hide('analytics','fadeOutRight', 2)"></a></div>
     </div>
   </div>
   <script>show('floatUp','fadeInUp',10);</script>
@@ -57,16 +57,19 @@ function getEnergyAllocation(){
 </div>
 <div class="building_menus">      
   <extractor_menu id="extractor_menu" style="display:none">
-    <div id="factory_header">header</div>
-    <div id="factory_items">
-       items<br/>
+    <div id="factory_header"> 
+      <h2>header</h2>
+    </div>
+    <div id="factory_items"> 
+      <h2>items</h2><br/>
       <itemList id="itemList"></itemList>
     </div>
-    <div id="factory_actions">actions
+    <div id="factory_actions"> 
+      <h2>actions</h2>
       <button id="combine" onclick="combineItems()">Combine items</button>
       <div id="testItems"></div>
       <div id="errorItems"></div>
-      <button id="hideMenu" onclick="hide('extractor_menu','fadeOutDown', 1)">Close Menu</button>
+      <button id="hideMenu" onclick="hide('extractor_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2)">Close Menu</button>
     </div>
     <div id="energy_cores">cores</div>
     <div id="factory_progress"> 

@@ -78,11 +78,15 @@
     width:100vw;
     height:100%;
     display: grid;
-    grid-template-columns: 250px auto 250px;
+    column-gap:30px;
+    row-gap: 30px;
+    /* the 0px column at the right serves as a margin (using teh column-gap); */
+    grid-template-columns: 250px auto 0px; 
     grid-template-rows: 100px auto 50px;
     grid-template-areas:    ". . ."
                             ". menu ."
-                            ". . ."
+                            ". . .";
+    
 
 }
 

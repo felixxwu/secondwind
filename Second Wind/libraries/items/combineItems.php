@@ -44,6 +44,8 @@ function enoughItems(){ //checks if there are enough of the items to combine the
 
   function getCombinationTime($item1,$item2,$level1,$level2){
     //default returns 1 second as a combination time
+    $energyValues1=newGetEnergyValues($item1,$level1);
+    echo("<script>command.log('$energyValues1')</script>");
     return 30;
   }
   //adds itemCombinations database with a new combination
@@ -54,6 +56,28 @@ function enoughItems(){ //checks if there are enough of the items to combine the
     sqlInsert("itemCombinations","$id","$username","$item1","$level1","$item2","$level2","$startTime","$finishTime");
 
   }
+
+  //behaves as getEnergyValues but instead of updating global variables returns them.
+  //gets item and level and returns json of energy values corresponding to the item
+  function newGetEnergyValues($item,$level){
+
+    //if the item is not a shit
+    $cols = 'human, attack, power, intelligence, building';
+    $energyValues  = sqlSelect('items',$cols,"name = '".$item."'","name")[0];
+
+    //if the item is a shit (in which case the previous querry would have returned null)
+    if(substr( $item, 0, 5 ) === "shit@"){
+      $energies = explode("@", $item);
+      $energyValues=array('human'=>$energies[1],'attack'=>$energies[2],'power'=>$energies[3],'intelligence'=>$energies[4],'building'=>$energies[5]);
+    }
+
+    //multiplies by level to get energy levels (instead of the ratios)
+    foreach($energyValues as &$value){
+      $value=$value*$level;
+    }
+    return $energyValues;
+  }
+
   function getEnergyValues(){ //gets the energy values corresponding to el1 and el2
     global $username, $el1, $el2, $level1, $level2, $el1Result, $el2Result, $el1Amount, $el2Amount, $el1Energies, $el2Energies;
   

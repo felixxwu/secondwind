@@ -45,7 +45,7 @@ function getEnergyAllocation(){
     <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
     <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
       <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
-      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 1,'grid')"></a></div>
+      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 1)"></a></div>
     </div>
   </div>
   <script>show('floatUp','fadeInUp',10);</script>
@@ -56,7 +56,7 @@ function getEnergyAllocation(){
   <script>show("foreground_right","fadeInRight",7);</script>
 </div>
 <div class="building_menus">      
-  <div id="extractor_menu" style="display:none">
+  <extractor_menu id="extractor_menu" style="display:none">
     <div id="factory_header">header</div>
     <div id="factory_items">
        items<br/>
@@ -73,7 +73,7 @@ function getEnergyAllocation(){
       <button id="updateCombinations" onclick="retrieveCombinationTimes()">update Combinations</button>
       <div id="progress_bars"></div>
     </div>
-  </div>
+  </extractor_menu>
   <div class="absolute" id="energies" style="display:none">
     <div id="pablotests"></div>
     <h3>Energy Values</h3>

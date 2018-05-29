@@ -170,7 +170,7 @@ function moveTestBar(id){
         var width = (currentTime-start)/(finish-start)*100; //starting % width (percentage of time to finish the combination)
         var remainingWidth = 100-width; //remaining % width of combination
         var remainingTime = (finish-start)/100*remainingWidth; //remaining time in seconds
-        var stepLength= remainingTime/remainingWidth*1000; //time between steps
+        var stepLength= remainingTime/remainingWidth*100; //time between steps 
         var id = setInterval(frame, stepLength);
         function frame() {
             if (width >= 100) {
@@ -178,7 +178,7 @@ function moveTestBar(id){
             retrieveCombinationTimes();
             clearInterval(id);
             } else {
-            width++; 
+            width=width+0.1; 
             elem.style.width = width + '%'; 
             }
     }

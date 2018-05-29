@@ -13,6 +13,12 @@
     border-color: black;
     background-color: rgba(255, 255, 255, 0.466);
 }
+@media screen and (max-width: 1100px) {
+    #extractor_menu{
+        display:block;
+    }
+
+}
 
 #factory_header{
     grid-area: factory_header;
@@ -35,7 +41,6 @@
 }
 #factory_actions{
     grid-area: factory_actions;
-    position: relative;
 
 }
 #energy_cores{
@@ -61,6 +66,8 @@ background-color: rgb(69, 70, 75);
 
 #hideMenu{
 position: absolute;
-bottom:5px;
+bottom:50px;
 right:5px;
 }
+
+

@@ -82,7 +82,7 @@
 
   @media screen and (max-width: 600px) {
     #island .extractor{
-        margin-top: calc(-300px + 60%);
+        margin-top: calc(-350px + 60%);
     }
     #island .townhall{
         margin-top: calc(-60px + 10%);

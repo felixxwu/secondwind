@@ -1,5 +1,5 @@
 
-<div id="extractor_menu" style="display:none">
+<extractor_menu id="extractor_menu" style="display:none">
   <div id="factory_header">header</div>
   <div id="factory_items">
      items<br/>
@@ -16,4 +16,4 @@
     <button id="updateCombinations" onclick="retrieveCombinationTimes()">update Combinations</button>
     <div id="progress_bars"></div>
   </div>
-</div>
+</extractor_menu>

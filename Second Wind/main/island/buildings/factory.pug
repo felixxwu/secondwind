@@ -1,7 +1,8 @@
 //- Despite this being the extractor file, all the content corresponds to the factory item. -//
-extractor_menu#extractor_menu(style="display:none")
+factory_menu#factory_menu(style="display:none")
     #factory_header 
         h2 header
+        factory_logo(src!="<? hashify('images/extractor_3_animation.svg'); ?>")
     #factory_items 
         h2 items
         br
@@ -14,7 +15,7 @@ extractor_menu#extractor_menu(style="display:none")
         button#combine(onclick='combineItems()') Combine items
         #testItems
         #errorItems
-        button#hideMenu(onclick="hide('extractor_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2)") Close Menu
+        button#hideMenu(onclick="hide('factory_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)") Close Menu
     #energy_cores cores
     #factory_progress 
         button#updateCombinations(onclick='retrieveCombinationTimes()') update Combinations

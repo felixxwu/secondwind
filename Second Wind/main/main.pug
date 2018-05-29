@@ -4,7 +4,7 @@ include ../libraries/energy/energy.php
 link(rel="stylesheet" href!="<? hashify('main/css/mainLayout.css'); ?>")
 link(rel="stylesheet" href!="<? hashify('main/notifications/notifications.css'); ?>")
 link(rel="stylesheet" href!="<? hashify('main/css/analyticsLayout.css'); ?>")
-link(rel="stylesheet" href!="<? hashify('main/css/extractor.css'); ?>")
+link(rel="stylesheet" href!="<? hashify('main/island/buildings/factory.css'); ?>")
 
 
 //- link(rel="stylesheet", href="main/mainLayout.css?")
@@ -49,8 +49,8 @@ link(rel="stylesheet" href!="<? hashify('main/css/extractor.css'); ?>")
     
 
 .building_menus       
-    include extractor.pug
-    include townhall.pug
+    include island/buildings/factory.pug
+    include island/buildings/townhall.pug
         
 .notificationLayout#notifications(style="display:none")
     include notifications/notifications.pug

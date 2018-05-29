@@ -3,5 +3,5 @@ function ajaxLoop() {
         ajaxSecureLoadVariables("ajaxLoop", { "islands": null }, function () {
             setLocation(islands[element("selectIslands").value]);
         });
-    }, 1000);
+    }, 5000);
 };

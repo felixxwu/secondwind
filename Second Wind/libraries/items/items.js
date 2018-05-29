@@ -15,21 +15,34 @@ function updateItemsList(){
     // var ajax = new AjaxHelper("libraries/ajax");
     ajaxSecureLoadVariables("pablotests", {"itemList": null}, function() {
         document.getElementById("itemList").innerHTML="";
+        
             //creates a button for each item so when they are clicked the item is added to the combining queue
 		for (var i = 0; i < itemList.length; i++) {
-			if(itemList[i].amount>0){
-		    var button = document.createElement('button');
-		    button.id=itemList[i].item.concat('*',itemList[i].Level); //* separates id and level
-		    button.innerHTML = (itemList[i].item).concat('_',itemList[i].Level,' x'.concat(itemList[i].amount));
-		    // 2. Append somewhere
-            var body = document.getElementsByTagName("itemList")[0];
-		    body.appendChild(button);
+			//creates item element
+            var button = document.createElement('item');
+            button.setAttribute("type", "button");
+            button.id=itemList[i].item.concat('*',itemList[i].Level); //* separates id and level
+
+            //text description of item and amount description
+            itemText=document.createElement('description');
+            amountText=document.createElement('amount');
+            itemText.innerHTML = (itemList[i].item).concat(' level ',itemList[i].Level);
+            amountText.innerHTML = 'x'.concat(itemList[i].amount);
+            
+            button.appendChild(itemText);
+            button.appendChild(amountText);
+
+            //append corresponding image to button
+            button.style.backgroundImage = "url(../../secondwind/pabloNEW/images/".concat(itemList[i].item,".svg)");
+		    //append button in item list
+            document.getElementsByTagName("itemList")[0].appendChild(button);;
+		    
 		    // 3. Add event handler
 		    button.addEventListener('click', function(){
 		    addToCombine(this.id);
 		    });
 			}
-        }
+        
         })
 }
 
@@ -136,6 +149,7 @@ function combineItems(){
        document.getElementById("combine").innerHTML ='Combine Items';
 
        //updates combination bars
+       updateItemsList();
        retrieveCombinationTimes();
     });
 }
@@ -159,6 +173,7 @@ function moveTestBar(id){
 
     //querry server using id to get starting percentage and remaining combination time
     ajaxSecureLoadVariables("ghost",{"ajaxGetCombiningTimes": id},function(){
+        if(ajaxGetCombiningTimes==0){return;}
         var start = ajaxGetCombiningTimes[0].start_time; //starting time of combination
         var finish=ajaxGetCombiningTimes[0].finish_time; //finishing time of combination
 

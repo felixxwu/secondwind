@@ -49,7 +49,7 @@ function energyAllocation(){
 }
 function itemList(){
     $username=$_POST["username"];
-    $result = sqlSelect('usersItems','item,amount,Level',"username='$username'",'item');
+    $result = sqlSelect('usersItems','item,amount,Level',"username='$username' AND amount>0",'item');
     
     return $result;
 }

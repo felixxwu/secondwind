@@ -5,20 +5,21 @@
 
 
 // updates energy values every second
-// $( document).ready(function(){
- 
-// 	var t=setInterval(updateEnergy,1000);
-// 	function updateEnergy(){
-// 		ajaxSecureLoadVariables("ghost", {"energies": null}, function() {
-// 			document.getElementById('humanEnergy').innerHTML = energies.human;
-// 			document.getElementById('powerEnergy').innerHTML = energies.power;
-// 			document.getElementById('attackEnergy').innerHTML = energies.attack;
-// 			document.getElementById('intelligenceEnergy').innerHTML = energies.intelligence;
-// 			document.getElementById('buildingEnergy').innerHTML = energies.building;
-// 		}
-// 		);
-// 	}
-// });
+
+
+$( document).ready(function(){
+	var t=setInterval(updateEnergy,5000);
+	function updateEnergy(){
+		ajaxSecureLoadVariables("ghost", {"energies": null}, function() {
+			document.getElementById('humanEnergy').innerHTML = energies.human;
+			document.getElementById('powerEnergy').innerHTML = energies.power;
+			document.getElementById('attackEnergy').innerHTML = energies.attack;
+			document.getElementById('intelligenceEnergy').innerHTML = energies.intelligence;
+			document.getElementById('buildingEnergy').innerHTML = energies.building;
+		}
+		);
+	}
+});
 //called at load to get the current values for allocated energy
 function getEnergyAllocation(){
 	// var ajax = new AjaxHelper("libraries/ajax");

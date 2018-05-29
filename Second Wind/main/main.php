@@ -36,7 +36,7 @@ function getEnergyAllocation(){
 <link rel="stylesheet" href="<? hashify('main/css/mainLayout.css'); ?>"/>
 <link rel="stylesheet" href="<? hashify('main/notifications/notifications.css'); ?>"/>
 <link rel="stylesheet" href="<? hashify('main/css/analyticsLayout.css'); ?>"/>
-<link rel="stylesheet" href="<? hashify('main/css/extractor.css'); ?>"/>
+<link rel="stylesheet" href="<? hashify('main/island/buildings/factory.css'); ?>"/>
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
@@ -45,7 +45,7 @@ function getEnergyAllocation(){
     <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
     <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
       <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
-      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 1);hide('analytics','fadeOutRight', 2)"></a></div>
+      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);retrieveCombinationTimes()"></a></div>
     </div>
   </div>
   <script>show('floatUp','fadeInUp',10);</script>
@@ -56,9 +56,10 @@ function getEnergyAllocation(){
   <script>show("foreground_right","fadeInRight",7);</script>
 </div>
 <div class="building_menus">      
-  <extractor_menu id="extractor_menu" style="display:none">
+  <factory_menu id="factory_menu" style="display:none">
     <div id="factory_header"> 
       <h2>header</h2>
+      <factory_logo src="<? hashify('images/extractor_3_animation.svg'); ?>"></factory_logo>
     </div>
     <div id="factory_items"> 
       <h2>items</h2><br/>
@@ -69,14 +70,14 @@ function getEnergyAllocation(){
       <button id="combine" onclick="combineItems()">Combine items</button>
       <div id="testItems"></div>
       <div id="errorItems"></div>
-      <button id="hideMenu" onclick="hide('extractor_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2)">Close Menu</button>
+      <button id="hideMenu" onclick="hide('factory_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)">Close Menu</button>
     </div>
     <div id="energy_cores">cores</div>
     <div id="factory_progress"> 
       <button id="updateCombinations" onclick="retrieveCombinationTimes()">update Combinations</button>
       <div id="progress_bars"></div>
     </div>
-  </extractor_menu>
+  </factory_menu>
   <div class="absolute" id="energies" style="display:none">
     <div id="pablotests"></div>
     <h3>Energy Values</h3>

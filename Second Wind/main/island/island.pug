@@ -8,4 +8,5 @@ link(rel="stylesheet" href!="<? hashify('main/island/island.css'); ?>")
         a(onclick="show('energies','fadeInUp', 1)")
     .extractor  
         img(src!="<? hashify('images/extractor_3_animation.svg'); ?>")
-        a(onclick="show('extractor_menu','fadeInUp', 1);hide('analytics','fadeOutRight', 2)")
+        //- the extractor is currently displaying the factory menu but it should be changed to display the extractor_menu instead
+        a(onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);retrieveCombinationTimes()")

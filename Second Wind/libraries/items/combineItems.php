@@ -43,10 +43,20 @@ function enoughItems(){ //checks if there are enough of the items to combine the
   }
 
   function getCombinationTime($item1,$item2,$level1,$level2){
-    //default returns 1 second as a combination time
+    $combiningFactor=1;
+    //sum of energies of item1
     $energyValues1=newGetEnergyValues($item1,$level1);
-    echo("<script>command.log('$energyValues1')</script>");
-    return 30;
+    $energiesSum1=$energyValues1['human']+$energyValues1['attack']+$energyValues1['power']+$energyValues1['intelligence']+$energyValues1['building'];
+    echo("<script>console.log('$energiesSum1')</script>");
+
+    //sum of energies of item2
+    $energyValues2=newGetEnergyValues($item2,$level2);
+    $energiesSum2=$energyValues2['human']+$energyValues2['attack']+$energyValues2['power']+$energyValues2['intelligence']+$energyValues2['building'];
+    echo("<script>console.log('$energiesSum2')</script>");
+    //return the time it takes to combine item1 and item2
+    $combinationTime=($energiesSum1+$energiesSum2)*$combiningFactor;
+    echo("<script>console.log('$combinationTime')</script>");
+    return $combinationTime;
   }
   //adds itemCombinations database with a new combination
   function startCombination($id,$item1,$item2,$level1,$level2,$username){ 

@@ -37,6 +37,11 @@ unset($vars);
 echo "</script>";
 
 // add variables here...
+
+function fetchPositions() {
+    return sqlSelect("locations", "*", "true", "username");
+}
+
 function islands() {
     $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
     return $islands;

@@ -17,3 +17,7 @@ function mapVarInit() {
 
     setupPerimeter();
 }
+
+function fetchPositions() {
+    ajaxSecureLoadVariables("positions", {"fetchPositions": null});
+}

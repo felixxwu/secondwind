@@ -1,0 +1,80 @@
+include ../libraries/energy/energy.php
+
+
+link(rel="stylesheet" href!="<? hashify('main/css/mainLayout.css'); ?>")
+link(rel="stylesheet" href!="<? hashify('main/notifications/notifications.css'); ?>")
+link(rel="stylesheet" href!="<? hashify('main/css/analyticsLayout.css'); ?>")
+link(rel="stylesheet" href!="<? hashify('main/island/buildings/factory.css'); ?>")
+
+
+//- link(rel="stylesheet", href="main/mainLayout.css?")
+//- link(rel="stylesheet", href="main/island.css")
+//- link(rel="stylesheet", href="main/notificationLayout.css")
+//- link(rel="stylesheet", href="main/analyticsLayout.css")
+
+.mainLayout
+    .headleft
+        span.helper
+        a.mobileOnly(onclick="toggleMenu()")
+            img.icon.absolute#menuicon(src="material-icons/menu.svg")
+            img.icon.absolute#closeicon(src="material-icons/close.svg" style="display:none")
+
+        
+    .pic
+        img(src="images/level.png", alt="")
+
+    .headright
+        span.helper
+        a.desktopOnly(onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 1, undefined, undefined, 'grid')")
+            img.icon(src="material-icons/notifications.svg")
+        a.desktopOnly(onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 1, undefined, undefined, 'grid')")
+            img.icon(src="material-icons/chart.svg")
+        a.desktopOnly(onclick="showMap()")
+            img.icon(src="material-icons/map.svg")
+        a(onclick="logout()")
+            img.icon(src="material-icons/logout.svg")
+    
+    .mid#floatUp(style="display:none")
+        include island/island.pug
+    script show('floatUp','fadeInUp',10);
+    .foot.textWhite
+        | footer
+        //- a(onclick='logout()') logout
+
+#foreground
+    img.foreground_left#foreground_left(src!="<? hashify('images/foreground_left.svg'); ?>" style="display:none")
+    img.foreground_right#foreground_right(src!="<? hashify('images/foreground_right.svg'); ?>" style="display:none")
+    script show("foreground_left","fadeInLeft",7);
+    script show("foreground_right","fadeInRight",7);
+    
+
+.building_menus       
+    include island/buildings/factory.pug
+    include island/buildings/townhall.pug
+        
+.notificationLayout#notifications(style="display:none")
+    include notifications/notifications.pug
+    script show("notifications","fadeInLeft",10);
+
+.analyticsLayout#analytics(style="display:none")
+    .analytics
+        br
+        h1.textWhite analytics
+        a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 1)") hide
+    script show("analytics","fadeInRight",10);
+    
+#ajaxLoop
+    include map/mapVarsPreAjax.php
+
+script mapVarInit(); 
+
+include map/map.pug
+include menu/menu.pug
+
+script ajaxLoop();
+        
+update
+    script getEnergyAllocation();
+    script updateItemsList();
+    script setupSliders();
+    //- script retrieveCombinationTimes

@@ -1,0 +1,12 @@
+link(rel="stylesheet" href!="<? hashify('main/island/island.css'); ?>")
+
+#island
+    
+    img#islandrock(src!="<? hashify('images/rock.svg'); ?>")
+    .townhall
+        img(src!="<? hashify('images/townHall.svg'); ?>")
+        a(onclick="show('energies','fadeInUp', 1)")
+    .extractor  
+        img(src!="<? hashify('images/extractor_3_animation.svg'); ?>")
+        //- the extractor is currently displaying the factory menu but it should be changed to display the extractor_menu instead
+        a(onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);retrieveCombinationTimes()")

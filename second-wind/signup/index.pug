@@ -1,0 +1,43 @@
+//- this page is the main page loaded when you visit /signup
+
+
+
+html
+    head
+        title Second Wind - Sign Up
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="../css/login-signup.css")
+        link(rel="stylesheet" href="layout.css?v=3")
+        link(rel="stylesheet" href="../css/style.css")
+    body
+        .loginParent
+            #signupContent.loginChild.menuSolid.textWhite.signupContentParent
+                cardhead
+                    h3 Sign Up
+                error#message.loginContent
+                    em <?=$_GET["message"]?>
+                user1.loginContent
+                    | Username:
+                user2.loginContent
+                    input#username.loginInput.textWhite(type='text', oninput="checkUserExists()")
+                email1.loginContent
+                    | Email:
+                email2.loginContent
+                    input#email.loginInput.textWhite(type='email')
+                pass1.loginContent
+                    | Password:
+                pass2.loginContent
+                    input#password.loginInput.textWhite(type='password')
+                login.loginContent
+                    a(href="../login")
+                        button.loginButton.textWhite back to login
+                signup.loginContent
+                    button#signup.loginButton.textWhite(onclick='signup()') Signup
+        #ghost
+
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        script(src="../libraries/ajax/newAjaxHelper.js")
+        script(src="../libraries/utility/general.js")
+        script(src="../libraries/account/functions.js")
+        script(src="functions.js")

@@ -8,8 +8,16 @@ html
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
         //- force these links to load over cache by adding ?v=<?=time()?> to the end of each
-        link(rel="stylesheet" href="css/animate.css")
         link(rel="stylesheet" href!="<? hashify('css/style.css'); ?>")
+
+    body
+        #ghost 
+
+        #loading
+            text loading...
+
+        
+        link(rel="stylesheet" href="css/animate.css")
         link(rel="stylesheet" href!="<? hashify('css/mainStyle.css'); ?>")
         link(rel="stylesheet" href!="<? hashify('css/buttons.css'); ?>")
 
@@ -50,29 +58,21 @@ html
         //- script(src="libraries/items/items.js")
         //- script(src="libraries/slider/sliderdemo.js")
 
-    body
-        #noOverflow
-            #ghost 
-            #ghosty
-                
 
-            #loading
-                text loading...
+        //- #showhidetest
 
-            //- #showhidetest
+            #testbox hello, I am content
 
-                #testbox hello, I am content
+            a(onclick="show('main','fadeInDown',3)")
+                button show
 
-                a(onclick="show('main','fadeInDown',3)")
-                    button show
+            a(onclick="hide('main','fadeOutDown',0.5)")
+                button hide
 
-                a(onclick="hide('main','fadeOutDown',0.5)")
-                    button hide
+            a(onclick="hide('showhidetest','fadeOutUp',1)")
+                button hide me
+        a.absolute(href="login" style="z-index: -1;") if nothing happens, click here
 
-                a(onclick="hide('showhidetest','fadeOutUp',1)")
-                    button hide me
-            a.absolute(href="login" style="z-index: -1;") if nothing happens, click here
-
-            #main
-            
+        #main
+        
             

@@ -64,7 +64,9 @@ link(rel="stylesheet" href!="<? hashify('main/island/buildings/factory.css'); ?>
     script show("analytics","fadeInRight",10);
     
 #ajaxLoop
-    include map/mapVars.php
+    include map/mapVarsPreAjax.php
+
+script mapVarInit(); 
 
 include map/map.pug
 include menu/menu.pug

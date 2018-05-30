@@ -16,6 +16,7 @@ for ($i=0; $i < 59; $i++) {
 	// instead update everything inside everySecond.php, which will update every second
 	include "everySecond.php";
 	sleep(1);
+	
 }
 
 $conn->close();

@@ -162,12 +162,13 @@ function getEnergyAllocation(){
 
 $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
 echoAsVar("islands", $islands);
-echo "<script>
-mapVarInit();
-</script>";
+
+$targets = sqlSelect("targetLocations", "*", "`username` = '" . $_POST["username"] . "'", "id");
+echoAsVar("myTargets", $targets);
 
 ?>
 </div>
+<script>mapVarInit(); </script>
 <link rel="stylesheet" href="<? hashify('main/map/map.css'); ?>"/>
 <div id="mapGrid">
   <div id="mapSquare">
@@ -179,7 +180,7 @@ mapVarInit();
   </div>
   <div id="mapUI">
     <select id="selectIslands"></select>
-    <div class="button" id="movehere" onclick="move()" style="display:none;">move here</div><br/>
+    <div class="button" id="movehere" onclick="addTarget()" style="display:none;">move here</div><br/>
     <div class="button" onclick="hideMap()">close map</div>
   </div>
 </div>

@@ -11,8 +11,17 @@ function setLocation(island) {
 
     element("line").innerHTML = "";
     selectedIsland = island;
-    if (selectedPoint) {
-        addLine(island.x, island.y, selectedPoint[0], selectedPoint[1]);
+    target = getTargetWithIslandNo(island.island);
+    if (target) {
+        addLine(island.x, island.y, target.x, target.y);
+    }
+}
+
+function getTargetWithIslandNo(number) {
+    for (let i = 0; i < myTargets.length; i++) {
+        if (myTargets[i].island == number) {
+            return myTargets[i];
+        }
     }
 }
 
@@ -56,9 +65,14 @@ function addMarker(event) {
     element('markers').innerHTML = "";
     element('markers').appendChild(marker);
 
-    addLine(selectedIsland.x, selectedIsland.y, x, y);
+    // addLine(selectedIsland.x, selectedIsland.y, x, y);
 
     show("movehere","fadeIn",1);
+}
+
+function removeMarker() {
+    element('markers').innerHTML = "";
+    hide("movehere","fadeOut",1);
 }
 
 // create a line from your island to your marker
@@ -98,10 +112,15 @@ function hideMap() {
     window.history.pushState('', '', './');
 }
 
-function move() {
-    console.log(selectedPoint);
+function addTarget() {
+    // console.log(selectedPoint);
+    element("movehere").innerHTML = "please wait...";
+    
     ajaxSecureCall("addTarget", {"island": selectedIsland.island, "x": selectedPoint[0], "y": selectedPoint[1]}, function () {
-        console.log("done");
+        let island = islands[element("selectIslands").value]
+        addLine(island.x, island.y, selectedPoint[0], selectedPoint[1]);
+        element("movehere").innerHTML = "move here";
+        removeMarker();
     });
 }
 

@@ -1,10 +1,12 @@
 function ajaxLoop() {
     setTimeout(function () {
         ajaxSecureLoadVariables("ajaxLoop", {
-            "islands": null
+            "islands": null,
+            "myTargets": null
         }, function () {
             setLocation(islands[element("selectIslands").value]);
+            
             ajaxLoop();
         });
-    }, 0);
+    }, 1000);
 };

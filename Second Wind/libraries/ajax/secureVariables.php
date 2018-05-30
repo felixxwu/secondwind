@@ -42,11 +42,6 @@ function fetchPositions() {
     return sqlSelect("locations", "*", "true", "username");
 }
 
-function islands() {
-    $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
-    return $islands;
-}
-
 function energyAllocation(){
     $username=$_POST["username"];
     $resourceAlloc = sqlSelect("resourceAllocation","*","`username` = '$username'","`username`")[0];
@@ -141,6 +136,18 @@ function message($username) {
         // user doesnt
         return "<green>username is available</green>";
     }
+}
+
+// AJAX LOP FUNCTIONS ###################################################################################
+
+function islands() {
+    $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "id");
+    return $islands;
+}
+
+function myTargets() {
+    $targets = sqlSelect("targetLocations", "*", "`username` = '" . $_POST["username"] . "'", "id");
+    return $targets;
 }
 
 ?>

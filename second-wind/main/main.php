@@ -45,7 +45,7 @@ function getEnergyAllocation(){
     <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
     <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
       <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
-      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);retrieveCombinationTimes()"></a></div>
+      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
     </div>
   </div>
   <script>show('floatUp','fadeInUp',10);</script>
@@ -63,11 +63,23 @@ function getEnergyAllocation(){
     </div>
     <div id="factory_items"> 
       <h2>items</h2><br/>
-      <itemList id="itemList"></itemList>
+      <table id="itemList">
+        <tr>
+          <th>Item</th>
+          <th>Level</th>
+          <th>Amount</th>
+          <th>Human</th>
+          <th>Attack</th>
+          <th>Power</th>
+          <th>Intelligence</th>
+          <th>Building</th>
+          <th>Actions</th>
+        </tr>
+      </table>
     </div>
     <div id="factory_actions"> 
       <h2>actions</h2>
-      <button id="combine" onclick="combineItems()">Combine items</button>
+      <button id="combine" onclick="newCombineItems()">Combine items</button>
       <div id="testItems"></div>
       <div id="errorItems"></div>
       <button id="hideMenu" onclick="hide('factory_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)">Close Menu</button>
@@ -189,6 +201,6 @@ echoAsVar("myTargets", $targets);
 <script>ajaxLoop();</script>
 <update>
   <script>getEnergyAllocation();</script>
-  <script>updateItemsList();</script>
+  <script>newUpdateItemList();</script>
   <script>setupSliders();</script>
 </update>

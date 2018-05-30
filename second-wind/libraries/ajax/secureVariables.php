@@ -47,6 +47,20 @@ function energyAllocation(){
     $resourceAlloc = sqlSelect("resourceAllocation","*","`username` = '$username'","`username`")[0];
 	return $resourceAlloc;
 }
+
+//returns list of items and their ratios - doesn't return shits
+function getItemList(){
+    $username=$_POST["username"];
+    $itemList = sqlSelect("usersItems, items","item,level,amount,human,intelligence,attack,building,power","usersItems.username='$username' AND usersItems.item = items.name AND amount > 0","usersItems.amount");
+    return $itemList;
+}
+
+//returns list of shits
+function getShitList(){
+    $username=$_POST["username"];
+    $shitList = sqlSelect('usersItems','item,amount,level',"username='$username' AND amount>0 AND item like 'shit@%'",'item');
+    return $shitList;
+}
 function itemList(){
     $username=$_POST["username"];
     $result = sqlSelect('usersItems','item,amount,Level',"username='$username' AND amount>0",'item');

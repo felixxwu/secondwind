@@ -6,13 +6,23 @@ factory_menu#factory_menu(style="display:none")
     #factory_items 
         h2 items
         br
-        itemList#itemList
+        table#itemList
+            tr
+                th Item
+                th Level
+                th Amount
+                th Human
+                th Attack
+                th Power
+                th Intelligence
+                th Building
+                th Actions
         
         
        
     #factory_actions 
         h2 actions
-        button#combine(onclick='combineItems()') Combine items
+        button#combine(onclick='newCombineItems()') Combine items
         #testItems
         #errorItems
         button#hideMenu(onclick="hide('factory_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)") Close Menu

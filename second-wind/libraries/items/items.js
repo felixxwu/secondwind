@@ -37,8 +37,6 @@ function newUpdateItemList(getItemList,getShitList){
 
 //updates the local combinationList variable
 function updateCombinationList(rawList){
-    log(rawList);
-
 }
 
 
@@ -154,13 +152,18 @@ function newCombineItems(){
     for (var i = 0; i < itemList.length; i++) {
         if(itemList[i].item==item1 && itemList[i].level==level1){ itemList[i].amount=itemList[i].amount-1;}
         if(itemList[i].item==item2 && itemList[i].level==level2){ itemList[i].amount=itemList[i].amount-1;}
+        if(itemList[i].amount==0){
+            itemList.splice(i,1);
+        }
     }
+    
     displayItemList();
 
     //creates combination progress bar
-    var resultItem = getResultItem()[0];
-    var resultItemLevel = getResultItem()[1];
-    var combinationTime = 7;
+    var resultingCombination=getResultItem();
+    var resultItem = resultingCombination[0];
+    var resultItemLevel = resultingCombination[1];
+    var combinationTime = getCombinationTimes(item1,level1,item2,level2);
     var id = 'id-' + Math.random().toString(36).substr(2, 16);
     var d = new Date();
     var startTime= Math.round(d.getTime()/1000);
@@ -168,10 +171,27 @@ function newCombineItems(){
     combinationList.push({id: id,item1:item1,level1:level1,level2:level2,item2:item2,resultItem:resultItem,resultItemLevel:resultItemLevel,startTime:startTime,finishTime:finishTime});
     displayCombinationBar(id);
     
-    log(combinationList);
+    // log(combinationList);
     
 }
 
+//returns in seconds that the time that item1 and item2 takes to combine
+function getCombinationTimes(item1,level1,item2,level2){
+    var ratios1 = getRatios(item1);
+    var ratios2 = getRatios(item2);
+    log(ratios1);
+    log(ratios2);
+    log(level1);
+    log(level2);
+    var combinationTime = 0;
+    for(var i = 0; i<ratios1.length;i++){
+        log(ratios1[i]*level1);
+        combinationTime=combinationTime+(ratios1[i]*level1)+(ratios2[i]*level2);
+    }
+    log(combinationTime);
+    return combinationTime;
+
+}
 //uses the locally stored current combination items to create a combination bar for them
 function displayCombinationBar(id){
     //gets combination time
@@ -195,6 +215,8 @@ function displayCombinationBar(id){
 //starts animation of a given combining bar (id)
 //also triggers the creation of the new item once the combination is finished
 function newMoveTestBar(id){
+    // log(id);
+    
     var elem = document.getElementById(id);   
     var combinationInformation=null;
     //get corresponding combination from combinationList
@@ -209,7 +231,7 @@ function newMoveTestBar(id){
     var width = (currentTime-combinationInformation.startTime)/(combinationInformation.finishTime-combinationInformation.startTime)*100; //starting % width (percentage of time to finish the combination)
     var remainingWidth = 100-width; //remaining % width of combination
     var remainingTime = (combinationInformation.finishTime-combinationInformation.startTime)/100*remainingWidth; //remaining time in seconds
-    log(remainingTime);
+    // log(remainingTime);
     var stepLength= remainingTime/remainingWidth*100; //time between steps 
     var combinationId = setInterval(frame, stepLength);
     function frame() {
@@ -227,7 +249,7 @@ function newMoveTestBar(id){
 function finishCombination(id){
     //removes combination bar
     document.getElementById(id).parentNode.parentNode.removeChild(document.getElementById(id).parentNode);
-    log("combination finished");
+    // log("combination finished");
     newItem = null;
     newItemLevel = null;
     //removes combination item from combinationList and retrieves item that's going to be created
@@ -235,18 +257,28 @@ function finishCombination(id){
         if(combinationList[i].id==id){
             newItem=combinationList[i].resultItem;
             newItemLevel=combinationList[i].resultItemLevel;
-            delete combinationList[i]
+            combinationList.splice(i, 1);
+            // log(combinationList);
         }
     }
     
     //appends new item to itemList(new item is an attribute of comb)
+    //if the user has some of that item already
     for (var i = 0; i < itemList.length; i++) {
         if(itemList[i].item==newItem && itemList[i].level==newItemLevel){
-            itemList[i].amount=itemList[i].amount+1;
+            itemList[i].amount=parseInt(itemList[i].amount)+1;
             displayItemList();
+            //update item list in the server
             return;
         }
     }
+
+    //if that's the first occurrence of that item in the user's inventory
+    ratios = getRatios(newItem);
+    newItem = "shit@" + ratios[0] + "@" + ratios[1] + "@" + ratios[2] + "@" + ratios[3] + "@" + ratios[4] + "@";
+    itemList.push({item: newItem, amount: 1, level: newItemLevel, human: ratios[0], attack: ratios[1], power: ratios[2], intelligence: ratios[3], building: ratios[4]});
+    displayItemList();
+
 
     
 }
@@ -254,10 +286,84 @@ function finishCombination(id){
 //returns the result item and its level from the items stored in local variables (item1,item2,level1,level2)
 //calculates the resulting ratios checks if there's an existing item with that existing ratio
 function getResultItem(){
-var resultItem = ["shit test", 3];
-return resultItem;
+
+    //calculate ratios of combining items
+    ratios1 = getRatios(item1);
+    ratios2 = getRatios(item2);
+    
+    //calculate raw energies of combining items
+    var rawEnergies1=ratios1;
+    var rawEnergies2=ratios2;
+    for(var i=0;i<rawEnergies1.length;i++){
+        rawEnergies1[i]=parseInt(rawEnergies1[i])*parseInt(level1);
+        rawEnergies2[i]=parseInt(rawEnergies2[i])*parseInt(level2);
+    }
+
+    //calculate raw energies of resulting item
+    var resultingRawEnergies=rawEnergies1;
+    for(var i=0;i<rawEnergies1.length;i++){
+        resultingRawEnergies[i]=rawEnergies1[i]+rawEnergies2[i];
+    }
+    //calculate level of resulting item
+
+    resultingLevel=gcdArray(resultingRawEnergies);
+
+
+    //calculate ratios of resulting item
+    resultingRatios=resultingRawEnergies;
+    for(var i = 0;i<resultingRatios.length;i++){
+        resultingRatios[i]=resultingRatios[i]/resultingLevel;
+    }
+    // log(resultingRatios);
+
+    var resultingItem = null;
+
+    //check if resulting ratio correspond to an existing item
+    for(var i = 0;i<itemRatios.length;i++){
+        // log(itemRatios[i]);
+        if(resultingRatios[0]==itemRatios[i].human && resultingRatios[1]==itemRatios[i].attack && resultingRatios[2]==itemRatios[i].power && resultingRatios[3]==itemRatios[i].intelligence && resultingRatios[4]==itemRatios[i].building){
+        //if it does, then thats the item we need to create
+            resultingItem = itemRatios[i].name;
+        }
+    }
+
+    //if the resulting ratio doesnt correspond to an existing item create a shit
+    if(resultingItem==null){
+        log("shit");
+        resultingItem="shit@" + resultingRatios[0]+"@" + resultingRatios[1]+"@" + resultingRatios[2]+"@" + resultingRatios[3]+"@" + resultingRatios[4]+"@" ;
+    }
+    // log(resultingItem);
+
+    var result = [resultingItem, resultingLevel, resultingRatios];
+    return result;
+}
+//returns array containing ratios of existing item
+function getRatios(item){
+    var ratios = null;
+
+    if(item1.substring(0, 5) == "shit@"){
+        ratios = item1.split("@");
+        ratios.splice(0,1);
+        ratios.splice(5,1);
+    }else{
+        for(var i=0;i<itemRatios.length;i++){
+            if(itemRatios[i].name==item1){
+                var ratios=[itemRatios[i].human,itemRatios[i].attack,itemRatios[i].power,itemRatios[i].intelligence,itemRatios[i].building];
+            }
+        }
+    }
+    return ratios;
 }
 
+function gcd (a, b) {
+    if(b == 0){
+        return a;
+    }
+    return gcd(b, a%b);
+}
+function gcdArray (a) {
+  return a.reduce(gcd)
+}
 
 
 

@@ -1,7 +1,7 @@
 <?
 
-chdir("/home/noxiveco/public_html/secondwind/felix/");
-include "libraries/database/databaseFunctions.php";
+chdir("/home/noxiveco/public_html/secondwind/");
+include "felix/libraries/database/databaseFunctions.php";
 
 // !! this shouldnt be working right? ####################################################
 
@@ -13,7 +13,7 @@ include "libraries/database/databaseFunctions.php";
 
 $oldTime = time();
 
-for ($i=0; $i < 59; $i++) {
+for ($i=0; $i < 60; $i++) {
 	// don't update the cron file, since it will take up to a minute to update
 	// instead update everything inside everySecond.php, which will update every second
 	include "everySecond.php";

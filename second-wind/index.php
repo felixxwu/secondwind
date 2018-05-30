@@ -29,8 +29,14 @@ function hashify($file) {
   <head>
     <title>Second Wind</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/animate.css"/>
     <link rel="stylesheet" href="<? hashify('css/style.css'); ?>"/>
+  </head>
+  <body>
+    <div id="ghost"> </div>
+    <div id="loading">
+      <text>loading...</text>
+    </div>
+    <link rel="stylesheet" href="css/animate.css"/>
     <link rel="stylesheet" href="<? hashify('css/mainStyle.css'); ?>"/>
     <link rel="stylesheet" href="<? hashify('css/buttons.css'); ?>"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -50,16 +56,7 @@ function hashify($file) {
     <script src="<? hashify('main/map/init.js'); ?>"></script>
     <script src="<? hashify('main/map/perimeter.js'); ?>"></script>
     <script src="<? hashify('main/ajaxLoop.js'); ?>"></script>
-    <script src="<? hashify('init.js'); ?>"></script>
-  </head>
-  <body>
-    <div id="noOverflow">
-      <div id="ghost"> </div>
-      <div id="ghosty"></div>
-      <div id="loading">
-        <text>loading...</text>
-      </div><a class="absolute" href="login" style="z-index: -1;">if nothing happens, click here</a>
-      <div id="main"></div>
-    </div>
+    <script src="<? hashify('init.js'); ?>"></script><a class="absolute" href="login" style="z-index: -1;">if nothing happens, click here</a>
+    <div id="main"></div>
   </body>
 </html>

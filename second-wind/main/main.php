@@ -62,7 +62,9 @@ function getEnergyAllocation(){
       <factory_logo src="<? hashify('images/extractor_3_animation.svg'); ?>"></factory_logo>
     </div>
     <div id="factory_items"> 
-      <h2>items</h2><br/>
+      <div id="item_header"> 
+        <p>items</p>
+      </div><br/>
       <table id="itemList">
         <tr>
           <th>Item</th>
@@ -200,7 +202,6 @@ echoAsVar("myTargets", $targets);
 <div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/notifications.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/chart.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="<? hashify('material-icons/map.svg'); ?>"/></a><br/></div>
 <script>ajaxLoop();</script>
 <update>
-  <script>getEnergyAllocation();</script>
-  <script>newUpdateItemList();</script>
+  <script>updateFactory();</script>
   <script>setupSliders();</script>
 </update>

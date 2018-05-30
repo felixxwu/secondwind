@@ -32,6 +32,22 @@ function sqlSelect($table,$cols,$criteria,$orderby) {
 	return $rows;
 }
 
+function sqlSelectWithoutCriteria($table,$cols,$orderby) {
+	global $conn;
+	$sql = "SELECT $cols FROM $table ORDER BY $orderby";
+	$result = $conn->query($sql);
+	$rows = array();
+	while ($row = $result->fetch_assoc()) {
+			 $rows[] = $row;
+	 }
+
+	if (!$result) { // if result failed
+		die("SQL SELECT Error: " . $sql . "<br>" . $conn->connect_error);
+	}
+	return $rows;
+}
+
+
 // returns the first row of an sql query, also gives an error if the query is empty
 function sqlSelectFirstRow($table, $criteria, $sortby) {
 	$result = sqlSelect($table, "*", $criteria, $sortby);

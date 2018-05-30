@@ -12,19 +12,35 @@ var nextItem = "item1"; //stores the last item updated
 
 var combinationList = []; //json storing id and items of ongoing combinations
 
-//queries the server for the item list and fills the corresponding local variables 
-function newUpdateItemList(){
-    ajaxSecureLoadVariables("ghost", {"getItemList": null, "getShitList": null}, function() {
-        var completeShitList =[]; //holds the shits with their corresponding energy values
-        for (var i = 0; i < getShitList.length; i++) {
-            //iterates through shit array and gets the energy values from the item name (as ratios are split by '@')
-            var ratios = getShitList[i].item.split("@");
-            completeShitList.push({item: getShitList[i].item, amount: getShitList[i].amount, level: getShitList[i].level, human: ratios[1], attack: ratios[2], power: ratios[3], intelligence: ratios[4], building: ratios[5]});
-        }
-        itemList = getItemList.concat(completeShitList);
-        displayItemList();
+var itemRatios = null; //json storing all entries in item database so that information can be easily used without having to query the server every time
+
+//queries the server for the item list, combination list and itemRatios and fills the corresponding local variables 
+function updateFactory(){
+    ajaxSecureLoadVariables("ghost", {"getItemList": null, "getShitList": null,"getRatiosList":null,"getCombinationsList":null}, function() {
+        newUpdateItemList(getItemList,getShitList);
+        itemRatios=getRatiosList;
+        updateCombinationList(getCombinationsList);
     });
 }
+
+//updates the local itemList variable
+function newUpdateItemList(getItemList,getShitList){
+    var completeShitList =[]; //holds the shits with their corresponding energy values
+    for (var i = 0; i < getShitList.length; i++) {
+        //iterates through shit array and gets the energy values from the item name (as ratios are split by '@')
+        var ratios = getShitList[i].item.split("@");
+        completeShitList.push({item: getShitList[i].item, amount: getShitList[i].amount, level: getShitList[i].level, human: ratios[1], attack: ratios[2], power: ratios[3], intelligence: ratios[4], building: ratios[5]});
+    }
+    itemList = getItemList.concat(completeShitList);
+    displayItemList();
+}
+
+//updates the local combinationList variable
+function updateCombinationList(rawList){
+    log(rawList);
+
+}
+
 
 // uses the local itemList to display items into item menu;
 function displayItemList(){
@@ -142,13 +158,14 @@ function newCombineItems(){
     displayItemList();
 
     //creates combination progress bar
-    var resultItem = null;//getResultItem();
+    var resultItem = getResultItem()[0];
+    var resultItemLevel = getResultItem()[1];
     var combinationTime = 7;
     var id = 'id-' + Math.random().toString(36).substr(2, 16);
     var d = new Date();
     var startTime= Math.round(d.getTime()/1000);
     var finishTime=startTime+combinationTime; 
-    combinationList.push({id: id,item1:item1,level1:level1,level2:level2,item2:item2,resultItem:resultItem,startTime:startTime,finishTime:finishTime});
+    combinationList.push({id: id,item1:item1,level1:level1,level2:level2,item2:item2,resultItem:resultItem,resultItemLevel:resultItemLevel,startTime:startTime,finishTime:finishTime});
     displayCombinationBar(id);
     
     log(combinationList);
@@ -160,14 +177,17 @@ function displayCombinationBar(id){
     //gets combination time
 
     //creates ongoing combination elements
+    var bar_holder = document.createElement('barHolder');
     var combinationText = document.createTextNode(item1 + ' is being combined with '+ item2 + '\n');   
     var combinationBar = document.createElement('progress_bar');
     combinationBar.id=id; 
     combinationBar.className="progress_bar";
+
+    bar_holder.appendChild(combinationText);
+    bar_holder.appendChild(combinationBar);
     
     // Appends progress text and progress bar to document
-    document.getElementById("progress_bars").appendChild(combinationText);
-    document.getElementById("progress_bars").appendChild(combinationBar);
+    document.getElementById("progress_bars").appendChild(bar_holder);
 
     newMoveTestBar(id);
 }
@@ -206,15 +226,36 @@ function newMoveTestBar(id){
 }
 function finishCombination(id){
     //removes combination bar
-    document.getElementById(id).parentNode.parentNode.parentNode.removeChild(document.getElementById(id).parentNode.parentNode);
+    document.getElementById(id).parentNode.parentNode.removeChild(document.getElementById(id).parentNode);
     log("combination finished");
-    createNewItem();
-    // document.getElementById(id).remove();
+    newItem = null;
+    newItemLevel = null;
+    //removes combination item from combinationList and retrieves item that's going to be created
+    for (var i = 0; i < combinationList.length; i++) {
+        if(combinationList[i].id==id){
+            newItem=combinationList[i].resultItem;
+            newItemLevel=combinationList[i].resultItemLevel;
+            delete combinationList[i]
+        }
+    }
+    
+    //appends new item to itemList(new item is an attribute of comb)
+    for (var i = 0; i < itemList.length; i++) {
+        if(itemList[i].item==newItem && itemList[i].level==newItemLevel){
+            itemList[i].amount=itemList[i].amount+1;
+            displayItemList();
+            return;
+        }
+    }
+
+    
 }
 
-//finds out the product item of two input items, updates the item list with it and then updates the server with the new creation.
-function createNewItem(item1,level1,item2,level2){
-
+//returns the result item and its level from the items stored in local variables (item1,item2,level1,level2)
+//calculates the resulting ratios checks if there's an existing item with that existing ratio
+function getResultItem(){
+var resultItem = ["shit test", 3];
+return resultItem;
 }
 
 

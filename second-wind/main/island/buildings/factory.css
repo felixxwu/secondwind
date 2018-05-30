@@ -16,6 +16,8 @@
     color: white;
     /* background-color: rgba(148, 148, 148, 0.32); */
     border-radius: 5px;
+    background-color:#0a0a0ae3;
+    box-shadow: 0px 10px 80px 0px #00000070;
    
 }
 @media screen and (max-width: 1100px) {
@@ -29,10 +31,12 @@
 
 }
 #factory_menu > *{
+    border-color:black;
     padding:2%;
-    background-color:#0a0a0ad4;
+    margin:10px;
+    border:solid;
     border-radius: 5px;
-    box-shadow: 0px 10px 80px 0px #00000070;
+   
 }
 
 #factory_header{
@@ -44,7 +48,19 @@
     grid-area: factory_items;
     overflow:scroll;
     
+}
+#item_header{
+    width:100%;
+    font-weight: 600;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
 
+}
+#item_header p{
+    font-size: 20px;
 }
 #factory_items item{
     background: no-repeat;
@@ -85,6 +101,7 @@
 
 }
 #factory_actions{
+    margin-left:0px;
     grid-area: factory_actions;
 
 }

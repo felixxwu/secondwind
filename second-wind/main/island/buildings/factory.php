@@ -5,7 +5,9 @@
     <factory_logo src="<? hashify('images/extractor_3_animation.svg'); ?>"></factory_logo>
   </div>
   <div id="factory_items"> 
-    <h2>items</h2><br/>
+    <div id="item_header"> 
+      <p>items</p>
+    </div><br/>
     <table id="itemList">
       <tr>
         <th>Item</th>

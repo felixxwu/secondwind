@@ -1,7 +1,6 @@
 var selectedPoint, selectedIsland;
 
 function mapVarInit() {
-    element("selectIslands").setAttribute("onchange", "setLocation(islands[this.value])");
     islands.forEach(function (island, index) {
         // add option to select box
         let option = document.createElement("option");
@@ -9,13 +8,22 @@ function mapVarInit() {
         option.value = index;
         option.innerHTML = "Island " + island.island;
         element("selectIslands").appendChild(option);
-
+        
     });
-
-    // add your location
-    setLocation(islands[0]);
-
+    
     setupPerimeter();
+    
+    if (islands.length == 0) {
+        let noIslands = document.createElement("option");
+        noIslands.innerHTML = "No Islands";
+        element("selectIslands").appendChild(noIslands);
+    } else {
+        element("selectIslands").setAttribute("onchange", "setLocation(islands[this.value])");
+        
+        // add your location
+        setLocation(islands[0]);
+    }
+
 }
 
 function fetchPositions() {

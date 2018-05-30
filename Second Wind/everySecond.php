@@ -12,6 +12,6 @@ sqlUpdate('energy', "`username`='test'", 'building', ($allocation['building'] + 
 
 include "main/map/move.php";
 
-// error_log(microtime());
+// error_log(microtime(true));
 
 ?>

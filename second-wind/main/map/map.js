@@ -122,7 +122,7 @@ function addTarget() {
     element("movehere").innerHTML = "please wait...";
     
     ajaxSecureCall("addTarget", {"island": selectedIsland.island, "x": selectedPoint[0], "y": selectedPoint[1]}, function () {
-        let island = islands[element("selectIslands").value]
+        let island = myIslands[element("selectIslands").value]
         addLine(island.x, island.y, selectedPoint[0], selectedPoint[1]);
         element("movehere").innerHTML = "move here";
         removeMarker();

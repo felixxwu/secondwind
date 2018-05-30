@@ -7,72 +7,109 @@ html
         title Second Wind
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
-        //- force these links to load over cache by adding ?v=<?=time()?> to the end of each
-        link(rel="stylesheet" href!="<? hashify('css/style.css'); ?>")
+        //- styles for the loading screen so that no css file needs to be loaded before it can be shown
+        style.
+            #loading {
+                width: 100vw;
+                height: 100%;
+                position: fixed;
+                text-align: center;
+                z-index: 100;
+                background-color: #222222;
+            }
 
+            #loading text {
+                color: white;
+                line-height: 100vh;
+            }
+
+        //- force these links to load over cache by adding ?v=<?=time()?> to the end of each
+        //- link(rel="stylesheet" href!="<? hashify('css/style.css'); ?>")
+        //- link(rel="stylesheet" href="css/animate.css")
+        //- link(rel="stylesheet" href!="<? hashify('css/mainStyle.css'); ?>")
+        //- link(rel="stylesheet" href!="<? hashify('css/buttons.css'); ?>")
+
+        //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        //- script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+        //- script(src!="<? hashify('libraries/ajax/newAjaxHelper.js'); ?>")
+        //- script(src!="<? hashify('libraries/account/functions.js'); ?>")
+        //- script(src!="<? hashify('libraries/account/secureLoad.js'); ?>")
+        //- script(src!="<? hashify('libraries/utility/general.js'); ?>")
+        //- script(src!="<? hashify('libraries/utility/animation.js'); ?>")
+        //- script(src!="<? hashify('libraries/utility/hashNavigation.js'); ?>")
+        //- script(src!="<? hashify('libraries/energy/energy.js'); ?>")
+        //- script(src!="<? hashify('libraries/items/items.js'); ?>")
+        //- script(src!="<? hashify('libraries/slider/sliderdemo.js'); ?>") 
+
+        //- script(src!="<? hashify('main/menu/menu.js'); ?>")
+        //- script(src!="<? hashify('main/notifications/notifications.js'); ?>")
+        //- script(src!="<? hashify('main/map/map.js'); ?>")
+        //- script(src!="<? hashify('main/map/init.js'); ?>")
+        //- script(src!="<? hashify('main/map/perimeter.js'); ?>")
+        
+        //- script(src!="<? hashify('libraries/ajax/ajaxLoop.js'); ?>")
+        
+        //- script(src!="<? hashify('init.js'); ?>")
     body
         #ghost 
 
         #loading
             text loading...
 
-        
-        link(rel="stylesheet" href="css/animate.css")
-        link(rel="stylesheet" href!="<? hashify('css/mainStyle.css'); ?>")
-        link(rel="stylesheet" href!="<? hashify('css/buttons.css'); ?>")
-
-
-        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
-        script(src="https://code.jquery.com/jquery-3.2.1.min.js")
-        script(src!="<? hashify('libraries/ajax/newAjaxHelper.js'); ?>")
-        script(src!="<? hashify('libraries/account/functions.js'); ?>")
-        script(src!="<? hashify('libraries/account/secureLoad.js'); ?>")
-        script(src!="<? hashify('libraries/utility/general.js'); ?>")
-        script(src!="<? hashify('libraries/utility/animation.js'); ?>")
-        script(src!="<? hashify('libraries/utility/hashNavigation.js'); ?>")
-        script(src!="<? hashify('libraries/energy/energy.js'); ?>")
-        script(src!="<? hashify('libraries/items/items.js'); ?>")
-        script(src!="<? hashify('libraries/slider/sliderdemo.js'); ?>") 
-
-        script(src!="<? hashify('main/menu/menu.js'); ?>")
-        script(src!="<? hashify('main/notifications/notifications.js'); ?>")
-        script(src!="<? hashify('main/map/map.js'); ?>")
-        script(src!="<? hashify('main/map/init.js'); ?>")
-        script(src!="<? hashify('main/map/perimeter.js'); ?>")
-        
-        script(src!="<? hashify('main/ajaxLoop.js'); ?>")
-        
-        script(src!="<? hashify('init.js'); ?>")
-
-        //- link(rel="stylesheet", href="css/style.css")
-        //- link(rel="stylesheet", href="css/animate.css")
-        //- link(rel="stylesheet" href="css/mainStyle.css")
-        //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
-        //- script(src="https://code.jquery.com/jquery-3.2.1.min.js")
-        //- script(src="libraries/ajax/AjaxHelper.js")
-        //- script(src="libraries/account/functions.js")
-        //- script(src="libraries/account/secureLoad.js")
-        //- script(src="libraries/utility/general.js")
-        //- script(src="libraries/utility/animation.js")
-        //- script(src="libraries/energy/energy.js")
-        //- script(src="libraries/items/items.js")
-        //- script(src="libraries/slider/sliderdemo.js")
-
-
-        //- #showhidetest
-
-            #testbox hello, I am content
-
-            a(onclick="show('main','fadeInDown',3)")
-                button show
-
-            a(onclick="hide('main','fadeOutDown',0.5)")
-                button hide
-
-            a(onclick="hide('showhidetest','fadeOutUp',1)")
-                button hide me
         a.absolute(href="login" style="z-index: -1;") if nothing happens, click here
 
         #main
+        
+        #links
+            //- all links are appended using js, which means that they will only 
+            //- start loading these once the loading screen is showing, making the initial load smoother
+            script.
+                function linkJs(file) {
+                    let script = document.createElement("script");
+                    script.setAttribute("type","text/javascript");
+                    script.setAttribute("src", file);
+                    document.getElementById("links").appendChild(script);
+                }
+
+                function linkCss(file) {
+                    let css = document.createElement("link");
+                    css.setAttribute("rel", "stylesheet");
+                    css.setAttribute("href", file);
+                    document.getElementById("links").appendChild(css);
+                }
+
+                linkCss("<? hashify('css/style.css'); ?>");
+                linkCss("css/animate.css");
+                linkCss("<? hashify('css/mainStyle.css'); ?>");
+                linkCss("<? hashify('css/buttons.css'); ?>");
+            
+                linkJs("https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
+                linkJs("https://code.jquery.com/jquery-3.2.1.min.js");
+
+                linkJs("<? hashify('libraries/ajax/newAjaxHelper.js'); ?>");
+                linkJs("<? hashify('libraries/ajax/ajaxLoop.js'); ?>");
+
+                linkJs("<? hashify('libraries/account/functions.js'); ?>");
+                linkJs("<? hashify('libraries/account/secureLoad.js'); ?>");
+
+                linkJs("<? hashify('libraries/utility/general.js'); ?>");
+                linkJs("<? hashify('libraries/utility/animation.js'); ?>");
+                linkJs("<? hashify('libraries/utility/hashNavigation.js'); ?>");
+
+                linkJs("<? hashify('libraries/energy/energy.js'); ?>");
+                linkJs("<? hashify('libraries/items/items.js'); ?>");
+                linkJs("<? hashify('libraries/slider/sliderdemo.js'); ?>") ;
+
+                linkJs("<? hashify('main/menu/menu.js'); ?>");
+                linkJs("<? hashify('main/notifications/notifications.js'); ?>");
+                linkJs("<? hashify('main/map/map.js'); ?>");
+                linkJs("<? hashify('main/map/init.js'); ?>");
+                linkJs("<? hashify('main/map/perimeter.js'); ?>");
+                
+                linkJs("<? hashify('init.js'); ?>");
+
+
+
+
         
             

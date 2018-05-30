@@ -140,8 +140,13 @@ function message($username) {
 
 // AJAX LOP FUNCTIONS ###################################################################################
 
-function islands() {
+function myIslands() {
     $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "id");
+    return $islands;
+}
+
+function otherIslands() {
+    $islands = sqlSelect("locations", "`island`,`x`,`y`", "NOT `username` = '" . $_POST["username"] . "'", "id");
     return $islands;
 }
 

@@ -2,6 +2,8 @@
 function setLocation(island) {
     // console.log("setting location to: ");
     // console.log(island);
+
+    // create the island img to be displayed
     let myLocation = document.createElement("img");
     myLocation.src = "material-icons/myLocation.svg";
     myLocation.style.left = island.x + "%";
@@ -9,14 +11,19 @@ function setLocation(island) {
     element("myLocation").innerHTML = "";
     element("myLocation").appendChild(myLocation);
 
-    element("line").innerHTML = "";
-    selectedIsland = island;
+    selectedIsland = island;    // update the global
+    
+    element("line").innerHTML = ""; // remove any previous lines
+
+    // add a line to the target if there is one
     target = getTargetWithIslandNo(island.island);
     if (target) {
         addLine(island.x, island.y, target.x, target.y);
     }
 }
 
+// returns the target with that island number
+// (myTargets only contains targets from the current user, so islands are unique)
 function getTargetWithIslandNo(number) {
     for (let i = 0; i < myTargets.length; i++) {
         if (myTargets[i].island == number) {
@@ -29,10 +36,8 @@ function getTargetWithIslandNo(number) {
 function getXY(event) {
     let scrolled = element("mapGrid").scrollTop;
     let x = event.clientX;
-    let y = event.clientY + scrolled;
+    let y = event.clientY + scrolled;   // to account for the scroll position
     let mapSideLength = element("markers").offsetWidth;
-    let mapXCenter = document.documentElement.clientWidth / 2;
-    let mapYCenter = document.documentElement.clientHeight / 2;
     x = x * 100 / mapSideLength;
     y = y * 100 / mapSideLength;
 

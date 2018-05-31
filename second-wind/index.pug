@@ -8,21 +8,9 @@ html
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
 
         //- styles for the loading screen so that no css file needs to be loaded before it can be shown
-        style.
-            #loading {
-                width: 100vw;
-                height: 100%;
-                position: fixed;
-                text-align: center;
-                z-index: 100;
-                background-color: #222222;
-                pointer-events: none;
-            }
-
-            #loading text {
-                color: white;
-                line-height: 100vh;
-            }
+        //- file_get_contents echoes returns the contents of an entire file
+        style <?= file_get_contents("css/loading.css"); ?>
+        
 
         //- force these links to load over cache by adding ?v=<?=time()?> to the end of each
         //- link(rel="stylesheet" href!="<? hashify('css/style.css'); ?>")
@@ -57,7 +45,7 @@ html
         #loading
             text loading...
 
-        a.absolute(href="login" style="z-index: -1;") if nothing happens, click here
+        a.absolute(href="login" style="z-index: -1;") if nothing happens, click here to login again
 
         #main
         
@@ -65,19 +53,7 @@ html
             //- all links are appended using js, which means that they will only 
             //- start loading these once the loading screen is showing, making the initial load smoother
             script.
-                function linkJs(file) {
-                    let script = document.createElement("script");
-                    script.setAttribute("type","text/javascript");
-                    script.setAttribute("src", file);
-                    document.getElementById("links").appendChild(script);
-                }
-
-                function linkCss(file) {
-                    let css = document.createElement("link");
-                    css.setAttribute("rel", "stylesheet");
-                    css.setAttribute("href", file);
-                    document.getElementById("links").appendChild(css);
-                }
+                <?= file_get_contents("libraries/utility/link.js"); ?>
 
                 linkCss("<? hashify('css/style.css'); ?>");
                 linkCss("css/animate.css");
@@ -110,9 +86,3 @@ html
                 linkJs("<? hashify('main/map/perimeter.js'); ?>");
                 
                 linkJs("<? hashify('init.js'); ?>");
-
-
-
-
-        
-            

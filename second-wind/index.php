@@ -29,45 +29,17 @@ function hashify($file) {
   <head>
     <title>Second Wind</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <style>
-      #loading {
-          width: 100vw;
-          height: 100%;
-          position: fixed;
-          text-align: center;
-          z-index: 100;
-          background-color: #222222;
-          pointer-events: none;
-      }
-      
-      #loading text {
-          color: white;
-          line-height: 100vh;
-      }
-      
-    </style>
+    <style><?= file_get_contents("css/loading.css"); ?></style>
   </head>
   <body>
     <div id="ghost"> </div>
     <div id="loading">
       <text>loading...</text>
-    </div><a class="absolute" href="login" style="z-index: -1;">if nothing happens, click here</a>
+    </div><a class="absolute" href="login" style="z-index: -1;">if nothing happens, click here to login again</a>
     <div id="main"></div>
     <div id="links">
       <script>
-        function linkJs(file) {
-            let script = document.createElement("script");
-            script.setAttribute("type","text/javascript");
-            script.setAttribute("src", file);
-            document.getElementById("links").appendChild(script);
-        }
-        
-        function linkCss(file) {
-            let css = document.createElement("link");
-            css.setAttribute("rel", "stylesheet");
-            css.setAttribute("href", file);
-            document.getElementById("links").appendChild(css);
-        }
+        <?= file_get_contents("libraries/utility/link.js"); ?>
         
         linkCss("<? hashify('css/style.css'); ?>");
         linkCss("css/animate.css");

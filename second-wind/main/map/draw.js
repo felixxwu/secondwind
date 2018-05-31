@@ -36,12 +36,9 @@ function chooseIsland(island) {
 }
 
 // moves your marker to the point on the map (within the perimeter)
-function addMarker(event) {
+function addMarker(XY) {
     // create a new div element
-    let XY = getXY(event);
-    if (!XY) {
-        return;
-    }
+    
     let x = XY[0];
     let y = XY[1];
 

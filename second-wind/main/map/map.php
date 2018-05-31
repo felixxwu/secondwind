@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="<? hashify('main/map/map.css'); ?>"/>
 <div id="mapGrid">
   <div id="mapSquare">
-    <div class="mapSquare" id="xysensitive" onclick="addMarker(event)"></div>
+    <div class="mapSquare" id="xysensitive" onclick="mapClick(event)"></div>
     <div class="invert mapSquare" id="myLocation"></div>
     <div class="mapSquare" id="playerLocations"></div>
     <div class="invert mapSquare" id="markers"></div>

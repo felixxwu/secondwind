@@ -199,6 +199,7 @@ echoAsVar("myTargets", $myTargets);
     <div id="perimeter"></div>
   </div>
   <div id="mapUI">
+    <div id="selectedPlayers"></div>
     <select id="selectIslands"></select>
     <div class="button" id="movehere" onclick="addTarget()" style="display:none;">move here</div><br/>
     <div class="button" onclick="hideMap()">close map</div>

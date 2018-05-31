@@ -6,6 +6,7 @@ function mapClick(event) {
     let x = XY[0];
     let y = XY[1];
 
+    // if you click near one of your islands it will change your island selection to that island
     for (let i = 0; i < myIslands.length; i++) {
         const myIsland = myIslands[i];
         if (inHitBox(XY, myIsland.x, myIsland.y)) {
@@ -15,12 +16,22 @@ function mapClick(event) {
         }
     }
 
+    element("selectedPlayers").innerHTML = "Selected marker is near the following players:";
+    element("selectedPlayers").style.display = "none";
+    for (let i = 0; i < otherIslands.length; i++) {
+        const player = otherIslands[i];
+        if (inHitBox(XY, player.x, player.y)) {
+            element("selectedPlayers").style.display = "";
+            element("selectedPlayers").innerHTML += "<br><b>" + player.username + "</b>";
+        }
+    }
+
     addMarker(XY);
 }
 
 function inHitBox(XY, x2, y2) {
-    const hitBoxRadius = 3;
-    
+    const hitBoxRadius = 4;
+
     let x1 = XY[0];
     let y1 = XY[1];
     let distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));

@@ -70,6 +70,7 @@ function hashify($file) {
         linkJs("<? hashify('main/map/draw.js'); ?>");
         linkJs("<? hashify('main/map/players.js'); ?>");
         linkJs("<? hashify('main/map/perimeter.js'); ?>");
+        linkJs("<? hashify('main/map/quickActions.js'); ?>");
         
         linkJs("<? hashify('init.js'); ?>");
       </script>

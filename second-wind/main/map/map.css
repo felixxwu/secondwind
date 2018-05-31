@@ -84,6 +84,19 @@
 }
 /* ############################################# */
 
+#quickActionContainer {
+    position: absolute;
+    z-index: 5;
+    text-align: center;
+    padding-top: 15px;
+}
+
+#quickActionContainer > a {
+    pointer-events: all;
+    margin-left: calc(10px - 100%);
+    margin-top: 0;
+}
+
 @media screen and (max-width: 600px) {
     #mapGrid {
         grid-template-rows: 1fr 1fr;

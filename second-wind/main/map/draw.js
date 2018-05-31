@@ -53,6 +53,7 @@ function addMarker(XY) {
     // addLine(selectedIsland.x, selectedIsland.y, x, y);
 
     show("movehere", "fadeIn", 1);
+
 }
 
 function removeMarker() {

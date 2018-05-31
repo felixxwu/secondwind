@@ -10,19 +10,25 @@ link(rel="stylesheet" href!="<? hashify('main/map/map.css'); ?>")
         #markers
 #mapGrid
     #mapSquare
+
         #xysensitive.mapSquare(onclick="mapClick(event)")
         #line
         #perimeter
         #playerLocations.mapSquare
         #myLocation.invert.mapSquare
         #markers.invert.mapSquare
+        #quickActions.mapSquare
+            #quickActionContainer
+
     #mapUI
         #selectedPlayers
         select#selectIslands
+
         .button.iconButton#movehere(onclick="addTarget()" style="display:none;")
-            | move here
+            | move to marker
             img.invert(src="material-icons/move.svg")
         br
+
         .button.iconButton(onclick="hideMap()")
             | close map
             img.invert(src="material-icons/close.svg")

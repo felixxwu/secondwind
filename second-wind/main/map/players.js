@@ -107,3 +107,10 @@ function updatePlayerColours(players) {
     // console.log(playerColours);
     
 }
+
+function playerButton(player) {
+    let playerActionButton = document.createElement("a");
+    playerActionButton.classList.add("button");
+    playerActionButton.innerHTML = player.username;
+    return playerActionButton;
+}

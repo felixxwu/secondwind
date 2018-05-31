@@ -10,6 +10,10 @@ function mapClick(event) {
         return;
     }
 
+    // the action container contains the quick actions that will be appended
+    setUpActionContainer(x, y);
+
+
     element("markers").innerHTML = "";
 
     element("selectedPlayers").innerHTML = "<br>Selected marker is near the following players:<br>";
@@ -18,10 +22,9 @@ function mapClick(event) {
         const player = otherIslands[i];
         if (inHitBox(XY, player.x, player.y)) {
             element("selectedPlayers").style.display = "";
-            let playerActionButton = document.createElement("a");
-            playerActionButton.classList.add("button");
-            playerActionButton.innerHTML = player.username;
-            element("selectedPlayers").appendChild(playerActionButton);
+            element("selectedPlayers").appendChild(playerButton(player));
+
+            showPlayerAction(player);
         }
     }
     element("selectedPlayers").innerHTML += "<hr>";
@@ -32,9 +35,12 @@ function mapClick(event) {
         if (inHitBox(XY, myIsland.x, myIsland.y)) {
             element("island-" + myIsland.island).selected = true;
             chooseIsland(myIsland);
+            hide("movehere", "fadeOut", 1);
             return;
         }
     }
+
+    showMoveAction();
 
     addMarker(XY);
 }
@@ -62,9 +68,11 @@ function getTargetWithIslandNo(number) {
     }
 }
 
+// adds a target on the database that will be automatically followed
 function addTarget() {
     // console.log(selectedPoint);
     element("movehere").innerHTML = "please wait...";
+    element("quickMove").innerHTML = "please wait...";
 
     ajaxSecureCall(
         "addTarget",
@@ -80,9 +88,12 @@ function addTarget() {
             let icon = document.createElement("img");
             icon.classList.add("invert");
             icon.src = "material-icons/move.svg";
-            element("movehere").innerHTML = "move here";
+            element("movehere").innerHTML = "move to marker";
             element("movehere").appendChild(icon);
             removeMarker();
+
+            // hide the quick action
+            element("quickActionContainer").innerHTML = "";
         }
     );
 }

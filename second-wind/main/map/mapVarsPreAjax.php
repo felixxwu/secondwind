@@ -1,9 +1,15 @@
 <?php
 
-$islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
-echoAsVar("myIslands", $islands);
+// BEFORE THE FIRST AJAX LOOP CALL THERE ARE NO VARIABLES
+// THIS FILE PROVIDES NECESSARY VARIABLES FOR THE MAP BEFORE THE FIRST AJAX LOOP CALL 
 
-$targets = sqlSelect("targetLocations", "*", "`username` = '" . $_POST["username"] . "'", "id");
-echoAsVar("myTargets", $targets);
+$otherIslands = sqlSelect("locations", "`username`,`island`,`x`,`y`", "NOT `username` = '" . $_POST["username"] . "'", "island");
+echoAsVar("myIslands", $otherIslands);
+
+$myIslands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
+echoAsVar("myIslands", $myIslands);
+
+$myTargets = sqlSelect("targetLocations", "*", "`username` = '" . $_POST["username"] . "'", "id");
+echoAsVar("myTargets", $myTargets);
 
 ?>

@@ -1,3 +1,5 @@
+// JS FUNCTIONS RELATED TO THE MAP PERIMETER
+
 var points = [
     [10, 10],
     [50, 40],

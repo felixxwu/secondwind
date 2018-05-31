@@ -4,6 +4,7 @@
   <div id="mapSquare">
     <div class="mapSquare" id="xysensitive" onclick="addMarker(event)"></div>
     <div class="invert mapSquare" id="myLocation"></div>
+    <div class="mapSquare" id="playerLocations"></div>
     <div class="invert mapSquare" id="markers"></div>
     <div id="line"></div>
     <div id="perimeter"></div>

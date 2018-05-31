@@ -6,10 +6,10 @@ function ajaxLoop() {
             "myTargets": null,
             "energies": null
         }, function () {
-            if (myIslands.length == 0) { alert("error: no islands"); }
+            if (myIslands == []) { alert("error: no islands"); }
 
-            setLocation(myIslands[element("selectIslands").value]);
-            console.log(otherIslands);
+            chooseIsland(myIslands[element("selectIslands").value]);
+            drawAllPlayers(otherIslands);
 
             updateEnergy();
 

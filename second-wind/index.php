@@ -37,6 +37,7 @@ function hashify($file) {
           text-align: center;
           z-index: 100;
           background-color: #222222;
+          pointer-events: none;
       }
       
       #loading text {
@@ -94,6 +95,8 @@ function hashify($file) {
         linkJs("<? hashify('main/notifications/notifications.js'); ?>");
         linkJs("<? hashify('main/map/map.js'); ?>");
         linkJs("<? hashify('main/map/init.js'); ?>");
+        linkJs("<? hashify('main/map/draw.js'); ?>");
+        linkJs("<? hashify('main/map/players.js'); ?>");
         linkJs("<? hashify('main/map/perimeter.js'); ?>");
         
         linkJs("<? hashify('init.js'); ?>");

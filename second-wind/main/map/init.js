@@ -1,27 +1,34 @@
+// INITIALISE ANY RQEUIRED JS STUFF
+
 var selectedPoint, selectedIsland;
 
+// used to show available islands to choose from in the select box
+// as well as setting up various other things related to the map
 function mapVarInit() {
-    myIslands.forEach(function (island, index) {
+    myIslands.forEach(function(island, index) {
         // add option to select box
         let option = document.createElement("option");
         option.id = "island-" + island.island;
         option.value = index;
         option.innerHTML = "Island " + island.island;
         element("selectIslands").appendChild(option);
-        
     });
-    
+
     setupPerimeter();
-    
-    if (myIslands.length == 0) { alert("error: no islands"); }
 
-    element("selectIslands").setAttribute("onchange", "setLocation(islands[this.value])");
-    
+    if (myIslands == []) {
+        alert("error: no islands");
+    }
+
+    element("selectIslands").setAttribute(
+        "onchange",
+        "chooseIsland(myIslands[this.value])"
+    );
+
     // add your location
-    setLocation(myIslands[0]);
-
+    chooseIsland(myIslands[0]);
 }
 
 function fetchPositions() {
-    ajaxSecureLoadVariables("positions", {"fetchPositions": null});
+    ajaxSecureLoadVariables("positions", { fetchPositions: null });
 }

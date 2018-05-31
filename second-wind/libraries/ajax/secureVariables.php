@@ -146,7 +146,7 @@ function myIslands() {
 }
 
 function otherIslands() {
-    $islands = sqlSelect("locations", "`island`,`x`,`y`", "NOT `username` = '" . $_POST["username"] . "'", "id");
+    $islands = sqlSelect("locations", "`username`,`island`,`x`,`y`", "NOT `username` = '" . $_POST["username"] . "'", "id");
     return $islands;
 }
 

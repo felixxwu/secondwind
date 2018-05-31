@@ -124,7 +124,7 @@ function newAddToCombine(id) {
     var combine = document.getElementById('combine');
     combine.style.display = 'none';
     if(item2!=null){
-        combine.style.display = 'block';
+        combine.style.display = 'inline-block';
     }
     //displays the two elements that will be combined
     document.getElementById("testItems").innerHTML = item1.concat(" will be combined with ").concat(item2);
@@ -160,7 +160,7 @@ function newCombineItems(){
     displayItemList();
 
     //creates combination progress bar
-    var resultingCombination=getResultItem();
+    var resultingCombination=getResultItem(item1,level1,item2,level2);
     var resultItem = resultingCombination[0];
     var resultItemLevel = resultingCombination[1];
     var combinationTime = getCombinationTimes(item1,level1,item2,level2);
@@ -188,7 +188,7 @@ function getCombinationTimes(item1,level1,item2,level2){
         log(ratios1[i]*level1);
         combinationTime=combinationTime+(ratios1[i]*level1)+(ratios2[i]*level2);
     }
-    log(combinationTime);
+    // log(combinationTime);
     return combinationTime;
 
 }
@@ -246,6 +246,8 @@ function newMoveTestBar(id){
     }
  
 }
+
+//removes combination process from local combinationList and triggers
 function finishCombination(id){
     //removes combination bar
     document.getElementById(id).parentNode.parentNode.removeChild(document.getElementById(id).parentNode);
@@ -261,14 +263,32 @@ function finishCombination(id){
             // log(combinationList);
         }
     }
+    addToItemList(newItem,newItemLevel);
     
+}
+
+//adds an item to the item list and displays relevant information
+function addToItemList(newItem,newItemLevel){
     //appends new item to itemList(new item is an attribute of comb)
     //if the user has some of that item already
     for (var i = 0; i < itemList.length; i++) {
         if(itemList[i].item==newItem && itemList[i].level==newItemLevel){
+            //if the user has the same item and level
             itemList[i].amount=parseInt(itemList[i].amount)+1;
             displayItemList();
             //update item list in the server
+            return;
+        }
+    }
+
+     //if the user has the same item but different levels
+    for (var i = 0; i < itemList.length; i++) {
+        if(itemList[i].item==newItem){
+            var newItem = jQuery.extend({}, itemList[i]);
+            newItem.level=newItemLevel;
+            newItem.amount=1;
+            itemList.push(newItem);
+            displayItemList();
             return;
         }
     }
@@ -278,14 +298,10 @@ function finishCombination(id){
     newItem = "shit@" + ratios[0] + "@" + ratios[1] + "@" + ratios[2] + "@" + ratios[3] + "@" + ratios[4] + "@";
     itemList.push({item: newItem, amount: 1, level: newItemLevel, human: ratios[0], attack: ratios[1], power: ratios[2], intelligence: ratios[3], building: ratios[4]});
     displayItemList();
-
-
-    
 }
 
-//returns the result item and its level from the items stored in local variables (item1,item2,level1,level2)
-//calculates the resulting ratios checks if there's an existing item with that existing ratio
-function getResultItem(){
+//returns the result item and its level from the input items
+function getResultItem(item1,level1,item2,level2){
 
     //calculate ratios of combining items
     ratios1 = getRatios(item1);
@@ -337,17 +353,18 @@ function getResultItem(){
     var result = [resultingItem, resultingLevel, resultingRatios];
     return result;
 }
-//returns array containing ratios of existing item
+
+//returns array containing ratios of input item
 function getRatios(item){
     var ratios = null;
 
-    if(item1.substring(0, 5) == "shit@"){
-        ratios = item1.split("@");
+    if(item.substring(0, 5) == "shit@"){
+        ratios = item.split("@");
         ratios.splice(0,1);
         ratios.splice(5,1);
     }else{
         for(var i=0;i<itemRatios.length;i++){
-            if(itemRatios[i].name==item1){
+            if(itemRatios[i].name==item){
                 var ratios=[itemRatios[i].human,itemRatios[i].attack,itemRatios[i].power,itemRatios[i].intelligence,itemRatios[i].building];
             }
         }
@@ -355,12 +372,15 @@ function getRatios(item){
     return ratios;
 }
 
+//calculates gcd of two numbers
 function gcd (a, b) {
     if(b == 0){
         return a;
     }
     return gcd(b, a%b);
 }
+
+//calculates gcd of an array
 function gcdArray (a) {
   return a.reduce(gcd)
 }
@@ -502,7 +522,7 @@ function addToCombine(id) {
     var combine = document.getElementById('combine');
     combine.style.display = 'none';
     if(el2!=null){
-        combine.style.display = 'block';
+        combine.style.display = 'inline-block';
     }
     //displays the two elements that will be combined
     document.getElementById("testItems").innerHTML = el1.concat(" will be combined with ").concat(el2);

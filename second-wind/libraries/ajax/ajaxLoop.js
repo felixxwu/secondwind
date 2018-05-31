@@ -9,7 +9,10 @@ function ajaxLoop() {
             if (myIslands == []) { alert("error: no islands"); }
 
             chooseIsland(myIslands[element("selectIslands").value]);
-            drawAllPlayers(otherIslands);
+            // console.log(otherIslands);
+            updatePlayerColours(otherIslands);
+            updatePlayerLocations(otherIslands);
+            drawAllPlayers();
 
             updateEnergy();
 

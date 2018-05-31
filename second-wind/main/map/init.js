@@ -4,6 +4,7 @@ var selectedPoint, selectedIsland;
 
 // used to show available islands to choose from in the select box
 // as well as setting up various other things related to the map
+// this function will execute after main has loaded
 function mapVarInit() {
     myIslands.forEach(function(island, index) {
         // add option to select box
@@ -27,6 +28,11 @@ function mapVarInit() {
 
     // add your location
     chooseIsland(myIslands[0]);
+
+    // initialise playerList
+    updatePlayerColours(otherIslands);
+    initAllPlayers(otherIslands);
+    
 }
 
 function fetchPositions() {

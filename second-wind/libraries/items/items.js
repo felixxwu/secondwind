@@ -39,7 +39,6 @@ function newUpdateItemList(getItemList,getShitList){
 function updateCombinationList(rawList){
 }
 
-
 // uses the local itemList to display items into item menu;
 function displayItemList(){
 
@@ -104,9 +103,9 @@ function displayItemList(){
 }
 
 //adds the item with id to the combine queue (FIFO using item1,item2)
-function newAddToCombine(id) { 
-    //id: name and level separated by *
-    var split = id.split('*');
+function newAddToCombine(fullItemName) { 
+    //fullItemName: name and level separated by *
+    var split = fullItemName.split('*');
     var name = split[0];
     var level = split[1];
 
@@ -130,23 +129,33 @@ function newAddToCombine(id) {
     document.getElementById("testItems").innerHTML = item1.concat(" will be combined with ").concat(item2);
 }
 
-// 1. updates client with new ongoing combination and substracts combining items from item list (if enough)
-// 2. does 1 on the server
+// 1. uses local variables to update client with new ongoing combination and substracts combining items from item list (if enough)
+// 2. calls relevant functions that perform 1 in the server
 function newCombineItems(){
     document.getElementById("errorItems").innerHTML ="";
-    //checks that you have enough items (in the case both items of the combination are the same)
-    if(item1==item2 && level1==level2){
-        for (var i = 0; i < itemList.length; i++) {
-            if(itemList[i].item==item1 && itemList[i].level==level1){
-                
-                if(itemList[i].amount<=1){
-                    document.getElementById("errorItems").innerHTML = "Sorry shitboi you don't have enough items to do that";         
+
+    //checks that you have enough items 
+    //          (in the case both items of the combination are the same)
+    //          or one of the items have less than 1
+
+    var item1PresentInList = false;
+    var item2PresentInList = false;
+    for (var i = 0; i < itemList.length; i++) {
+        if(item1==item2 && level1==level2){//if the two items are the same then there should be at least x2 of that item
+            if(itemList[i].item==item1 && itemList[i].level==level1 && itemList[i].amount<=1){
+                    document.getElementById("errorItems").innerHTML = "Sorry shitboi you don't have enough items to do that (1)";         
                     return;
-                }
-                //if the two items are the same then there should be at least x2 of that item
             }
+        }//there should be at least 1 of item1 i.e. item1 should be present in itemList
+        if(itemList[i].item==item1 && itemList[i].level==level1){
+            item1PresentInList=true;
+        }//there should be at least 1 of item2 i.e. item2 should be present in itemList
+        if(itemList[i].item==item2 && itemList[i].level==level2){
+            item2PresentInList=true;
         }
     }
+    if(!(item1PresentInList&&item2PresentInList)){document.getElementById("errorItems").innerHTML = "Sorry shitboi you don't have enough items to do that (2)";return;}
+    
 
     //substracts quantities from items to be combined and update display of item list
     for (var i = 0; i < itemList.length; i++) {
@@ -175,6 +184,13 @@ function newCombineItems(){
     
 }
 
+//substracts relevant quantities from items in the server
+//adds a combination process to the server (id corresponds to the id of the combination in the local combinationList)
+function ajaxStartCombination(item1,level1,item2,level2,id){
+
+}
+
+
 //returns in seconds that the time that item1 and item2 takes to combine
 function getCombinationTimes(item1,level1,item2,level2){
     var ratios1 = getRatios(item1);
@@ -192,6 +208,7 @@ function getCombinationTimes(item1,level1,item2,level2){
     return combinationTime;
 
 }
+
 //uses the locally stored current combination items to create a combination bar for them
 function displayCombinationBar(id){
     //gets combination time

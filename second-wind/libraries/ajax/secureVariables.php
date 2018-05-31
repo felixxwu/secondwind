@@ -57,7 +57,7 @@ function getRatiosList(){
 function getCombinationsList(){
     $username=$_POST["username"];
     $combinations = sqlSelect("itemCombinations","*","`user` = '$username'","`finish_time`");
-    
+
 	return $combinations;
 }
 //returns list of items and their ratios - doesn't return shits

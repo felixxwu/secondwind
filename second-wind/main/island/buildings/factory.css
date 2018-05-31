@@ -45,7 +45,7 @@
 #factory_items{
     
     grid-area: factory_items;
-    overflow:scroll;
+    overflow-y:scroll;
     
 }
 #item_header{
@@ -110,7 +110,7 @@
 }
 #factory_progress{
     margin-left:0px;
-    overflow:scroll;
+    overflow-y:scroll;
     grid-area: factory_progress;
 }
 

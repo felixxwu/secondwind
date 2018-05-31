@@ -8,9 +8,9 @@
     -webkit-filter: invert(100%);
 }
 
-.button, select {
+.button, .iconButton, select {
     display: inline-block;
-    border: solid white 3px;
+    border: solid white 2px;
     padding: 10px;
     margin: 10px;
     color: white;
@@ -18,6 +18,17 @@
     background-color: black;
     font-size: medium;
     font-weight: 700;
+}
+
+.iconButton {
+    padding-right: 34px;
+}
+
+.iconButton > img {
+    height: 24px;
+    position: absolute;
+    margin-top: -3px;
+    margin-left: 3px;
 }
 
 .button:hover, select:hover {

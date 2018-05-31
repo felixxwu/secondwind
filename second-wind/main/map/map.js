@@ -6,6 +6,26 @@ function mapClick(event) {
     let x = XY[0];
     let y = XY[1];
 
+    if (!isWithinPerimeter(x, y)) {
+        return;
+    }
+
+    element("markers").innerHTML = "";
+
+    element("selectedPlayers").innerHTML = "<br>Selected marker is near the following players:<br>";
+    element("selectedPlayers").style.display = "none";
+    for (let i = 0; i < otherIslands.length; i++) {
+        const player = otherIslands[i];
+        if (inHitBox(XY, player.x, player.y)) {
+            element("selectedPlayers").style.display = "";
+            let playerActionButton = document.createElement("a");
+            playerActionButton.classList.add("button");
+            playerActionButton.innerHTML = player.username;
+            element("selectedPlayers").appendChild(playerActionButton);
+        }
+    }
+    element("selectedPlayers").innerHTML += "<hr>";
+
     // if you click near one of your islands it will change your island selection to that island
     for (let i = 0; i < myIslands.length; i++) {
         const myIsland = myIslands[i];
@@ -13,16 +33,6 @@ function mapClick(event) {
             element("island-" + myIsland.island).selected = true;
             chooseIsland(myIsland);
             return;
-        }
-    }
-
-    element("selectedPlayers").innerHTML = "Selected marker is near the following players:";
-    element("selectedPlayers").style.display = "none";
-    for (let i = 0; i < otherIslands.length; i++) {
-        const player = otherIslands[i];
-        if (inHitBox(XY, player.x, player.y)) {
-            element("selectedPlayers").style.display = "";
-            element("selectedPlayers").innerHTML += "<br><b>" + player.username + "</b>";
         }
     }
 
@@ -66,7 +76,12 @@ function addTarget() {
         function() {
             let island = myIslands[element("selectIslands").value];
             addLine(island.x, island.y, selectedPoint[0], selectedPoint[1]);
+
+            let icon = document.createElement("img");
+            icon.classList.add("invert");
+            icon.src = "material-icons/move.svg";
             element("movehere").innerHTML = "move here";
+            element("movehere").appendChild(icon);
             removeMarker();
         }
     );

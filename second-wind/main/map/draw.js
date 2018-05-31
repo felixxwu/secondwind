@@ -42,10 +42,6 @@ function addMarker(XY) {
     let x = XY[0];
     let y = XY[1];
 
-    if (!isWithinPerimeter(x, y)) {
-        return;
-    }
-
     let marker = document.createElement("img");
     marker.src = "material-icons/place.svg";
     marker.style.left = x + "%";

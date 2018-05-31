@@ -13,6 +13,17 @@ function chooseIsland(island) {
     element("myLocation").innerHTML = "";
     element("myLocation").appendChild(myLocation);
 
+    // create unselected island imgs
+    for (let i = 0; i < myIslands.length; i++) {
+        const myIsland = myIslands[i];
+        let unselectedLocation = document.createElement("img");
+        unselectedLocation.src = "material-icons/myLocation.svg";
+        unselectedLocation.style.left = myIsland.x + "%";
+        unselectedLocation.style.top = myIsland.y + "%";
+        unselectedLocation.style.opacity = 0.3;
+        element("myLocation").appendChild(unselectedLocation);
+}
+
     selectedIsland = island; // update the global
 
     element("line").innerHTML = ""; // remove any previous lines

@@ -1,4 +1,6 @@
-
+function click(event) {
+    
+}
 
 // returns the target with that island number
 // (myTargets only contains targets from the current user, so islands are unique)
@@ -8,6 +10,18 @@ function getTargetWithIslandNo(number) {
             return myTargets[i];
         }
     }
+}
+
+function addTarget() {
+    // console.log(selectedPoint);
+    element("movehere").innerHTML = "please wait...";
+    
+    ajaxSecureCall("addTarget", {"island": selectedIsland.island, "x": selectedPoint[0], "y": selectedPoint[1]}, function () {
+        let island = myIslands[element("selectIslands").value]
+        addLine(island.x, island.y, selectedPoint[0], selectedPoint[1]);
+        element("movehere").innerHTML = "move here";
+        removeMarker();
+    });
 }
 
 // returns the x and y position on the map (0-100)
@@ -36,18 +50,6 @@ function showMap() {
 function hideMap() {
     hide("mapGrid", "fadeOutDown", 1);
     window.history.pushState('', '', './');
-}
-
-function addTarget() {
-    // console.log(selectedPoint);
-    element("movehere").innerHTML = "please wait...";
-    
-    ajaxSecureCall("addTarget", {"island": selectedIsland.island, "x": selectedPoint[0], "y": selectedPoint[1]}, function () {
-        let island = myIslands[element("selectIslands").value]
-        addLine(island.x, island.y, selectedPoint[0], selectedPoint[1]);
-        element("movehere").innerHTML = "move here";
-        removeMarker();
-    });
 }
 
 

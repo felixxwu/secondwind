@@ -44,8 +44,34 @@ function fetchPositions() {
 
 function energyAllocation(){
     $username=$_POST["username"];
-    $resourceAlloc = sqlSelect("resourceAllocation","*","`username` = '$username'","`username`")[0];
 	return $resourceAlloc;
+}
+
+//returns a json of all existing items with their ratios
+function getRatiosList(){
+    $username=$_POST["username"];
+    $ratios = sqlSelectWithoutCriteria("items","*","name");    
+	return $ratios;
+}
+//returns a list of all the existing combinations
+function getCombinationsList(){
+    $username=$_POST["username"];
+    $combinations = sqlSelect("itemCombinations","*","`user` = '$username'","`finish_time`");
+
+	return $combinations;
+}
+//returns list of items and their ratios - doesn't return shits
+function getItemList(){
+    $username=$_POST["username"];
+    $itemList = sqlSelect("usersItems, items","item,level,amount,human,intelligence,attack,building,power","usersItems.username='$username' AND usersItems.item = items.name AND amount > 0","usersItems.amount");
+    return $itemList;
+}
+
+//returns list of shits
+function getShitList(){
+    $username=$_POST["username"];
+    $shitList = sqlSelect('usersItems','item,amount,level',"username='$username' AND amount>0 AND item like 'shit@%'",'item');
+    return $shitList;
 }
 function itemList(){
     $username=$_POST["username"];

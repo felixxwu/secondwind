@@ -77,8 +77,39 @@ function ajaxCombineItems($id,$el1IN,$level1IN,$el2IN,$level2IN){
     // newItem();
 }
 
+//substracts relevant quantities from items in the server
+//adds a combination process to the server (id corresponds to the id of the combination in the local combinationList)
+//FUTURE the system is not checking if result item, combination time are legit values for the combining items...
+function ajaxStartCombination($item1,$level1,$item2,$level2,$id,$startTime,$finishTime,$resultItem,$resultItemLevel){
+    
+    $username=$_POST["username"];
+
+    //substract 1 from both items in the database
+    $success1= subtractQuantities($username,$item1,$level1);
+    $success2= subtractQuantities($username,$item2,$level2);
+
+    //start combination process if you have enough items;
+    if($success1 && $success2){
+        sqlInsert("itemCombinations","$id","$username","$item1","$level1","$item2","$level2","$resultItem","$resultItemLevel","$startTime","$finishTime");
+    }
+
+}
 //creates a new item when a combination is finished
-function ajaxFinishCombiningProcess(){
+function ajaxFinishCombination($id){
+    $username=$_POST["username"];
+    //checks the combination time is due
+    $currentTime = time();
+    $combinationInformation = sqlSelect("itemCombinations","*","user='$username' AND id = '$id'","id")[0];
+    $finishTime=$combinationInformation['finish_time'];
+    
+    if($combinationInformation['finish_time']<=($currentTime+1)){
+        //create new item
+        newItem($username,$combinationInformation['result_item'],$combinationInformation['result_level']);
+
+        //remove combination from list
+        sqlDelete("itemCombinations","id = '$id'");
+        
+    }
 
 }
 

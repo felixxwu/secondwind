@@ -102,10 +102,15 @@ function sqlUpdate($table, $criteria, $column, $value) {
 	$query = "UPDATE `" . $table . "` SET `" . $column . "` = '" . $value . "' WHERE " . $criteria;
 
 	global $conn;
-	// if the update fails, show error message
+	// if the update fails, return false
 	if (!($conn->query($query))) {
+		return false;
 		die("SQL UPDATE Error: " . $query . "<br>" . $conn->error);
 	}
+	echo "<script>console.error('inserting combination');</script>";
+
+	//if the update is succesful return true;
+	return true;
 }
 
 ?>

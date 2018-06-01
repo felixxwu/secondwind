@@ -112,7 +112,7 @@ function playerButton(player) {
     let playerActionButton = document.createElement("a");
     playerActionButton.classList.add("button");
     playerActionButton.setAttribute("onclick", "attackPlayer(" + JSON.stringify(player) + ")")
-    playerActionButton.innerHTML = "attack " + player.username;
+    playerActionButton.innerHTML = "ATTACK " + player.username;
     return playerActionButton;
 }
 

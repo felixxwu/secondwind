@@ -141,22 +141,22 @@ function getEnergyAllocation(){
   <div class="notifications">
     <div class="titleIcon"><img class="invert" src="material-icons/notifications.svg" width="35px"/></div>
     <div class="list">
-      <div class="notificationCard"><br/><b>This is the title</b><br/>
+      <div class="notificationCard"><br/><b>THIS IS THE TITLE</b><br/>
         <p>This is some text that will go into the card revealing some more information</p>
       </div>
-      <div class="notificationCard"><br/><b>Another one</b><br/>
+      <div class="notificationCard"><br/><b>ANOTHER ONE</b><br/>
         <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
       </div>
-      <div class="notificationCard"><br/><b>Another one</b><br/>
+      <div class="notificationCard"><br/><b>ANOTHER ONE</b><br/>
         <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
       </div>
-      <div class="notificationCard"><br/><b>Another one</b><br/>
+      <div class="notificationCard"><br/><b>ANOTHER ONE</b><br/>
         <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
       </div>
-      <div class="notificationCard"><br/><b>Another one</b><br/>
+      <div class="notificationCard"><br/><b>ANOTHER ONE</b><br/>
         <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
       </div>
-      <div class="notificationCard"><br/><b>Another one</b><br/>
+      <div class="notificationCard"><br/><b>ANOTHER ONE</b><br/>
         <p>This is another notification</p><img class="invert" src="material-icons/map.svg"/><img class="invert" src="material-icons/close.svg"/>
       </div><a class="button mobileOnly" onclick="hide('notifications', 'slideOutLeft', 1)">hide</a>
     </div>
@@ -165,7 +165,7 @@ function getEnergyAllocation(){
 </div>
 <div class="analyticsLayout" id="analytics" style="display:none">
   <div class="analytics"><br/>
-    <h1 class="textWhite">analytics</h1><a class="button mobileOnly" onclick="hide('analytics', 'slideOutRight', 1)">hide</a>
+    <h1 class="textWhite">ANALYTICS</h1><a class="button mobileOnly" onclick="hide('analytics', 'slideOutRight', 1)">hide</a>
   </div>
   <script>show("analytics","fadeInRight",10);</script>
 </div>
@@ -190,6 +190,9 @@ echoAsVar("myTargets", $myTargets);
 <link rel="stylesheet" href="<? hashify('main/map/map.css'); ?>"/>
 <link rel="stylesheet" href="<? hashify('main/map/zoom.css'); ?>"/>
 <div id="mapGrid">
+  <div id="bgContainer">
+    <background></background>
+  </div>
   <div id="mapSquare">
     <div class="mapSquare" id="xysensitive" onclick="mapClick(event)"></div>
     <div id="line"></div>
@@ -206,9 +209,9 @@ echoAsVar("myTargets", $myTargets);
   <div id="mapUI">
     <div id="selectedPlayers"></div>
     <select id="selectIslands"></select>
-    <div class="button iconButton" id="movehere" onclick="addTarget()" style="display:none;">move to marker<img class="invert" src="material-icons/move.svg"/></div><br/>
-    <div class="button iconButton" id="zoomOut" onclick="zoomOut()" style="display:none">zoom out<img class="invert" src="material-icons/zoomOut.svg"/></div>
-    <div class="button iconButton" onclick="hideMap()">close map<img class="invert" src="material-icons/close.svg"/></div>
+    <div class="button iconButton" id="movehere" onclick="addTarget()" style="display:none;">MOVE TO MARKER<img class="invert" src="material-icons/move.svg"/></div><br/>
+    <div class="button iconButton" id="zoomOut" onclick="zoomOut()" style="display:none">ZOOM OUT<img class="invert" src="material-icons/zoomOut.svg"/></div>
+    <div class="button iconButton" onclick="hideMap()">CLOSE MAP<img class="invert" src="material-icons/close.svg"/></div>
   </div>
 </div>
 <link rel="stylesheet" href="<? hashify('main/menu/menu.css'); ?>"/>

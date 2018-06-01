@@ -28,7 +28,7 @@ function hashify($file) {
 <html>
   <head>
     <title>Second Wind</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/><link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
     <style><?= file_get_contents("css/loading.css"); ?></style>
   </head>
   <body>

@@ -13,7 +13,7 @@
       <div id="quickActionContainer"></div>
     </div>
     <div class="mapSquare" id="zoomButtons"></div>
-    <div id="gridLines"></div>
+    <div id="gridLines"></div><a id="zoomOutButton" onclick="zoomOut()" style="display:none"><img class="invert" src="material-icons/zoomOut.svg"/></a>
   </div>
   <div id="mapUI">
     <div id="selectedPlayers"></div>

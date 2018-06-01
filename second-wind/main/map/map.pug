@@ -23,6 +23,8 @@ link(rel="stylesheet" href!="<? hashify('main/map/zoom.css'); ?>")
             #quickActionContainer
         #zoomButtons.mapSquare
         #gridLines
+        a#zoomOutButton(onclick="zoomOut()" style="display:none")
+            img.invert(src="material-icons/zoomOut.svg")
 
     #mapUI
         #selectedPlayers

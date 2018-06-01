@@ -59,6 +59,7 @@ function setMarker(XY) {
 function removeMarker() {
     element("markers").innerHTML = "";
     hide("movehere", "fadeOut", 1);
+    element("quickActionContainer").innerHTML = "";
 }
 
 // create a line from your island to your marker

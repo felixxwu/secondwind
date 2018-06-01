@@ -36,6 +36,8 @@ function zoomOut() {
 }
 
 function redrawGrid() {
+    selectedPoint = null;
+    removeMarker();
     setupPerimeter();
     chooseIsland(myIslands[element("selectIslands").value]);
     updatePlayerLocations(otherIslands);

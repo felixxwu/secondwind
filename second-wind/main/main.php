@@ -58,12 +58,11 @@ function getEnergyAllocation(){
 <div class="building_menus">      
   <factory_menu id="factory_menu" style="display:none">
     <div id="factory_header"> 
-      <h2>header</h2>
-      <factory_logo src="<? hashify('images/extractor_3_animation.svg'); ?>"></factory_logo>
+      <text>Factory</text>
     </div>
     <div id="factory_items"> 
       <div id="item_header"> 
-        <p>items</p>
+        <text>items</text>
       </div><br/>
       <table id="itemList">
         <tr>

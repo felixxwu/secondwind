@@ -65,12 +65,15 @@ function hashify($file) {
         
         linkJs("<? hashify('main/menu/menu.js'); ?>");
         linkJs("<? hashify('main/notifications/notifications.js'); ?>");
+        
         linkJs("<? hashify('main/map/map.js'); ?>");
         linkJs("<? hashify('main/map/init.js'); ?>");
         linkJs("<? hashify('main/map/draw.js'); ?>");
         linkJs("<? hashify('main/map/players.js'); ?>");
         linkJs("<? hashify('main/map/perimeter.js'); ?>");
         linkJs("<? hashify('main/map/quickActions.js'); ?>");
+        
+        linkJs("<? hashify('main/minigame/minigame.js'); ?>");
         
         linkJs("<? hashify('init.js'); ?>");
       </script>

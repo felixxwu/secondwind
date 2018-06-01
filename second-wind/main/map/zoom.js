@@ -19,15 +19,8 @@ function initZoomButtons() {
 function zoomIn(x, y) {
     zoomed = [x, y];
 
-    setupPerimeter();
-    chooseIsland(myIslands[element("selectIslands").value]);
-    updatePlayerLocations(otherIslands);
-    drawAllPlayers();
-    drawGridLines();
-    if (selectedPoint) {
-        setMarker(selectedPoint);
-        setUpActionContainer(selectedPoint[0], selectedPoint[1]);
-    }
+    redrawGrid();
+
 
     show("zoomOut", "fadeIn", 1);
     hide("zoomButtons", "fadeOut", 0);
@@ -36,6 +29,13 @@ function zoomIn(x, y) {
 function zoomOut() {
     zoomed = null;
 
+    redrawGrid();
+
+    hide("zoomOut", "fadeOut", 1);
+    show("zoomButtons", "fadeIn", 0);
+}
+
+function redrawGrid() {
     setupPerimeter();
     chooseIsland(myIslands[element("selectIslands").value]);
     updatePlayerLocations(otherIslands);
@@ -45,9 +45,6 @@ function zoomOut() {
         setMarker(selectedPoint);
         setUpActionContainer(selectedPoint[0], selectedPoint[1]);
     }
-
-    hide("zoomOut", "fadeOut", 1);
-    show("zoomButtons", "fadeIn", 0);
 }
 
 // for displaying a point
@@ -91,24 +88,26 @@ function shrinkPoint(point) {
 // for taking point inputs
 // we want to scale points down first (zoom out) and then align to respective grid
 function reverseZoomPoint(XY) {
+    console.log(XY);
+    
     if (zoomed == null) {
         return XY;
     }
     
     const gridSquareSize = 100.0 / zoomGridSize;
 
+    const expandedX = reverseShrinkPoint(XY[0]);
+    const expandedY = reverseShrinkPoint(XY[1]);
+
     // scale the points by the gridSize (which is aligned to 0,0)
-    const scaledX = XY[0] * 1.0 / zoomGridSize;
-    const scaledY = XY[1] * 1.0 / zoomGridSize;
+    const scaledX = expandedX * 1.0 / zoomGridSize;
+    const scaledY = expandedY * 1.0 / zoomGridSize;
 
     // offset the points so that it aligns with 0,0
     const offsetX = scaledX + (gridSquareSize * zoomed[0]);
     const offsetY = scaledY + (gridSquareSize * zoomed[1]);
 
-    const expandedX = reverseShrinkPoint(offsetX);
-    const expandedY = reverseShrinkPoint(offsetY);
-
-    return [expandedX, expandedY];
+    return [offsetX, offsetY];
 }
 
 

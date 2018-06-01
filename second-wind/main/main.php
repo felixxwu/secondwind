@@ -212,21 +212,12 @@ echoAsVar("myTargets", $myTargets);
 <div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/notifications.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/chart.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="<? hashify('material-icons/map.svg'); ?>"/></a><br/></div>
 <link rel="stylesheet" href="<? hashify('main/minigame/minigame.css'); ?>"/>
 <div id="minigame" style="display:none">
+  <header>
+    <div id="minigameHeader"></div>
+  </header>
   <div id="board"></div>
-  <footer><a class="button iconButton" onclick="closeMinigame()">close<img class="invert" src="material-icons/close.svg"/></a>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-    <div class="button">hey</div><br/>
-  </footer>
+  <footer id="footerBackgroundWorkaround"></footer>
+  <footer><a class="button iconButton" onclick="closeMinigame()">close<img class="invert" src="material-icons/close.svg"/></a></footer>
 </div>
 <script>initBoardButtons(4, 7);</script>
 <script>ajaxLoop();</script>

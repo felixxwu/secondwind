@@ -1,35 +1,14 @@
 link(rel="stylesheet" href!="<? hashify('main/minigame/minigame.css'); ?>")
 
 #minigame(style="display:none")
+    header
+        #minigameHeader
     #board
 
+    footer#footerBackgroundWorkaround
     footer
         a.button.iconButton(onclick="closeMinigame()")
             | close
             img.invert(src="material-icons/close.svg")
-        .button hey
-        br
-        .button hey
-        br
-        .button hey
-        br
-        .button hey
-        br
-        .button hey
-        br
-        .button hey
-        br
-        .button hey
-        br
-        .button hey
-        br
-        .button hey
-        br
-        .button hey
-        br
-        .button hey
-        br
-        .button hey
-        br
 
 script initBoardButtons(4, 7);

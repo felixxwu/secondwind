@@ -1,5 +1,20 @@
+function showMinigame(myIsland, player) {
+    secureLoad(
+        "minigameHeader",
+        "main/minigame/setUpMatch.php",
+        {
+            myIsland: myIsland.island,
+            player: player.username,
+            island: player.island
+        }
+    );
+    element("minigameHeader").innerHTML =
+        "Setting up match with <b>" + player.username + "</b>...";
+    show("minigame", "fadeIn", 2);
+}
+
 function closeMinigame() {
-    hide("minigame", "fadeOut", 1);
+    hide("minigame", "fadeOut", 2);
 }
 
 function initBoardButtons(xTiles, yTiles) {
@@ -12,15 +27,17 @@ function initBoardButtons(xTiles, yTiles) {
                 boardButton.classList.add("baseTile");
                 boardButton.classList.add("borderBottom");
             }
-            
+
             if (y == yTiles - 1) {
                 boardButton.classList.add("baseTile");
                 boardButton.classList.add("borderTop");
             }
-            
-            boardButton.setAttribute("onclick", "alert([" + x + ", " + y + "])");
-            console.log([x, y]);
-            
+
+            boardButton.setAttribute(
+                "onclick",
+                "alert([" + x + ", " + y + "])"
+            );
+
             element("board").appendChild(boardButton);
         }
     }

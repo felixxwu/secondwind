@@ -4,7 +4,6 @@ function showMoveAction() {
     action.classList.add("button");
     action.innerHTML = "move here";
     action.setAttribute("onclick", "addTarget()");
-    console.log(action);
     
     element("quickActionContainer").appendChild(action);
     element("quickActionContainer").innerHTML += "<br>";

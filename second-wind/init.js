@@ -7,5 +7,5 @@ window.onload = function() {
             hide("loading","fadeOut", 6);
         });
     }, 0);
-    
+
 }

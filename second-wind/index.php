@@ -37,6 +37,9 @@ function hashify($file) {
       <text>loading...</text>
     </div><a class="absolute" href="login" style="z-index: -1;">if nothing happens, click here to login again</a>
     <div id="main"></div>
+    <div id="errorContainer" style="display:none">
+      <div id="error">this is an error message</div>
+    </div>
     <div id="links">
       <script>
         <?= file_get_contents("libraries/utility/link.js"); ?>

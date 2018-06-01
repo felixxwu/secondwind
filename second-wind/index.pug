@@ -48,6 +48,10 @@ html
         a.absolute(href="login" style="z-index: -1;") if nothing happens, click here to login again
 
         #main
+
+        #errorContainer(style="display:none")
+            #error this is an error message
+        
         
         #links
             //- all links are appended using js, which means that they will only 
@@ -90,3 +94,5 @@ html
                 linkJs("<? hashify('main/minigame/minigame.js'); ?>");
 
                 linkJs("<? hashify('init.js'); ?>");
+
+

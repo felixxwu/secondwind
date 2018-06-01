@@ -117,6 +117,7 @@ function playerButton(player) {
 }
 
 function attackPlayer(player) {
-    show("minigame", "fadeIn", 2);
+    let myIsland = myIslands[element("selectIslands").value];
+    showMinigame(myIsland, player);
     hideMap();
 }

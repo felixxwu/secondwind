@@ -15,9 +15,10 @@
     margin: 10px;
     color: white;
     cursor: pointer;
-    background-color: black;
+    background-color: #111111;
     font-size: medium;
     font-weight: 700;
+    border-radius: 2px;
 }
 
 .iconButton {

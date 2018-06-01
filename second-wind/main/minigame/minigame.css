@@ -42,7 +42,7 @@
     box-shadow: 0px 9px 20px rgba(0, 0, 0, 0.3);
 
     height: calc(100vh - 270px);
-    width: calc(((100vh - 270px) * 4 / 7 ) * 1.1);
+    width: calc((100vh - 270px) * 4 / (7 * 0.9));
 
     
     /* height: 90%; */
@@ -58,6 +58,15 @@
     grid-template-rows: repeat(7, 1fr);
 }
 
+#minigame > header {
+    grid-area: header;
+
+    text-align: center;
+    color: white;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
 #minigame > footer {
     grid-area: footer;
 
@@ -65,5 +74,9 @@
     width: 100%;
     margin-top: 15px;
     text-align: center;
-    background-color: darkslategrey;
+    background-color: #333;
+}
+
+#minigame > #footerBackgroundWorkaround {
+    height: calc(100% - 15px);
 }

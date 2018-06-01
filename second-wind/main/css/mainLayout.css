@@ -40,7 +40,7 @@
     grid-area: foot;
     text-align: center;
     background-color: black;
-    z-index: 10;
+    z-index: 3;
 }
 
 .helper {

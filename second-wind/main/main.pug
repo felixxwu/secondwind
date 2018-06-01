@@ -62,7 +62,7 @@ link(rel="stylesheet" href!="<? hashify('main/island/buildings/factory.css'); ?>
         h1.textWhite analytics
         a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 1)") hide
     script show("analytics","fadeInRight",10);
-    
+
 #ajaxLoop
     include map/mapVarsPreAjax.php
 
@@ -70,6 +70,7 @@ script mapVarInit();
 
 include map/map.pug
 include menu/menu.pug
+include minigame/minigame.pug
 
 script ajaxLoop();
         

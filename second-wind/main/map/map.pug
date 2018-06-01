@@ -1,4 +1,5 @@
 link(rel="stylesheet" href!="<? hashify('main/map/map.css'); ?>")
+link(rel="stylesheet" href!="<? hashify('main/map/zoom.css'); ?>")
 
 //- #hideMap(onclick="secureLoad('ghosty','libraries/ajax/secureVariables.php',{'variableMultipleArgsExample': ['hello','world']})" style="position: fixed; color: white; z-index: 15;") HIDE MAP
 //- #hideMap(onclick="hide('map','fadeOut',1);forward('hidden',function(){show('map','fadeIn',1);})" style="position: fixed; color: white; z-index: 15;") HIDE MAP
@@ -10,13 +11,33 @@ link(rel="stylesheet" href!="<? hashify('main/map/map.css'); ?>")
         #markers
 #mapGrid
     #mapSquare
-        #xysensitive.mapSquare(onclick="addMarker(event)")
-        #myLocation.invert.mapSquare
-        #markers.invert.mapSquare
+
+        #xysensitive.mapSquare(onclick="mapClick(event)")
         #line
         #perimeter
+        #playerLocations.mapSquare
+        #myLocation.invert.mapSquare
+        #markers.invert.mapSquare
+        #quickActions.mapSquare
+            //- action container is used to house the actions
+            #quickActionContainer
+        #zoomButtons.mapSquare
+        #gridLines
+
     #mapUI
+        #selectedPlayers
         select#selectIslands
-        .button#movehere(onclick="addTarget()" style="display:none;") move here
+
+        .button.iconButton#movehere(onclick="addTarget()" style="display:none;")
+            | move to marker
+            img.invert(src="material-icons/move.svg")
         br
-        .button(onclick="hideMap()") close map
+
+        .button.iconButton#zoomOut(onclick="zoomOut()" style="display:none")
+            | zoom out
+            img.invert(src="material-icons/zoomOut.svg")
+        
+        .button.iconButton(onclick="hideMap()")
+            | close map
+            img.invert(src="material-icons/close.svg")
+        //- div(style="padding-top: 70px;")

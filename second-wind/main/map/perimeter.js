@@ -1,9 +1,16 @@
+// JS FUNCTIONS RELATED TO THE MAP PERIMETER
+
 var points = [
-    [10, 10],
-    [50, 40],
-    [90, 20],
-    [90, 90],
-    [30, 80]
+    [5, 5],
+    [30, 10],
+    [50, 5],
+    [95, 10],
+    [90, 45],
+    [95, 70],
+    [90, 95],
+    [35, 90],
+    [5, 95],
+    [10, 50],
 ];
 
 // initialise the perimeter based on the points

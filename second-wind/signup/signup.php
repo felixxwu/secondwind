@@ -14,9 +14,19 @@ if (!validUsername($username)) {
     // error
     echo "this username has already been taken";
 } else {
+    // signup siccessful ###########################
+
     $hash = password_hash($password, PASSWORD_DEFAULT);
     sqlInsert("users", $username, $hash, $email);
     $id = sqlSelectFirstRow("users","`username` = '$username'","username")["id"];
+
+    $randX = mt_rand() * 100 / mt_getrandmax();
+    $randY = mt_rand() * 100 / mt_getrandmax();
+    sqlInsert("locations", "NULL", $username, "1", $randX, $randY);
+
+    sqlInsert("energy", "NULL", $username, "0", "0", "0", "0", "0");
+    sqlInsert("resourceAllocation", $username, "0", "0", "0", "0", "0");
+
 	echo "<script>
 	saveUsername('$username');
     savePassword('$password');

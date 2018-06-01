@@ -172,32 +172,58 @@ function getEnergyAllocation(){
 </div>
 <div id="ajaxLoop"><?php
 
-$islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
-echoAsVar("islands", $islands);
+// BEFORE THE FIRST AJAX LOOP CALL THERE ARE NO VARIABLES
+// THIS FILE PROVIDES NECESSARY VARIABLES FOR THE MAP BEFORE THE FIRST AJAX LOOP CALL 
 
-$targets = sqlSelect("targetLocations", "*", "`username` = '" . $_POST["username"] . "'", "id");
-echoAsVar("myTargets", $targets);
+$otherIslands = sqlSelect("locations", "`username`,`island`,`x`,`y`", "NOT `username` = '" . $_POST["username"] . "'", "id");
+echoAsVar("otherIslands", $otherIslands);
+
+$myIslands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $_POST["username"] . "'", "island");
+echoAsVar("myIslands", $myIslands);
+
+$myTargets = sqlSelect("targetLocations", "*", "`username` = '" . $_POST["username"] . "'", "id");
+echoAsVar("myTargets", $myTargets);
 
 ?>
+
 </div>
 <script>mapVarInit(); </script>
 <link rel="stylesheet" href="<? hashify('main/map/map.css'); ?>"/>
+<link rel="stylesheet" href="<? hashify('main/map/zoom.css'); ?>"/>
 <div id="mapGrid">
   <div id="mapSquare">
-    <div class="mapSquare" id="xysensitive" onclick="addMarker(event)"></div>
-    <div class="invert mapSquare" id="myLocation"></div>
-    <div class="invert mapSquare" id="markers"></div>
+    <div class="mapSquare" id="xysensitive" onclick="mapClick(event)"></div>
     <div id="line"></div>
     <div id="perimeter"></div>
+    <div class="mapSquare" id="playerLocations"></div>
+    <div class="invert mapSquare" id="myLocation"></div>
+    <div class="invert mapSquare" id="markers"></div>
+    <div class="mapSquare" id="quickActions">
+      <div id="quickActionContainer"></div>
+    </div>
+    <div class="mapSquare" id="zoomButtons"></div>
+    <div id="gridLines"></div>
   </div>
   <div id="mapUI">
+    <div id="selectedPlayers"></div>
     <select id="selectIslands"></select>
-    <div class="button" id="movehere" onclick="addTarget()" style="display:none;">move here</div><br/>
-    <div class="button" onclick="hideMap()">close map</div>
+    <div class="button iconButton" id="movehere" onclick="addTarget()" style="display:none;">move to marker<img class="invert" src="material-icons/move.svg"/></div><br/>
+    <div class="button iconButton" id="zoomOut" onclick="zoomOut()" style="display:none">zoom out<img class="invert" src="material-icons/zoomOut.svg"/></div>
+    <div class="button iconButton" onclick="hideMap()">close map<img class="invert" src="material-icons/close.svg"/></div>
   </div>
 </div>
 <link rel="stylesheet" href="<? hashify('main/menu/menu.css'); ?>"/>
 <div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/notifications.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/chart.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="<? hashify('material-icons/map.svg'); ?>"/></a><br/></div>
+<link rel="stylesheet" href="<? hashify('main/minigame/minigame.css'); ?>"/>
+<div id="minigame" style="display:none">
+  <header>
+    <div id="minigameHeader"></div>
+  </header>
+  <div id="board"></div>
+  <footer id="footerBackgroundWorkaround"></footer>
+  <footer><a class="button iconButton" onclick="closeMinigame()">close<img class="invert" src="material-icons/close.svg"/></a></footer>
+</div>
+<script>initBoardButtons(4, 7);</script>
 <script>ajaxLoop();</script>
 <update>
   <script>updateFactory();</script>

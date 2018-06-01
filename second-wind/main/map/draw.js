@@ -8,8 +8,8 @@ function chooseIsland(island) {
     // create the island img to be displayed
     let myLocation = document.createElement("img");
     myLocation.src = "material-icons/myLocation.svg";
-    myLocation.style.left = island.x + "%";
-    myLocation.style.top = island.y + "%";
+    myLocation.style.left = zoomPoint([island.x, island.y])[0] + "%";
+    myLocation.style.top = zoomPoint([island.x, island.y])[1] + "%";
     element("myLocation").innerHTML = "";
     element("myLocation").appendChild(myLocation);
 
@@ -18,8 +18,8 @@ function chooseIsland(island) {
         const myIsland = myIslands[i];
         let unselectedLocation = document.createElement("img");
         unselectedLocation.src = "material-icons/myLocation.svg";
-        unselectedLocation.style.left = myIsland.x + "%";
-        unselectedLocation.style.top = myIsland.y + "%";
+        unselectedLocation.style.left = zoomPoint([myIsland.x, myIsland.y])[0] + "%";
+        unselectedLocation.style.top = zoomPoint([myIsland.x, myIsland.y])[1] + "%";
         unselectedLocation.style.opacity = 0.3;
         element("myLocation").appendChild(unselectedLocation);
 }
@@ -36,7 +36,7 @@ function chooseIsland(island) {
 }
 
 // moves your marker to the point on the map (within the perimeter)
-function addMarker(XY) {
+function setMarker(XY) {
     // create a new div element
     
     let x = XY[0];
@@ -44,8 +44,8 @@ function addMarker(XY) {
 
     let marker = document.createElement("img");
     marker.src = "material-icons/place.svg";
-    marker.style.left = x + "%";
-    marker.style.top = y + "%";
+    marker.style.left = zoomPoint([x, y])[0] + "%";
+    marker.style.top = zoomPoint([x, y])[1] + "%";
 
     element("markers").innerHTML = "";
     element("markers").appendChild(marker);
@@ -74,13 +74,23 @@ function addLine(x1, y1, x2, y2) {
 }
 
 //return a line element
-function createLine(x1, y1, x2, y2) {
+function createLine(x1, y1, x2, y2, colour) {
+
+    if (colour == undefined) {
+        colour = "white";
+    }
+
+    x1 = zoomPoint([x1, y1])[0];
+    y1 = zoomPoint([x1, y1])[1];
+    x2 = zoomPoint([x2, y2])[0];
+    y2 = zoomPoint([x2, y2])[1];
+    
     let line = document.createElementNS("http://www.w3.org/2000/svg", "line");
     line.setAttribute("x1", x1 + "%");
     line.setAttribute("y1", y1 + "%");
     line.setAttribute("x2", x2 + "%");
     line.setAttribute("y2", y2 + "%");
-    line.setAttribute("stroke", "white");
+    line.setAttribute("stroke", colour);
     line.setAttribute("stroke-width", "1px");
 
     return line;

@@ -9,6 +9,7 @@
     max-width: 100vh;
     max-height: 100vh;
     pointer-events: none;
+    overflow: hidden;
 }
 
 #xysensitive {
@@ -50,6 +51,7 @@
     max-width: 100vh;
     max-height: 100vw;
     background-color: #455445;
+    
 }
 
 #mapUI {
@@ -83,6 +85,10 @@
     color: black;
 }
 /* ############################################# */
+
+#quickActions {
+    overflow: visible;
+}
 
 #quickActionContainer {
     position: absolute;

@@ -40,8 +40,8 @@ function updatePlayerLocations(players) {
             // if the player already exists
             // update locations
             listPlayer.player = player;
-            listPlayer.element.style.left = player.x + "%";
-            listPlayer.element.style.top = player.y + "%";
+            listPlayer.element.style.left = zoomPoint([player.x, player.y])[0] + "%";
+            listPlayer.element.style.top = zoomPoint([player.x, player.y])[1] + "%";
             newList.push(listPlayer);
         }
     });
@@ -79,8 +79,8 @@ function createPlayer(player) {
     newPlayer.classList.add(colour.style);
     newPlayer.innerHTML = initial;
     newPlayer.style.backgroundColor = colour.name;
-    newPlayer.style.left = player.x + "%";
-    newPlayer.style.top = player.y + "%";
+    newPlayer.style.left = zoomPoint([player.x, player.y])[0] + "%";
+    newPlayer.style.top = zoomPoint([player.x, player.y])[1] + "%";
     
     return newPlayer;
 }

@@ -3,12 +3,11 @@ function mapClick(event) {
     if (!XY) {
         return;
     }
+    
     let x = XY[0];
     let y = XY[1];
 
-    if (!isWithinPerimeter(x, y)) {
-        return;
-    }
+    
 
     // the action container contains the quick actions that will be appended
     setUpActionContainer(x, y);
@@ -42,7 +41,7 @@ function mapClick(event) {
 
     showMoveAction();
 
-    addMarker(XY);
+    setMarker(XY);
 }
 
 function inHitBox(XY, x2, y2) {
@@ -111,9 +110,17 @@ function getXY(event) {
         return null;
     }
 
+    // scale back the point if zoomed in
+    let XY = reverseZoomPoint([x, y]);
     // console.log([x, y]);
-    selectedPoint = [x, y];
-    return [x, y];
+    
+    if (!isWithinPerimeter(XY[0], XY[1])) {
+        return null;
+    }
+    
+    selectedPoint = XY;
+    
+    return XY;
 }
 
 function showMap() {

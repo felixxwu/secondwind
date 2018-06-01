@@ -15,7 +15,7 @@ function showPlayerAction(player) {
 }
 
 function setUpActionContainer(x, y) {
-    element("quickActionContainer").style.top = y + "%";
-    element("quickActionContainer").style.left = x + "%";
     element("quickActionContainer").innerHTML = "";
+    element("quickActionContainer").style.left = zoomPoint([x, y])[0] + "%";
+    element("quickActionContainer").style.top = zoomPoint([x, y])[1] + "%";
 }

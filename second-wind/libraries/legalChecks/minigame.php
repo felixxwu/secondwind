@@ -1,7 +1,7 @@
 <?php
 
 function canBattle($attacker, $attackerIsland, $defender, $defenderIsland) {
-    $distanceToBattle = 10;
+    $distanceToBattle = 5;
     
     $attackerLocation = sqlSelectFirstRow("locations", "`username` = '$attacker' AND `island` = '$attackerIsland'", "id");
     $defenderLocation = sqlSelectFirstRow("locations", "`username` = '$defender' AND `island` = '$defenderIsland'", "id");

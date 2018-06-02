@@ -113,6 +113,7 @@ function playerButton(player) {
     playerActionButton.classList.add("button");
     playerActionButton.setAttribute("onclick", "attackPlayer(" + JSON.stringify(player) + ")")
     playerActionButton.innerHTML = "ATTACK " + player.username;
+    playerActionButton.innerHTML += "<br>(with island " + currentIsland().island + ")";
     return playerActionButton;
 }
 

@@ -31,7 +31,7 @@ body {
 
 .menuSolid, .loginButton, .loginInput, #loading { background-color: #222222; }
 
-.textWhite, #loading text { color: #dddddd; }
+.textWhite, #loading text { color: white; }
 
 .title {
     font-weight: 100;

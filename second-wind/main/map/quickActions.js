@@ -10,8 +10,10 @@ function showMoveAction() {
 }
 
 function showPlayerAction(player) {
-    element("quickActionContainer").appendChild(playerButton(player));
-    element("quickActionContainer").innerHTML += "<br>";
+    if (inAttackRange(currentIsland().x, currentIsland().y, player.x, player.y)) {
+        element("quickActionContainer").appendChild(playerButton(player));
+        element("quickActionContainer").innerHTML += "<br>";
+    }
 }
 
 function setUpActionContainer(x, y) {

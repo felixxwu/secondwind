@@ -40,7 +40,7 @@ function redrawGrid() {
     selectedPoint = null;
     removeMarker();
     setupPerimeter();
-    chooseIsland(myIslands[element("selectIslands").value]);
+    chooseIsland(currentIsland());
     updatePlayerLocations(otherIslands);
     drawAllPlayers();
     drawGridLines();

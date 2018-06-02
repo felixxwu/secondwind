@@ -3,23 +3,30 @@ function mapClick(event) {
     if (!XY) {
         return;
     }
-    
+
     let x = XY[0];
     let y = XY[1];
-
-    
 
     // the action container contains the quick actions that will be appended
     setUpActionContainer(x, y);
 
-
     element("markers").innerHTML = "";
 
-    element("selectedPlayers").innerHTML = "<br>Selected marker is near the following players:<br>";
+    // add players in range to mapUI
+    element("selectedPlayers").innerHTML =
+        "<br>Selected marker is near the following players:<br>";
     element("selectedPlayers").style.display = "none";
     for (let i = 0; i < otherIslands.length; i++) {
         const player = otherIslands[i];
-        if (inHitBox(XY, player.x, player.y)) {
+        if (
+            inAttackRange(
+                currentIsland().x,
+                currentIsland().y,
+                player.x,
+                player.y
+            ) &&
+            inHitBox(XY, player.x, player.y)
+        ) {
             element("selectedPlayers").style.display = "";
             element("selectedPlayers").appendChild(playerButton(player));
 
@@ -31,7 +38,10 @@ function mapClick(event) {
     // if you click near one of your islands it will change your island selection to that island
     for (let i = 0; i < myIslands.length; i++) {
         const myIsland = myIslands[i];
-        if (inHitBox(XY, myIsland.x, myIsland.y)) {
+        if (
+            inHitBox(XY, myIsland.x, myIsland.y) &&
+            myIsland.island != currentIsland().island
+        ) {
             element("island-" + myIsland.island).selected = true;
             chooseIsland(myIsland);
             hide("movehere", "fadeOut", 1);
@@ -44,8 +54,19 @@ function mapClick(event) {
     setMarker(XY);
 }
 
+function inAttackRange(x1, y1, x2, y2) {
+    const attackRadius = 5;
+
+    let distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    if (distance < attackRadius) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function inHitBox(XY, x2, y2) {
-    const hitBoxRadius = 4;
+    const hitBoxRadius = 2;
 
     let x1 = XY[0];
     let y1 = XY[1];
@@ -81,7 +102,7 @@ function addTarget() {
             y: selectedPoint[1]
         },
         function() {
-            let island = myIslands[element("selectIslands").value];
+            let island = currentIsland();
             addLine(island.x, island.y, selectedPoint[0], selectedPoint[1]);
 
             let icon = document.createElement("img");
@@ -95,6 +116,10 @@ function addTarget() {
             element("quickActionContainer").innerHTML = "";
         }
     );
+}
+
+function currentIsland() {
+    return myIslands[element("selectIslands").value];
 }
 
 // returns the x and y position on the map (0-100)
@@ -113,24 +138,24 @@ function getXY(event) {
     // scale back the point if zoomed in
     let XY = reverseZoomPoint([x, y]);
     // console.log([x, y]);
-    
+
     if (!isWithinPerimeter(XY[0], XY[1])) {
         return null;
     }
-    
+
     selectedPoint = XY;
-    
+
     return XY;
 }
 
 function showMap() {
-    show("mapGrid", "fadeInUp", 1, "grid");
+    show("mapGrid", "fadeIn", 1, "grid");
     forward("map", function() {
         hide("mapGrid", "fadeOutDown", 1);
     });
 }
 
 function hideMap() {
-    hide("mapGrid", "fadeOutDown", 1);
+    hide("mapGrid", "fadeOut", 1);
     window.history.pushState("", "", "./");
 }

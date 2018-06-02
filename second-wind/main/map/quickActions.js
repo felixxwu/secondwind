@@ -2,7 +2,7 @@ function showMoveAction() {
     let action = document.createElement("a");
     action.id = "quickMove";
     action.classList.add("button");
-    action.innerHTML = "move here";
+    action.innerHTML = "MOVE HERE";
     action.setAttribute("onclick", "addTarget()");
     
     element("quickActionContainer").appendChild(action);

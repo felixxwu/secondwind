@@ -11,7 +11,7 @@ function mapVarInit() {
         let option = document.createElement("option");
         option.id = "island-" + island.island;
         option.value = index;
-        option.innerHTML = "Island " + island.island;
+        option.innerHTML = "ISLAND " + island.island;
         element("selectIslands").appendChild(option);
     });
 

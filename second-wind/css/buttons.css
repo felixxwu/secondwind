@@ -1,5 +1,5 @@
 .icon {
-    border: solid black 3px;
+    border: solid black 1.5px;
     border-radius: 100000px;
     padding: 7px;
     margin: 5px;
@@ -15,7 +15,7 @@
     margin: 10px;
     color: white;
     cursor: pointer;
-    background-color: #111111;
+    background-color: rgba(0, 0, 0, 0);
     font-size: medium;
     font-weight: 700;
     border-radius: 2px;
@@ -28,12 +28,12 @@
 .iconButton > img {
     height: 24px;
     position: absolute;
-    margin-top: -3px;
+    margin-top: -1px;
     margin-left: 3px;
 }
 
 .button:hover, select:hover {
-    background-color: rgb(50, 50, 50);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .invert {

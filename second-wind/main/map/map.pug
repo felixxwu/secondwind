@@ -10,6 +10,8 @@ link(rel="stylesheet" href!="<? hashify('main/map/zoom.css'); ?>")
         #xysensitive.absolute(onclick="clickme()")
         #markers
 #mapGrid
+    #bgContainer
+        background
     #mapSquare
 
         #xysensitive.mapSquare(onclick="mapClick(event)")
@@ -31,15 +33,15 @@ link(rel="stylesheet" href!="<? hashify('main/map/zoom.css'); ?>")
         select#selectIslands
 
         .button.iconButton#movehere(onclick="addTarget()" style="display:none;")
-            | move to marker
+            | MOVE TO MARKER
             img.invert(src="material-icons/move.svg")
         br
 
         .button.iconButton#zoomOut(onclick="zoomOut()" style="display:none")
-            | zoom out
+            | ZOOM OUT
             img.invert(src="material-icons/zoomOut.svg")
         
         .button.iconButton(onclick="hideMap()")
-            | close map
+            | CLOSE MAP
             img.invert(src="material-icons/close.svg")
         //- div(style="padding-top: 70px;")

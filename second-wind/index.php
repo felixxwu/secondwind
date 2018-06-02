@@ -30,6 +30,7 @@ function hashify($file) {
     <title>Second Wind</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style><?= file_get_contents("css/loading.css"); ?></style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   </head>
   <body>
     <div id="ghost"> </div>

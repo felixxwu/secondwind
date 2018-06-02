@@ -41,6 +41,7 @@ function newUpdateItemList(getItemList,getShitList){
     log(itemList);
 }
 
+//FUTURE: DO THIS
 //updates the local combinationList variable
 function updateCombinationList(rawList){
 }
@@ -57,17 +58,43 @@ function displayItemList(){
 
         //creates row for itemList table
         var row = document.createElement('tr');
-
+        row.id=itemList[i].item.concat('*',itemList[i].level);
+        
+        row.addEventListener('click', function(){
+            newAddToCombine(this.id);
+            displayItemInformation(this.id);
+            });
+        // row.addEventListener('mouseenter',function(){
+        //     displayItemInformation(this.id);
+        // });
+       
         //creates columns for row
-        var item = document.createElement('th');
-        var level = document.createElement('th');
-        var amount = document.createElement('th');
-        var human = document.createElement('th');
-        var attack = document.createElement('th');
-        var power = document.createElement('th');
-        var intelligence = document.createElement('th');
-        var building = document.createElement('th');
-        var combine = document.createElement('th');
+        //if column's value != 0 then add pop up color
+        var popColor = "red";
+        var item = document.createElement('td');
+        var level = document.createElement('td');
+        var amount = document.createElement('td');
+        var human = document.createElement('td');
+        if(itemList[i].human>0){
+            human.style.background=popColor;
+        }
+        var attack = document.createElement('td');
+        if(itemList[i].attack>0){
+            attack.style.background=popColor;
+        }
+        var power = document.createElement('td');
+        if(itemList[i].power>0){
+            power.style.background=popColor;
+        }
+        
+        var intelligence = document.createElement('td');
+        if(itemList[i].intelligence>0){
+            intelligence.style.background=popColor;
+        }
+        var building = document.createElement('td');
+        if(itemList[i].building>0){
+            building.style.background=popColor;
+        }
         
         //fills element of columns
         item.innerHTML = itemList[i].item;
@@ -80,17 +107,7 @@ function displayItemList(){
         building.innerHTML = itemList[i].building;
         
        
-        //creates combine button
-        var button = document.createElement('button');
-        // button.setAttribute("type", "button");
-        //the id of the button holds the information needed for future item combinations
-        button.id=itemList[i].item.concat('*',itemList[i].level); //* separates id and level
-        button.innerHTML='Add to combine';
-        //add event handler
-        button.addEventListener('click', function(){
-            newAddToCombine(this.id);
-            });
-        combine.appendChild(button);
+       
 
         //append columns to row
         row.appendChild(item);
@@ -101,7 +118,6 @@ function displayItemList(){
         row.appendChild(power);
         row.appendChild(intelligence);
         row.appendChild(building);
-        row.appendChild(combine);
 
         //appends row to table
         document.getElementById("itemList").appendChild(row);
@@ -427,12 +443,37 @@ function gcdArray (a) {
   return a.reduce(gcd)
 }
 
+function displayItemInformation(item){
+    
+    var fullInfo = item.split('*');
+    log(fullInfo[0]);
+    document.getElementById("factory_descriptions").style.backgroundSize="60%";
+document.getElementById("factory_descriptions").style.background="center 150px no-repeat url(../../secondwind/pabloNEW/images/".concat(fullInfo[0],".svg");
 
+chart(getRatios(fullInfo[0]));
+}
 
-
-
-
-
+function chart(ratios){
+    new Chart(document.getElementById("doughnut-chart"), {
+        type: 'doughnut',
+        data: {
+            labels: ["Human", "Attack", "Power", "Intelligence", "Building"],
+            datasets: [
+            {
+                label: "Ratios",
+                backgroundColor: ["#2a8605", "#de0707","#ffee00","#1d47c3","#757474"],
+                data: [ratios[0],ratios[1],ratios[2],ratios[3],ratios[4]]
+            }
+            ]
+        },
+        options: {
+            title: {
+            display: true,
+            text: 'Item Analytics'
+            }
+        }
+    });
+}
 
 
 

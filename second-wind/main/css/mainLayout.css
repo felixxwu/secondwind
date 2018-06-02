@@ -82,7 +82,7 @@
     row-gap: 30px;
     /* the 0px column at the right and left serves as a margin (using teh column-gap); */
     grid-template-columns: 0px auto 0px; 
-    grid-template-rows: 100px auto 50px;
+    grid-template-rows: 60px auto 50px;
     grid-template-areas:    ". . ."
                             ". menu ."
                             ". . .";
@@ -125,4 +125,9 @@
                                 ". . ."
     
     }
+}
+
+#divtoshow{
+    position: fixed;
+    display:none
 }

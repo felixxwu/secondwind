@@ -11,7 +11,7 @@ html
         //- file_get_contents echoes returns the contents of an entire file
         style <?= file_get_contents("css/loading.css"); ?>
         
-
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js")
         //- force these links to load over cache by adding ?v=<?=time()?> to the end of each
         //- link(rel="stylesheet" href!="<? hashify('css/style.css'); ?>")
         //- link(rel="stylesheet" href="css/animate.css")

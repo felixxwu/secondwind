@@ -69,12 +69,11 @@ function getEnergyAllocation(){
           <th>Item</th>
           <th>Level</th>
           <th>Amount</th>
-          <th>Human</th>
-          <th>Attack</th>
-          <th>Power</th>
-          <th>Intelligence</th>
-          <th>Building</th>
-          <th>Actions</th>
+          <th>H</th>
+          <th>A</th>
+          <th>P</th>
+          <th>I</th>
+          <th>B</th>
         </tr>
       </table>
     </div>
@@ -84,6 +83,9 @@ function getEnergyAllocation(){
       <div id="testItems"></div>
       <div id="errorItems"></div>
       <button id="hideMenu" onclick="hide('factory_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)">Close Menu</button>
+    </div>
+    <div id="factory_descriptions">
+      <canvas id="doughnut-chart"></canvas>
     </div>
     <div id="factory_progress"> 
       <div id="progress_bars"></div>

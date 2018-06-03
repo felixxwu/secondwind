@@ -72,6 +72,8 @@ function hashify($file) {
         linkJs("<? hashify('libraries/items/items.js'); ?>");
         linkJs("<? hashify('libraries/slider/sliderdemo.js'); ?>") ;
         
+        linkJs("<? hashify('main/resize.js'); ?>");
+        
         linkJs("<? hashify('main/menu/menu.js'); ?>");
         linkJs("<? hashify('main/notifications/notifications.js'); ?>");
         

@@ -6,6 +6,7 @@ function ajaxLoop() {
             "myTargets": null,
             "energies": null
         }, function () {
+
             if (myIslands == []) { alert("error: no islands"); }
 
             chooseIsland(currentIsland());

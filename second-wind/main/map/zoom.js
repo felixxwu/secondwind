@@ -21,6 +21,9 @@ function zoomIn(x, y) {
 
     redrawGrid();
 
+    forward("zoomed", function () {
+        zoomOut();
+    });
     show("zoomOutButton", "fadeIn", 1);
     show("zoomOut", "fadeIn", 1);
     hide("zoomButtons", "fadeOut", 0);

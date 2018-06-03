@@ -153,6 +153,7 @@ function showMap() {
     forward("map", function() {
         hide("mapGrid", "fadeOutDown", 1);
     });
+    setupPerimeter();
 }
 
 function hideMap() {

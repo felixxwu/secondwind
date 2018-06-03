@@ -19,18 +19,41 @@ function setupPerimeter() {
     let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.classList.add("mapSquare");
 
+    let polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+    let pointList = "";
+
     for (let i = 0; i < points.length; i++) {
-        let current = points[i];
-        let next = function () {
-            if (i == points.length - 1) {
-                return points[0];
-            } else {
-                return points[i + 1];
-            }
-        }();
-        let line = createLine(current[0], current[1], next[0], next[1]);
-        svg.appendChild(line);
+        let current = [];
+        current[0] = points[i][0];
+        current[1] = points[i][1];
+
+        // let next = function () {
+        //     if (i == points.length - 1) {
+        //         return points[0];
+        //     } else {
+        //         return points[i + 1];
+        //     }
+        // }();
+        // let line = createLine(current[0], current[1], next[0], next[1]);
+        // svg.appendChild(line);
+
+        // let mapSideLength = element("mapSquare").offsetWidth;
+
+        current = zoomPoint(current);
+
+        let mapSideLength = $("#mapSquare").width();
+        
+        current[0] = current[0] * mapSideLength / 100;        
+        current[1] = current[1] * mapSideLength / 100;        
+        
+
+        pointList += current[0] + "," + current[1] + " ";
     }
+    polygon.classList.add("mapSquare");
+    polygon.setAttribute("points", pointList);
+    polygon.setAttribute("style", "fill: #698469; stroke: black; stroke-width: 1");
+    svg.appendChild(polygon);
+    
     element("perimeter").appendChild(svg);
 }
 

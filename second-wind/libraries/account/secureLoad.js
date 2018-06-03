@@ -12,9 +12,3 @@
 //     ajax.load(id, "libraries/account/secureLoad.php", newArgs, callback);
 // }
 
-function secureLoad(id, page, args, callback) {
-    var username = getUsername();
-    var password = getPassword();
-    var newArgs = Object.assign({"username": username, "password": password, "page": page}, args);
-    ajaxLoad(id, "libraries/account/secureLoad.php", newArgs, callback);
-}

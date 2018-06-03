@@ -58,5 +58,5 @@ function drawGridLines() {
         svg.appendChild(gridLine);
     }
 
-    element("perimeter").appendChild(svg);
+    element("gridLines").appendChild(svg);
 }

@@ -110,7 +110,7 @@ function updatePlayerColours(players) {
 
 function playerButton(player) {
     let playerActionButton = document.createElement("a");
-    playerActionButton.classList.add("button");
+    // playerActionButton.classList.add("button");
     playerActionButton.setAttribute("onclick", "attackPlayer(" + JSON.stringify(player) + ")")
     playerActionButton.innerHTML = "ATTACK " + player.username;
     playerActionButton.innerHTML += "<br>(with island " + currentIsland().island + ")";

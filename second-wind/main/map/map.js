@@ -91,8 +91,8 @@ function getTargetWithIslandNo(number) {
 // adds a target on the database that will be automatically followed
 function addTarget() {
     // console.log(selectedPoint);
-    element("movehere").innerHTML = "please wait...";
-    element("quickMove").innerHTML = "please wait...";
+    element("movehere").innerHTML = "PLEASE WAIT...";
+    element("quickMove").innerHTML = "PLEASE WAIT...";
 
     ajaxSecureCall(
         "addTarget",
@@ -108,12 +108,12 @@ function addTarget() {
             let icon = document.createElement("img");
             icon.classList.add("invert");
             icon.src = "material-icons/move.svg";
-            element("movehere").innerHTML = "move to marker";
+            element("movehere").innerHTML = "MOVE TO MARKER";
             element("movehere").appendChild(icon);
             removeMarker();
 
             // hide the quick action
-            element("quickActionContainer").innerHTML = "";
+            element("quickActionCard").innerHTML = "";
         }
     );
 }

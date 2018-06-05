@@ -61,11 +61,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    -webkit-filter: blur(20px);
-    -moz-filter: blur(20px);
-    -o-filter: blur(20px);
-    -ms-filter: blur(20px);
-    filter: blur(20px);
+    -webkit-filter: blur(20px) brightness(70%);
+    -moz-filter: blur(20px) brightness(70%);
+    -o-filter: blur(20px) brightness(70%);
+    -ms-filter: blur(20px) brightness(70%);
+    filter: blur(20px) brightness(70%);
+
+
 }
 
 #mapSquare {
@@ -122,11 +124,21 @@
     padding-top: 15px;
 }
 
-#quickActionContainer > a {
-    pointer-events: all;
-    margin-left: calc(10px - 100%);
-    margin-top: 0;
+#quickActionCard {
     background-color: rgba(69, 84, 69);
+    margin-left: calc(15px - 100%);
+    pointer-events: all;
+
+}
+
+#quickActionCard > a {
+    color: white;
+    padding: 15px;
+    display: block;
+}
+
+#quickActionCard > a:hover {
+    background-color: rgb(91, 109, 91);
 }
 
 @media screen and (max-width: 600px) {

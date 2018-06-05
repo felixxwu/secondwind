@@ -59,7 +59,7 @@ function setMarker(XY) {
 function removeMarker() {
     element("markers").innerHTML = "";
     hide("movehere", "fadeOut", 1);
-    element("quickActionContainer").innerHTML = "";
+    element("quickActionCard").innerHTML = "";
     element("selectedPlayers").innerHTML = "";
 }
 

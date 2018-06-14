@@ -35,6 +35,29 @@ function mapClick(event) {
     }
     element("selectedPlayers").innerHTML += "<hr>";
 
+
+    //add sources in range to mapUI for selection
+    for (let i = 0; i < ajaxSources.length; i++) {
+        const source = ajaxSources[i];
+        if (
+            inSourceRange(
+                currentIsland().x,
+                currentIsland().y,
+                source.x,
+                source.y
+            ) &&
+            inHitBox(XY, source.x, source.y)
+        ) {
+            element("selectedSources").style.display = "";
+            element("selectedSources").innerHTML="source selected";
+
+            element("selectedSources").appendChild(sourceButton(source));
+
+            // showPlayerAction(player);
+        }
+    }
+    // element("selectedPlayers").innerHTML += "<hr>";
+
     // if you click near one of your islands it will change your island selection to that island
     for (let i = 0; i < myIslands.length; i++) {
         const myIsland = myIslands[i];

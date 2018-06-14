@@ -33,4 +33,13 @@ function createSource(source) {
     return newSource;
   }
 
-  
+  function sourceButton(source) {
+    let sourceActionButton = document.createElement("a");
+    sourceActionButton.classList.add("button");
+    // sourceActionButton.setAttribute(
+    //   "onclick",
+    //   "attackPlayer(" + JSON.stringify(player) + ")"
+    // );
+    sourceActionButton.innerHTML = "Extract from " + source.energyType + " source";
+    return sourceActionButton;
+  }

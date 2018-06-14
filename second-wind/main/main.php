@@ -218,6 +218,7 @@ echoAsVar("myTargets", $myTargets);
   </div>
   <div id="mapUI">
     <div id="selectedPlayers"></div>
+    <div id="selectedSources"></div>
     <select id="selectIslands"></select>
     <div class="button iconButton" id="movehere" onclick="addTarget()" style="display:none;">MOVE TO MARKER<img class="invert" src="material-icons/move.svg"/></div><br/>
     <div class="button iconButton" id="zoomOut" onclick="zoomOut()" style="display:none">ZOOM OUT<img class="invert" src="material-icons/zoomOut.svg"/></div>

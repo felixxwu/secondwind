@@ -107,7 +107,6 @@ function sqlUpdate($table, $criteria, $column, $value) {
 		return false;
 		die("SQL UPDATE Error: " . $query . "<br>" . $conn->error);
 	}
-	echo "<script>console.error('inserting combination');</script>";
 
 	//if the update is succesful return true;
 	return true;

@@ -49,8 +49,9 @@ link(rel="stylesheet" href!="<? hashify('main/island/buildings/factory.css'); ?>
     
 
 .building_menus       
-    include island/buildings/factory.pug
     include island/buildings/townhall.pug
+    include island/buildings/factory.pug
+    include island/buildings/extractor.pug
         
 .notificationLayout#notifications(style="display:none")
     include notifications/notifications.pug
@@ -78,5 +79,6 @@ update
     //- script getEnergyAllocation();
     //- script updateItemsList();
     script updateFactory();
+    //- script updateExtractor();
     script setupSliders();
     //- script retrieveCombinationTimes

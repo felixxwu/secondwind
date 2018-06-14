@@ -52,8 +52,9 @@
 }
 
 #bgContainer > background {
-    position: absolute;
+    position: fixed;
     left: -40px;
+    /* this is for extending the blur out a bit */
     width: calc(100% + 2 * 40px);
     top: -40px;
     height: calc(100% + 2 * 40px);
@@ -61,13 +62,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    /* for compatibility */
     -webkit-filter: blur(20px) brightness(70%);
     -moz-filter: blur(20px) brightness(70%);
     -o-filter: blur(20px) brightness(70%);
     -ms-filter: blur(20px) brightness(70%);
     filter: blur(20px) brightness(70%);
-
-
 }
 
 #mapSquare {
@@ -84,6 +85,9 @@
     grid-area: mapUI;
     text-align: center;
     z-index: 1;
+    margin: 25px;
+    background-color: hsla(180, 25%, 25%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 /* players #################################### */
@@ -111,6 +115,21 @@
 .playerDark {
     color: black;
 }
+
+/* action buttons on the side of the map to select players */
+#selectedPlayers {
+    background-color: hsla(180, 25%, 27%);;
+}
+
+#selectedPlayers > a {
+    padding: 10px;
+    display: block;
+}
+
+#selectedPlayers > a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 /* ############################################# */
 
 #quickActions {
@@ -126,9 +145,9 @@
 
 #quickActionCard {
     background-color: rgba(69, 84, 69);
-    margin-left: calc(15px - 100%);
+    margin-left: -50%;
     pointer-events: all;
-
+    width: 100%;
 }
 
 #quickActionCard > a {

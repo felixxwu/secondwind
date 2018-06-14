@@ -2,11 +2,11 @@
 <?php
 
 function jsLog($log) {
-    echo "<script>console.log('$log');</script>";
+    echo "<script>console.log('" . json_encode($log) . "');</script>";
 }
 
 function jsWarn($log) {
-    echo "<script>console.warn('$log');</script>";
+    echo "<script>console.warn('" . json_encode($log) . "');</script>";
 }
 
 function echoAsVar($name, $var) {

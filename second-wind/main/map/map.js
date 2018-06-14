@@ -14,7 +14,7 @@ function mapClick(event) {
 
     // add players in range to mapUI
     element("selectedPlayers").innerHTML =
-        "<br>Selected marker is near the following players:<br>";
+        "<br>Selected marker is near the following players:<br><br>";
     element("selectedPlayers").style.display = "none";
     for (let i = 0; i < otherIslands.length; i++) {
         const player = otherIslands[i];
@@ -27,13 +27,13 @@ function mapClick(event) {
             ) &&
             inHitBox(XY, player.x, player.y)
         ) {
-            element("selectedPlayers").style.display = "";
+            element("selectedPlayers").style.display = "";  // default is shown
             element("selectedPlayers").appendChild(playerButton(player));
 
             showPlayerAction(player);
         }
     }
-    element("selectedPlayers").innerHTML += "<hr>";
+    element("selectedPlayers").innerHTML += "<br>";
 
     // if you click near one of your islands it will change your island selection to that island
     for (let i = 0; i < myIslands.length; i++) {

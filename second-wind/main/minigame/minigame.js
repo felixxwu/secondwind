@@ -1,3 +1,11 @@
+function startBattle(defender) {
+    
+}
+
+function changeTurn() {
+
+}
+
 function showMinigame(myIsland, player) {
     secureLoad(
         "minigameHeader",

@@ -29,6 +29,33 @@ if (isset($_POST["func"])) {
 ################################################################################################################################
 // functions go here...
 
+// initiate a battle with a player
+function startBattle($myIsland, $defender, $defenderIsland) {
+    $username = $_POST["username"];
+
+    // check if there are existing battles
+    $criteria = "(`attacker` = '$username' AND `attackerIsland` = '$myIsland'
+                AND `defender` = '$defender' AND `defenderIsland` = '$defenderIsland')
+                OR (`attacker` = '$defender' AND `attackerIsland` = '$defenderIsland'
+                AND `defender` = '$username' AND `defenderIsland` = '$myIsland')";
+    $battle = sqlSelectFirstRow("battles", $criteria, "id");
+    if ($battle) { return; }
+
+    
+}
+
+// update whose turn it is in a battle
+function changeTurn($attacker, $attackerIsland, $defender, $defenderIsland, $changeTo) {
+    $username = $_POST["username"];
+    $criteria = "`attacker` = '$attacker' AND `attackerIsland` = '$attackerIsland'
+                AND `defender` = '$defender' AND `defenderIsland` = '$defenderIsland'";
+    $battle = sqlSelectFirstRow("battles", $criteria, "id");
+    jslog($battle);
+    $turn = $battle["turn"];
+    
+
+}
+
 // add a target to move towards
 function addTarget($island, $x, $y) {
     $username = $_POST["username"];

@@ -35,6 +35,29 @@ function mapClick(event) {
     }
     element("selectedPlayers").innerHTML += "<br>";
 
+
+    //add sources in range to mapUI for selection
+    for (let i = 0; i < ajaxSources.length; i++) {
+        const source = ajaxSources[i];
+        if (
+            inSourceRange(
+                currentIsland().x,
+                currentIsland().y,
+                source.x,
+                source.y
+            ) &&
+            inHitBox(XY, source.x, source.y)
+        ) {
+            element("selectedSources").style.display = "";
+            element("selectedSources").innerHTML="source selected";
+
+            element("selectedSources").appendChild(sourceButton(source));
+
+            // showPlayerAction(player);
+        }
+    }
+    // element("selectedPlayers").innerHTML += "<hr>";
+
     // if you click near one of your islands it will change your island selection to that island
     for (let i = 0; i < myIslands.length; i++) {
         const myIsland = myIslands[i];
@@ -65,6 +88,16 @@ function inAttackRange(x1, y1, x2, y2) {
     }
 }
 
+function inSourceRange(x1, y1, x2, y2){
+    const extractRadius = 10;
+
+    let distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    if (distance < extractRadius) {
+        return true;
+    } else {
+        return false;
+    }
+}
 function inHitBox(XY, x2, y2) {
     const hitBoxRadius = 2;
 

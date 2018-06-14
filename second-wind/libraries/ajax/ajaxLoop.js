@@ -4,6 +4,7 @@ function ajaxLoop() {
             "myIslands": null,
             "otherIslands": null,
             "myTargets": null,
+            "ajaxSources": null,
             "energies": null
         }, function () {
 
@@ -14,7 +15,7 @@ function ajaxLoop() {
             updatePlayerColours(otherIslands);
             updatePlayerLocations(otherIslands);
             drawAllPlayers();
-
+            drawAllSources()
             updateEnergy();
 
             ajaxLoop();

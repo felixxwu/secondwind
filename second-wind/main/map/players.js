@@ -40,8 +40,10 @@ function updatePlayerLocations(players) {
             // if the player already exists
             // update locations
             listPlayer.player = player;
-            listPlayer.element.style.left = zoomPoint([player.x, player.y])[0] + "%";
-            listPlayer.element.style.top = zoomPoint([player.x, player.y])[1] + "%";
+            listPlayer.element.style.left =
+                zoomPoint([player.x, player.y])[0] + "%";
+            listPlayer.element.style.top =
+                zoomPoint([player.x, player.y])[1] + "%";
             newList.push(listPlayer);
         }
     });
@@ -52,7 +54,8 @@ function findPlayerInList(player, list) {
     for (let i = 0; i < list.length; i++) {
         let listPlayer = list[i];
         if (
-            listPlayer.player.username.toLowerCase() + listPlayer.player.island ==
+            listPlayer.player.username.toLowerCase() +
+                listPlayer.player.island ==
             player.username.toLowerCase() + player.island
         ) {
             return listPlayer;
@@ -72,16 +75,16 @@ function initAllPlayers(players) {
 // returns a player element with a random colour not already in the player list
 function createPlayer(player) {
     let initial = player.username.toUpperCase().charAt(0);
-    
+
     let colour = playerColours[player.username];
-    
+
     let newPlayer = document.createElement("div");
     newPlayer.classList.add(colour.style);
     newPlayer.innerHTML = initial;
     newPlayer.style.backgroundColor = colour.name;
     newPlayer.style.left = zoomPoint([player.x, player.y])[0] + "%";
     newPlayer.style.top = zoomPoint([player.x, player.y])[1] + "%";
-    
+
     return newPlayer;
 }
 
@@ -96,24 +99,28 @@ function updatePlayerColours(players) {
 
         if (player.username in playerColours) {
             // if the player already exists in the playercolours
-            newColourList[player.username] = playerColours  [player.username];
+            newColourList[player.username] = playerColours[player.username];
         } else {
             // if there is a new player in the playercolours
-            let colour = colourList[Math.floor(Math.random() * colourList.length)];
+            let colour =
+                colourList[Math.floor(Math.random() * colourList.length)];
             newColourList[player.username] = colour;
         }
     }
     playerColours = newColourList;
     // console.log(playerColours);
-    
 }
 
 function playerButton(player) {
     let playerActionButton = document.createElement("a");
     // playerActionButton.classList.add("button");
-    playerActionButton.setAttribute("onclick", "attackPlayer(" + JSON.stringify(player) + ")")
+    playerActionButton.setAttribute(
+        "onclick",
+        "attackPlayer(" + JSON.stringify(player) + ")"
+    );
     playerActionButton.innerHTML = "Attack <b>" + player.username;
-    playerActionButton.innerHTML += "</b> (with island " + currentIsland().island + ")";
+    playerActionButton.innerHTML +=
+        "</b> (with island " + currentIsland().island + ")";
     return playerActionButton;
 }
 

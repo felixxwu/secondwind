@@ -45,7 +45,8 @@ function getEnergyAllocation(){
     <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
     <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
       <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
-      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
+      <div class="factory"><img src="<? hashify('images/factory.svg'); ?>"/><a onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
+      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
     </div>
   </div>
   <script>show('floatUp','fadeInUp',10);</script>
@@ -56,41 +57,6 @@ function getEnergyAllocation(){
   <script>show("foreground_right","fadeInRight",7);</script>
 </div>
 <div class="building_menus">      
-  <factory_menu id="factory_menu" style="display:none">
-    <div id="factory_header"> 
-      <text>Factory</text>
-    </div>
-    <div id="factory_items"> 
-      <div id="item_header"> 
-        <text>items</text>
-      </div><br/>
-      <table id="itemList">
-        <tr>
-          <th>Item</th>
-          <th>Level</th>
-          <th>Amount</th>
-          <th>H</th>
-          <th>A</th>
-          <th>P</th>
-          <th>I</th>
-          <th>B</th>
-        </tr>
-      </table>
-    </div>
-    <div id="factory_actions"> 
-      <action_title>actions</action_title>
-      <button id="combine" onclick="newCombineItems()">Combine items</button>
-      <div id="testItems"></div>
-      <div id="errorItems"></div>
-      <button id="hideMenu" onclick="hide('factory_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)">Close Menu</button>
-    </div>
-    <div id="factory_descriptions">
-      <canvas id="doughnut-chart"></canvas>
-    </div>
-    <div id="factory_progress"> 
-      <div id="progress_bars"></div>
-    </div>
-  </factory_menu>
   <div class="absolute" id="energies" style="display:none">
     <div id="pablotests"></div>
     <h3>Energy Values</h3>
@@ -138,6 +104,45 @@ function getEnergyAllocation(){
     <button id="submit" onclick="submitEnergyAllocation()" style="display: none;">DONE</button>
     <div id="confirmMessage"></div>
   </div>
+  <factory_menu id="factory_menu" style="display:none">
+    <div id="factory_header"> 
+      <text>Factory</text>
+    </div>
+    <div id="factory_items"> 
+      <div id="item_header"> 
+        <text>items</text>
+      </div><br/>
+      <table id="itemList">
+        <tr>
+          <th>Item</th>
+          <th>Level</th>
+          <th>Amount</th>
+          <th>H</th>
+          <th>A</th>
+          <th>P</th>
+          <th>I</th>
+          <th>B</th>
+        </tr>
+      </table>
+    </div>
+    <div id="factory_actions"> 
+      <action_title>actions</action_title>
+      <button id="combine" onclick="newCombineItems()">Combine items</button>
+      <div id="testItems"></div>
+      <div id="errorItems"></div>
+      <button id="hideMenu" onclick="hide('factory_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)">Close Menu</button>
+    </div>
+    <div id="factory_descriptions">
+      <canvas id="doughnut-chart"></canvas>
+    </div>
+    <div id="factory_progress"> 
+      <div id="progress_bars"></div>
+    </div>
+  </factory_menu>
+  <extractor_menu id="extractor_menu" style="display:none">
+    <test>hey</test>
+    <button id="hideMenu" onclick="hide('extractor_menus','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)">Close Menu</button>
+  </extractor_menu>
 </div>
 <div class="notificationLayout" id="notifications" style="display:none">
   <div class="notifications">
@@ -200,6 +205,7 @@ echoAsVar("myTargets", $myTargets);
     <div class="mapSquare" id="perimeter"></div>
     <div id="line"></div>
     <div class="mapSquare" id="playerLocations"></div>
+    <div class="mapSquare" id="sourceLocations"></div>
     <div class="invert mapSquare" id="myLocation"></div>
     <div class="invert mapSquare" id="markers"></div>
     <div class="mapSquare" id="quickActions">
@@ -212,6 +218,7 @@ echoAsVar("myTargets", $myTargets);
   </div>
   <div id="mapUI">
     <div id="selectedPlayers"></div>
+    <div id="selectedSources"></div>
     <select id="selectIslands"></select>
     <div class="button iconButton" id="movehere" onclick="addTarget()" style="display:none;">MOVE TO MARKER<img class="invert" src="material-icons/move.svg"/></div><br/>
     <div class="button iconButton" id="zoomOut" onclick="zoomOut()" style="display:none">ZOOM OUT<img class="invert" src="material-icons/zoomOut.svg"/></div>

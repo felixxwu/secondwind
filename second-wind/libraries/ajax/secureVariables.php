@@ -181,4 +181,8 @@ function myTargets() {
     return $targets;
 }
 
+function ajaxSources(){
+    return sqlSelectWithoutCriteria("sources", "*","id"); 
+}
+
 ?>

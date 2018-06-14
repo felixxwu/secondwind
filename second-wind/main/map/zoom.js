@@ -46,6 +46,7 @@ function redrawGrid() {
     chooseIsland(currentIsland());
     updatePlayerLocations(otherIslands);
     drawAllPlayers();
+    drawAllSources();
     drawGridLines();
     if (selectedPoint) {
         setMarker(selectedPoint);

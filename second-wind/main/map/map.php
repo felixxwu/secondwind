@@ -10,6 +10,7 @@
     <div class="mapSquare" id="perimeter"></div>
     <div id="line"></div>
     <div class="mapSquare" id="playerLocations"></div>
+    <div class="mapSquare" id="sourceLocations"></div>
     <div class="invert mapSquare" id="myLocation"></div>
     <div class="invert mapSquare" id="markers"></div>
     <div class="mapSquare" id="quickActions">
@@ -22,6 +23,7 @@
   </div>
   <div id="mapUI">
     <div id="selectedPlayers"></div>
+    <div id="selectedSources"></div>
     <select id="selectIslands"></select>
     <div class="button iconButton" id="movehere" onclick="addTarget()" style="display:none;">MOVE TO MARKER<img class="invert" src="material-icons/move.svg"/></div><br/>
     <div class="button iconButton" id="zoomOut" onclick="zoomOut()" style="display:none">ZOOM OUT<img class="invert" src="material-icons/zoomOut.svg"/></div>

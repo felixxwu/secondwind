@@ -52,6 +52,9 @@ html
 
         #errorContainer(style="display:none")
             #error this is an error message
+
+        #connectionError(style="display:none").
+            Something went wrong while connecting to the server. Trying again to get you back online...
         
         
         #links
@@ -81,6 +84,8 @@ html
                 linkJs("<? hashify('libraries/energy/energy.js'); ?>");
                 linkJs("<? hashify('libraries/items/items.js'); ?>");
                 linkJs("<? hashify('libraries/slider/sliderdemo.js'); ?>") ;
+
+                linkJs("<? hashify('main/resize.js'); ?>");
 
                 linkJs("<? hashify('main/menu/menu.js'); ?>");
                 linkJs("<? hashify('main/notifications/notifications.js'); ?>");

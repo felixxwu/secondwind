@@ -53,12 +53,23 @@ function ajaxLoad(id, page, args, callback) {
     if (typeof callback == "undefined") {
         $("#" + id).load(page, args);      // load without callback if not defined
     } else {
-        $("#" + id).load(page, args, function(){   // load with callback
-            callback();
+        $("#" + id).load(page, args, function(response, status, jqXHR){   // load with callback
+            if (status == "error") {
+                show("connectionError", "fadeInDown", 1);
+                
+                setTimeout(() => {
+                    ajaxLoad(id, page, args, callback);
+                }, 1000);
+                return;
+            }
+            
+            hide("connectionError", "fadeOutUp", 1);
+            callback(response, status, jqXHR);
         });
     }
 }
 
+// DEPRICATED ####################################################################################
 function ajaxCall(func, args, callback) {
     var newArgs = Object.assign({"func": func}, args);  // add func as an arg in args
     // call has a list of functions that will be called according to func
@@ -71,6 +82,18 @@ function ajaxLoadVariables(id, variables, callback) {
 
 function ajaxCountID(id) {
     return $("[id=" + id + "]").length;
+}
+//#################################################################################################
+
+
+
+function secureLoad(id, page, args, callback) {
+    var username = getUsername();
+    var password = getPassword();
+
+    // replace page with secureload php
+    var newArgs = Object.assign({"username": username, "password": password, "page": page}, args);
+    ajaxLoad(id, "libraries/account/secureLoad.php", newArgs, callback);
 }
 
 function ajaxSecureCall(func, args, callback) {

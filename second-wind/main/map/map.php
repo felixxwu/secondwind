@@ -7,14 +7,16 @@
   </div>
   <div id="mapSquare">
     <div class="mapSquare" id="xysensitive" onclick="mapClick(event)"></div>
+    <div class="mapSquare" id="perimeter"></div>
     <div id="line"></div>
-    <div id="perimeter"></div>
     <div class="mapSquare" id="playerLocations"></div>
     <div class="mapSquare" id="sourceLocations"></div>
     <div class="invert mapSquare" id="myLocation"></div>
     <div class="invert mapSquare" id="markers"></div>
     <div class="mapSquare" id="quickActions">
-      <div id="quickActionContainer"></div>
+      <div id="quickActionContainer">
+        <div id="quickActionCard"></div>
+      </div>
     </div>
     <div class="mapSquare" id="zoomButtons"></div>
     <div id="gridLines"></div><a id="zoomOutButton" onclick="zoomOut()" style="display:none"><img class="invert" src="material-icons/zoomOut.svg"/></a>

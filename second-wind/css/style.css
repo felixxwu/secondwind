@@ -28,10 +28,23 @@ body {
     box-shadow: 0px 20px 100px 1px rgba(0, 0, 0, 0.5);
 }
 
+#connectionError {
+    position: fixed;
+    padding: 20px;
+    margin: 20px;
+    background-color: #333;
+    width: 300px;
+    margin-left: calc(50vw - 170px);
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
 
 .menuSolid, .loginButton, .loginInput, #loading { background-color: #222222; }
 
-.textWhite, #loading text { color: #dddddd; }
+.textWhite, #loading text { color: white; }
 
 .title {
     font-weight: 100;

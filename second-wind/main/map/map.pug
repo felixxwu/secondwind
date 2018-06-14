@@ -15,8 +15,8 @@ link(rel="stylesheet" href!="<? hashify('main/map/zoom.css'); ?>")
     #mapSquare
 
         #xysensitive.mapSquare(onclick="mapClick(event)")
+        #perimeter.mapSquare
         #line
-        #perimeter
         #playerLocations.mapSquare
         #sourceLocations.mapSquare
         #myLocation.invert.mapSquare
@@ -24,6 +24,7 @@ link(rel="stylesheet" href!="<? hashify('main/map/zoom.css'); ?>")
         #quickActions.mapSquare
             //- action container is used to house the actions
             #quickActionContainer
+                #quickActionCard
         #zoomButtons.mapSquare
         #gridLines
         a#zoomOutButton(onclick="zoomOut()" style="display:none")

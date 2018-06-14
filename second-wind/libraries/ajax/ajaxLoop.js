@@ -7,9 +7,10 @@ function ajaxLoop() {
             "ajaxSources": null,
             "energies": null
         }, function () {
+
             if (myIslands == []) { alert("error: no islands"); }
 
-            chooseIsland(myIslands[element("selectIslands").value]);
+            chooseIsland(currentIsland());
             // console.log(otherIslands);
             updatePlayerColours(otherIslands);
             updatePlayerLocations(otherIslands);

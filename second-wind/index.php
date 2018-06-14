@@ -41,6 +41,11 @@ function hashify($file) {
     <div id="errorContainer" style="display:none">
       <div id="error">this is an error message</div>
     </div>
+    <div id="connectionError" style="display:none">
+      Something went wrong while connecting to the server. Trying again to get you back online...
+      
+      
+    </div>
     <div id="links">
       <script>
         <?= file_get_contents("libraries/utility/link.js"); ?>
@@ -66,6 +71,8 @@ function hashify($file) {
         linkJs("<? hashify('libraries/energy/energy.js'); ?>");
         linkJs("<? hashify('libraries/items/items.js'); ?>");
         linkJs("<? hashify('libraries/slider/sliderdemo.js'); ?>") ;
+        
+        linkJs("<? hashify('main/resize.js'); ?>");
         
         linkJs("<? hashify('main/menu/menu.js'); ?>");
         linkJs("<? hashify('main/notifications/notifications.js'); ?>");

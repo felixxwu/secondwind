@@ -1,21 +1,21 @@
 function showMoveAction() {
     let action = document.createElement("a");
     action.id = "quickMove";
-    action.classList.add("button");
+    // action.classList.add("button");
     action.innerHTML = "MOVE HERE";
     action.setAttribute("onclick", "addTarget()");
     
-    element("quickActionContainer").appendChild(action);
-    element("quickActionContainer").innerHTML += "<br>";
+    element("quickActionCard").appendChild(action);
 }
 
 function showPlayerAction(player) {
-    element("quickActionContainer").appendChild(playerButton(player));
-    element("quickActionContainer").innerHTML += "<br>";
+    if (inAttackRange(currentIsland().x, currentIsland().y, player.x, player.y)) {
+        element("quickActionCard").appendChild(playerButton(player));
+    }
 }
 
 function setUpActionContainer(x, y) {
-    element("quickActionContainer").innerHTML = "";
-    element("quickActionContainer").style.left = zoomPoint([x, y])[0] + "%";
-    element("quickActionContainer").style.top = zoomPoint([x, y])[1] + "%";
+    element("quickActionCard").innerHTML = "";
+    element("quickActionContainer").style.marginLeft = zoomPoint([x, y])[0] + "%";
+    element("quickActionContainer").style.marginTop = zoomPoint([x, y])[1] + "%";
 }

@@ -71,6 +71,7 @@ function hashify($file) {
         linkJs("<? hashify('main/notifications/notifications.js'); ?>");
         
         linkJs("<? hashify('main/map/map.js'); ?>");
+        linkJs("<? hashify('main/map/sources.js'); ?>");
         linkJs("<? hashify('main/map/init.js'); ?>");
         linkJs("<? hashify('main/map/draw.js'); ?>");
         linkJs("<? hashify('main/map/players.js'); ?>");

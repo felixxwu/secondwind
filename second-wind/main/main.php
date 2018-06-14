@@ -200,6 +200,7 @@ echoAsVar("myTargets", $myTargets);
     <div id="line"></div>
     <div id="perimeter"></div>
     <div class="mapSquare" id="playerLocations"></div>
+    <div class="mapSquare" id="sourceLocations"></div>
     <div class="invert mapSquare" id="myLocation"></div>
     <div class="invert mapSquare" id="markers"></div>
     <div class="mapSquare" id="quickActions">

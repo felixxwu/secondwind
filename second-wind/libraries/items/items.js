@@ -27,7 +27,7 @@ function updateFactory() {
     },
     function() {
       newUpdateItemList(getItemList, getShitList);
-      itemRatios = getRatiosList;
+      itemRatios = getRatiosList; 
       updateCombinationList(getCombinationsList);
     }
   );

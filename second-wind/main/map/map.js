@@ -48,12 +48,10 @@ function mapClick(event) {
             ) &&
             inHitBox(XY, source.x, source.y)
         ) {
-            element("selectedSources").style.display = "";
-            element("selectedSources").innerHTML="source selected";
+            displaySourceUI(source);
+            
 
-            element("selectedSources").appendChild(sourceButton(source));
-
-            showSourceAction(source);
+            // showSourceAction(source);
         }
     }
     // element("selectedPlayers").innerHTML += "<hr>";

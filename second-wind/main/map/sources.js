@@ -35,46 +35,46 @@ function createSource(source) {
     return newSource;
   }
 
-  function sourceButton(source) {
-    let sourceActionButton = document.createElement("a");
-    sourceActionButton.classList.add("button");
-    sourceActionButton.setAttribute(
-      "onclick",
-      "startExtraction("  + JSON.stringify(source) + ")"
-    );
-    sourceActionButton.innerHTML = "Extract from " + source.energyType + " source";
-    return sourceActionButton;
-  }
+  function displaySourceUI(source) {
+    element("selectedSources").style.display = "";
+    element("selectedSources").innerHTML="source selected";
 
-  function startExtraction(source){
-  
-    //check if user has an extractor of that kind
+    //list of extractors of source.energyType kind
+    let extractorList = [];
+
+    //check if user has an extractor of that kind and adds them to extractorList
     for (let i = 0; i < itemList.length; i++) {
       if(itemList[i].item===source.energyType + "_extractor"){
-        //if the user has an extractor of that energy kind then use it (it will use the first one)
-        //calculates the rate at which the user will take from the extractor
-        let rate = getExtractionRate(itemList[i].level,source.id);
-        extractionProcesses.push({
-        source_id: source.id,
-        extractor_level: itemList[i].level,
-        energy_type: source.energyType,
-        rate: rate,
-        amount: parseInt(source.amount)
-        });
-
-        //remove extractor from item list
-        itemList.splice(i, 1);
-        displayItemList();
-
-        //update database
-        ajaxAddExtractionProcess(source.id,itemList[i].level);
-        break;
-      }else{
-        log('extractor not available');
+        extractorList.push(itemList[i]);
       }
-    } 
+    }
+    if (extractorList.length==0){
+      log("extractor not available");
+    }
 
+    //create buttons for each extractor that could be use in the source
+    for (let i = 0; i < extractorList.length; i++) {
+      let extractorButton = document.createElement("a");
+      extractorButton.classList.add("button");
+      extractorButton.setAttribute(
+      "onclick",
+      "startExtraction("  + JSON.stringify(extractorList[i]) + "," + JSON.stringify(source) +")"
+      );
+      extractorButton.innerHTML = "Use extractor level " + extractorList[i].level;
+      element("selectedSources").appendChild(extractorButton);
+    }
+
+    // element("selectedSources").appendChild(sourceButton(source));
+    // let sourceActionButton = document.createElement("a");
+    // sourceActionButton.classList.add("button");
+    // sourceActionButton.setAttribute(
+    //   "onclick",
+    //   "startExtraction("  + JSON.stringify(source) + ")"
+    // );
+    // sourceActionButton.innerHTML = "Extract from " + source.energyType + " source";
+    // return sourceActionButton;
   }
+
 
 //needs to be implemented
 function getExtractionRate(extractorLevel,sourceId){
@@ -82,8 +82,41 @@ function getExtractionRate(extractorLevel,sourceId){
   
 }
 
-//removes extractor from itemList and creates extraction process
-//needs to be implemented
-function ajaxAddExtractionProcess(id,extractorLevel){
+function startExtraction(extractor,source){
 
+  //remove item from itemList
+  for (let i = 0; i < itemList.length; i++) {
+    if(itemList[i].item==extractor.item && itemList[i].level==extractor.level){
+      itemList[i].amount-=1;
+      //if you don't have any more extractors of that same level
+      if(itemList[i].amount==0){
+        itemList.splice(i,1);
+      }
+    }
+    break;
+  }
+  element("selectedSources").innerHTML="Extraction process started";
+  displayItemList();
+
+  
+  //add extraction process to extractionProcesses
+  // calculates the rate at which the user will take from the extractor
+  let rate = getExtractionRate(extractor.level,source.id);
+  extractionProcesses.push({
+  source_id: source.id,
+  extractor_level: extractor.level,
+  energy_type: source.energyType,
+  rate: rate,
+  amount: parseInt(source.amount)
+  });
+
+  //update database with -1 for extractor and new extraction process
+  ajaxSecureCall(
+    "startExtractionProcess",
+    {extractorName: extractor.item, extractorLevel: extractor.level, id:source.id},
+    function() {
+      log('finished');
+    }
+);
 }
+

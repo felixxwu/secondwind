@@ -16,7 +16,7 @@ function ajaxLoop() {
             updatePlayerLocations(otherIslands);
             drawAllPlayers();
             drawAllSources()
-            updateEnergy();
+            // updateEnergy();
 
             ajaxLoop();
         });

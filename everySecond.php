@@ -40,7 +40,7 @@ if(mt_rand(1,100)==1){
     $totalAmount=mt_rand($maxRate*10,$maxRate*10000);
 
     //create entry in database
-    sqlInsert('sources',$x,$y,$id,$energyType,$maxRate,$totalAmount);
+    sqlInsert('sources',$x,$y,'null',$energyType,$maxRate,$totalAmount);
 }
 
 ?>

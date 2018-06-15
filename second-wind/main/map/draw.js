@@ -52,13 +52,13 @@ function setMarker(XY) {
 
     // addLine(selectedIsland.x, selectedIsland.y, x, y);
 
-    show("movehere", "fadeIn", 1);
+    // show("movehere", "fadeIn", 1);
 
 }
 
 function removeMarker() {
     element("markers").innerHTML = "";
-    hide("movehere", "fadeOut", 1);
+    // hide("movehere", "fadeOut", 1);
     element("quickActionCard").innerHTML = "";
     element("selectedPlayers").innerHTML = "";
 }

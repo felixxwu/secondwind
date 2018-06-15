@@ -33,16 +33,9 @@ link(rel="stylesheet" href!="<? hashify('main/map/zoom.css'); ?>")
     #mapUI
         #selectedPlayers
         #selectedSources
+        br
         select#selectIslands
 
-        .button.iconButton#movehere(onclick="addTarget()" style="display:none;")
-            | MOVE TO MARKER
-            img.invert(src="material-icons/move.svg")
-        br
-
-        .button.iconButton#zoomOut(onclick="zoomOut()" style="display:none")
-            | ZOOM OUT
-            img.invert(src="material-icons/zoomOut.svg")
         
         .button.iconButton(onclick="hideMap()")
             | CLOSE MAP

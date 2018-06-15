@@ -218,10 +218,8 @@ echoAsVar("myTargets", $myTargets);
   </div>
   <div id="mapUI">
     <div id="selectedPlayers"></div>
-    <div id="selectedSources"></div>
+    <div id="selectedSources"></div><br/>
     <select id="selectIslands"></select>
-    <div class="button iconButton" id="movehere" onclick="addTarget()" style="display:none;">MOVE TO MARKER<img class="invert" src="material-icons/move.svg"/></div><br/>
-    <div class="button iconButton" id="zoomOut" onclick="zoomOut()" style="display:none">ZOOM OUT<img class="invert" src="material-icons/zoomOut.svg"/></div>
     <div class="button iconButton" onclick="hideMap()">CLOSE MAP<img class="invert" src="material-icons/close.svg"/></div>
   </div>
 </div>
@@ -231,11 +229,12 @@ echoAsVar("myTargets", $myTargets);
 <div id="minigame" style="display:none">
   <header>
     <div id="minigameHeader"></div>
+    <div id="minigameTurn"></div>
   </header>
   <div id="board"></div>
   <footer id="footerBackgroundWorkaround"></footer>
   <footer>
-    <div id="minigameTurn"></div><a class="button" onclick="endTurn()">end turn</a><a class="button iconButton" onclick="closeMinigame()">close<img class="invert" src="material-icons/close.svg"/></a>
+    <div id="minigameTurnCounter"></div><a class="button" onclick="endTurn()">end turn</a><a class="button iconButton" onclick="closeMinigame()">close<img class="invert" src="material-icons/close.svg"/></a>
   </footer>
 </div>
 <script>initBoardButtons(4, 7);</script>

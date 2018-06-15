@@ -19,6 +19,7 @@ function startBattle() {
 }
 
 function endTurn() {
+    element("minigameTurn").innerHTML = "ending turn...";
     ajaxSecureCall(
         "endTurn",
         {
@@ -32,14 +33,76 @@ function endTurn() {
     );
 }
 
+function updateTurn() {
+    const battle = getBattleWithEnemy(enemyPlayer);
+    if (!battle) {
+        return;
+    }
+    const turn = battle.turn;
+    element("minigameTurnCounter").innerHTML = "Turn: " + turn;
+    
+    const me = { username: getUsername(), island: currentIsland().island };
+
+    if (turn % 2 == 0) {
+        // defenders turn
+        if (isDefender(me, battle)) {
+            element("minigameTurn").innerHTML = "YOUR TURN";
+        } else {
+            element("minigameTurn").innerHTML = enemyPlayer.username.toUpperCase() + "'S TURN";
+        }
+    } else {
+        // attackers turn
+        if (isAttacker(me, battle)) {
+            element("minigameTurn").innerHTML = "YOUR TURN";
+        } else {
+            element("minigameTurn").innerHTML = enemyPlayer.username.toUpperCase() + "'S TURN";
+        }
+    }
+}
+
+// return the battle object that corresponds with the battle you are having with "enemyPlayer"
 function getBattleWithEnemy(enemyPlayer) {
+    if (!enemyPlayer) {
+        return;
+    }
     for (let i = 0; i < myBattles.length; i++) {
         const battle = myBattles[i];
-        if ((strSame(battle.attacker, enemyPlayer.username)
-            && strSame(battle.defender, getUsername()))
-            || strSame(battle.defender, enemyPlayer.username)) {
-            
+        const me = { username: getUsername(), island: currentIsland().island };
+        // if I am the attacker and enemy is the defender
+        // OR if i am the defender and enemy is the attacker
+        if (
+            (isAttacker(me, battle) && isDefender(enemyPlayer, battle)) ||
+            (isAttacker(enemyPlayer, battle) && isDefender(me, battle))
+        ) {
+            return myBattles[i];
         }
+    }
+    console.warn("no battle exists");
+}
+
+// helper function for getBattleWithEnemy()
+function isAttacker(player, battle) {
+    if (
+        // if username and island number is equal
+        strSame(battle.attacker, player.username) &&
+        battle.attackerIsland == player.island
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// helper function for getBattleWithenemy()
+function isDefender(player, battle) {
+    if (
+        // if username and island number is equal
+        strSame(battle.defender, player.username) &&
+        battle.defenderIsland == player.island
+    ) {
+        return true;
+    } else {
+        return false;
     }
 }
 

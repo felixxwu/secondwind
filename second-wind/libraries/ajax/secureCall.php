@@ -58,14 +58,14 @@ function endTurn($myIsland, $defender, $defenderIsland) {
     if ($turn % 2 == 0) {
         // defenders turn
         // check if you are the defender
-        if (strSame($battle["defender"], $username)) {
+        if (strSame($battle["defender"], $username) && ($battle["defenderIsland"] == $myIsland)) {
             sqlUpdate("battles", "`attacker` = '$defender' AND `attackerIsland` = '$defenderIsland'
             AND `defender` = '$username' AND `defenderIsland` = '$myIsland'", "turn", $turn + 1);
         }
     } else {
         // attackers turn
         // check if you are the attacker
-        if (strSame($battle["attacker"], $username)) {
+        if (strSame($battle["attacker"], $username) && ($battle["attackerIsland"] == $myIsland)) {
             sqlUpdate("battles", "`attacker` = '$username' AND `attackerIsland` = '$myIsland'
             AND `defender` = '$defender' AND `defenderIsland` = '$defenderIsland'", "turn", $turn + 1);
         }

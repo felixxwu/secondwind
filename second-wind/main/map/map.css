@@ -161,6 +161,18 @@
     background-color: var(--dark-card-highlight);
 }
 
+#quickActionCard > container {
+    display: inline-block;
+}
+
+#quickActionCard > container > img {
+    padding: 15px;
+}
+
+#quickActionCard > container:hover {
+    background-color: var(--dark-card-highlight);
+}
+
 @media screen and (max-width: 600px) {
     #mapGrid {
         grid-template-rows: 1fr 1fr;

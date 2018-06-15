@@ -13,13 +13,18 @@ function ajaxLoop() {
 
             if (myIslands == []) { alert("error: no islands"); }
 
+            // map ##############################
             chooseIsland(currentIsland());
             updatePlayerColours(otherIslands);
             updatePlayerLocations(otherIslands);
             drawAllPlayers();
 
+            // sources ##########################
             drawAllSources()
             updateEnergy();
+
+            // minigame #########################
+            updateTurn();
 
             ajaxLoop();
         });

@@ -25,7 +25,7 @@ function zoomIn(x, y) {
         zoomOut();
     });
     show("zoomOutButton", "fadeIn", 1);
-    show("zoomOut", "fadeIn", 1);
+    // show("zoomOut", "fadeIn", 1);
     hide("zoomButtons", "fadeOut", 0);
 }
 
@@ -35,7 +35,7 @@ function zoomOut() {
     redrawGrid();
 
     hide("zoomOutButton", "fadeOut", 1);
-    hide("zoomOut", "fadeOut", 1);
+    // hide("zoomOut", "fadeOut", 1);
     show("zoomButtons", "fadeIn", 0);
 }
 

@@ -73,6 +73,8 @@ function mapClick(event) {
     }
 
     showMoveAction();
+    showZoomAction();
+    showQuickCloseAction();
 
     setMarker(XY);
 }
@@ -124,8 +126,8 @@ function getTargetWithIslandNo(number) {
 // adds a target on the database that will be automatically followed
 function addTarget() {
     // console.log(selectedPoint);
-    element("movehere").innerHTML = "PLEASE WAIT...";
-    element("quickMove").innerHTML = "PLEASE WAIT...";
+    // element("movehere").innerHTML = "PLEASE WAIT...";
+    // element("quickMove").innerHTML = "PLEASE WAIT...";
 
     ajaxSecureCall(
         "addTarget",
@@ -138,11 +140,11 @@ function addTarget() {
             let island = currentIsland();
             addLine(island.x, island.y, selectedPoint[0], selectedPoint[1]);
 
-            let icon = document.createElement("img");
-            icon.classList.add("invert");
-            icon.src = "material-icons/move.svg";
-            element("movehere").innerHTML = "MOVE TO MARKER";
-            element("movehere").appendChild(icon);
+            // let icon = document.createElement("img");
+            // icon.classList.add("invert");
+            // icon.src = "material-icons/move.svg";
+            // element("movehere").innerHTML = "MOVE TO MARKER";
+            // element("movehere").appendChild(icon);
             removeMarker();
 
             // hide the quick action

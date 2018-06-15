@@ -3,12 +3,12 @@ link(rel="stylesheet" href!="<? hashify('main/minigame/minigame.css'); ?>")
 #minigame(style="display:none")
     header
         #minigameHeader
+        #minigameTurn
     #board
 
     footer#footerBackgroundWorkaround
     footer
-
-        #minigameTurn
+        #minigameTurnCounter
         
         a.button(onclick="endTurn()")
             | end turn

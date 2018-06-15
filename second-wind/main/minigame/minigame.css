@@ -80,3 +80,13 @@
 #minigame > #footerBackgroundWorkaround {
     height: calc(100% - 15px);
 }
+
+#minigameTurn {
+    color: var(--text-white);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#minigameTurnCounter {
+    color: var(--text-white);
+}

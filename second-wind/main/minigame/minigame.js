@@ -1,24 +1,49 @@
-function startBattle(defender) {
-    
+var enemyPlayer;
+
+// defender is a player object
+function startBattle() {
+    if (!enemyPlayer) {
+        return;
+    }
+    ajaxSecureCall(
+        "startBattle",
+        {
+            myIsland: currentIsland().island,
+            defender: enemyPlayer.username,
+            defenderIsland: enemyPlayer.island
+        },
+        function() {
+            console.log("done");
+        }
+    );
 }
 
-function changeTurn() {
-
+function endTurn() {
+    ajaxSecureCall(
+        "endTurn",
+        {
+            myIsland: currentIsland().island,
+            defender: enemyPlayer.username,
+            defenderIsland: enemyPlayer.island
+        },
+        function() {
+            console.log("done");
+        }
+    );
 }
 
 function showMinigame(myIsland, player) {
-    secureLoad(
-        "minigameHeader",
-        "main/minigame/setUpMatch.php",
-        {
-            myIsland: myIsland.island,
-            player: player.username,
-            island: player.island
-        }
-    );
+    secureLoad("minigameHeader", "main/minigame/setUpMatch.php", {
+        myIsland: myIsland.island,
+        player: player.username,
+        island: player.island
+    });
     element("minigameHeader").innerHTML =
         "Setting up match with <b>" + player.username + "</b>...";
     show("minigame", "fadeIn", 2);
+
+    enemyPlayer = player;
+    startBattle(); // does nothing if battle already started
 }
 
 function closeMinigame() {

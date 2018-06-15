@@ -24,6 +24,14 @@ function hashify($file) {
     echo "$file?h=" . hash_file("crc32", $file);
 }
 
+function strSame($str1, $str2) {
+    if (strtolower($str1) == strtolower($str2)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 ?><!DOCTYPE html>
 <html>
   <head>

@@ -41,18 +41,35 @@ function startBattle($myIsland, $defender, $defenderIsland) {
     $battle = sqlSelectFirstRow("battles", $criteria, "id");
     if ($battle) { return; }
 
-    
+    sqlInsert("battles", "NULL", $username, $defender, $myIsland, $defenderIsland, "1", "10", "10");    
 }
 
 // update whose turn it is in a battle
-function changeTurn($attacker, $attackerIsland, $defender, $defenderIsland, $changeTo) {
+function endTurn($myIsland, $defender, $defenderIsland) {
     $username = $_POST["username"];
-    $criteria = "`attacker` = '$attacker' AND `attackerIsland` = '$attackerIsland'
-                AND `defender` = '$defender' AND `defenderIsland` = '$defenderIsland'";
+    $criteria = "(`attacker` = '$username' AND `attackerIsland` = '$myIsland'
+                AND `defender` = '$defender' AND `defenderIsland` = '$defenderIsland')
+                OR (`attacker` = '$defender' AND `attackerIsland` = '$defenderIsland'
+                AND `defender` = '$username' AND `defenderIsland` = '$myIsland')";
     $battle = sqlSelectFirstRow("battles", $criteria, "id");
     jslog($battle);
+    // turn 1 is the attacker's turn, so odd turns are attacker turns
     $turn = $battle["turn"];
-    
+    if ($turn % 2 == 0) {
+        // defenders turn
+        // check if you are the defender
+        if (strSame($battle["defender"], $username)) {
+            sqlUpdate("battles", "`attacker` = '$defender' AND `attackerIsland` = '$defenderIsland'
+            AND `defender` = '$username' AND `defenderIsland` = '$myIsland'", "turn", $turn + 1);
+        }
+    } else {
+        // attackers turn
+        // check if you are the attacker
+        if (strSame($battle["attacker"], $username)) {
+            sqlUpdate("battles", "`attacker` = '$username' AND `attackerIsland` = '$myIsland'
+            AND `defender` = '$defender' AND `defenderIsland` = '$defenderIsland'", "turn", $turn + 1);
+        }
+    }
 
 }
 

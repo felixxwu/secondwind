@@ -14,6 +14,14 @@ function showPlayerAction(player) {
     }
 }
 
+function showSourceAction(source) {
+    if (inSourceRange(currentIsland().x, currentIsland().y, source.x, source.y)) {
+        element("quickActionCard").appendChild(sourceButton(source));
+    }
+}
+
+
+
 function setUpActionContainer(x, y) {
     element("quickActionCard").innerHTML = "";
     element("quickActionContainer").style.marginLeft = zoomPoint([x, y])[0] + "%";

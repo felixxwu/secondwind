@@ -53,7 +53,7 @@ function mapClick(event) {
 
             element("selectedSources").appendChild(sourceButton(source));
 
-            // showPlayerAction(player);
+            showSourceAction(source);
         }
     }
     // element("selectedPlayers").innerHTML += "<hr>";

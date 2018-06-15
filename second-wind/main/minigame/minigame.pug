@@ -7,8 +7,10 @@ link(rel="stylesheet" href!="<? hashify('main/minigame/minigame.css'); ?>")
 
     footer#footerBackgroundWorkaround
     footer
-        a.button.iconButton(onclick="attack()")
-            
+        
+        a.button(onclick="endTurn()")
+            | end turn
+        
         a.button.iconButton(onclick="closeMinigame()")
             | close
             img.invert(src="material-icons/close.svg")

@@ -25,13 +25,21 @@ function createSource(source) {
     }
   
     let newSource = document.createElement("div");
-    //newSource.classList.add();
+    newSource.classList.add("source");
     newSource.innerHTML = energyInitial;
-    newSource.style.color = color;
-    newSource.style.position = 'absolute';
-    newSource.style.left = zoomPoint([source.x, source.y])[0] + "%";
-    newSource.style.top = zoomPoint([source.x, source.y])[1] + "%";
-  
+    newSource.style.backgroundImage = "radial-gradient(circle at center, " + color + " 0, #ffffff00 30%)";
+    
+    //set position and size of sources
+    if(zoomed==null){ //if the map is not zoomed
+      newSource.style.padding = "10%";
+      newSource.style.left = (zoomPoint([source.x, source.y])[0]-10) + "%";
+      newSource.style.top = (zoomPoint([source.x, source.y])[1]-10) + "%";
+    }else{ //zoomGridSize
+      let newPadding = 10*zoomGridSize;
+      newSource.style.padding = newPadding + "%";
+      newSource.style.left = (zoomPoint([source.x, source.y])[0]-newPadding) + "%";
+      newSource.style.top = (zoomPoint([source.x, source.y])[1]-newPadding) + "%";
+    }
     return newSource;
   }
 

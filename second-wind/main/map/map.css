@@ -130,6 +130,11 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+.source{
+    position: absolute;
+    border-radius:100%;
+    color:black;
+}
 /* ############################################# */
 
 #quickActions {

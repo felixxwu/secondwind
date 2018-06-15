@@ -11,7 +11,7 @@ function mapClick(event) {
     setUpActionContainer(x, y);
 
     element("markers").innerHTML = "";
-
+    element("selectedSources").innerHTML = "";
     // add players in range to mapUI
     element("selectedPlayers").innerHTML =
         "<br>Selected marker is near the following players:<br><br>";

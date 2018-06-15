@@ -1,4 +1,6 @@
 
+var extractionProcesses = [];
+
 //draws all sources
 function drawAllSources() {
     element("sourceLocations").innerHTML = "";
@@ -36,10 +38,52 @@ function createSource(source) {
   function sourceButton(source) {
     let sourceActionButton = document.createElement("a");
     sourceActionButton.classList.add("button");
-    // sourceActionButton.setAttribute(
-    //   "onclick",
-    //   "attackPlayer(" + JSON.stringify(player) + ")"
-    // );
+    sourceActionButton.setAttribute(
+      "onclick",
+      "startExtraction("  + JSON.stringify(source) + ")"
+    );
     sourceActionButton.innerHTML = "Extract from " + source.energyType + " source";
     return sourceActionButton;
   }
+
+  function startExtraction(source){
+  
+    //check if user has an extractor of that kind
+    for (let i = 0; i < itemList.length; i++) {
+      if(itemList[i].item===source.energyType + "_extractor"){
+        //if the user has an extractor of that energy kind then use it (it will use the first one)
+        //calculates the rate at which the user will take from the extractor
+        let rate = getExtractionRate(itemList[i].level,source.id);
+        extractionProcesses.push({
+        source_id: source.id,
+        extractor_level: itemList[i].level,
+        energy_type: source.energyType,
+        rate: rate,
+        amount: parseInt(source.amount)
+        });
+
+        //remove extractor from item list
+        itemList.splice(i, 1);
+        displayItemList();
+
+        //update database
+        ajaxAddExtractionProcess(source.id,itemList[i].level);
+        break;
+      }else{
+        log('extractor not available');
+      }
+    } 
+
+  }
+
+//needs to be implemented
+function getExtractionRate(extractorLevel,sourceId){
+  return 10;
+  
+}
+
+//removes extractor from itemList and creates extraction process
+//needs to be implemented
+function ajaxAddExtractionProcess(id,extractorLevel){
+
+}

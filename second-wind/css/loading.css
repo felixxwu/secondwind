@@ -4,11 +4,11 @@
     position: fixed;
     text-align: center;
     z-index: 100;
-    background-color: #222222;
+    background-color: var(--dark-card);
     pointer-events: none;
 }
 
 #loading text {
-    color: white;
+    color: var(--text-white);
     line-height: 100vh;
 }

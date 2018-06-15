@@ -4,17 +4,20 @@ function ajaxLoop() {
             "myIslands": null,
             "otherIslands": null,
             "myTargets": null,
+
             "ajaxSources": null,
-            "energies": null
+            "energies": null,
+
+            "myBattles": null
         }, function () {
 
             if (myIslands == []) { alert("error: no islands"); }
 
             chooseIsland(currentIsland());
-            // console.log(otherIslands);
             updatePlayerColours(otherIslands);
             updatePlayerLocations(otherIslands);
             drawAllPlayers();
+
             drawAllSources()
             updateEnergy();
 

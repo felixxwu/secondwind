@@ -4,8 +4,12 @@
     padding: 7px;
     margin: 5px;
     vertical-align: middle;
-    filter: invert(100%);
+    
     -webkit-filter: invert(100%);
+    -moz-filter: invert(100%);
+    -o-filter: invert(100%);
+    -ms-filter: invert(100%);
+    filter: invert(100%);
 }
 
 .button, .iconButton, select {
@@ -13,7 +17,7 @@
     border: solid white 1.5px;
     padding: 10px;
     margin: 10px;
-    color: white;
+    color: var(--text-white);
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0);
     font-size: medium;
@@ -33,10 +37,13 @@
 }
 
 .button:hover, select:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--dark-card-highlight);
 }
 
 .invert {
-    filter: invert(100%);
     -webkit-filter: invert(100%);
+    -moz-filter: invert(100%);
+    -o-filter: invert(100%);
+    -ms-filter: invert(100%);
+    filter: invert(100%);
 }

@@ -185,4 +185,10 @@ function ajaxSources(){
     return sqlSelectWithoutCriteria("sources", "*","id"); 
 }
 
+function myBattles() {
+    $username = $_POST["username"];
+    $myBattles = sqlSelect("battles", "*", "`attacker` = '$username' OR `defender` = '$username'", "id");
+    return $myBattles;
+}
+
 ?>

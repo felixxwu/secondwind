@@ -4,7 +4,7 @@ function log(log) {
     console.log(log);
 }
 
-function link(id, keycode, action) {
+function linkKey(id, keycode, action) {
     $("#" + id).keyup(function (event) {
         if (event.keyCode === keycode) {
             action();
@@ -19,6 +19,14 @@ function element(id) {
 
 function classes(id) {
     return document.getElementsByClassName(id);
+}
+
+function strSame(str1, str2) {
+    if (str1.toLowerCase() == str2.toLowerCase()) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function showError(message) {

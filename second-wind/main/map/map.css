@@ -38,7 +38,7 @@
     width: 100vw;
     height: 100%;
     /* background-color: rgba(0, 0, 0, 0.8); */
-    color: white;
+    color: var(--text-white);
     z-index: 4;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -86,8 +86,8 @@
     text-align: center;
     z-index: 1;
     margin: 25px;
-    background-color: hsla(180, 25%, 25%);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: var(--dark-card);
+    box-shadow: var(--small-shadow);
 }
 
 /* players #################################### */
@@ -109,16 +109,16 @@
 }
 
 .playerLight {
-    color: white;
+    color: var(--text-white);
 }
 
 .playerDark {
-    color: black;
+    color: var(--text-black);
 }
 
 /* action buttons on the side of the map to select players */
 #selectedPlayers {
-    background-color: hsla(180, 25%, 27%);;
+    background-color: var(--dark-card-highlight);
 }
 
 #selectedPlayers > a {
@@ -127,7 +127,7 @@
 }
 
 #selectedPlayers > a:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--dark-card);
 }
 
 /* ############################################# */
@@ -144,20 +144,21 @@
 }
 
 #quickActionCard {
-    background-color: rgba(69, 84, 69);
+    background-color: var(--dark-card);
+    box-shadow: var(--small-shadow);
     margin-left: -50%;
     pointer-events: all;
     width: 100%;
 }
 
 #quickActionCard > a {
-    color: white;
+    color: var(--text-white);
     padding: 15px;
     display: block;
 }
 
 #quickActionCard > a:hover {
-    background-color: rgb(91, 109, 91);
+    background-color: var(--dark-card-highlight);
 }
 
 @media screen and (max-width: 600px) {

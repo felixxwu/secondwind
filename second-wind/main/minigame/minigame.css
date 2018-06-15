@@ -39,7 +39,7 @@
     
     margin: auto;
     background-color: lightgrey;
-    box-shadow: 0px 9px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--small-shadow);
 
     height: calc(100vh - 270px);
     width: calc((100vh - 270px) * 4 / (7 * 0.9));
@@ -62,7 +62,7 @@
     grid-area: header;
 
     text-align: center;
-    color: white;
+    color: var(--text-white);
     padding-top: 15px;
     font-size: 20px;
 }
@@ -74,7 +74,7 @@
     width: 100%;
     margin-top: 15px;
     text-align: center;
-    background-color: #333;
+    background-color: var(--dark-card);
 }
 
 #minigame > #footerBackgroundWorkaround {

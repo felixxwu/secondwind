@@ -4,13 +4,13 @@ window.onload = function () {
     document.getElementById("username").focus();
 
     // link the enter button to the following input boxes
-    link("username", 13, function () {
+    linkKey("username", 13, function () {
         $("#signup").click();
     });
-    link("email", 13, function () {
+    linkKey("email", 13, function () {
         $("#signup").click();
     });
-    link("password", 13, function () {
+    linkKey("password", 13, function () {
         $("#signup").click();
     });
 }

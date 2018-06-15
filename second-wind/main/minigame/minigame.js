@@ -32,6 +32,17 @@ function endTurn() {
     );
 }
 
+function getBattleWithEnemy(enemyPlayer) {
+    for (let i = 0; i < myBattles.length; i++) {
+        const battle = myBattles[i];
+        if ((strSame(battle.attacker, enemyPlayer.username)
+            && strSame(battle.defender, getUsername()))
+            || strSame(battle.defender, enemyPlayer.username)) {
+            
+        }
+    }
+}
+
 function showMinigame(myIsland, player) {
     secureLoad("minigameHeader", "main/minigame/setUpMatch.php", {
         myIsland: myIsland.island,

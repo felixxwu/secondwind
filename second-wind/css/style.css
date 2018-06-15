@@ -2,6 +2,14 @@
 
 html * { font-family: 'Quicksand', sans-serif; }
 
+:root {
+    --dark-card: hsl(207, 8%, 21%);
+    --dark-card-highlight: hsl(210, 8%, 25%);
+    --text-white: white;
+    --text-black: black;
+    --small-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
 body {
     position: fixed;
     width: 100vw;
@@ -21,8 +29,8 @@ body {
 
 #error {
     width: 300px;
-    background-color: #333;
-    color: white;
+    background-color: var(--dark-card);
+    color: var(--text-white);
     padding: 20px;
     margin: auto;
     box-shadow: 0px 20px 100px 1px rgba(0, 0, 0, 0.5);
@@ -32,17 +40,17 @@ body {
     position: fixed;
     padding: 20px;
     margin: 20px;
-    background-color: #333;
+    background-color: var(--dark-card);
     width: 300px;
     margin-left: calc(50vw - 170px);
-    color: white;
+    color: var(--text-white);
     text-align: center;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
     z-index: 100;
 }
 
 
-.menuSolid, .loginButton, .loginInput, #loading { background-color: #222222; }
+.menuSolid, .loginButton, .loginInput, #loading { background-color: var(--dark-card); }
 
 .textWhite, #loading text { color: white; }
 

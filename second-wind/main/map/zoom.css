@@ -17,9 +17,9 @@
 
 #zoomOutButton {
     position: absolute;
-    background-color: #333;
+    background-color: var(--dark-card);
     padding: 10px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: var(--small-shadow);
     margin: 10px;
     width: 30px;
     height: 30px;

@@ -8,7 +8,7 @@
 }
 
 #chooseUnitOverlay {
-    z-index: 7;
+    z-index: 8;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -25,12 +25,17 @@
 
 #unitSprites {
     pointer-events: none;
-    z-index: 6;
+    z-index: 7;
 }
 
-#unitSprites > img {
+#unitSprites > img, #plusSigns > img {
     position: absolute;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+#plusSigns {
+    pointer-events: none;
+    z-index: 6;
 }

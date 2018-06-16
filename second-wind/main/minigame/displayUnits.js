@@ -9,6 +9,7 @@ function drawAllUnits() {
         const enemyUnit = enemyUnits[i];
         drawUnit(enemyUnit);
     }
+    drawPlusSigns();
 }
 
 // draws a single unit on the board
@@ -21,6 +22,23 @@ function drawUnit(unit) {
     sprite.style.top = unitPosition.top + "px";
     sprite.style.left = unitPosition.left + "px";
     element("unitSprites").appendChild(sprite);
+}
+
+function drawPlusSigns() {
+    element("plusSigns").innerHTML = "";
+    for (let i = 0; i < boardWidth; i++) {
+        drawPlus({x: i, y: boardHeight - 1});
+        drawPlus({x: i, y: boardHeight - 2});
+    }
+
+    function drawPlus(tile) {
+        const plusPosition = getTileXYPosition(tile);
+        let sprite = document.createElement("img");
+        sprite.src = "material-icons/add.svg";
+        sprite.style.top = plusPosition.top + "px";
+        sprite.style.left = plusPosition.left + "px";
+        element("plusSigns").appendChild(sprite);
+    }
 }
 
 // gets the position on pixels of the middle of a tile

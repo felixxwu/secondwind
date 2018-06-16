@@ -235,6 +235,7 @@ echoAsVar("myTargets", $myTargets);
 </overlay>
 <div id="minigame" style="display:none">
   <overlay id="unitSprites"></overlay>
+  <overlay id="plusSigns"></overlay>
   <header>
     <div id="minigameHeader"></div>
     <div id="minigameTurn"></div>

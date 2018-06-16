@@ -36,6 +36,7 @@ function unitMoveAnimation(origin, target) {
 
     // find the html unit to be animated
     let unit = element("unit-at-" + origin.x + "-" + origin.y);
+    unit.id = "unit-at-" + target.x + "-" + target.y;
     console.log(unit);
     console.log(unit.style.top);
 

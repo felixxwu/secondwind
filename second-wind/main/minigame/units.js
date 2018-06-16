@@ -15,29 +15,30 @@ class Unit {
         this.attackCost = attackCost;
         this.img = img;
         this.stepCost = stepCost;
-        this.location = location; // {x: x,y: y}
+        this.location = location; // {x, y}
         this.attackFunction = attackFunction;
         this.defenseFunction = defenseFunction; //defense is called when the unit gets an incoming attack
     }
     move(location) { 
         let validMove = false;
         //check if target location is in an adjacent square
-        if(this.location.x==location.x && this.location.y==location.y+1){ validMove=true;}
-        if(this.location.x==location.x && this.location.y==location.y-1){ validMove=true;}
-        if(this.location.x==location.x+1 && this.location.y==location.y){ validMove=true;}
-        if(this.location.x==location.x-1 && this.location.y==location.y){ validMove=true;}
+        if (this.location.x == location.x && this.location.y == location.y + 1) { validMove = true; }
+        if (this.location.x == location.x && this.location.y == location.y - 1) { validMove = true; }
+        if (this.location.x == location.x + 1 && this.location.y == location.y) { validMove = true; }
+        if (this.location.x == location.x - 1 && this.location.y == location.y) { validMove = true; }
 
         //checks if the target location is empty
         //iterates through enemylist and if it encounters an enemy in the target location then validMove=false
         enemyUnits.forEach(enemy => {
-            if(enemy.location.x==location.x && enemy.location.y==location.y){
+            if (enemy.location.x == location.x && enemy.location.y == location.y) {
                 console.error('invalid move as there is a unit in the target location');
-                validMove=false;
+                validMove = false;
             }
         });
         //if there are no units in the target location then move
-        if(validMove){
-            this.location=location;
+        if (validMove) {
+            unitMoveAnimation(this.location, location);
+            this.location = location;
         }
     }
     //goes through the enemy troops to check if there's any at the target location and if there is 
@@ -89,5 +90,5 @@ var badShit = new shitTroop({ x: 1, y: 2 }, 1);
 ownUnits.push(goodShit);
 enemyUnits.push(badShit);
 
-goodShit.attack('up');
-goodShit.move({ x: 2, y: 1 });
+// goodShit.attack('up');
+// goodShit.move({ x: 2, y: 1 });

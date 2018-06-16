@@ -232,8 +232,8 @@ echoAsVar("myTargets", $myTargets);
     <div id="unitList"></div><a class="button iconButton" onclick="hide('chooseUnitOverlay','fadeOut',1)">close<img class="invert" src="material-icons/close.svg"/></a>
   </div>
 </overlay>
-<overlay id="unitSprites"></overlay>
 <div id="minigame" style="display:none">
+  <overlay id="unitSprites"></overlay>
   <header>
     <div id="minigameHeader"></div>
     <div id="minigameTurn"></div>

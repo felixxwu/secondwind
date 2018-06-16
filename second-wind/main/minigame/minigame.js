@@ -120,6 +120,9 @@ function showMinigame(myIsland, player) {
 
     enemyPlayer = player;
     startBattle(); // does nothing if battle already started
+
+    drawAllUnits();
+    clickMode = "select";
 }
 
 function closeMinigame() {

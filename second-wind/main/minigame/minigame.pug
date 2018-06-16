@@ -1,5 +1,15 @@
 link(rel="stylesheet" href!="<? hashify('main/minigame/minigame.css'); ?>")
 
+overlay#chooseUnitOverlay(style="display:none")
+    #chooseUnitMenu
+        h3 CHOOSE A UNIT
+        br
+        #unitList
+            
+        a.button.iconButton(onclick="hide('chooseUnitOverlay','fadeOut',1)")
+            | close
+            img.invert(src="material-icons/close.svg")
+
 #minigame(style="display:none")
     header
         #minigameHeader

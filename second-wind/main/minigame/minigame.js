@@ -1,4 +1,6 @@
-var enemyPlayer;
+var enemyPlayer;    // (player object) represents the player who you are engaging in battle with now
+var boardWidth;
+var boardHeight;
 
 // defender is a player object
 function startBattle() {
@@ -125,6 +127,8 @@ function closeMinigame() {
 }
 
 function initBoardButtons(xTiles, yTiles) {
+    boardWidth = xTiles;
+    boardHeight = yTiles;
     for (let y = 0; y < yTiles; y++) {
         for (let x = 0; x < xTiles; x++) {
             let boardButton = document.createElement("a");
@@ -142,7 +146,7 @@ function initBoardButtons(xTiles, yTiles) {
 
             boardButton.setAttribute(
                 "onclick",
-                "alert([" + x + ", " + y + "])"
+                "boardClick(" + x + ", " + y + ")"
             );
 
             element("board").appendChild(boardButton);

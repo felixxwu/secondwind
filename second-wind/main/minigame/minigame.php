@@ -1,5 +1,11 @@
 
 <link rel="stylesheet" href="<? hashify('main/minigame/minigame.css'); ?>"/>
+<overlay id="chooseUnitOverlay" style="display:none">
+  <div id="chooseUnitMenu">
+    <h3>CHOOSE A UNIT</h3><br/>
+    <div id="unitList"></div><a class="button iconButton" onclick="hide('chooseUnitOverlay','fadeOut',1)">close<img class="invert" src="material-icons/close.svg"/></a>
+  </div>
+</overlay>
 <div id="minigame" style="display:none">
   <header>
     <div id="minigameHeader"></div>

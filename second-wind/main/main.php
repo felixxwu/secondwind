@@ -126,6 +126,7 @@ function getEnergyAllocation(){
       </table>
     </div>
     <div id="factory_actions"> 
+      <button id="testImg" onclick="startAnimation()"></button>
       <action_title>actions</action_title>
       <button id="combine" onclick="newCombineItems()">Combine items</button>
       <div id="testItems"></div>
@@ -236,6 +237,7 @@ echoAsVar("myTargets", $myTargets);
   <header>
     <div id="minigameHeader"></div>
     <div id="minigameTurn"></div>
+    <div>test</div>
   </header>
   <div id="board"></div>
   <footer id="footerBackgroundWorkaround"></footer>

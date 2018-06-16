@@ -34,9 +34,21 @@ class Unit {
         //checks if the target location is empty
         //iterates through enemylist and if it encounters an enemy in the target location then validMove=false
         enemyUnits.forEach(enemy => {
-            if (enemy.location.x == location.x && enemy.location.y == location.y) {
-                console.error('invalid move as there is a unit in the target location');
-                validMove = false;
+            if (enemy.location) {
+
+                if (enemy.location.x == location.x && enemy.location.y == location.y) {
+                    console.error('invalid move as there is a unit in the target location');
+                    validMove = false;
+                }
+            }
+        });
+        //iterates through ownunits and if it encounters a unit in the target location then validMove=false
+        ownUnits.forEach(unit => {
+            if (unit.location) {
+                if (unit.location.x == location.x && unit.location.y == location.y) {
+                    console.error('invalid move as there is a unit in the target location');
+                    validMove = false;
+                }
             }
         });
         //if there are no units in the target location then move

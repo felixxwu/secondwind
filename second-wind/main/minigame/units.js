@@ -16,11 +16,34 @@ class Unit {
         this.img = img;
         this.stepCost = stepCost;
         this.location = location; // {x: x,y: y}
-        this.attack = attackFunction;
-        this.defense = defenseFunction; //defense is called when the unit gets an incoming attack
+        this.attackFunction = attackFunction;
+        this.defenseFunction = defenseFunction; //defense is called when the unit gets an incoming attack
     }
-    move(direction) { //direction can be: {top, down, left, right}
-        //calculate target direction
+    move(location) { 
+        let validMove = false;
+        //check if target location is in an adjacent square
+        if(this.location.x==location.x && this.location.y==location.y+1){ validMove=true;}
+        if(this.location.x==location.x && this.location.y==location.y-1){ validMove=true;}
+        if(this.location.x==location.x+1 && this.location.y==location.y){ validMove=true;}
+        if(this.location.x==location.x-1 && this.location.y==location.y){ validMove=true;}
+
+        //checks if the target location is empty
+        //iterates through enemylist and if it encounters an enemy in the target location then validMove=false
+        enemyUnits.forEach(enemy => {
+            if(enemy.location.x==location.x && enemy.location.y==location.y){
+                console.error('invalid move as there is a unit in the target location');
+                validMove=false;
+            }
+        });
+        //if there are no units in the target location then move
+        if(validMove){
+            this.location=location;
+        }
+    }
+    //goes through the enemy troops to check if there's any at the target location and if there is 
+    //... then perform the attackFunction on them
+    attack(direction){ //CHANGE TO ATTACK LOCATION RATHER THAN ATTACK DIRECTION
+        //creates the target location at which the attack is going to be aimed
         let targetLocation = {x:this.location.x, y:this.location.y};
         switch (direction) {
             case "up": targetLocation.y++; break;
@@ -28,21 +51,13 @@ class Unit {
             case "right": targetLocation.x++; break;
             case "left": targetLocation.x--; break;
         }
-
-        let validMove = true;
         //iterates through enemylist and if it encounters an enemy in the target location attacks them
         enemyUnits.forEach(enemy => {
-            log(enemy.location);
-            log(targetLocation);
             if(enemy.location.x==targetLocation.x && enemy.location.y==targetLocation.y){
-                console.error('invalid move as there is a unit in the target location');
-                validMove=false;;
+                log('enemy attacked');
+                this.attackFunction(enemy);
             }
         });
-        //if there are no units in the target location then move
-        if(validMove){
-            this.location=targetLocation;
-        }
     }
     die(){//remove unit from list and board
 
@@ -56,24 +71,10 @@ class Unit {
 //subclasses for each unit
 class shitTroop extends Unit {
   constructor(location, level) {
-    function shitAttack(direction) {
+    //function that is performed on the enemy once its targeted 
+    function shitAttack(enemy) {
         const attackDamage = 2;
-        //creates the target location at which the attack is going to be aimed
-        let targetLocation = {x:this.location.x, y:this.location.y};
-        switch (direction) {
-            case "up": targetLocation.y++; break;
-            case "down": targetLocation.y--; break;
-            case "right": targetLocation.x++; break;
-            case "left": targetLocation.x--; break;
-        }
-        //iterates through enemylist and if it encounters an enemy in the target location attacks them
-        enemyUnits.forEach(enemy => {
-            if(enemy.location.x==targetLocation.x && enemy.location.y==targetLocation.y){
-                log('enemy attacked');
-                enemy.defense(this.level*attackDamage); //pass attack to enemy unit
-            }
-        });
-        
+        enemy.defenseFunction(this.level*attackDamage); //pass attack to enemy unit
     }
     function shitDefense(damage) { //reduce healthpoints
         this.healthPoints=this.healthPoints-damage;
@@ -89,5 +90,4 @@ ownUnits.push(goodShit);
 enemyUnits.push(badShit);
 
 goodShit.attack('up');
-goodShit.move('up');
-goodShit.move('right');
+goodShit.move({ x: 2, y: 1 });

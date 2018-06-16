@@ -54,10 +54,11 @@ class Unit {
 class shitTroop extends Unit {
   constructor(location, level) {
     function shitAttack(direction) {
-      log(direction);
+      //iterates through enemylist and if it encounters an enemit in the target location substract level
+        let targetLocation = this.location;
+        log(targetLocation);
     }
     function shitDefense() {
-      log();
     }
     super(level, 1, "shit.svg", 1, location, shitAttack, shitDefense);
   }
@@ -68,4 +69,3 @@ var shitInstance = new shitTroop([1, 1], 1);
 shitInstance.move("up");
 shitInstance.attack("up");
 shitInstance.defense();
-log(shitInstance);

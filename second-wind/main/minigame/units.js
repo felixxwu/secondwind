@@ -17,7 +17,7 @@ class Unit {
         this.stepCost = stepCost;
         this.location = location; // {x: x,y: y}
         this.attack = attackFunction;
-        this.defense = defenseFunction;
+        this.defense = defenseFunction; //defense is called when the unit gets an incoming attack
     }
     move(direction) { //direction could be: top, down, left, right
         switch (direction) {
@@ -49,7 +49,7 @@ class shitTroop extends Unit {
             case "right": targetLocation.x++; break;
             case "left": targetLocation.x--; break;
         }
-        //iterates through enemylist and if it encounters an enemy in the target location attack them
+        //iterates through enemylist and if it encounters an enemy in the target location attacks them
         enemyUnits.forEach(enemy => {
             log(enemy.location);
             log(targetLocation);

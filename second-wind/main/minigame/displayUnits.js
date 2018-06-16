@@ -1,24 +1,32 @@
+var cachedIdleAnimation = null;
 // converts the js unit class instances into visible html elements on the board
 function drawAllUnits() {
     element("unitSprites").innerHTML = "";
     for (let i = 0; i < ownUnits.length; i++) {
         const myUnit = ownUnits[i];
-        drawUnit(myUnit);
+        drawUnit(myUnit,"idle");
     }
     for (let i = 0; i < enemyUnits.length; i++) {
         const enemyUnit = enemyUnits[i];
-        drawUnit(enemyUnit);
+        drawUnit(enemyUnit,"idle");
     }
     drawPlusSigns();
 }
 
 // draws a single unit on the board
-function drawUnit(unit) {
+function drawUnit(unit,action) { //action can either be idle or move
     if (!unit.location) {return;}
     const unitPosition = getTileXYPosition(unit.location);
     let sprite = document.createElement("img");
     sprite.id = "unit-at-" + unit.location.x + "-" + unit.location.y;
-    sprite.src = unit.img;
+
+    if(action=="idle"){
+        sprite.src = unit.idleImg;
+    }
+    if(action == "move"){
+        sprite.src = unit.moveImg;
+    }
+    
     sprite.style.top = unitPosition.top + "px";
     sprite.style.left = unitPosition.left + "px";
     element("unitSprites").appendChild(sprite);
@@ -58,9 +66,15 @@ function getTileXYPosition(XY) {
     };
 }
 
+function removeUnit(id){
+    let unitHolder = document.getElementById("unitSprites");
+    var unit = document.getElementById(id);
+    unitHolder.removeChild(unit);
+}
 // starts a movement animation for a unit that is located at "origin"
 // the animation moves the actual html element from origin to target, and leaves it there
 function unitMoveAnimation(origin, target) {
+    
     blockClicks = true;
 
     if (!origin) {
@@ -73,9 +87,7 @@ function unitMoveAnimation(origin, target) {
 
     // find the html unit to be animated
     let unit = element("unit-at-" + origin.x + "-" + origin.y);
-    console.log(unit);
-    console.log(unit.style.top);
-
+    
     const originPosition = getTileXYPosition(origin);
     const targetPosition = getTileXYPosition(target);
     const xDistance = targetPosition.x - originPosition.x;
@@ -87,6 +99,9 @@ function unitMoveAnimation(origin, target) {
         if (i >= animationFrames) {
             blockClicks = false;
             clearInterval(animation);
+            log(cachedIdleAnimation);
+            unit.src=cachedIdleAnimation;
+
         } else {
             i++;
             unit.style.left =

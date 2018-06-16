@@ -9,11 +9,12 @@ function updateLocalUnits() {
 
 //parent class for all units
 class Unit {
-    constructor(healthPoints,level, attackCost, img, stepCost, location, attackFunction, defenseFunction) {
+    constructor(healthPoints,level, attackCost, idleImg, moveImg, stepCost, location, attackFunction, defenseFunction) {
         this.healthPoints=healthPoints;
         this.level = level;
         this.attackCost = attackCost;
-        this.img = img;
+        this.idleImg = idleImg;
+        this.moveImg = moveImg;
         this.stepCost = stepCost;
         this.location = location; // {x, y}
         this.attackFunction = attackFunction;
@@ -53,13 +54,21 @@ class Unit {
         });
         //if there are no units in the target location then move
         if (validMove) {
+            let id = "unit-at-" + this.location.x + "-" + this.location.y;
+            let unit = element(id);
+            //sets moving animation
+            cachedIdleAnimation= this.idleImg;
+            unit.src=this.moveImg;
+
             // animate the movement
             unitMoveAnimation(this.location, location);
-
+            
             // update the id of the unit html element, so that it matches with its location
-            let unit = element("unit-at-" + this.location.x + "-" + this.location.y);
             unit.id = "unit-at-" + location.x + "-" + location.y;
             
+            
+            
+
             this.location = location;
         }
     }
@@ -102,7 +111,7 @@ class shitTroop extends Unit {
     function shitDefense(damage) { //reduce healthpoints
         this.healthPoints=this.healthPoints-damage;
     }
-    super(10*level,level, 1, "material-icons/myLocation.svg", 1, location, shitAttack, shitDefense);
+    super(10*level,level, 1, "main/minigame/units/shitUnitIdle.svg","main/minigame/units/shitUnitMove.svg", 1, location, shitAttack, shitDefense);
     }
 }
 

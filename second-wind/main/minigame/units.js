@@ -41,7 +41,7 @@ class shitTroop extends Unit {
         function shitDefense() {
             log('defense');
         }
-        super(level, 1, "shit.svg", 1, location, shitAttack, shitDefense);
+        super(level, 1, "material-icons/myLocation.svg", 1, location, shitAttack, shitDefense);
     }
 }
 

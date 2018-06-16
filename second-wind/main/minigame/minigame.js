@@ -133,6 +133,7 @@ function initBoardButtons(xTiles, yTiles) {
         for (let x = 0; x < xTiles; x++) {
             let boardButton = document.createElement("a");
             boardButton.classList.add("boardButton");
+            boardButton.id = "tile-" + x + "-" + y;
 
             if (y == 0) {
                 boardButton.classList.add("baseTile");

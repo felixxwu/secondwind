@@ -97,6 +97,7 @@ function strSame($str1, $str2) {
         linkJs("<? hashify('main/minigame/minigame.js'); ?>");
         linkJs("<? hashify('main/minigame/boardClick.js'); ?>");
         linkJs("<? hashify('main/minigame/units.js'); ?>");
+        linkJs("<? hashify('main/minigame/displayUnits.js'); ?>");
         
         linkJs("<? hashify('init.js'); ?>");
       </script>

@@ -2,7 +2,7 @@
 var enemyUnits = [];
 var ownUnits = [];
 
-//querries the database for enemyUnits and ownUnits
+//querries the database and updates enemyUnits and ownUnits
 function updateLocalUnits() {
 
 }
@@ -19,19 +19,36 @@ class Unit {
         this.attack = attackFunction;
         this.defense = defenseFunction; //defense is called when the unit gets an incoming attack
     }
-    move(direction) { //direction could be: top, down, left, right
+    move(direction) { //direction can be: {top, down, left, right}
+        //calculate target direction
+        let targetLocation = {x:this.location.x, y:this.location.y};
         switch (direction) {
-            case "up": this.location.y++; break;
-            case "down": this.location.y--; break;
-            case "right": this.location.x++; break;
-            case "left": this.location.x--; break;
+            case "up": targetLocation.y++; break;
+            case "down": targetLocation.y--; break;
+            case "right": targetLocation.x++; break;
+            case "left": targetLocation.x--; break;
         }
-        log('moved');
+
+        let validMove = true;
+        //iterates through enemylist and if it encounters an enemy in the target location attacks them
+        enemyUnits.forEach(enemy => {
+            log(enemy.location);
+            log(targetLocation);
+            if(enemy.location.x==targetLocation.x && enemy.location.y==targetLocation.y){
+                console.error('invalid move as there is a unit in the target location');
+                validMove=false;;
+            }
+        });
+        //if there are no units in the target location then move
+        if(validMove){
+            this.location=targetLocation;
+        }
     }
     die(){//remove unit from list and board
 
     }
 }
+
 //####################################################
 //#####       Subclasses for each unit          ######
 //####################################################
@@ -51,11 +68,9 @@ class shitTroop extends Unit {
         }
         //iterates through enemylist and if it encounters an enemy in the target location attacks them
         enemyUnits.forEach(enemy => {
-            log(enemy.location);
-            log(targetLocation);
             if(enemy.location.x==targetLocation.x && enemy.location.y==targetLocation.y){
                 log('enemy attacked');
-                enemy.defense(this.level*attack);
+                enemy.defense(this.level*attackDamage); //pass attack to enemy unit
             }
         });
         
@@ -70,5 +85,9 @@ class shitTroop extends Unit {
 //example of how to create an use an instance of a shitTroop
 var goodShit = new shitTroop({ x: 1, y: 1 }, 1);
 var badShit = new shitTroop({ x: 1, y: 2 }, 1);
+ownUnits.push(goodShit);
 enemyUnits.push(badShit);
+
 goodShit.attack('up');
+goodShit.move('up');
+goodShit.move('right');

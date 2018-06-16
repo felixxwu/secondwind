@@ -2,6 +2,7 @@
 
 window.onresize = function () {
     setupPerimeter();
+    drawAllUnits();
 
     // clearTimeout(timeout);
     // timeout = setTimeout(function() {

@@ -2,6 +2,14 @@
     border: solid grey 1px;
 }
 
+.boardButton:hover {
+    border: solid rgba(255, 255, 255, 0.5) 4px;
+}
+
+.highlightedTile {
+    border: solid rgba(0, 128, 0, 0.3) 4px;
+}
+
 .baseTile {
     background-color: rgb(184, 184, 184);
 }
@@ -89,20 +97,4 @@
 
 #minigameTurnCounter {
     color: var(--text-white);
-}
-
-#chooseUnitOverlay {
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-#chooseUnitMenu {
-    color: var(--text-white);
-    background-color: var(--dark-card);
-    box-shadow: var(--small-shadow);
-    text-align: center;
-    margin: auto;
-    width: 300px;
-    margin-top: 50px;
-    padding: 20px;
 }

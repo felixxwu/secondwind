@@ -1,8 +1,9 @@
 var enemyPlayer;    // (player object) represents the player who you are engaging in battle with now
-var boardWidth;
-var boardHeight;
+var boardWidth;     // width of board in tiles  
+var boardHeight;    // height of board in tiles
 
 // defender is a player object
+// called every time you open a battle with someone, if you are not battling this person, create a new entry on the database
 function startBattle() {
     if (!enemyPlayer) {
         return;
@@ -14,12 +15,11 @@ function startBattle() {
             defender: enemyPlayer.username,
             defenderIsland: enemyPlayer.island
         },
-        function() {
-            console.log("done");
-        }
+        function() {}
     );
 }
 
+// finish your turn
 function endTurn() {
     element("minigameTurn").innerHTML = "ending turn...";
     ajaxSecureCall(
@@ -35,6 +35,7 @@ function endTurn() {
     );
 }
 
+// update the visual feedback for things like YOUR TURN or the turn number
 function updateTurn() {
     const battle = getBattleWithEnemy(enemyPlayer);
     if (!battle) {
@@ -83,6 +84,7 @@ function getBattleWithEnemy(enemyPlayer) {
 }
 
 // helper function for getBattleWithEnemy()
+// checks if a player in a battle is an attacker 
 function isAttacker(player, battle) {
     if (
         // if username and island number is equal
@@ -96,6 +98,7 @@ function isAttacker(player, battle) {
 }
 
 // helper function for getBattleWithenemy()
+// checks if a player in a battle is a defender 
 function isDefender(player, battle) {
     if (
         // if username and island number is equal
@@ -120,12 +123,16 @@ function showMinigame(myIsland, player) {
 
     enemyPlayer = player;
     startBattle(); // does nothing if battle already started
+
+    drawAllUnits();
+    clickMode = "select";
 }
 
 function closeMinigame() {
     hide("minigame", "fadeOut", 2);
 }
 
+// create all the clickable board buttons
 function initBoardButtons(xTiles, yTiles) {
     boardWidth = xTiles;
     boardHeight = yTiles;
@@ -133,6 +140,7 @@ function initBoardButtons(xTiles, yTiles) {
         for (let x = 0; x < xTiles; x++) {
             let boardButton = document.createElement("a");
             boardButton.classList.add("boardButton");
+            boardButton.id = "tile-" + x + "-" + y;
 
             if (y == 0) {
                 boardButton.classList.add("baseTile");

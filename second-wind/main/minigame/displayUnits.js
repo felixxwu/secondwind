@@ -24,11 +24,15 @@ function drawUnit(unit) {
     element("unitSprites").appendChild(sprite);
 }
 
+// draw the plus signs on the spawnable areas
 function drawPlusSigns() {
     element("plusSigns").innerHTML = "";
-    for (let i = 0; i < boardWidth; i++) {
-        drawPlus({x: i, y: boardHeight - 1});
-        drawPlus({x: i, y: boardHeight - 2});
+    for (let x = 0; x < boardWidth; x++) {
+        for (let y = 0; y < boardHeight; y++) {
+            if (isSpawnTile({x, y})) {
+                drawPlus({x: x, y: y});
+            }
+        }
     }
 
     function drawPlus(tile) {

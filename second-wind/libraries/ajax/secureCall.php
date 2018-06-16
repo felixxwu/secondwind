@@ -87,6 +87,15 @@ function addTarget($island, $x, $y) {
 
 }
 
+
+function startExtractionProcess($extractorName,$extractorLevel,$id){
+    $username = $_POST["username"];
+    $success= subtractQuantities($username,$extractorName,$extractorLevel);
+    if($success){ //if user has the given extractor then start extraction process 
+        sqlInsert("extractionProcesses","$id",$extractorLevel,$username);
+    }
+}
+
 //submits the new energy allocation
 function updateEnergyAllocation($human,$attack,$power,$intelligence,$building){
     $username=$_POST["username"];

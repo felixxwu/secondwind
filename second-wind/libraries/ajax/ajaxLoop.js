@@ -21,7 +21,7 @@ function ajaxLoop() {
 
             // sources ##########################
             drawAllSources()
-            updateEnergy();
+            // updateEnergy();
 
             // minigame #########################
             updateTurn();

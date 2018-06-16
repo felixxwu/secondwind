@@ -141,7 +141,7 @@ function getEnergyAllocation(){
   </factory_menu>
   <extractor_menu id="extractor_menu" style="display:none">
     <test>hey</test>
-    <button id="hideMenu" onclick="hide('extractor_menus','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)">Close Menu</button>
+    <button id="hideMenu" onclick="hide('extractor_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)">Close Menu</button>
   </extractor_menu>
 </div>
 <div class="notificationLayout" id="notifications" style="display:none">

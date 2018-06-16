@@ -130,6 +130,11 @@
     background-color: var(--dark-card);
 }
 
+.source{
+    position: absolute;
+    border-radius:100%;
+    color:black;
+}
 /* ############################################# */
 /* quick actions */
 

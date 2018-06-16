@@ -27,7 +27,7 @@ function updateFactory() {
     },
     function() {
       newUpdateItemList(getItemList, getShitList);
-      itemRatios = getRatiosList;
+      itemRatios = getRatiosList; 
       updateCombinationList(getCombinationsList);
     }
   );
@@ -272,11 +272,12 @@ function newCombineItems() {
   var resultItem = resultingCombination[0];
   var resultItemLevel = resultingCombination[1];
   var combinationTime = getCombinationTimes(item1, level1, item2, level2);
-  var id =
-    "id-" +
-    Math.random()
-      .toString(36)
-      .substr(2, 16);
+  //sets new id
+  var id = 0;
+  for (let i = 0; i < combinationList.length; i++) {
+    if(combinationList[i].id>=id){id=combinationList[i].id;}
+  }
+  id++; //id is max id++;
   var d = new Date();
   var startTime = Math.round(d.getTime() / 1000);
   var finishTime = startTime + combinationTime;

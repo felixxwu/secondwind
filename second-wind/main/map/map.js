@@ -11,7 +11,7 @@ function mapClick(event) {
     setUpActionContainer(x, y);
 
     element("markers").innerHTML = "";
-
+    element("selectedSources").innerHTML = "";
     // add players in range to mapUI
     element("selectedPlayers").innerHTML =
         "<br>Selected marker is near the following players:<br><br>";
@@ -48,12 +48,10 @@ function mapClick(event) {
             ) &&
             inHitBox(XY, source.x, source.y)
         ) {
-            element("selectedSources").style.display = "";
-            element("selectedSources").innerHTML="source selected";
+            displaySourceUI(source);
+            
 
-            element("selectedSources").appendChild(sourceButton(source));
-
-            showSourceAction(source);
+            // showSourceAction(source);
         }
     }
     // element("selectedPlayers").innerHTML += "<hr>";

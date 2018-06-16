@@ -1,3 +1,11 @@
+//structures that hold the units in game as well as their state (location, health...)
+var enemyUnits = [];
+var ownUnits = [];
+
+//querries the database for enemyUnits and ownUnits
+function updateLocalUnits() {
+
+}
 
 //parent class for all units
 class Unit {
@@ -20,6 +28,9 @@ class Unit {
         log('moved');
     }
 }
+//####################################################
+//#####       Subclasses for each unit          ######
+//####################################################
 
 //subclasses for each unit
 class shitTroop extends Unit {
@@ -35,7 +46,7 @@ class shitTroop extends Unit {
 }
 
 //example of how to create an use an instance of a shitTroop
-var shitInstance = new shitTroop({x: 1, y: 1}, 1);
+var shitInstance = new shitTroop({ x: 1, y: 1 }, 1);
 shitInstance.move('up');
 shitInstance.attack();
 shitInstance.defense();

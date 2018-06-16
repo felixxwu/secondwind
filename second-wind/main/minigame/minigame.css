@@ -3,7 +3,11 @@
 }
 
 .boardButton:hover {
-    border: solid rgba(255, 0, 0, 0.3) 6px;
+    border: solid white 4px;
+}
+
+.highlightedTile {
+    border: solid rgba(0, 128, 0, 0.3) 4px;
 }
 
 .baseTile {

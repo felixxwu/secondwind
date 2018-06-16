@@ -37,7 +37,13 @@ class Unit {
         });
         //if there are no units in the target location then move
         if (validMove) {
+            // animate the movement
             unitMoveAnimation(this.location, location);
+
+            // update the id of the unit html element, so that it matches with its location
+            let unit = element("unit-at-" + this.location.x + "-" + this.location.y);
+            unit.id = "unit-at-" + location.x + "-" + location.y;
+            
             this.location = location;
         }
     }

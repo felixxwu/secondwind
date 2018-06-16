@@ -27,6 +27,10 @@ class Unit {
         if (this.location.x == location.x + 1 && this.location.y == location.y) { validMove = true; }
         if (this.location.x == location.x - 1 && this.location.y == location.y) { validMove = true; }
 
+        if (!this.location && isSpawnTile(location)) {
+            validMove = true;
+        }
+
         //checks if the target location is empty
         //iterates through enemylist and if it encounters an enemy in the target location then validMove=false
         enemyUnits.forEach(enemy => {
@@ -95,6 +99,9 @@ var goodShit = new shitTroop({ x: 1, y: 1 }, 1);
 var badShit = new shitTroop({ x: 1, y: 2 }, 1);
 ownUnits.push(goodShit);
 enemyUnits.push(badShit);
+
+ownUnits.push(new shitTroop(undefined, 1));
+ownUnits.push(new shitTroop(undefined, 1));
 
 // goodShit.attack('up');
 // goodShit.move({ x: 2, y: 1 });

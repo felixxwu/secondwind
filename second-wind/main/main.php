@@ -226,10 +226,11 @@ echoAsVar("myTargets", $myTargets);
 <link rel="stylesheet" href="<? hashify('main/menu/menu.css'); ?>"/>
 <div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/notifications.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/chart.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="<? hashify('material-icons/map.svg'); ?>"/></a><br/></div>
 <link rel="stylesheet" href="<? hashify('main/minigame/minigame.css'); ?>"/>
+<link rel="stylesheet" href="<? hashify('main/minigame/units.css'); ?>"/>
 <overlay id="chooseUnitOverlay" style="display:none">
   <div id="chooseUnitMenu">
-    <h3>CHOOSE A UNIT</h3><br/>
-    <div id="unitList"></div><a class="button iconButton" onclick="hide('chooseUnitOverlay','fadeOut',1)">close<img class="invert" src="material-icons/close.svg"/></a>
+    <h3>CHOOSE A UNIT</h3>
+    <div id="unitList"></div><br/><a class="button iconButton" onclick="hide('chooseUnitOverlay','fadeOut',1)">close<img class="invert" src="material-icons/close.svg"/></a>
   </div>
 </overlay>
 <div id="minigame" style="display:none">

@@ -98,31 +98,3 @@
 #minigameTurnCounter {
     color: var(--text-white);
 }
-
-#chooseUnitOverlay {
-    z-index: 7;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-#chooseUnitMenu {
-    color: var(--text-white);
-    background-color: var(--dark-card);
-    box-shadow: var(--small-shadow);
-    text-align: center;
-    margin: auto;
-    width: 300px;
-    margin-top: 50px;
-    padding: 20px;
-}
-
-#unitSprites {
-    pointer-events: none;
-    z-index: 6;
-}
-
-#unitSprites > img {
-    position: absolute;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}

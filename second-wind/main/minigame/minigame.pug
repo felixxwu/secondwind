@@ -1,11 +1,11 @@
 link(rel="stylesheet" href!="<? hashify('main/minigame/minigame.css'); ?>")
+link(rel="stylesheet" href!="<? hashify('main/minigame/units.css'); ?>")
 
 overlay#chooseUnitOverlay(style="display:none")
     #chooseUnitMenu
         h3 CHOOSE A UNIT
-        br
         #unitList
-            
+        br
         a.button.iconButton(onclick="hide('chooseUnitOverlay','fadeOut',1)")
             | close
             img.invert(src="material-icons/close.svg")
@@ -13,7 +13,7 @@ overlay#chooseUnitOverlay(style="display:none")
 
 #minigame(style="display:none")
     overlay#unitSprites
-    
+
     header
         #minigameHeader
         #minigameTurn

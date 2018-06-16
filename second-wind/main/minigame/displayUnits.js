@@ -13,6 +13,7 @@ function drawAllUnits() {
 
 // draws a single unit on the board
 function drawUnit(unit) {
+    if (!unit.location) {return;}
     const unitPosition = getTileXYPosition(unit.location);
     let sprite = document.createElement("img");
     sprite.id = "unit-at-" + unit.location.x + "-" + unit.location.y;
@@ -39,6 +40,10 @@ function getTileXYPosition(XY) {
 // the animation moves the actual html element from origin to target, and leaves it there
 function unitMoveAnimation(origin, target) {
     blockClicks = true;
+
+    if (!origin) {
+        origin = {x: boardWidth - 1, y: boardHeight - 1};
+    }
     
     const animationDuration = 1000; // in milliseconds
     const animationFrames = 100; // numbers of frames in the animation (frames per second if animationDuration is 1000)

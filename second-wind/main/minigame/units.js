@@ -9,7 +9,8 @@ function updateLocalUnits() {
 
 //parent class for all units
 class Unit {
-    constructor(level, attackCost, img, stepCost, location, attackFunction, defenseFunction) {
+    constructor(healthPoints,level, attackCost, img, stepCost, location, attackFunction, defenseFunction) {
+        this.healthPoints=healthPoints;
         this.level = level;
         this.attackCost = attackCost;
         this.img = img;
@@ -20,12 +21,15 @@ class Unit {
     }
     move(direction) { //direction could be: top, down, left, right
         switch (direction) {
-            case "up": log('up'); this.location.y++; break;
+            case "up": this.location.y++; break;
             case "down": this.location.y--; break;
             case "right": this.location.x++; break;
             case "left": this.location.x--; break;
         }
         log('moved');
+    }
+    die(){//remove unit from list and board
+
     }
 }
 //####################################################
@@ -36,18 +40,35 @@ class Unit {
 class shitTroop extends Unit {
   constructor(location, level) {
     function shitAttack(direction) {
-      //iterates through enemylist and if it encounters an enemit in the target location substract level
-        let targetLocation = this.location;
-        log(targetLocation);
+        const attackDamage = 2;
+        //creates the target location at which the attack is going to be aimed
+        let targetLocation = {x:this.location.x, y:this.location.y};
+        switch (direction) {
+            case "up": targetLocation.y++; break;
+            case "down": targetLocation.y--; break;
+            case "right": targetLocation.x++; break;
+            case "left": targetLocation.x--; break;
+        }
+        //iterates through enemylist and if it encounters an enemy in the target location attack them
+        enemyUnits.forEach(enemy => {
+            log(enemy.location);
+            log(targetLocation);
+            if(enemy.location.x==targetLocation.x && enemy.location.y==targetLocation.y){
+                log('enemy attacked');
+                enemy.defense(this.level*attack);
+            }
+        });
+        
     }
-    function shitDefense() {
+    function shitDefense(damage) { //reduce healthpoints
+        this.healthPoints=this.healthPoints-damage;
     }
-    super(level, 1, "shit.svg", 1, location, shitAttack, shitDefense);
+    super(10*level,level, 1, "shit.svg", 1, location, shitAttack, shitDefense);
     }
 }
 
 //example of how to create an use an instance of a shitTroop
-var shitInstance = new shitTroop({ x: 1, y: 1 }, 1);
-shitInstance.move('up');
-shitInstance.attack('right');
-shitInstance.defense();
+var goodShit = new shitTroop({ x: 1, y: 1 }, 1);
+var badShit = new shitTroop({ x: 1, y: 2 }, 1);
+enemyUnits.push(badShit);
+goodShit.attack('up');

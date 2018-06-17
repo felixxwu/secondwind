@@ -32,15 +32,13 @@ function createSource(source) {
     //set position and size of sources
     // let padding = 5;
     if(zoomed==null){ //if the map is not zoomed
-      element.classList.remove("zoomedSource");
-      element.classList.add("notZoomedSource");
+      newSource.classList.remove("zoomedSource");
+      newSource.classList.add("notZoomedSource");
       newSource.style.left = (zoomPoint([source.x, source.y])[0]) + "%";
       newSource.style.top = (zoomPoint([source.x, source.y])[1]) + "%";
     }else{ //zoomGridSize
-      element.classList.remove("notZoomedSource");
-      element.classList.add("zoomedSource");
-      let newPadding = padding*zoomGridSize;
-      newSource.style.padding = newPadding + "%";
+      newSource.classList.remove("notZoomedSource");
+      newSource.classList.add("zoomedSource");
       newSource.style.left = (zoomPoint([source.x, source.y])[0]) + "%";
       newSource.style.top = (zoomPoint([source.x, source.y])[1]) + "%";
     }

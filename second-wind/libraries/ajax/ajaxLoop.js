@@ -25,6 +25,7 @@ function ajaxLoop() {
 
             // minigame #########################
             updateTurn();
+            listBattles();  // display battles in "ongoing battles"
 
             ajaxLoop();
         });

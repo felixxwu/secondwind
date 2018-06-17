@@ -7,6 +7,9 @@ var blockClicks = false;
 
 // boardClick is activated by every button on the board with onclick
 function boardClick(x, y) {
+    if (!yourTurn()) {
+        return;
+    }
     switch (clickMode) {
         case "select":
             boardSelectClick(x, y);

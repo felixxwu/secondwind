@@ -40,7 +40,7 @@ function getEnergyAllocation(){
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
-  <div class="headright"><span class="helper"></span><a class="desktopOnly" onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/notifications.svg"/></a><a class="desktopOnly" onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/chart.svg"/></a><a class="desktopOnly" onclick="showMap()"><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
+  <div class="headright"><span class="helper"></span><a class="desktopOnly" onclick="show('battleList', 'fadeIn', 1)"><img class="icon" src="material-icons/battle.svg"/></a><a class="desktopOnly" onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/notifications.svg"/></a><a class="desktopOnly" onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/chart.svg"/></a><a class="desktopOnly" onclick="showMap()"><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
   <div class="mid" id="floatUp" style="display:none">
     <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
     <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
@@ -247,6 +247,12 @@ echoAsVar("myTargets", $myTargets);
   </footer>
 </div>
 <script>initBoardButtons(4, 7);</script>
+<overlay id="battleList" style="display:none">
+  <div>
+    <h3>ONGOING BATTLES</h3>
+    <div id="listOfBattles"></div><br/><a class="button iconButton" onclick="hide('battleList','fadeOut',1)">close<img class="invert" src="material-icons/close.svg"/></a>
+  </div>
+</overlay>
 <script>ajaxLoop();</script>
 <update>
   <script>updateFactory();</script>

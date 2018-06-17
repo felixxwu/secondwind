@@ -98,3 +98,30 @@
 #minigameTurnCounter {
     color: var(--text-white);
 }
+
+#battleList {
+    background-color: var(--dim-bg);
+}
+
+#battleList > div {
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-white);
+    background-color: var(--dark-card);
+    box-shadow: var(--small-shadow);
+    z-index: 6;
+    
+}
+
+#listOfBattles > a {
+    display: block;
+    padding: 10px;
+}
+
+#listOfBattles > a:hover {
+    background-color: var(--dark-card-highlight);
+}

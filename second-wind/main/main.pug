@@ -25,6 +25,8 @@ link(rel="stylesheet" href!="<? hashify('main/island/buildings/factory.css'); ?>
 
     .headright
         span.helper
+        a.desktopOnly(onclick="show('battleList', 'fadeIn', 1)")
+            img.icon(src="material-icons/battle.svg")
         a.desktopOnly(onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 1, undefined, undefined, 'grid')")
             img.icon(src="material-icons/notifications.svg")
         a.desktopOnly(onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 1, undefined, undefined, 'grid')")
@@ -72,6 +74,8 @@ script mapVarInit();
 include map/map.pug
 include menu/menu.pug
 include minigame/minigame.pug
+include minigame/battleList.pug
+
 
 script ajaxLoop();
         

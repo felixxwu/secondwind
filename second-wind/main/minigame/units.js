@@ -55,7 +55,8 @@ class Unit {
         if (validMove) {
             // animate the movement
             unitMoveAnimation(this.location, location);
-
+            //hey you see me
+            // yes
             // update the id of the unit html element, so that it matches with its location
             let unit = element("unit-at-" + this.location.x + "-" + this.location.y);
             unit.id = "unit-at-" + location.x + "-" + location.y;

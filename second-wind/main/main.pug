@@ -35,9 +35,10 @@ link(rel="stylesheet" href!="<? hashify('main/island/buildings/factory.css'); ?>
             img.icon(src="material-icons/map.svg")
         a(onclick="logout()")
             img.icon(src="material-icons/logout.svg")
-    
+
     .mid#floatUp(style="display:none")
-        include island/island.pug
+        #mainLayout
+            include island/island.pug
     script show('floatUp','fadeInUp',10);
     .foot.textWhite
         | footer

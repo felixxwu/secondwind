@@ -1,6 +1,9 @@
 link(rel="stylesheet" href!="<? hashify('main/menu/menu.css'); ?>")
 
 #menu(style="display:none")
+    a.mobileOnly(onclick="show('battleList', 'fadeIn', 1);toggleMenu()")
+        img.icon(src!="<? hashify('material-icons/battle.svg'); ?>")
+    br
     a.mobileOnly(onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()")
         img.icon(src!="<? hashify('material-icons/notifications.svg'); ?>")
     br

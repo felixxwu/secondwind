@@ -42,11 +42,13 @@ function getEnergyAllocation(){
   <div class="pic"><img src="images/level.png" alt=""/></div>
   <div class="headright"><span class="helper"></span><a class="desktopOnly" onclick="show('battleList', 'fadeIn', 1)"><img class="icon" src="material-icons/battle.svg"/></a><a class="desktopOnly" onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/notifications.svg"/></a><a class="desktopOnly" onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/chart.svg"/></a><a class="desktopOnly" onclick="showMap()"><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
   <div class="mid" id="floatUp" style="display:none">
-    <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
-    <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
-      <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
-      <div class="factory"><img src="<? hashify('images/factory.svg'); ?>"/><a onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
-      <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
+    <div id="mainLayout">
+      <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
+      <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
+        <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
+        <div class="factory"><img src="<? hashify('images/factory.svg'); ?>"/><a onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
+        <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
+      </div>
     </div>
   </div>
   <script>show('floatUp','fadeInUp',10);</script>
@@ -226,7 +228,7 @@ echoAsVar("myTargets", $myTargets);
   </div>
 </div>
 <link rel="stylesheet" href="<? hashify('main/menu/menu.css'); ?>"/>
-<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/notifications.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/chart.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="<? hashify('material-icons/map.svg'); ?>"/></a><br/></div>
+<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('battleList', 'fadeIn', 1);toggleMenu()"><img class="icon" src="<? hashify('material-icons/battle.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/notifications.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/chart.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="<? hashify('material-icons/map.svg'); ?>"/></a><br/></div>
 <link rel="stylesheet" href="<? hashify('main/minigame/minigame.css'); ?>"/>
 <link rel="stylesheet" href="<? hashify('main/minigame/units.css'); ?>"/>
 <overlay id="chooseUnitOverlay" style="display:none">

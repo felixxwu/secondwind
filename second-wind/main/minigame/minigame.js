@@ -10,16 +10,24 @@ function showMinigame(myIsland, player) {
     element("minigameHeader").innerHTML =
         "Setting up match with <b>" + player.username + "</b>...";
     show("minigame", "fadeIn", 2);
+    hide('battleList', 'fadeOut', 1)
 
     enemyPlayer = player;
     startBattle(); // does nothing if battle already started
 
     drawAllUnits();
     clickMode = "select";
+
+    // hide elements that are not displayed for performance
+    element("mainLayout").style.display = "none";
+    element("mapGrid").style.display = "none";
 }
 
 function closeMinigame() {
     hide("minigame", "fadeOut", 2);
+
+    // reshow the main view
+    element("mainLayout").style.display = "";
 }
 
 // create all the clickable board buttons

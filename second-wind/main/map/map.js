@@ -187,11 +187,13 @@ function showMap() {
         hide("mapGrid", "fadeOutDown", 1);
     });
     setupPerimeter();
+    element("mainLayout").style.display = "none";
 }
 
 function hideMap() {
     hide("mapGrid", "fadeOut", 1);
     window.history.pushState("", "", "./");
+    element("mainLayout").style.display = "";
 }
 
 function removeSources(){

@@ -1,24 +1,30 @@
+var cachedAnimation = null; //the animation that was playing before the troop moved
 // converts the js unit class instances into visible html elements on the board
 function drawAllUnits() {
     element("unitSprites").innerHTML = "";
     for (let i = 0; i < ownUnits.length; i++) {
         const myUnit = ownUnits[i];
-        drawUnit(myUnit);
+        drawUnit(myUnit,'backward');
     }
     for (let i = 0; i < enemyUnits.length; i++) {
         const enemyUnit = enemyUnits[i];
-        drawUnit(enemyUnit);
+        drawUnit(enemyUnit,'forward');
     }
     drawPlusSigns();
 }
 
 // draws a single unit on the board
-function drawUnit(unit) {
+function drawUnit(unit,facingDirection) { //facingDirection can either be backward or forward
     if (!unit.location) {return;}
     const unitPosition = getTileXYPosition(unit.location);
     let sprite = document.createElement("img");
     sprite.id = "unit-at-" + unit.location.x + "-" + unit.location.y;
-    sprite.src = unit.img;
+    if(facingDirection=='backward'){
+        sprite.src = unit.idleImgBack; 
+    }
+    if(facingDirection=='forward'){
+        sprite.src = unit.idleImgFront; 
+    }
     sprite.style.top = unitPosition.top + "px";
     sprite.style.left = unitPosition.left + "px";
     element("unitSprites").appendChild(sprite);
@@ -58,9 +64,18 @@ function getTileXYPosition(XY) {
     };
 }
 
+function removeUnit(id){
+    let unitHolder = document.getElementById("unitSprites");
+    log(unitHolder);
+    let unit = document.getElementById(id);
+    log(unit);
+
+    unitHolder.removeChild(unit);
+}
 // starts a movement animation for a unit that is located at "origin"
 // the animation moves the actual html element from origin to target, and leaves it there
 function unitMoveAnimation(origin, target) {
+    
     blockClicks = true;
 
     if (!origin) {
@@ -73,9 +88,7 @@ function unitMoveAnimation(origin, target) {
 
     // find the html unit to be animated
     let unit = element("unit-at-" + origin.x + "-" + origin.y);
-    console.log(unit);
-    console.log(unit.style.top);
-
+    
     const originPosition = getTileXYPosition(origin);
     const targetPosition = getTileXYPosition(target);
     const xDistance = targetPosition.x - originPosition.x;
@@ -87,6 +100,9 @@ function unitMoveAnimation(origin, target) {
         if (i >= animationFrames) {
             blockClicks = false;
             clearInterval(animation);
+            log(cachedAnimation);
+            unit.src=cachedAnimation;
+
         } else {
             i++;
             unit.style.left =

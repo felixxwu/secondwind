@@ -193,3 +193,14 @@ function hideMap() {
     hide("mapGrid", "fadeOut", 1);
     window.history.pushState("", "", "./");
 }
+
+function removeSources(){
+    ajaxSecureCall(
+        "ajaxRemoveSources",
+        {
+        },
+        function() {
+          log("sources removed");
+        }
+      );
+}

@@ -21,6 +21,7 @@
     </table>
   </div>
   <div id="factory_actions"> 
+    <button id="testImg" onclick="startAnimation()"></button>
     <action_title>actions</action_title>
     <button id="combine" onclick="newCombineItems()">Combine items</button>
     <div id="testItems"></div>

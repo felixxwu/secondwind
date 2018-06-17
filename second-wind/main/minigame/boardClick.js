@@ -31,16 +31,17 @@ function boardClick(x, y) {
 // click behaviour when in select mode
 function boardSelectClick(x, y) {
     selectedTile = { x: x, y: y };
-    selectedUnit = selectUnit(); // might be undefined if tile has no own units
+    selectedUnit = selectUnit(selectedTile,ownUnits); // might be undefined if tile has no own units
 
-    if (selectedUnit) {
+    if (selectedUnit) { //if clicked on a unit of your own
         clickMode = "action";
-        highlightTiles([
-            getTileElement(x + 1, y),
-            getTileElement(x - 1, y),
-            getTileElement(x, y + 1),
-            getTileElement(x, y - 1)
-        ]);
+
+        //highlight tiles according to what's on them
+        highlightTile({x:x+1,y:y},getTileElement(x + 1, y));
+        highlightTile({x:x-1,y:y},getTileElement(x - 1, y));
+        highlightTile({x:x,y:y+1},getTileElement(x, y + 1));
+        highlightTile({x:x,y:y-1},getTileElement(x, y - 1));
+
         return;
     }
 
@@ -51,33 +52,53 @@ function boardSelectClick(x, y) {
 }
 
 // click behaviour when in action mode
-function boardActionClick(x, y) {
+function boardActionClick(xCoord, yCoord) {
+    let location = { x: xCoord, y: yCoord };
     // block any action from happening while an animation is ongoing (can still select tiles)
     if (blockClicks) {
         return;
     }
-    
-    selectedUnit.move({ x: x, y: y });
+    //attack if there's an enemy on the target location or move if there's not.
+    if(typeAtTile(location)=='enemy'){
+        log('attacking enemy');
+        selectedUnit.attack(location);
+    }else{
+        log('moving');
+
+        selectedUnit.move(location);
+    }
+
     clickMode = "select";
     clearTileHighlights();
 }
 
-// highlight an array of tiles
-function highlightTiles(tiles) {
-    for (let i = 0; i < tiles.length; i++) {
-        const tile = tiles[i];
-        if (tile) {
-            tile.classList.add("highlightedTile");
-        }
+function highlightTile(location,tile){
+    let typeOfUnit = typeAtTile(location); //returns either 'own' or 'enemy' depending the unit at location
+    if(typeOfUnit=='enemy'){ //if there's an enemy unit in the tile then set highlight to attack
+        tile.classList.add("highlightedTileAttack");
+    }else if(typeOfUnit=='own'){ //if there's no units at the tile then set highlight to move
+        tile.classList.add("highlightedTileMove");
     }
 }
 
+function typeAtTile(location){
+    let type = null;
+    ownUnitAtTile = selectUnit(location,ownUnits); // might be undefined if tile has no own units
+    enemyUnitAtTile = selectUnit(location,enemyUnits); // might be undefined if tile has no own units
+    if(enemyUnitAtTile!=null){ 
+        type='enemy';
+    }else if(ownUnitAtTile==null){ 
+         type='own';
+    }
+    return type;
+}
 // clear tile highlighting
 function clearTileHighlights() {
     for (let x = 0; x < boardWidth; x++) {
         for (let y = 0; y < boardHeight; y++) {
             let tile = getTileElement(x, y);
-            tile.classList.remove("highlightedTile");
+            tile.classList.remove("highlightedTileMove");
+            tile.classList.remove("highlightedTileAttack");
         }
     }
 }
@@ -98,15 +119,15 @@ function isSpawnTile(tile) {
 }
 
 // take the selected tile, and find the unit that is on that tile and return it
-function selectUnit() {
-    for (let i = 0; i < ownUnits.length; i++) {
-        const unit = ownUnits[i];
+function selectUnit(location,unitList) { //unitList could be either ownUnits or enemyUnits
+    for (let i = 0; i < unitList.length; i++) {
+        const unit = unitList[i];
 
         if (unit.location) {
             // if the unit is on the selected tile
             if (
-                unit.location.x == selectedTile.x &&
-                unit.location.y == selectedTile.y
+                unit.location.x == location.x &&
+                unit.location.y == location.y
             ) {
                 return unit;
             }
@@ -144,5 +165,5 @@ function spawn(index, tile) {
     selectedUnit = ownUnits[index];
     hide("chooseUnitOverlay", "fadeOut", 1);
     selectedUnit.location = tile;
-    drawUnit(selectedUnit);
+    drawUnit(selectedUnit,'backward');
 }

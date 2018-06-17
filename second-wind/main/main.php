@@ -126,6 +126,7 @@ function getEnergyAllocation(){
       </table>
     </div>
     <div id="factory_actions"> 
+      <button id="testImg" onclick="startAnimation()"></button>
       <action_title>actions</action_title>
       <button id="combine" onclick="newCombineItems()">Combine items</button>
       <div id="testItems"></div>
@@ -217,6 +218,7 @@ echoAsVar("myTargets", $myTargets);
     <div id="gridLines"></div><a id="zoomOutButton" onclick="zoomOut()" style="display:none"><img class="invert" src="material-icons/zoomOut.svg"/></a>
   </div>
   <div id="mapUI">
+    <button onclick="removeSources()">Remove sources</button>
     <div id="selectedPlayers"></div>
     <div id="selectedSources"></div><br/>
     <select id="selectIslands"></select>
@@ -239,6 +241,7 @@ echoAsVar("myTargets", $myTargets);
   <header>
     <div id="minigameHeader"></div>
     <div id="minigameTurn"></div>
+    <div>test</div>
   </header>
   <div id="board"></div>
   <footer id="footerBackgroundWorkaround"></footer>

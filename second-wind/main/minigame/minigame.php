@@ -13,6 +13,7 @@
   <header>
     <div id="minigameHeader"></div>
     <div id="minigameTurn"></div>
+    <div>test</div>
   </header>
   <div id="board"></div>
   <footer id="footerBackgroundWorkaround"></footer>

@@ -28,11 +28,19 @@
     z-index: 7;
 }
 
-#unitSprites > img, #plusSigns > img {
+#plusSigns > img {
     position: absolute;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+#unitSprites > img{
+    position: absolute;
+    -webkit-transform: translate(-50%, -45%);
+    -ms-transform: translate(-50%, -45%);
+    transform: translate(-50%, -80%);
+    width: 70px;
 }
 
 #plusSigns {

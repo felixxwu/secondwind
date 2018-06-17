@@ -22,6 +22,7 @@
     <div id="gridLines"></div><a id="zoomOutButton" onclick="zoomOut()" style="display:none"><img class="invert" src="material-icons/zoomOut.svg"/></a>
   </div>
   <div id="mapUI">
+    <button onclick="removeSources()">Remove sources</button>
     <div id="selectedPlayers"></div>
     <div id="selectedSources"></div><br/>
     <select id="selectIslands"></select>

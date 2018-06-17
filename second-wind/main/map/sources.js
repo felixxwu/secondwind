@@ -16,29 +16,33 @@ function createSource(source) {
   
     let color = null;
     switch(energyInitial){
-        case('H'): color = "green"; break;
-        case('A'): color = "red"; break;
-        case('P'): color = "yellow"; break;
-        case('I'): color = "blue"; break;
-        case('B'): color = "grey"; break;
+        case('H'): color = "rgba(70, 128, 70, 0.74)"; break;
+        case('A'): color = "rgba(128, 70, 70, 0.74)"; break;
+        case('P'): color = "rgba(70, 128, 128, 0.74)"; break;
+        case('I'): color = "rgba(70, 128, 70, 0.74)"; break;
+        case('B'): color = "rgba(128, 128, 70, 0.74)"; break;
 
     }
   
     let newSource = document.createElement("div");
     newSource.classList.add("source");
     newSource.innerHTML = energyInitial;
-    newSource.style.backgroundImage = "radial-gradient(circle at center, " + color + " 0, #ffffff00 30%)";
-    
+    // newSource.style.backgroundImage = "radial-gradient(circle at center, " + color + " 0, #ffffff00 30%)";
+    newSource.style.backgroundColor=color;
     //set position and size of sources
+    // let padding = 5;
     if(zoomed==null){ //if the map is not zoomed
-      newSource.style.padding = "10%";
-      newSource.style.left = (zoomPoint([source.x, source.y])[0]-10) + "%";
-      newSource.style.top = (zoomPoint([source.x, source.y])[1]-10) + "%";
+      element.classList.remove("zoomedSource");
+      element.classList.add("notZoomedSource");
+      newSource.style.left = (zoomPoint([source.x, source.y])[0]) + "%";
+      newSource.style.top = (zoomPoint([source.x, source.y])[1]) + "%";
     }else{ //zoomGridSize
-      let newPadding = 10*zoomGridSize;
+      element.classList.remove("notZoomedSource");
+      element.classList.add("zoomedSource");
+      let newPadding = padding*zoomGridSize;
       newSource.style.padding = newPadding + "%";
-      newSource.style.left = (zoomPoint([source.x, source.y])[0]-newPadding) + "%";
-      newSource.style.top = (zoomPoint([source.x, source.y])[1]-newPadding) + "%";
+      newSource.style.left = (zoomPoint([source.x, source.y])[0]) + "%";
+      newSource.style.top = (zoomPoint([source.x, source.y])[1]) + "%";
     }
     return newSource;
   }
@@ -88,6 +92,10 @@ function createSource(source) {
 function getExtractionRate(extractorLevel,sourceId){
   return 10;
   
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }
 
 function startExtraction(extractor,source){

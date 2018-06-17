@@ -110,10 +110,12 @@
 
 .playerLight {
     color: var(--text-white);
+    z-index:2;
 }
 
 .playerDark {
     color: var(--text-black);
+    z-index:2;
 }
 
 /* action buttons on the side of the map to select players */
@@ -134,6 +136,20 @@
     position: absolute;
     border-radius:100%;
     color:black;
+    border: solid white 3px;
+    text-align: center;
+    text-align:center;
+    transform: translate(-50%,-50%)
+}
+.notZoomedSource{
+    width:40px;
+    height:40px;
+    line-height: 40px;
+}
+.zoomedSource{
+    width:120px;
+    height:120px;
+    line-height: 120px;
 }
 /* ############################################# */
 /* quick actions */

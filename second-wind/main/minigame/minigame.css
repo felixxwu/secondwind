@@ -7,12 +7,14 @@
 }
 
 .highlightedTileMove {
-    border: solid rgba(0, 128, 0, 0.3) 4px;
+    border: solid rgba(0, 55, 128, 0.3) 4px;
 }
 .highlightedTileAttack {
     border: solid rgba(128, 0, 0, 0.3) 4px;
 }
-
+.highlightedTileOwn {
+    border: solid rgba(30, 128, 0, 0.3) 4px;
+}
 .baseTile {
     background-color: rgb(184, 184, 184);
 }

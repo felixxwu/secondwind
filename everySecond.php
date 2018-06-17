@@ -15,7 +15,7 @@ include "move.php";
 // error_log(microtime(true));
 
 //generate new source if limit of sources hasnt been reached
-if(mt_rand(1,100)==1){
+if(mt_rand(1,500)==1){
     //location of source
     $x=mt_rand(10,90);
     $y=mt_rand(10,90);
@@ -37,7 +37,7 @@ if(mt_rand(1,100)==1){
     //max rate of energy draining
     $maxRate=mt_rand(5,1000);
     //total amount of energy in source
-    $totalAmount=mt_rand($maxRate*10,$maxRate*10000);
+    $totalAmount=mt_rand(100,10000);
 
     //create entry in database
     sqlInsert('sources',$x,$y,'null',$energyType,$maxRate,$totalAmount);

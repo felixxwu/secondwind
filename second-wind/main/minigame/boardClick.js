@@ -35,13 +35,11 @@ function boardSelectClick(x, y) {
 
     if (selectedUnit) { //if clicked on a unit of your own
         clickMode = "action";
-
         //highlight tiles according to what's on them
         highlightTile({x:x+1,y:y},getTileElement(x + 1, y));
         highlightTile({x:x-1,y:y},getTileElement(x - 1, y));
         highlightTile({x:x,y:y+1},getTileElement(x, y + 1));
         highlightTile({x:x,y:y-1},getTileElement(x, y - 1));
-
         return;
     }
 
@@ -64,7 +62,6 @@ function boardActionClick(xCoord, yCoord) {
         selectedUnit.attack(location);
     }else{
         log('moving');
-
         selectedUnit.move(location);
     }
 
@@ -72,15 +69,21 @@ function boardActionClick(xCoord, yCoord) {
     clearTileHighlights();
 }
 
+//highlights a tile according to what's on it
 function highlightTile(location,tile){
+    if(tile==null){return;}
     let typeOfUnit = typeAtTile(location); //returns either 'own' or 'enemy' depending the unit at location
     if(typeOfUnit=='enemy'){ //if there's an enemy unit in the tile then set highlight to attack
         tile.classList.add("highlightedTileAttack");
     }else if(typeOfUnit=='own'){ //if there's no units at the tile then set highlight to move
+        tile.classList.add("highlightedTileOwn");
+    }else{
         tile.classList.add("highlightedTileMove");
+
     }
 }
 
+//returns either 'enemy' or 'own' according to whats on the given location
 function typeAtTile(location){
     let type = null;
     ownUnitAtTile = selectUnit(location,ownUnits); // might be undefined if tile has no own units
@@ -99,6 +102,7 @@ function clearTileHighlights() {
             let tile = getTileElement(x, y);
             tile.classList.remove("highlightedTileMove");
             tile.classList.remove("highlightedTileAttack");
+            tile.classList.remove("highlightedTileOwn");
         }
     }
 }

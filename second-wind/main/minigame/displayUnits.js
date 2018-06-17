@@ -66,7 +66,10 @@ function getTileXYPosition(XY) {
 
 function removeUnit(id){
     let unitHolder = document.getElementById("unitSprites");
-    var unit = document.getElementById(id);
+    log(unitHolder);
+    let unit = document.getElementById(id);
+    log(unit);
+
     unitHolder.removeChild(unit);
 }
 // starts a movement animation for a unit that is located at "origin"

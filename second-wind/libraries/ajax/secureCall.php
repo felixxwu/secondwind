@@ -166,6 +166,12 @@ function ajaxFinishCombination($id){
 
 }
 
+function ajaxRemoveSources(){
+    $username=$_POST["username"];
+    sqlDelete("sources","true");
+
+}
+
 function example() {
     echo "this is a test";
 }

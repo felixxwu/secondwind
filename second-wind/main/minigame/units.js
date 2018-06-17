@@ -103,18 +103,10 @@ class Unit {
     }
     //goes through the enemy troops to check if there's any at the target location and if there is 
     //... then perform the attackFunction on them
-    attack(direction){ //CHANGE TO ATTACK LOCATION RATHER THAN ATTACK DIRECTION
-        //creates the target location at which the attack is going to be aimed
-        let targetLocation = {x:this.location.x, y:this.location.y};
-        switch (direction) {
-            case "up": targetLocation.y++; break;
-            case "down": targetLocation.y--; break;
-            case "right": targetLocation.x++; break;
-            case "left": targetLocation.x--; break;
-        }
+    attack(location){ //CHANGE TO ATTACK LOCATION RATHER THAN ATTACK DIRECTION
         //iterates through enemylist and if it encounters an enemy in the target location attacks them
         enemyUnits.forEach(enemy => {
-            if(enemy.location.x==targetLocation.x && enemy.location.y==targetLocation.y){
+            if(enemy.location.x==location.x && enemy.location.y==location.y){
                 log('enemy attacked');
                 this.attackFunction(enemy);
             }
@@ -134,18 +126,24 @@ class shitTroop extends Unit {
   constructor(location, level, facingDirection) {
     //function that is performed on the enemy once its targeted 
     function shitAttack(enemy) {
-        const attackDamage = 2;
+        const attackDamage = 5;
         enemy.defenseFunction(this.level*attackDamage); //pass attack to enemy unit
     }
     function shitDefense(damage) { //reduce healthpoints
         this.healthPoints=this.healthPoints-damage;
+        if(this.healthPoints<=0){
+            let id ="unit-at-" + this.location.x + "-" + this.location.y;
+            log(id);
+            removeUnit(id);
+            this.location=undefined;
+        }
     }
     super(10*level,level, 1, facingDirection,"main/minigame/units/shitUnitIdleFront.svg","main/minigame/units/shitUnitMoveFront.svg","main/minigame/units/shitUnitIdleBack.svg","main/minigame/units/shitUnitMoveBack.svg", 1, location, shitAttack, shitDefense);
     }
 }
 
 //example of how to create an use an instance of a shitTroop
-var goodShit = new shitTroop({ x: 1, y: 1 }, 1,'forward');
+var goodShit = new shitTroop({ x: 1, y: 4 }, 1,'forward');
 var badShit = new shitTroop({ x: 1, y: 2 }, 1,'backward');
 ownUnits.push(goodShit);
 enemyUnits.push(badShit);

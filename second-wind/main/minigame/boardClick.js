@@ -141,5 +141,5 @@ function spawn(index, tile) {
     selectedUnit = ownUnits[index];
     hide("chooseUnitOverlay", "fadeOut", 1);
     selectedUnit.location = tile;
-    drawUnit(selectedUnit);
+    drawUnit(selectedUnit,'backward');
 }

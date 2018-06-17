@@ -1,32 +1,30 @@
-var cachedIdleAnimation = null;
+var cachedAnimation = null; //the animation that was playing before the troop moved
 // converts the js unit class instances into visible html elements on the board
 function drawAllUnits() {
     element("unitSprites").innerHTML = "";
     for (let i = 0; i < ownUnits.length; i++) {
         const myUnit = ownUnits[i];
-        drawUnit(myUnit,"idle");
+        drawUnit(myUnit,'backward');
     }
     for (let i = 0; i < enemyUnits.length; i++) {
         const enemyUnit = enemyUnits[i];
-        drawUnit(enemyUnit,"idle");
+        drawUnit(enemyUnit,'forward');
     }
     drawPlusSigns();
 }
 
 // draws a single unit on the board
-function drawUnit(unit,action) { //action can either be idle or move
+function drawUnit(unit,facingDirection) { //facingDirection can either be backward or forward
     if (!unit.location) {return;}
     const unitPosition = getTileXYPosition(unit.location);
     let sprite = document.createElement("img");
     sprite.id = "unit-at-" + unit.location.x + "-" + unit.location.y;
-
-    if(action=="idle"){
-        sprite.src = unit.idleImg;
+    if(facingDirection=='backward'){
+        sprite.src = unit.idleImgBack; 
     }
-    if(action == "move"){
-        sprite.src = unit.moveImg;
+    if(facingDirection=='forward'){
+        sprite.src = unit.idleImgFront; 
     }
-    
     sprite.style.top = unitPosition.top + "px";
     sprite.style.left = unitPosition.left + "px";
     element("unitSprites").appendChild(sprite);
@@ -99,8 +97,8 @@ function unitMoveAnimation(origin, target) {
         if (i >= animationFrames) {
             blockClicks = false;
             clearInterval(animation);
-            log(cachedIdleAnimation);
-            unit.src=cachedIdleAnimation;
+            log(cachedAnimation);
+            unit.src=cachedAnimation;
 
         } else {
             i++;

@@ -95,7 +95,8 @@ function typeAtTile(location){
     }
     return type;
 }
-// clear tile highlighting
+
+// clear all tile highlighting
 function clearTileHighlights() {
     for (let x = 0; x < boardWidth; x++) {
         for (let y = 0; y < boardHeight; y++) {

@@ -1,6 +1,6 @@
 /* general css styles for whole site */
 
-html * { font-family: 'Quicksand', sans-serif; }
+html * { font-family: 'Roboto', sans-serif; }
 
 :root {
     --dark-card: hsl(207, 8%, 21%);

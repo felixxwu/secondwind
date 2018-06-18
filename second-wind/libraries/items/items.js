@@ -134,7 +134,7 @@ function displayItemList() {
 
     //creates columns for row
     //if column's value != 0 then add pop up color
-    var popColor = "red";
+    var popColor = "#601329";
     var item = document.createElement("td");
     var level = document.createElement("td");
     var amount = document.createElement("td");
@@ -205,6 +205,8 @@ function newAddToCombine(fullItemName) {
   var combine = document.getElementById("combine");
   combine.style.display = "none";
   if (item2 != null) {
+    log(getResultItem(item1, level1, item2, level2));
+    displayResultInformation(getResultItem(item1, level1, item2, level2)[2]); //array with ratios as values
     combine.style.display = "inline-block";
   }
   //displays the two elements that will be combined
@@ -595,43 +597,85 @@ function gcdArray(a) {
   return a.reduce(gcd);
 }
 
+
+var barCounter= 1; //used for displaying two ratio bars at a time use id as item argument
 function displayItemInformation(item) {
   var fullInfo = item.split("*");
-  document.getElementById("factory_descriptions").style.backgroundSize = "60%";
-  document.getElementById(
-    "factory_descriptions"
-  ).style.background = "center 150px no-repeat url(../../secondwind/pabloNEW/images/".concat(
-    fullInfo[0],
-    ".svg"
-  );
+ 
+  let ratios =getRatios(fullInfo[0]);
+  let backgroundStyle = returnLinearGradient(parseInt(ratios[0]),parseInt(ratios[1]),parseInt(ratios[2]),parseInt(ratios[3]));
+  
+  bar = element("ratiosBar" + barCounter);
+  bar.style.background=backgroundStyle;
+  bar.classList.add("movingBar");
+  bar.style.width="100%";
 
-  chart(getRatios(fullInfo[0]));
+  
+  barCounter++;
+  bar2 = document.createElement("bar");
+  bar2.setAttribute("id","ratiosBar" + barCounter);
+  element("factory_descriptions").appendChild(bar2);
+  let oldBarCounter = barCounter -3;
+  if(oldBarCounter>=1){
+    element("ratiosBar"+ oldBarCounter).style.height=0;
+    if(oldBarCounter>=2){
+    oldBarCounter = barCounter -4;
+    element("factory_descriptions").removeChild(element("ratiosBar"+ oldBarCounter));
+    }
+  }
+  
+ 
 }
 
-function chart(ratios) {
-  new Chart(document.getElementById("doughnut-chart"), {
-    type: "doughnut",
-    data: {
-      labels: ["Human", "Attack", "Power", "Intelligence", "Building"],
-      datasets: [
-        {
-          label: "Ratios",
-          backgroundColor: [
-            "#2a8605",
-            "#de0707",
-            "#ffee00",
-            "#1d47c3",
-            "#757474"
-          ],
-          data: [ratios[0], ratios[1], ratios[2], ratios[3], ratios[4]]
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: "Item Analytics"
-      }
+var resultCounter=1;
+function displayResultInformation(ratios){
+
+  let backgroundStyle = returnLinearGradient(parseInt(ratios[0]),parseInt(ratios[1]),parseInt(ratios[2]),parseInt(ratios[3]));
+  
+  bar = element("resultBar" + resultCounter);
+  bar.style.background=backgroundStyle;
+  bar.classList.add("movingBar");
+  bar.style.width="96%";
+
+  
+  resultCounter++;
+  bar2 = document.createElement("resultBar");
+  bar2.setAttribute("id","resultBar" + barCounter);
+  element("factory_descriptions").appendChild(bar2);
+  let oldBarCounter = resultCounter -2;
+  if(oldBarCounter>=1){
+    element("resultBar"+ oldBarCounter).style.height=0;
+    if(oldBarCounter>=2){
+    // oldBarCounter = resultCounter -3;
+    // element("factory_descriptions").removeChild(element("resultBar"+ oldBarCounter));
     }
-  });
+  }
+}
+
+function returnLinearGradient(r1,r2,r3,r4){ //returns the value for css background so it displays a bar with the ratios displayed visually
+  let total = r1+r2+r3+r4;
+  return "linear-gradient(to right, red " + r1/total*100 + "%, blue " + r1/total*100 + "%, blue " + (r1+r2)/total*100 + "%, yellow " + 
+      (r1+r2)/total*100 + "%, yellow " +(r1+r2+r3)/total*100 + "%, green " + (r1+r2+r3)/total*100 + "%";
+  
+}
+
+
+function showFactoryMenu(){
+  show('factory_menu','fadeInUp', 2);
+  hide('analytics','fadeOutRight', 2);
+  hide('notifications','fadeOutLeft', 2);
+  //hide Island (wait until the menu has slided in)
+  setTimeout(hideIsland, 300);
+  function hideIsland(){
+    element('mainLayout').style.display='none';
+  }
+}
+
+function hideFactoryMenu(){
+  hide('factory_menu','fadeOutDown', 1);
+  show('analytics','fadeInRight', 2);
+  show('notifications','fadeInLeft', 2)
+  //hide Island
+  
+  element('mainLayout').style.display='block';
 }

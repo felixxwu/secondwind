@@ -46,13 +46,13 @@ function getEnergyAllocation(){
       <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
       <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
         <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
-        <div class="factory"><img src="<? hashify('images/factory.svg'); ?>"/><a onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
+        <div class="factory"><img src="<? hashify('images/factory.svg'); ?>"/><a onclick="showFactoryMenu()"></a></div>
         <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
       </div>
     </div>
   </div>
   <script>show('floatUp','fadeInUp',10);</script>
-  <div class="foot textWhite">footer</div>
+  <div class="foot textWhite">"SecondWind is a beautiful game made by beautiful shit humans" -- a shit human</div>
 </div>
 <div id="foreground"><img class="foreground_left" id="foreground_left" src="<? hashify('images/foreground_left.svg'); ?>" style="display:none"/><img class="foreground_right" id="foreground_right" src="<? hashify('images/foreground_right.svg'); ?>" style="display:none"/>
   <script>show("foreground_left","fadeInLeft",7);</script>
@@ -108,11 +108,11 @@ function getEnergyAllocation(){
   </div>
   <factory_menu id="factory_menu" style="display:none">
     <div id="factory_header"> 
-      <text>Factory</text>
+      <text>FACTORY</text>
     </div>
     <div id="factory_items"> 
       <div id="item_header"> 
-        <text>items</text>
+        <text>Items</text>
       </div><br/>
       <table id="itemList">
         <tr>
@@ -133,10 +133,13 @@ function getEnergyAllocation(){
       <button id="combine" onclick="newCombineItems()">Combine items</button>
       <div id="testItems"></div>
       <div id="errorItems"></div>
-      <button id="hideMenu" onclick="hide('factory_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)">Close Menu</button>
+      <button id="hideMenu" onclick="hideFactoryMenu()">Close Menu</button>
     </div>
     <div id="factory_descriptions">
-      <canvas id="doughnut-chart"></canvas>
+      <div id="combinationText">Combining Items</div>
+      <bar id="ratiosBar1"></bar>
+      <div id="resultText">Result Item</div>
+      <resultBar id="resultBar1"></resultBar>
     </div>
     <div id="factory_progress"> 
       <div id="progress_bars"></div>

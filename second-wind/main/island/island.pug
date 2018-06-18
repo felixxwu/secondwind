@@ -8,7 +8,7 @@ link(rel="stylesheet" href!="<? hashify('main/island/island.css'); ?>")
         a(onclick="show('energies','fadeInUp', 1)")
     .factory
         img(src!="<? hashify('images/factory.svg'); ?>")
-        a(onclick="show('factory_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);")
+        a(onclick="showFactoryMenu()")
     .extractor  
         img(src!="<? hashify('images/extractor_3_animation.svg'); ?>")
         //- the extractor is currently displaying the factory menu but it should be changed to display the extractor_menu instead

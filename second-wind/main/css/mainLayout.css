@@ -16,6 +16,7 @@
     /* overflow: hidden; */
 }
 
+
 .mainLayout .headleft {
     grid-area: headleft;
     padding-left: 10px;
@@ -37,6 +38,8 @@
     overflow: hidden;
 }
 .mainLayout .foot {
+
+    line-height: 50px;
     grid-area: foot;
     text-align: center;
     background-color: black;
@@ -72,22 +75,14 @@
 }
 
 .building_menus{
-    overflow:scroll;
-    pointer-events:none;
+    pointer-events: none;
     position: absolute;
-    width:100vw;
-    height:100%;
+    width: 100vw;
+    height: 100%;
     display: grid;
-    column-gap:10px;
-    row-gap: 30px;
-    /* the 0px column at the right and left serves as a margin (using teh column-gap); */
-    grid-template-columns: 0px auto 0px; 
-    grid-template-rows: 60px auto 50px;
-    grid-template-areas:    ". . ."
-                            ". menu ."
-                            ". . .";
-    
-
+    grid-template-columns: 0px auto 0px;
+    grid-template-rows: 0px auto 50px;
+    grid-template-areas: ". . ." ". menu ." ". . .";
 }
 
 .building_menus >*{

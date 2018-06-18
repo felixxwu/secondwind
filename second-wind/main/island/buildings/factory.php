@@ -1,11 +1,11 @@
 
 <factory_menu id="factory_menu" style="display:none">
   <div id="factory_header"> 
-    <text>Factory</text>
+    <text>FACTORY</text>
   </div>
   <div id="factory_items"> 
     <div id="item_header"> 
-      <text>items</text>
+      <text>Items</text>
     </div><br/>
     <table id="itemList">
       <tr>
@@ -26,10 +26,13 @@
     <button id="combine" onclick="newCombineItems()">Combine items</button>
     <div id="testItems"></div>
     <div id="errorItems"></div>
-    <button id="hideMenu" onclick="hide('factory_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)">Close Menu</button>
+    <button id="hideMenu" onclick="hideFactoryMenu()">Close Menu</button>
   </div>
   <div id="factory_descriptions">
-    <canvas id="doughnut-chart"></canvas>
+    <div id="combinationText">Combining Items</div>
+    <bar id="ratiosBar1"></bar>
+    <div id="resultText">Result Item</div>
+    <resultBar id="resultBar1"></resultBar>
   </div>
   <div id="factory_progress"> 
     <div id="progress_bars"></div>

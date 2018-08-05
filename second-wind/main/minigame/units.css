@@ -24,6 +24,7 @@
 }
 
 #unitSprites {
+    position: absolute;
     pointer-events: none;
     z-index: 7;
 }
@@ -44,6 +45,7 @@
 }
 
 #plusSigns {
+    position: absolute;
     pointer-events: none;
     z-index: 6;
 }

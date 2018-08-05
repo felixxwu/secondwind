@@ -45,9 +45,12 @@ function getEnergyAllocation(){
     <div id="mainLayout">
       <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
       <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
-        <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)"></a></div>
-        <div class="factory"><img src="<? hashify('images/factory.svg'); ?>"/><a onclick="showFactoryMenu()"></a></div>
-        <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);"></a></div>
+        <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)" onmouseover="displayBuildingInfo('townhallHover')" onmouseout="hideBuildingInfo('townhallHover')">
+            <hover id="townhallHover">Click to display townhall menu</hover></a></div>
+        <div class="factory"><img src="<? hashify('images/factory.svg'); ?>"/><a onclick="showFactoryMenu()" onmouseover="displayBuildingInfo('factorylHover')" onmouseout="hideBuildingInfo('factorylHover')">
+            <hover id="factorylHover">Click to display factory menu</hover></a></div>
+        <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);" onmouseover="displayBuildingInfo('extractorHover')" onmouseout="hideBuildingInfo('extractorHover')">
+            <hover id="extractorHover">Click to display extractor menu</hover></a></div>
       </div>
     </div>
   </div>
@@ -241,16 +244,17 @@ echoAsVar("myTargets", $myTargets);
   </div>
 </overlay>
 <div id="minigame" style="display:none">
-  <overlay id="unitSprites"></overlay>
-  <overlay id="plusSigns"></overlay>
   <header>
     <div id="minigameHeader"></div>
     <div id="minigameTurn"></div>
     <div>test</div>
   </header>
-  <div id="board"></div>
-  <footer id="footerBackgroundWorkaround"></footer>
-  <footer>
+  <div id="board"><img id="boardImg" src="images/board_mountain.svg"/>
+    <overlay id="unitSprites"></overlay>
+    <overlay id="plusSigns"></overlay>
+  </div>
+  <div id="sideMenu"></div>
+  <footer id="footerBackgroundWorkaround">
     <div id="minigameTurnCounter"></div><a class="button" onclick="endTurn()">end turn</a><a class="button iconButton" onclick="closeMinigame()">close<img class="invert" src="material-icons/close.svg"/></a>
   </footer>
 </div>

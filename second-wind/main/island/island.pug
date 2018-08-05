@@ -5,11 +5,14 @@ link(rel="stylesheet" href!="<? hashify('main/island/island.css'); ?>")
     img#islandrock(src!="<? hashify('images/rock.svg'); ?>")
     .townhall
         img(src!="<? hashify('images/townHall.svg'); ?>")
-        a(onclick="show('energies','fadeInUp', 1)")
+        a(onclick="show('energies','fadeInUp', 1)" onmouseover="displayBuildingInfo('townhallHover')" onmouseout="hideBuildingInfo('townhallHover')")
+            hover#townhallHover Click to display townhall menu
     .factory
         img(src!="<? hashify('images/factory.svg'); ?>")
-        a(onclick="showFactoryMenu()")
+        a(onclick="showFactoryMenu()" onmouseover="displayBuildingInfo('factorylHover')" onmouseout="hideBuildingInfo('factorylHover')")
+            hover#factorylHover Click to display factory menu
     .extractor  
         img(src!="<? hashify('images/extractor_3_animation.svg'); ?>")
         //- the extractor is currently displaying the factory menu but it should be changed to display the extractor_menu instead
-        a(onclick="show('extractor_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);")
+        a(onclick="show('extractor_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);" onmouseover="displayBuildingInfo('extractorHover')" onmouseout="hideBuildingInfo('extractorHover')")
+            hover#extractorHover Click to display extractor menu

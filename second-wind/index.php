@@ -80,6 +80,8 @@ function strSame($str1, $str2) {
         linkJs("<? hashify('libraries/items/items.js'); ?>");
         linkJs("<? hashify('libraries/slider/sliderdemo.js'); ?>") ;
         
+        linkJs("<? hashify('main/island/island.js'); ?>");
+        
         linkJs("<? hashify('main/resize.js'); ?>");
         
         linkJs("<? hashify('main/menu/menu.js'); ?>");

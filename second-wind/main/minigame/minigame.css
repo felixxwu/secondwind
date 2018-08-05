@@ -1,5 +1,5 @@
 .boardButton {
-    border: solid grey 1px;
+    /* border: solid grey 1px; */
 }
 
 .boardButton:hover {
@@ -16,7 +16,7 @@
     border: solid rgba(30, 128, 0, 0.3) 4px;
 }
 .baseTile {
-    background-color: rgb(184, 184, 184);
+    /* background-color: rgb(184, 184, 184); */
 }
 
 .borderTop {
@@ -33,10 +33,10 @@
     display: grid;
     position: absolute;
     z-index: 5;
-    overflow-y: scroll;
+    overflow: hidden;
     
-    grid-template-columns: 20px auto 20px;
-    grid-template-rows: 50px auto 20%;
+    grid-template-columns: 20px auto 40%;
+    grid-template-rows: 100px auto 12%;
     grid-template-areas: "header header header"
                         "left board right"
                         "footer footer footer";
@@ -49,9 +49,7 @@
 
 #minigame > #board {
     grid-area: board;
-    
     margin: auto;
-    background-color: lightgrey;
     box-shadow: var(--small-shadow);
 
     height: calc(100vh - 270px);
@@ -69,6 +67,20 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(7, 1fr);
+}
+#minigame > #sideMenu {
+    grid-area: right;
+    background-color: grey;
+    margin-right: 70px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+#boardImg{
+    z-index: -1;
+    left: calc(50% - 850px);
+    top: -405px;
+    position: absolute;
+    width: 1300px;
 }
 
 #minigame > header {

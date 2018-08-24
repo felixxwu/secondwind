@@ -1,3 +1,13 @@
+// #############################################################################
+// note on how we should write and maintain the units now and in the future:
+// units should be able to be described just from a single json object. This includes:
+// name, health, defence function, attack function, attack cost, images, movement costs, movement locations
+// for the attack and defence functions, we can't have a function (or can we??) so this must be described using objects
+// once we have all the units in json form, it can all be written in php and does not need to exist in js
+// then when a user logs in, they will download all the json unit descriptors and the js code will decode these objects so that they can be used on the board
+// we might need to modify this file heavily to accomodate for this system, althought a lot of the unit class might be able to be used as it is
+
+
 //structures that hold the units in game as well as their state (location, health...)
 var enemyUnits = [];
 var ownUnits = [];
@@ -9,7 +19,20 @@ function updateLocalUnits() {
 
 //parent class for all units
 class Unit {
-    constructor(healthPoints,level, attackCost, facingDirection,idleImgFront, moveImgFront, idleImgBack, moveImgBack, stepCost, location, attackFunction, defenseFunction) {
+    constructor (
+        healthPoints,
+        level,
+        attackCost,
+        facingDirection,
+        idleImgFront,
+        moveImgFront,
+        idleImgBack,
+        moveImgBack,
+        stepCost,
+        location,
+        attackFunction,
+        defenseFunction
+    ) {
         this.healthPoints=healthPoints;
         this.level = level;
         this.attackCost = attackCost;
@@ -123,22 +146,35 @@ class Unit {
 
 //subclasses for each unit
 class shitTroop extends Unit {
-  constructor(location, level, facingDirection) {
-    //function that is performed on the enemy once its targeted 
-    function shitAttack(enemy) {
-        const attackDamage = 5;
-        enemy.defenseFunction(this.level*attackDamage); //pass attack to enemy unit
-    }
-    function shitDefense(damage) { //reduce healthpoints
-        this.healthPoints=this.healthPoints-damage;
-        if(this.healthPoints<=0){
-            let id ="unit-at-" + this.location.x + "-" + this.location.y;
-            log(id);
-            removeUnit(id);
-            this.location=undefined;
+    constructor(location, level, facingDirection) {
+        //function that is performed on the enemy once its targeted 
+        function shitAttack(enemy) {
+            const attackDamage = 5;
+            enemy.defenseFunction(this.level*attackDamage); //pass attack to enemy unit
         }
-    }
-    super(10*level,level, 1, facingDirection,"main/minigame/units/shitUnitIdleFront.svg","main/minigame/units/shitUnitMoveFront.svg","main/minigame/units/shitUnitIdleBack.svg","main/minigame/units/shitUnitMoveBack.svg", 1, location, shitAttack, shitDefense);
+        function shitDefense(damage) { //reduce healthpoints
+            this.healthPoints=this.healthPoints-damage;
+            if(this.healthPoints<=0){
+                let id ="unit-at-" + this.location.x + "-" + this.location.y;
+                log(id);
+                removeUnit(id);
+                this.location=undefined;
+            }
+        }
+        super (
+            10 * level,
+            level,
+            1,
+            facingDirection,
+            "main/minigame/units/shitUnitIdleFront.svg",
+            "main/minigame/units/shitUnitMoveFront.svg",
+            "main/minigame/units/shitUnitIdleBack.svg",
+            "main/minigame/units/shitUnitMoveBack.svg",
+            1,
+            location,
+            shitAttack,
+            shitDefense
+        );
     }
 }
 

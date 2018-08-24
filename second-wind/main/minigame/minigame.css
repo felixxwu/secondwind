@@ -1,5 +1,6 @@
 .boardButton {
-    /* border: solid grey 1px; */
+    border: solid grey 1px;
+    background-color: rgb(184, 184, 184);
 }
 
 .boardButton:hover {
@@ -16,7 +17,7 @@
     border: solid rgba(30, 128, 0, 0.3) 4px;
 }
 .baseTile {
-    /* background-color: rgb(184, 184, 184); */
+    background-color: rgb(184, 184, 184);
 }
 
 .borderTop {

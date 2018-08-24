@@ -6,7 +6,8 @@ html
     head
         title Second Wind
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
 
         //- styles for the loading screen so that no css file needs to be loaded before it can be shown
         //- file_get_contents echoes returns the contents of an entire file
@@ -100,10 +101,11 @@ html
                 linkJs("<? hashify('main/map/zoom.js'); ?>");
                 
                 linkJs("<? hashify('main/minigame/minigame.js'); ?>");
-                linkJs("<? hashify('main/minigame/battle.js'); ?>");
                 linkJs("<? hashify('main/minigame/boardClick.js'); ?>");
                 linkJs("<? hashify('main/minigame/displayUnits.js'); ?>");
                 linkJs("<? hashify('main/minigame/units.js'); ?>");
+                linkJs("<? hashify('main/minigame/battle/battle.js'); ?>");
+                linkJs("<? hashify('main/minigame/battle/battleActions.js'); ?>");
 
                 linkJs("<? hashify('init.js'); ?>");
 

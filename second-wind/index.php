@@ -36,7 +36,8 @@ function strSame($str1, $str2) {
 <html>
   <head>
     <title>Second Wind</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/><link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/><link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
     <style><?= file_get_contents("css/loading.css"); ?></style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   </head>
@@ -95,10 +96,11 @@ function strSame($str1, $str2) {
         linkJs("<? hashify('main/map/zoom.js'); ?>");
         
         linkJs("<? hashify('main/minigame/minigame.js'); ?>");
-        linkJs("<? hashify('main/minigame/battle.js'); ?>");
         linkJs("<? hashify('main/minigame/boardClick.js'); ?>");
         linkJs("<? hashify('main/minigame/displayUnits.js'); ?>");
         linkJs("<? hashify('main/minigame/units.js'); ?>");
+        linkJs("<? hashify('main/minigame/battle/battle.js'); ?>");
+        linkJs("<? hashify('main/minigame/battle/battleActions.js'); ?>");
         
         linkJs("<? hashify('init.js'); ?>");
       </script>

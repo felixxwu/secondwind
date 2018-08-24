@@ -54,6 +54,8 @@ function ajaxLoad(id, page, args, callback) {
         $("#" + id).load(page, args);      // load without callback if not defined
     } else {
         $("#" + id).load(page, args, function(response, status, jqXHR){   // load with callback
+
+            // if there is an error, retry the request unit there is no error (with 1 second between each request)
             if (status == "error") {
                 show("connectionError", "fadeInDown", 1);
                 

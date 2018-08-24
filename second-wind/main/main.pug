@@ -1,4 +1,6 @@
 include ../libraries/energy/energy.php
+//- include minigame/unit.php
+//- include minigame/out.php
 
 
 link(rel="stylesheet" href!="<? hashify('main/css/mainLayout.css'); ?>")
@@ -76,7 +78,8 @@ script mapVarInit();
 include map/map.pug
 include menu/menu.pug
 include minigame/minigame.pug
-include minigame/battleList.pug
+include minigame/battle/battleList.pug
+
 
 
 script ajaxLoop();

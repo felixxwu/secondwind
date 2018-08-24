@@ -29,6 +29,18 @@ if (isset($_POST["func"])) {
 ################################################################################################################################
 // functions go here...
 
+// submits an action to the server. locationList is a json object in string form :: [{x,y}]
+function submitAction($battleID, $turn, $actionType, $unitName, $locationList) {
+    // return "fail" response if the action is not legal
+    if (!isLegal($battleID, $turn, $actionType, $unitName, $locationList)) {
+        echo "fail";
+        return;
+    }
+    sqlInsert("battleActions", "NULL", $battleID, $turn,  $actionType, $unitName, $locationList);
+    
+    echo "success";
+}
+
 // initiate a battle with a player
 function startBattle($myIsland, $defender, $defenderIsland) {
     $username = $_POST["username"];

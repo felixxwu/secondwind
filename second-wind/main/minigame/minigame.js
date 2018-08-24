@@ -19,7 +19,7 @@ function showMinigame(myIsland, player) {
     clickMode = "select";
 
     // hide elements that are not displayed for performance
-    element("mainLayout").style.display = "none";
+    // element("mainLayout").style.display = "none";
     element("mapGrid").style.display = "none";
 }
 

@@ -44,7 +44,7 @@ function strSame($str1, $str2) {
   <body>
     <div id="ghost"> </div>
     <div id="loading">
-      <text>loading...</text>
+      <text id="loadingtext">Loading game...</text>
     </div><a class="absolute" href="login" style="z-index: -1;">if nothing happens, click here to login again</a>
     <div id="main"></div>
     <div id="errorContainer" style="display:none">

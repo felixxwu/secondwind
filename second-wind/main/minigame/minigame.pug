@@ -12,8 +12,7 @@ overlay#chooseUnitOverlay(style="display:none")
 
 
 #minigame(style="display:none")
-    overlay#unitSprites
-    overlay#plusSigns
+    
 
     header
         #minigameHeader
@@ -21,14 +20,15 @@ overlay#chooseUnitOverlay(style="display:none")
         div test
         
     #board
+        img#boardImg(src="images/board_mountain.svg")
+        overlay#unitSprites
+        overlay#plusSigns
+    #sideMenu
 
     footer#footerBackgroundWorkaround
-    footer
         #minigameTurnCounter
-        
         a.button(onclick="endTurn()")
             | end turn
-        
         a.button.iconButton(onclick="closeMinigame()")
             | close
             img.invert(src="material-icons/close.svg")

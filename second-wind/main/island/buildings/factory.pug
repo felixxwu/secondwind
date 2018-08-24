@@ -1,11 +1,11 @@
 //- Despite this being the extractor file, all the content corresponds to the factory item. -//
 factory_menu#factory_menu(style="display:none")
     #factory_header 
-        text Factory
+        text FACTORY
         //- factory_logo(src!="<? hashify('images/extractor_3_animation.svg'); ?>")
     #factory_items 
         #item_header 
-            text items
+            text Items
         br
         table#itemList
             tr
@@ -23,9 +23,12 @@ factory_menu#factory_menu(style="display:none")
         button#combine(onclick='newCombineItems()') Combine items
         #testItems
         #errorItems
-        button#hideMenu(onclick="hide('factory_menu','fadeOutDown', 1);show('analytics','fadeInRight', 2);show('notifications','fadeInLeft', 2)") Close Menu
+        button#hideMenu(onclick="hideFactoryMenu()") Close Menu
     #factory_descriptions
-        canvas#doughnut-chart
+        #combinationText Combining Items
+        bar#ratiosBar1
+        #resultText Result Item
+        resultBar#resultBar1
         //- <canvas id="doughnut-chart" width="800" height="450"></canvas>
     #factory_progress 
         #progress_bars

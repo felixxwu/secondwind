@@ -54,7 +54,6 @@ function getEnergyAllocation(){
       </div>
     </div>
   </div>
-  <script>show('floatUp','fadeInUp',10);</script>
   <div class="foot textWhite">"SecondWind is a beautiful game made by beautiful shit humans" -- a shit human</div>
 </div>
 <div id="foreground"><img class="foreground_left" id="foreground_left" src="<?= hashify('images/foreground_left.svg'); ?>" style="display:none"/><img class="foreground_right" id="foreground_right" src="<?= hashify('images/foreground_right.svg'); ?>" style="display:none"/>

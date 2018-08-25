@@ -9,9 +9,6 @@ window.onload = function() {
 
             // this piece of code waits for all images to load, then hides the loading screen
             
-            console.log("HTML files loaded, waiting for images...");
-            // hide("loading", "fadeOut", 1);
-
             // at this point, the html files have finished loading, now waiting for the images to load
             // element("loadingtext").innerHTML = "Loading images...";
             
@@ -24,14 +21,16 @@ window.onload = function() {
             
             function incrementCounter() {
                 counter++;
-                element("loadingtext").innerHTML = "Loading images (" + counter + "/" + docImages.length + ")";
+
+                element("loadingtext").innerHTML = "Loading " + (Math.floor((counter/docImages.length) * 50) + 50) + "%";
+                // element("loadingtext").innerHTML = "Loading images (" + counter + "/" + docImages.length + ")";
+
                 if ( counter === docImages.length ) {
-                    console.log( 'All images loaded!' );
+                    // console.log( 'All images loaded!' );
+                    // once loaded, hide loading screen and show the island floating up
                     hide("loading", "fadeOut", 6);
                     element("loadingtext").innerHTML = "";
-
-                    // start preloading all images that aren't immediately displayed
-                    document.body.appendChild(preloadDiv);
+                    show('floatUp','fadeInUp',10);
                 }
             }
         });

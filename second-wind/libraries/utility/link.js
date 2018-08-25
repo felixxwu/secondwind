@@ -3,7 +3,7 @@ var loadedLinks = 0;
 
 function linkJs(file) {
     let script = document.createElement("script");
-    script.setAttribute("type","text/javascript");
+    script.setAttribute("type", "text/javascript");
     script.setAttribute("src", file);
     script.setAttribute("onload", "linkLoaded()");
     document.getElementById("links").appendChild(script);
@@ -21,5 +21,8 @@ function linkCss(file) {
 
 function linkLoaded() {
     loadedLinks++;
-    element("loadingtext").innerHTML = "Loading game files (" + loadedLinks + "/" + totalLinks + ")";
+    if (document.getElementById("loadingtext")) {
+        document.getElementById("loadingtext").innerHTML = "Loading " + Math.floor((loadedLinks/totalLinks) * 50) + "%";
+        // document.getElementById("loadingtext").innerHTML = "Loading game files (" + loadedLinks + "/" + totalLinks + ")";
+    }
 }

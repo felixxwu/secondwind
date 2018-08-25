@@ -33,23 +33,23 @@ function getEnergyAllocation(){
 		</script>");
 }
 ?>
-<link rel="stylesheet" href="<? hashify('main/css/mainLayout.css'); ?>"/>
-<link rel="stylesheet" href="<? hashify('main/notifications/notifications.css'); ?>"/>
-<link rel="stylesheet" href="<? hashify('main/css/analyticsLayout.css'); ?>"/>
-<link rel="stylesheet" href="<? hashify('main/island/buildings/factory.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/css/mainLayout.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/notifications/notifications.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/css/analyticsLayout.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/island/buildings/factory.css'); ?>"/>
 <div class="mainLayout">
   <div class="headleft"><span class="helper"></span><a class="mobileOnly" onclick="toggleMenu()"><img class="icon absolute" id="menuicon" src="material-icons/menu.svg"/><img class="icon absolute" id="closeicon" src="material-icons/close.svg" style="display:none"/></a></div>
   <div class="pic"><img src="images/level.png" alt=""/></div>
   <div class="headright"><span class="helper"></span><a class="desktopOnly" onclick="show('battleList', 'fadeIn', 1)"><img class="icon" src="material-icons/battle.svg"/></a><a class="desktopOnly" onclick="toggle('notifications', 'fadeInLeft', 'fadeOutLeft', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/notifications.svg"/></a><a class="desktopOnly" onclick="toggle('analytics', 'fadeInRight', 'fadeOutRight', 1, undefined, undefined, 'grid')"><img class="icon" src="material-icons/chart.svg"/></a><a class="desktopOnly" onclick="showMap()"><img class="icon" src="material-icons/map.svg"/></a><a onclick="logout()"><img class="icon" src="material-icons/logout.svg"/></a></div>
   <div class="mid" id="floatUp" style="display:none">
     <div id="mainLayout">
-      <link rel="stylesheet" href="<? hashify('main/island/island.css'); ?>"/>
-      <div id="island"><img id="islandrock" src="<? hashify('images/rock.svg'); ?>"/>
-        <div class="townhall"><img src="<? hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)" onmouseover="displayBuildingInfo('townhallHover')" onmouseout="hideBuildingInfo('townhallHover')">
+      <link rel="stylesheet" href="<?= hashify('main/island/island.css'); ?>"/>
+      <div id="island"><img id="islandrock" src="<?= hashify('images/rock.svg'); ?>"/>
+        <div class="townhall"><img src="<?= hashify('images/townHall.svg'); ?>"/><a onclick="show('energies','fadeInUp', 1)" onmouseover="displayBuildingInfo('townhallHover')" onmouseout="hideBuildingInfo('townhallHover')">
             <hover id="townhallHover">Click to display townhall menu</hover></a></div>
-        <div class="factory"><img src="<? hashify('images/factory.svg'); ?>"/><a onclick="showFactoryMenu()" onmouseover="displayBuildingInfo('factorylHover')" onmouseout="hideBuildingInfo('factorylHover')">
+        <div class="factory"><img src="<?= hashify('images/factory.svg'); ?>"/><a onclick="showFactoryMenu()" onmouseover="displayBuildingInfo('factorylHover')" onmouseout="hideBuildingInfo('factorylHover')">
             <hover id="factorylHover">Click to display factory menu</hover></a></div>
-        <div class="extractor"> <img src="<? hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);" onmouseover="displayBuildingInfo('extractorHover')" onmouseout="hideBuildingInfo('extractorHover')">
+        <div class="extractor"> <img src="<?= hashify('images/extractor_3_animation.svg'); ?>"/><a onclick="show('extractor_menu','fadeInUp', 2);hide('analytics','fadeOutRight', 2);hide('notifications','fadeOutLeft', 2);" onmouseover="displayBuildingInfo('extractorHover')" onmouseout="hideBuildingInfo('extractorHover')">
             <hover id="extractorHover">Click to display extractor menu</hover></a></div>
       </div>
     </div>
@@ -57,7 +57,7 @@ function getEnergyAllocation(){
   <script>show('floatUp','fadeInUp',10);</script>
   <div class="foot textWhite">"SecondWind is a beautiful game made by beautiful shit humans" -- a shit human</div>
 </div>
-<div id="foreground"><img class="foreground_left" id="foreground_left" src="<? hashify('images/foreground_left.svg'); ?>" style="display:none"/><img class="foreground_right" id="foreground_right" src="<? hashify('images/foreground_right.svg'); ?>" style="display:none"/>
+<div id="foreground"><img class="foreground_left" id="foreground_left" src="<?= hashify('images/foreground_left.svg'); ?>" style="display:none"/><img class="foreground_right" id="foreground_right" src="<?= hashify('images/foreground_right.svg'); ?>" style="display:none"/>
   <script>show("foreground_left","fadeInLeft",7);</script>
   <script>show("foreground_right","fadeInRight",7);</script>
 </div>
@@ -203,8 +203,8 @@ echoAsVar("myTargets", $myTargets);
 
 </div>
 <script>mapVarInit(); </script>
-<link rel="stylesheet" href="<? hashify('main/map/map.css'); ?>"/>
-<link rel="stylesheet" href="<? hashify('main/map/zoom.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/map/map.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/map/zoom.css'); ?>"/>
 <div id="mapGrid">
   <div id="bgContainer">
     <background></background>
@@ -233,10 +233,10 @@ echoAsVar("myTargets", $myTargets);
     <div class="button iconButton" onclick="hideMap()">CLOSE MAP<img class="invert" src="material-icons/close.svg"/></div>
   </div>
 </div>
-<link rel="stylesheet" href="<? hashify('main/menu/menu.css'); ?>"/>
-<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('battleList', 'fadeIn', 1);toggleMenu()"><img class="icon" src="<? hashify('material-icons/battle.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/notifications.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="<? hashify('material-icons/chart.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="<? hashify('material-icons/map.svg'); ?>"/></a><br/></div>
-<link rel="stylesheet" href="<? hashify('main/minigame/minigame.css'); ?>"/>
-<link rel="stylesheet" href="<? hashify('main/minigame/units.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/menu/menu.css'); ?>"/>
+<div id="menu" style="display:none"><a class="mobileOnly" onclick="show('battleList', 'fadeIn', 1);toggleMenu()"><img class="icon" src="<?= hashify('material-icons/battle.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('notifications','slideInLeft',1,'grid');toggleMenu()"><img class="icon" src="<?= hashify('material-icons/notifications.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="show('analytics','slideInRight',1,'grid');toggleMenu()"><img class="icon" src="<?= hashify('material-icons/chart.svg'); ?>"/></a><br/><a class="mobileOnly" onclick="showMap();toggleMenu()"><img class="icon" src="<?= hashify('material-icons/map.svg'); ?>"/></a><br/></div>
+<link rel="stylesheet" href="<?= hashify('main/minigame/minigame.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/minigame/units.css'); ?>"/>
 <overlay id="chooseUnitOverlay" style="display:none">
   <div id="chooseUnitMenu">
     <h3>CHOOSE A UNIT</h3>
@@ -265,6 +265,30 @@ echoAsVar("myTargets", $myTargets);
     <div id="listOfBattles"></div><br/><a class="button iconButton" onclick="hide('battleList','fadeOut',1)">close<img class="invert" src="material-icons/close.svg"/></a>
   </div>
 </overlay>
+<div class="hidden" id="preloadedImages"><?php
+
+// this will dump all images from the root directory (recursively) into a hidden div forcing the browser to load these images
+
+getDirContents(getcwd());
+
+function getDirContents($dir){
+    $files = scandir($dir);
+
+    foreach($files as $key => $value){
+        $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
+        if(!is_dir($path)) {
+            $path = substr($path, strlen(getcwd()) + 1);
+            if(preg_match("/\.(jpg|jpeg|png|svg)$/i", $path)){
+                echo "<img src='" . hashify($path) . "' />";
+            }
+        } else if($value != "." && $value != "..") {
+            getDirContents($path);
+        }
+    }
+}
+
+?>
+</div>
 <script>ajaxLoop();</script>
 <update>
   <script>updateFactory();</script>

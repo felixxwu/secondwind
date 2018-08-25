@@ -1,6 +1,6 @@
 
-<link rel="stylesheet" href="<? hashify('main/minigame/minigame.css'); ?>"/>
-<link rel="stylesheet" href="<? hashify('main/minigame/units.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/minigame/minigame.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/minigame/units.css'); ?>"/>
 <overlay id="chooseUnitOverlay" style="display:none">
   <div id="chooseUnitMenu">
     <h3>CHOOSE A UNIT</h3>

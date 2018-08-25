@@ -3,10 +3,10 @@ include ../libraries/energy/energy.php
 //- include minigame/out.php
 
 
-link(rel="stylesheet" href!="<? hashify('main/css/mainLayout.css'); ?>")
-link(rel="stylesheet" href!="<? hashify('main/notifications/notifications.css'); ?>")
-link(rel="stylesheet" href!="<? hashify('main/css/analyticsLayout.css'); ?>")
-link(rel="stylesheet" href!="<? hashify('main/island/buildings/factory.css'); ?>")
+link(rel="stylesheet" href!="<?= hashify('main/css/mainLayout.css'); ?>")
+link(rel="stylesheet" href!="<?= hashify('main/notifications/notifications.css'); ?>")
+link(rel="stylesheet" href!="<?= hashify('main/css/analyticsLayout.css'); ?>")
+link(rel="stylesheet" href!="<?= hashify('main/island/buildings/factory.css'); ?>")
 
 
 //- link(rel="stylesheet", href="main/mainLayout.css?")
@@ -47,8 +47,8 @@ link(rel="stylesheet" href!="<? hashify('main/island/buildings/factory.css'); ?>
         //- a(onclick='logout()') logout
 
 #foreground
-    img.foreground_left#foreground_left(src!="<? hashify('images/foreground_left.svg'); ?>" style="display:none")
-    img.foreground_right#foreground_right(src!="<? hashify('images/foreground_right.svg'); ?>" style="display:none")
+    img.foreground_left#foreground_left(src!="<?= hashify('images/foreground_left.svg'); ?>" style="display:none")
+    img.foreground_right#foreground_right(src!="<?= hashify('images/foreground_right.svg'); ?>" style="display:none")
     script show("foreground_left","fadeInLeft",7);
     script show("foreground_right","fadeInRight",7);
     
@@ -80,7 +80,8 @@ include menu/menu.pug
 include minigame/minigame.pug
 include minigame/battle/battleList.pug
 
-
+#preloadedImages.hidden
+    include ../libraries/utility/preload.php
 
 script ajaxLoop();
         

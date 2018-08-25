@@ -1,3 +1,6 @@
+// used to disable rightclick capabilities (useful for mobile so you can long press and simulate hover)
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 window.onload = function() {
     window.history.pushState("", "", "./");
 
@@ -10,26 +13,30 @@ window.onload = function() {
             // hide("loading", "fadeOut", 1);
 
             // at this point, the html files have finished loading, now waiting for the images to load
-            element("loadingtext").innerHTML = "Loading images...";
+            // element("loadingtext").innerHTML = "Loading images...";
             
-            var imgs = document.images,
-            len = imgs.length,
+            var docImages = document.images, // gets all images from the document (will have loaded by now but not displayed)
             counter = 0;
             
-            [].forEach.call( imgs, function( img ) {
+            [].forEach.call( docImages, function( img ) {
                 img.addEventListener( 'load', incrementCounter, false );
             } );
             
             function incrementCounter() {
                 counter++;
-                if ( counter === len ) {
+                element("loadingtext").innerHTML = "Loading images (" + counter + "/" + docImages.length + ")";
+                if ( counter === docImages.length ) {
                     console.log( 'All images loaded!' );
                     hide("loading", "fadeOut", 6);
                     element("loadingtext").innerHTML = "";
+
+                    // start preloading all images that aren't immediately displayed
+                    document.body.appendChild(preloadDiv);
                 }
             }
         });
     }, 0);
 };
+
 
 

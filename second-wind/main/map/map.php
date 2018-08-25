@@ -1,6 +1,6 @@
 
-<link rel="stylesheet" href="<? hashify('main/map/map.css'); ?>"/>
-<link rel="stylesheet" href="<? hashify('main/map/zoom.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/map/map.css'); ?>"/>
+<link rel="stylesheet" href="<?= hashify('main/map/zoom.css'); ?>"/>
 <div id="mapGrid">
   <div id="bgContainer">
     <background></background>

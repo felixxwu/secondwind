@@ -7,45 +7,51 @@ html
         title Second Wind
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+        //- <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
 
         //- styles for the loading screen so that no css file needs to be loaded before it can be shown
-        //- file_get_contents echoes returns the contents of an entire file
+        //- file_get_contents reads the contents of a file allowing it to be echoed straight into the html
+        //- note: no need for hashify since this is not going to be cached
         style <?= file_get_contents("css/loading.css"); ?>
+
+        //- get the main style file as well because it contains all the variables and styles for the body
+        style <?= file_get_contents("css/style.css"); ?>
         
         script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js")
         //- force these links to load over cache by adding ?v=<?=time()?> to the end of each
-        //- link(rel="stylesheet" href!="<? hashify('css/style.css'); ?>")
+        //- link(rel="stylesheet" href!="<?= hashify('css/style.css'); ?>")
         //- link(rel="stylesheet" href="css/animate.css")
-        //- link(rel="stylesheet" href!="<? hashify('css/mainStyle.css'); ?>")
-        //- link(rel="stylesheet" href!="<? hashify('css/buttons.css'); ?>")
+        //- link(rel="stylesheet" href!="<?= hashify('css/mainStyle.css'); ?>")
+        //- link(rel="stylesheet" href!="<?= hashify('css/buttons.css'); ?>")
 
         //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
         //- script(src="https://code.jquery.com/jquery-3.2.1.min.js")
-        //- script(src!="<? hashify('libraries/ajax/newAjaxHelper.js'); ?>")
-        //- script(src!="<? hashify('libraries/account/functions.js'); ?>")
-        //- script(src!="<? hashify('libraries/account/secureLoad.js'); ?>")
-        //- script(src!="<? hashify('libraries/utility/general.js'); ?>")
-        //- script(src!="<? hashify('libraries/utility/animation.js'); ?>")
-        //- script(src!="<? hashify('libraries/utility/hashNavigation.js'); ?>")
-        //- script(src!="<? hashify('libraries/energy/energy.js'); ?>")
-        //- script(src!="<? hashify('libraries/items/items.js'); ?>")
-        //- script(src!="<? hashify('libraries/slider/sliderdemo.js'); ?>") 
+        //- script(src!="<?= hashify('libraries/ajax/newAjaxHelper.js'); ?>")
+        //- script(src!="<?= hashify('libraries/account/functions.js'); ?>")
+        //- script(src!="<?= hashify('libraries/account/secureLoad.js'); ?>")
+        //- script(src!="<?= hashify('libraries/utility/general.js'); ?>")
+        //- script(src!="<?= hashify('libraries/utility/animation.js'); ?>")
+        //- script(src!="<?= hashify('libraries/utility/hashNavigation.js'); ?>")
+        //- script(src!="<?= hashify('libraries/energy/energy.js'); ?>")
+        //- script(src!="<?= hashify('libraries/items/items.js'); ?>")
+        //- script(src!="<?= hashify('libraries/slider/sliderdemo.js'); ?>") 
 
-        //- script(src!="<? hashify('main/menu/menu.js'); ?>")
-        //- script(src!="<? hashify('main/notifications/notifications.js'); ?>")
-        //- script(src!="<? hashify('main/map/map.js'); ?>")
-        //- script(src!="<? hashify('main/map/init.js'); ?>")
-        //- script(src!="<? hashify('main/map/perimeter.js'); ?>")
+        //- script(src!="<?= hashify('main/menu/menu.js'); ?>")
+        //- script(src!="<?= hashify('main/notifications/notifications.js'); ?>")
+        //- script(src!="<?= hashify('main/map/map.js'); ?>")
+        //- script(src!="<?= hashify('main/map/init.js'); ?>")
+        //- script(src!="<?= hashify('main/map/perimeter.js'); ?>")
         
-        //- script(src!="<? hashify('libraries/ajax/ajaxLoop.js'); ?>")
+        //- script(src!="<?= hashify('libraries/ajax/ajaxLoop.js'); ?>")
         
-        //- script(src!="<? hashify('init.js'); ?>")
+        //- script(src!="<?= hashify('init.js'); ?>")
+    
     body
         #ghost 
+        
 
         #loading
-            text#loadingtext Loading game...
+            text#loadingtext Loading game files...
 
 
         a.absolute(href="login" style="z-index: -1;") if nothing happens, click here to login again
@@ -65,51 +71,51 @@ html
             script.
                 <?= file_get_contents("libraries/utility/link.js"); ?>
 
-                linkCss("<? hashify('css/style.css'); ?>");
+                //- linkCss("<?= hashify('css/style.css'); ?>");
                 linkCss("css/animate.css");
-                linkCss("<? hashify('css/mainStyle.css'); ?>");
-                linkCss("<? hashify('css/buttons.css'); ?>");
+                linkCss("<?= hashify('css/mainStyle.css'); ?>");
+                linkCss("<?= hashify('css/buttons.css'); ?>");
             
                 linkJs("https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js");
                 linkJs("https://code.jquery.com/jquery-3.2.1.min.js");
 
-                linkJs("<? hashify('libraries/ajax/newAjaxHelper.js'); ?>");
-                linkJs("<? hashify('libraries/ajax/ajaxLoop.js'); ?>");
+                linkJs("<?= hashify('libraries/ajax/newAjaxHelper.js'); ?>");
+                linkJs("<?= hashify('libraries/ajax/ajaxLoop.js'); ?>");
 
-                linkJs("<? hashify('libraries/account/functions.js'); ?>");
-                linkJs("<? hashify('libraries/account/secureLoad.js'); ?>");
+                linkJs("<?= hashify('libraries/account/functions.js'); ?>");
+                linkJs("<?= hashify('libraries/account/secureLoad.js'); ?>");
 
-                linkJs("<? hashify('libraries/utility/general.js'); ?>");
-                linkJs("<? hashify('libraries/utility/animation.js'); ?>");
-                linkJs("<? hashify('libraries/utility/hashNavigation.js'); ?>");
+                linkJs("<?= hashify('libraries/utility/general.js'); ?>");
+                linkJs("<?= hashify('libraries/utility/animation.js'); ?>");
+                linkJs("<?= hashify('libraries/utility/hashNavigation.js'); ?>");
 
-                linkJs("<? hashify('libraries/energy/energy.js'); ?>");
-                linkJs("<? hashify('libraries/items/items.js'); ?>");
-                linkJs("<? hashify('libraries/slider/sliderdemo.js'); ?>") ;
+                linkJs("<?= hashify('libraries/energy/energy.js'); ?>");
+                linkJs("<?= hashify('libraries/items/items.js'); ?>");
+                linkJs("<?= hashify('libraries/slider/sliderdemo.js'); ?>") ;
 
-                linkJs("<? hashify('main/island/island.js'); ?>");
+                linkJs("<?= hashify('main/island/island.js'); ?>");
 
-                linkJs("<? hashify('main/resize.js'); ?>");
+                linkJs("<?= hashify('main/resize.js'); ?>");
 
-                linkJs("<? hashify('main/menu/menu.js'); ?>");
-                linkJs("<? hashify('main/notifications/notifications.js'); ?>");
+                linkJs("<?= hashify('main/menu/menu.js'); ?>");
+                linkJs("<?= hashify('main/notifications/notifications.js'); ?>");
 
-                linkJs("<? hashify('main/map/map.js'); ?>");
-                linkJs("<? hashify('main/map/sources.js'); ?>");
-                linkJs("<? hashify('main/map/init.js'); ?>");
-                linkJs("<? hashify('main/map/draw.js'); ?>");
-                linkJs("<? hashify('main/map/players.js'); ?>");
-                linkJs("<? hashify('main/map/perimeter.js'); ?>");
-                linkJs("<? hashify('main/map/quickActions.js'); ?>");
-                linkJs("<? hashify('main/map/zoom.js'); ?>");
+                linkJs("<?= hashify('main/map/map.js'); ?>");
+                linkJs("<?= hashify('main/map/sources.js'); ?>");
+                linkJs("<?= hashify('main/map/init.js'); ?>");
+                linkJs("<?= hashify('main/map/draw.js'); ?>");
+                linkJs("<?= hashify('main/map/players.js'); ?>");
+                linkJs("<?= hashify('main/map/perimeter.js'); ?>");
+                linkJs("<?= hashify('main/map/quickActions.js'); ?>");
+                linkJs("<?= hashify('main/map/zoom.js'); ?>");
                 
-                linkJs("<? hashify('main/minigame/minigame.js'); ?>");
-                linkJs("<? hashify('main/minigame/boardClick.js'); ?>");
-                linkJs("<? hashify('main/minigame/displayUnits.js'); ?>");
-                linkJs("<? hashify('main/minigame/units.js'); ?>");
-                linkJs("<? hashify('main/minigame/battle/battle.js'); ?>");
-                linkJs("<? hashify('main/minigame/battle/battleActions.js'); ?>");
+                linkJs("<?= hashify('main/minigame/minigame.js'); ?>");
+                linkJs("<?= hashify('main/minigame/boardClick.js'); ?>");
+                linkJs("<?= hashify('main/minigame/displayUnits.js'); ?>");
+                linkJs("<?= hashify('main/minigame/units.js'); ?>");
+                linkJs("<?= hashify('main/minigame/battle/battle.js'); ?>");
+                linkJs("<?= hashify('main/minigame/battle/battleActions.js'); ?>");
 
-                linkJs("<? hashify('init.js'); ?>");
+                linkJs("<?= hashify('init.js'); ?>");
 
 

@@ -20,7 +20,7 @@ function checkExists($file) {
 
 function hashify($file) {
     checkExists($file);
-    echo "$file?h=" . hash_file("crc32", $file);
+    return "$file?h=" . hash_file("crc32", $file);
 }
 
 function strSame($str1, $str2) {

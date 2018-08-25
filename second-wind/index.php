@@ -53,6 +53,10 @@ function strSame($str1, $str2) {
     <div id="connectionError" style="display:none">
       Something went wrong while connecting to the server. Trying again to get you back online...
       
+    </div>
+    <div id="idleWarning" style="display:none">
+      You are idle.<br>Focus this window to get live updates.
+      
       
     </div>
     <div id="links">

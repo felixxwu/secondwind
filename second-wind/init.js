@@ -22,6 +22,7 @@ window.onload = function() {
             function incrementCounter() {
                 counter++;
 
+                // second half of the loading process
                 element("loadingtext").innerHTML = "Loading " + (Math.floor((counter/docImages.length) * 50) + 50) + "%";
                 // element("loadingtext").innerHTML = "Loading images (" + counter + "/" + docImages.length + ")";
 

@@ -22,7 +22,10 @@ function linkCss(file) {
 function linkLoaded() {
     loadedLinks++;
     if (document.getElementById("loadingtext")) {
-        document.getElementById("loadingtext").innerHTML = "Loading " + Math.floor((loadedLinks/totalLinks) * 50) + "%";
-        // document.getElementById("loadingtext").innerHTML = "Loading game files (" + loadedLinks + "/" + totalLinks + ")";
+        // first half of the loading process
+        document.getElementById("loadingtext").innerHTML =
+            "Loading " + Math.floor((loadedLinks / totalLinks) * 50) + "%";
+        // document.getElementById("loadingtext").innerHTML =
+        //     "Loading game files (" + loadedLinks + "/" + totalLinks + ")";
     }
 }

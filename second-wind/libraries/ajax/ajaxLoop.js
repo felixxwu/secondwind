@@ -1,5 +1,14 @@
 function ajaxLoop() {
     setTimeout(function () {
+
+        // if there is no focus on the window, don't bother executing the ajax loop, suspend it until the user comes back
+        if (!document.hasFocus()) {
+            show("idleWarning", "fadeInDown", 1);
+            ajaxLoop();
+            return;
+        }
+        hide("idleWarning", "fadeOutUp", 1);
+
         ajaxSecureLoadVariables("ajaxLoop", {
             "myIslands": null,
             "otherIslands": null,

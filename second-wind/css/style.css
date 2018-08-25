@@ -12,7 +12,7 @@ html * {
     --text-white: white;
     --text-black: black;
     --small-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    --big-shadow: 0px 20px 100px 1px rgba(0, 0, 0, 0.5);
+    --big-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
     --dim-bg: rgba(0, 0, 0, 0.5);
 }
 
@@ -44,7 +44,7 @@ body {
     box-shadow: var(--big-shadow);
 }
 
-#connectionError {
+#connectionError, #idleWarning {
     position: fixed;
     padding: 20px;
     margin: 20px;
@@ -53,7 +53,7 @@ body {
     margin-left: calc(50vw - 170px);
     color: var(--text-white);
     text-align: center;
-    box-shadow: var(--big-shadow);
+    box-shadow: var(--small-shadow);
     z-index: 100;
 }
 

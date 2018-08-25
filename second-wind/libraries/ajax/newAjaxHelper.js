@@ -64,9 +64,10 @@ function ajaxLoad(id, page, args, callback) {
                 }, 1000);
                 return;
             }
-            
+
             hide("connectionError", "fadeOutUp", 1);
             callback(response, status, jqXHR);
+            
         });
     }
 }

@@ -61,7 +61,7 @@ function ajaxLoad(id, page, args, callback) {
                 
                 setTimeout(() => {
                     ajaxLoad(id, page, args, callback);
-                }, 1000);
+                }, 2000);
                 return;
             }
 

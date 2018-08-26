@@ -69,7 +69,10 @@ link(rel="stylesheet" href!="<?= hashify('main/island/buildings/factory.css'); ?
         a.button.mobileOnly(onclick="hide('analytics', 'slideOutRight', 1)") hide
     script show("analytics","fadeInRight",10);
 
-#ajaxLoop
+//- #ajaxLoop
+
+
+#sse
     include map/mapVarsPreAjax.php
 
 script mapVarInit(); 
@@ -82,7 +85,7 @@ include minigame/battle/battleList.pug
 #preloadedImages.hidden
     include ../libraries/utility/preload.php
 
-script ajaxLoop();
+//- script ajaxLoop();
         
 update
     //- script getEnergyAllocation();

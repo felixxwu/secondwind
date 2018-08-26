@@ -1,23 +1,29 @@
+// NO LONGER IN USE !!!
+
 function ajaxLoop() {
     setTimeout(function () {
 
         // if there is no focus on the window, don't bother executing the ajax loop, suspend it until the user comes back
-        if (!document.hasFocus()) {
-            show("idleWarning", "fadeInDown", 1);
-            ajaxLoop();
-            return;
-        }
-        hide("idleWarning", "fadeOutUp", 1);
+        // if (!document.hasFocus()) {
+        //     show("idleWarning", "fadeInDown", 1);
+        //     ajaxLoop();
+        //     return;
+        // }
+        // hide("idleWarning", "fadeOutUp", 1);
 
-        ajaxSecureLoadVariables("ajaxLoop", {
-            "myIslands": null,
-            "otherIslands": null,
-            "myTargets": null,
 
-            "ajaxSources": null,
-            "energies": null,
+        // !!! now using normal load variables instead of secure because it is faster
+        // !!! the ajax loop is only used to read variables from the database, which means you dont need to verify the account
 
-            "myBattles": null
+        ajaxLoadVariables("ajaxLoop", {
+            "myIslands": getUsername(),
+            "otherIslands": getUsername(),
+            "myTargets": getUsername(),
+
+            "ajaxSources": getUsername(),
+            "energies": getUsername(),
+
+            "myBattles": getUsername()
         }, function () {
 
             if (myIslands == []) { alert("error: no islands"); }

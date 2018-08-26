@@ -184,7 +184,7 @@ function getEnergyAllocation(){
   </div>
   <script>show("analytics","fadeInRight",10);</script>
 </div>
-<div id="ajaxLoop"><?php
+<div id="sse"><?php
 
 // BEFORE THE FIRST AJAX LOOP CALL THERE ARE NO VARIABLES
 // THIS FILE PROVIDES NECESSARY VARIABLES FOR THE MAP BEFORE THE FIRST AJAX LOOP CALL 
@@ -293,7 +293,6 @@ function getDirContents($dir){
 
 ?>
 </div>
-<script>ajaxLoop();</script>
 <update>
   <script>updateFactory();</script>
   <script>setupSliders();</script>

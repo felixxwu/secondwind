@@ -31,6 +31,8 @@ foreach ($_POST as $var => $args) {
 }
 echo "</script>";
 
+$conn->close();
+
 // add variables here...
 
 
@@ -44,13 +46,14 @@ function itemList(){
     return $result;
 }
 
-function energies(){
-    $rows = 'human, attack, power, intelligence, building';
-    $query = sqlSelect('energy',$rows,"username='test'","`username`")[0];
+// function energies(){
+//     $rows = 'human, attack, power, intelligence, building';
+//     $query = sqlSelect('energy',$rows,"username='test'","`username`")[0];
  
-    return $query;
+//     return $query;
 
-}
+// }
+
 function variableExample() {
     return 5;
 }
@@ -81,6 +84,44 @@ function message($username) {
         // user doesnt
         return "<green>username is available</green>";
     }
+}
+
+
+
+
+
+
+
+function myIslands($username) {
+    $islands = sqlSelect("locations", "`island`,`x`,`y`", "`username` = '" . $username . "'", "id");
+    return $islands;
+}
+
+function otherIslands($username) {
+    $islands = sqlSelect("locations", "`username`,`island`,`x`,`y`", "NOT `username` = '" . $username . "'", "id");
+    return $islands;
+}
+
+function myTargets($username) {
+    $targets = sqlSelect("targetLocations", "*", "`username` = '" . $username . "'", "id");
+    return $targets;
+}
+
+function ajaxSources($username){
+    return sqlSelectWithoutCriteria("sources", "*","id"); 
+}
+
+function myBattles($username) {
+    $myBattles = sqlSelect("battles", "*", "`attacker` = '$username' OR `defender` = '$username'", "id");
+    return $myBattles;
+}
+
+function energies($username){
+    $rows = 'human, attack, power, intelligence, building';
+    $query = sqlSelect('energy',$rows,"username='$username'","`username`")[0];
+ 
+    return $query;
+
 }
 
 ?>

@@ -1,0 +1,46 @@
+{
+    "name": "unit",
+    "image": {
+        "front": {
+            "idle": "unitFrontIdle.svg",
+            "moving": "unitFrontMoving.svg"
+        },
+        "back": {
+            "idle": "unitBackIdle.svg",
+            "moving": "unitBackMoving.svg"
+        }
+    },
+    "baseHealth": 30,
+    "movePoints": 2,
+    "spawnRows": [0, 1, 2, 3, 4, 5],
+    "triggers": [
+        {
+            "type": "move",
+            "action": [
+                "action object",
+                "action object ..."
+            ]
+        },
+        {
+            "type": "target / attack",
+            "action": [
+                "action object",
+                "action object ..."
+            ]
+        },
+        {
+            "type": "takeDamage",
+            "action": [
+                "action object",
+                "action object ..."
+            ]
+        },
+        {
+            "type": "death",
+            "action": [
+                "action object",
+                "action object ..."
+            ]
+        }
+    ]
+}

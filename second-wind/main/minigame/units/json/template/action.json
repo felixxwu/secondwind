@@ -1,0 +1,69 @@
+{
+    "action": [
+        {
+            "type": "healthStat",
+            "turn": "int >= 0 or 'all'",
+            "target": "target",
+            "amount": "int",
+            "relative": "bool",
+            "chance": "float 0 - 1"
+        },
+        {
+            "type": "attackStat",
+            "turn": "int >= 0 or 'all'",
+            "effectedTurn": "int >= 0 or 'all' - this is for changing the stat for a specific turn of the attack, which could be just the firts turn, or all of them in the case of lingering damage attacks",
+            "target": "target",
+            "amount": "int - note: if attack stat is used on a healing ability, it should work",
+            "relative": "bool",
+            "chance": "float 0 - 1"
+        },
+        {
+            "type": "moveStat",
+            "turn": "int >= 0 or 'all'",
+            "target": "target",
+            "amount": "int",
+            "relative": "bool",
+            "chance": "float 0 - 1"
+        },
+        {
+            "type": "spawnUnit",
+            "turn": "int >= 0 or 'all'",
+            "location": "location object",
+            "unit": {
+                "name": "string",
+                "level": "int"
+            },
+            "chance": "float 0 - 1"
+        },
+        {
+            "type": "moveUnit",
+            "turn": "int >= 0 or 'all'",
+            "target": "target",
+            "chance": "float 0 - 1"
+        },
+        {
+            "type": "removeAbility",
+            "turn": "int >= 0 or 'all'",
+            "target": "target",
+            "ability": "string",
+            "chance":"float 0 - 1"
+        }
+    ],
+
+
+
+    "target": [
+        "target",
+        "self",
+        "location object",
+        "allEnemy",
+        "allFriendly",
+        "+ the 4 factions"
+    ],
+
+    "location": {
+        "type":"'relative' or 'absolute'",
+        "x": "int",
+        "y": "int"
+    }
+}

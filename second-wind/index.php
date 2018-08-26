@@ -90,6 +90,7 @@ function strSame($str1, $str2) {
         linkJs("<?= hashify('main/island/island.js'); ?>");
         
         linkJs("<?= hashify('main/resize.js'); ?>");
+        linkJs("<?= hashify('main/browserType.js'); ?>");
         
         linkJs("<?= hashify('main/menu/menu.js'); ?>");
         linkJs("<?= hashify('main/notifications/notifications.js'); ?>");

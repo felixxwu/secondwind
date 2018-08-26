@@ -8,7 +8,6 @@ var energies;
 if (typeof EventSource !== "undefined") {
     var source = new EventSource("libraries/sse/sse.php?user=" + getUsername());
     source.onmessage = function(event) {
-        hide("connectionError", "fadeOutUp", 1);
         let data = JSON.parse(event.data)
         myIslands = data.myIslands;
         otherIslands = data.otherIslands;
@@ -33,9 +32,6 @@ if (typeof EventSource !== "undefined") {
         updateTurn();
         listBattles();  // display battles in "ongoing battles"
     };
-    source.onerror = function(event) {
-        // show("connectionError", "fadeInDown", 1);
-    }
 } else {
-    alert("Sorry, your browser does not support server-sent events...");
+    alert("Sorry, your browser does not support server-sent events. Please try again with a different browser such as Chrome or Firefox.");
 }

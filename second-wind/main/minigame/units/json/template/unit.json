@@ -12,7 +12,16 @@
     },
     "baseHealth": 30,
     "movePoints": 2,
-    "spawnRows": [0, 1, 2, 3, 4, 5],
+    "targetOptions": [
+        "location object",
+        "location object",
+        "location object ..."
+    ],
+    "moveOptions": [
+        "location object",
+        "location object",
+        "location object ..."
+    ],
     "triggers": [
         {
             "type": "move",
@@ -37,6 +46,13 @@
         },
         {
             "type": "death",
+            "action": [
+                "action object",
+                "action object ..."
+            ]
+        },
+        {
+            "type": "spawn",
             "action": [
                 "action object",
                 "action object ..."

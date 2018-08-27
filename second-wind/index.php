@@ -110,6 +110,7 @@ function strSame($str1, $str2) {
         linkJs("<?= hashify('main/minigame/units.js'); ?>");
         linkJs("<?= hashify('main/minigame/battle/battle.js'); ?>");
         linkJs("<?= hashify('main/minigame/battle/battleActions.js'); ?>");
+        linkJs("<?= hashify('main/minigame/units/validUnit.js'); ?>");
         
         linkJs("<?= hashify('init.js'); ?>");
       </script>

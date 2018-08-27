@@ -7,6 +7,10 @@ window.onload = function() {
     setTimeout(() => {
         secureLoad("main", "main/main.php", undefined, function() {
 
+            // once the files have been loaded, check the validity of the units
+            checkValidUnits();
+
+
             // this piece of code waits for all images to load, then hides the loading screen
             
             // at this point, the html files have finished loading, now waiting for the images to load

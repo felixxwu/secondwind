@@ -1,0 +1,162 @@
+{
+    "name": "example2",
+    "image": {
+        "front": {
+            "idle": "unitFrontIdle.svg",
+            "moving": "unitFrontMoving.svg"
+        },
+        "back": {
+            "idle": "unitBackIdle.svg",
+            "moving": "unitBackMoving.svg"
+        }
+    },
+    "baseHealth": 30,
+    "movePoints": 2,
+    "targetOptions": [
+        {"type": "relative", "x": 1, "y": -1},
+        {"type": "relative", "x": 1, "y": 0},
+        {"type": "relative", "x": 1, "y": 1},
+        {"type": "relative", "x": 0, "y": -1},
+        {"type": "relative", "x": 0, "y": 1},
+        {"type": "relative", "x": -1, "y": -1},
+        {"type": "relative", "x": -1, "y": 0},
+        {"type": "relative", "x": -1, "y": 1}
+    ],
+    "moveOptions": [
+        {"type": "relative", "x": 1, "y": 0},
+        {"type": "relative", "x": -1, "y": 0},
+        {"type": "relative", "x": 0, "y": 1},
+        {"type": "relative", "x": 0, "y": -1}
+    ],
+    "triggers": [
+        {
+            "type": "move",
+            "action": [
+                {
+                    "type": "spawnUnit",
+                    "turn": 0,
+                    "location": {"type": "relative", "x": 0, "y": -1},
+                    "unit": {
+                        "name": "example",
+                        "level": 1
+                    },
+                    "chance": 1
+                }
+            ]
+        },
+        {
+            "type": "target",
+            "action": [
+                {
+                    "type": "healthStat",
+                    "turn": 0,
+                    "target": {"location": {
+                        "type": "relative", "x": 1, "y": -1
+                    }},
+                    "amount": -3,
+                    "relative": true,
+                    "chance": 1
+                },
+                {
+                    "type": "healthStat",
+                    "turn": 0,
+                    "target": {"location": {
+                        "type": "relative", "x": 1, "y": 0
+                    }},
+                    "amount": -3,
+                    "relative": true,
+                    "chance": 1
+                },
+                {
+                    "type": "healthStat",
+                    "turn": 0,
+                    "target": {"location": {
+                        "type": "relative", "x": 1, "y": 1
+                    }},
+                    "amount": -3,
+                    "relative": true,
+                    "chance": 1
+                }
+            ]
+        },
+        {
+            "type": "takeDamage",
+            "action": [
+                {
+                    "type": "attackStat",
+                    "turn": 0,
+                    "effectedTurn": 0,
+                    "target": "self",
+                    "unitFilter": {"side": "all", "faction": "all"},
+                    "amount": 1,
+                    "relative": true,
+                    "chance": 0.5
+                }
+            ]
+        },
+        {
+            "type": "death",
+            "action": [
+                {
+                    "type": "healthStat",
+                    "turn": 0,
+                    "target": { "location": {
+                        "type": "relative", "x": 1, "y": 0
+                    }},
+                    "unitFilter": {"side": "all", "faction": "all"},
+                    "amount": -5,
+                    "relative": true,
+                    "chance": 1
+                },
+                {
+                    "type": "healthStat",
+                    "turn": 0,
+                    "target": { "location": {
+                        "type": "relative", "x": -1, "y": 0
+                    }},
+                    "unitFilter": {"side": "all", "faction": "all"},
+                    "amount": -5,
+                    "relative": true,
+                    "chance": 1
+                },
+                {
+                    "type": "healthStat",
+                    "turn": 0,
+                    "target": { "location": {
+                        "type": "relative", "x": 0, "y": 1
+                    }},
+                    "unitFilter": {"side": "all", "faction": "all"},
+                    "amount": -5,
+                    "relative": true,
+                    "chance": 1
+                },
+                {
+                    "type": "healthStat",
+                    "turn": 0,
+                    "target": { "location": {
+                        "type": "relative", "x": 0, "y": -1
+                    }},
+                    "unitFilter": {"side": "all", "faction": "all"},
+                    "amount": -5,
+                    "relative": true,
+                    "chance": 1
+                }
+            ]
+        },
+        {
+            "type": "spawn",
+            "action": [
+                {
+                    "type": "moveUnit",
+                    "turn": 0,
+                    "target": "self",
+                    "unitFilter": {"side": "all", "faction": "all"},
+                    "location": {
+                        "type": "relative", "x": 0, "y": 1
+                    },
+                    "chance": 1
+                }
+            ]
+        }
+    ]
+}

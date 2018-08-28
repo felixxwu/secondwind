@@ -31,7 +31,7 @@
     "triggers": [
         {
             "type": "move",
-            "action": [
+            "actions": [
                 {
                     "type": "spawnUnit",
                     "turn": 0,
@@ -46,7 +46,7 @@
         },
         {
             "type": "target",
-            "action": [
+            "actions": [
                 {
                     "type": "healthStat",
                     "turn": 0,
@@ -81,7 +81,7 @@
         },
         {
             "type": "takeDamage",
-            "action": [
+            "actions": [
                 {
                     "type": "attackStat",
                     "turn": 0,
@@ -96,7 +96,7 @@
         },
         {
             "type": "death",
-            "action": [
+            "actions": [
                 {
                     "type": "healthStat",
                     "turn": 0,
@@ -145,7 +145,7 @@
         },
         {
             "type": "spawn",
-            "action": [
+            "actions": [
                 {
                     "type": "moveUnit",
                     "turn": 0,
@@ -155,6 +155,16 @@
                         "type": "relative", "x": 0, "y": 1
                     },
                     "chance": 1
+                },
+                {
+                    "type": "removeAbility",
+                    "turn": 0,
+                    "target": {"location": {
+                        "type": "relative", "x": 0, "y": 1
+                    }},
+                    "unitFilter": {"side": "all", "faction": "all"},
+                    "ability": "moveUnit",
+                    "chance": 0.5
                 }
             ]
         }

@@ -1,5 +1,5 @@
 {
-    "action": [
+    "actions": [
         {
             "type": "healthStat",
             "turn": "int >= 0 or 'all'",

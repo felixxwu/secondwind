@@ -12,7 +12,7 @@
         {
             "type": "attackStat",
             "turn": "int >= 0 or 'all'",
-            "effectedTurn": "int >= 0 or 'all' - this is for changing the stat for a specific turn of the attack, which could be just the firts turn, or all of them in the case of lingering damage attacks",
+            "affectedTurn": "int >= 0 or 'all' - this is for changing the stat for a specific turn of the attack, which could be just the firts turn, or all of them in the case of lingering damage attacks",
             "target": "target object",
             "unitFilter": "filter object",
             "amount": "int - note: if attack stat is used on a healing ability, it should work",
@@ -51,7 +51,7 @@
             "turn": "int >= 0 or 'all'",
             "target": "target object",
             "unitFilter": "filter object",
-            "ability": "string",
+            "ability": "action (string)",
             "chance":"float 0 - 1"
         }
     ],

@@ -53,6 +53,7 @@
                     "target": {"location": {
                         "type": "relative", "x": 1, "y": -1
                     }},
+                    "unitFilter": {"side": "enemy", "faction": "all"},
                     "amount": -3,
                     "relative": true,
                     "chance": 1
@@ -63,6 +64,7 @@
                     "target": {"location": {
                         "type": "relative", "x": 1, "y": 0
                     }},
+                    "unitFilter": {"side": "enemy", "faction": "all"},
                     "amount": -3,
                     "relative": true,
                     "chance": 1
@@ -73,6 +75,7 @@
                     "target": {"location": {
                         "type": "relative", "x": 1, "y": 1
                     }},
+                    "unitFilter": {"side": "enemy", "faction": "all"},
                     "amount": -3,
                     "relative": true,
                     "chance": 1
@@ -85,7 +88,16 @@
                 {
                     "type": "attackStat",
                     "turn": 0,
-                    "effectedTurn": 0,
+                    "affectedTurn": 0,
+                    "target": "self",
+                    "unitFilter": {"side": "all", "faction": "all"},
+                    "amount": 1,
+                    "relative": true,
+                    "chance": 0.5
+                },
+                {
+                    "type": "moveStat",
+                    "turn": 0,
                     "target": "self",
                     "unitFilter": {"side": "all", "faction": "all"},
                     "amount": 1,

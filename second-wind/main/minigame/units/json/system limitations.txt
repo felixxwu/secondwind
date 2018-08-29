@@ -1,0 +1,27 @@
+with this system you can't do the following:
+
+- something like a cannon that only hits the first target on it's path. This requires that each tile be checked until a unit is found
+
+- probability can only be applied to one thing at a time. you can't do something like 50% deal 5 damage the other 50% deal 1 damage. it would have to be something like deal 1 damage all the time but 50% chance of dealing additional 5 damage (not replacing the 1 damage)
+
+- you can remove abilities but you can't add them back, and you can't alter any of the details of an ability
+
+- you can't select a direction for the list of targets. for example if you want to have a unit that deals damage to all tiles in a straight line starting from the tile that you selected this will not be possible. you could still however do something like deal damage to all tiles in front, it's just the direction that can't be changed
+
+- if we want to have units that don't need to be placed anywhere to have an effect (like the spell cards in stormbound) this will not be possible. however we can have units that you have to place, have an effect on the board and then despawn instantly, which would still work just as well
+
+- a mechanic like "gain 5 attack when health is below 5" wouldn't be directly possible, but you can have a unit with 5 less health who on death spawns a unit of health 5 with 5 more attack
+
+- i thought of the idea of having invisible traps that you could place which wouldnt be possible with this system, but I don't think it's a good idea anyway since it would probably be best if each player can know what to do purely from the state of the board, and not have to deal with nasty surprises. it would probably be frustrating and less found
+
+- normal traps like poison puddles won't be possible either. something where you can risk getting poisoned to advance onto the tile
+
+- triggers caused by other units won't be possible, such as gaining strength if another unit takes damage. this is kind of like giving the other unit a health boost to nearby locations on death, but it isn't quite the same.
+
+- "jumping" over a unit. say a unit has a movement of 1, it wouldn't be possible to give it the ability to use another unit to jump a distance of 2
+
+- cure poison is not possible
+
+to add:
+
++ could add special troops that can spawn anywhere (requires another attribute for spawn locations)

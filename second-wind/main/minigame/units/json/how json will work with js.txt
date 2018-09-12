@@ -1,0 +1,5 @@
+in this folder, there will be json files which act like "blueprints" for each of the different units
+
+when a unit is spawned onto the board, the blueprints are copied and slightly modified and put into the spawnedUnits global array
+
+the modifications are things like the health (modified by the level specified) and location (saved individually for each unit). The blueprint itself will also be copied (including all the triggers and actions) because it may be that a unit's trigger may be removed, which means we need the blueprint copied individually for each unit

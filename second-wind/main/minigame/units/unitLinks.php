@@ -9,7 +9,9 @@ var_dump($dirFiles);
 ?>
 
 <script>
-    var unitsManual = {
+
+    // php pastes everything into json
+    var unitBlueprints = {
         <? foreach ($dirFiles as $filename) {
             if (substr($filename, -5) == ".json") {
                 echo substr($filename, 0, -5) . ": " . file_get_contents($directory . "/" . $filename) . ",";

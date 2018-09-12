@@ -25,35 +25,35 @@
     "triggers": [
         {
             "type": "move",
-            "action": [
+            "actions": [
                 "action object",
                 "action object ..."
             ]
         },
         {
             "type": "target / attack",
-            "action": [
+            "actions": [
                 "action object",
                 "action object ..."
             ]
         },
         {
             "type": "takeDamage",
-            "action": [
+            "actions": [
                 "action object",
                 "action object ..."
             ]
         },
         {
             "type": "death",
-            "action": [
+            "actions": [
                 "action object",
                 "action object ..."
             ]
         },
         {
             "type": "spawn",
-            "action": [
+            "actions": [
                 "action object",
                 "action object ..."
             ]
